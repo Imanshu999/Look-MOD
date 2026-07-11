@@ -54,26 +54,21 @@ export const AppDetail: React.FC<AppDetailProps> = ({
       }, 1000);
       return () => clearTimeout(timer);
     } else if (downloading && downloadCountdown === 0) {
-      // 🛠️ FIX: ब्राउज़र के सुरक्षा ब्लॉक (Mixed Content) को बायपास करने के लिए नए टैब का उपयोग
-      const link = document.createElement('a');
-      link.href = app.downloadUrl;
-      link.target = '_blank'; // नए टैब में ओपन करें ताकि डाउनलोड ब्लॉक न हो
-      link.rel = 'noopener noreferrer'; // सुरक्षा के लिए जरूरी
-      link.setAttribute('download', `${app.slug}-lookmodstore.apk`);
-      document.body.appendChild(link);
-      
-      // डाउनलोड ट्रिगर करें
-      link.click();
-      
-      // एलिमेंट को हटा दें
-      document.body.removeChild(link);
+      // 🛠️ FIX: यूजर को अपनी वेबसाइट पर बनाए रखने के लिए हिडन iframe का उपयोग करके बैकग्राउंड डाउनलोड ट्रिगर करना
+      const iframe = document.createElement('iframe');
+      iframe.style.display = 'none';
+      iframe.src = app.downloadUrl;
+      document.body.appendChild(iframe);
 
-      console.log(`Starting secure external download of: ${app.downloadUrl}`);
+      console.log(`Starting secure background download of: ${app.downloadUrl}`);
+      
+      // डाउनलोड इनिशियलाइज होने के बाद iframe को DOM से हटाना
       setTimeout(() => {
+        document.body.removeChild(iframe);
         setDownloading(false);
       }, 2500);
     }
-  }, [downloading, downloadCountdown, app.downloadUrl, app.slug]);
+  }, [downloading, downloadCountdown, app.downloadUrl]);
 
   const handleShare = () => {
     navigator.clipboard.writeText(window.location.href);
