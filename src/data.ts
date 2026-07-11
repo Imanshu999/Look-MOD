@@ -25,14 +25,15 @@ export const APPS_DATA: AppItem[] = [
     category: "Video Editor",
     type: "App",
     updatedAt: "11/07/2026",
-    icon: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=150&auto=format&fit=crop&q=80",
+    icon: "https://apkgstore.co/wp-content/uploads/2026/06/capcut-video-editor-icon-15093990.png",
     description: "All-in-one video editor with premium effects, modern filters, and professional-level transitions.",
     longDescription: "CapCut is the most downloaded all-in-one free video editor in the world. Designed specifically for content creators on TikTok, Instagram, and YouTube, it allows you to cut, reverse, and change the speed of your clips with absolute precision. This modified premium version (MOD) unlocks all VIP templates, cinematic transitions, advanced color filters, and video export in 4K resolution at 60 FPS without annoying watermarks. In addition, it features a powerful AI-powered automatic subtitle generator to save you hours of manual editing.",
-    downloadUrl: "https://lookmodstore-cdn.takano3d.com/apks/CapCut_v3.5.0_Mod.apk",
+    downloadUrl: "https://files.modapkdl.com/ROOT/All%20Documents%20File/Folder%202/CapCut_v18.5.0_(18500002)_Mod-APPS2APP.COM.apk",
     screenshots: [
-      "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&auto=format&fit=crop&q=80",
-      "https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?w=600&auto=format&fit=crop&q=80",
-      "https://images.unsplash.com/photo-1542751371-adc38448a05e?w=600&auto=format&fit=crop&q=80"
+      "https://play-lh.googleusercontent.com/bVcUMymeJZIxp5p01Ttmc1FHp9Jy501K4lQHB3-OXXSVfNLE6tUa76PY1goZ-O_VBg",
+      "https://play-lh.googleusercontent.com/WfwbtHi4g3vglzS6VgUxeRts_g_wgQ1tSa5DLQl91M4kOoTg8BQFsXi16J4FwIdIKTL_",
+      "https://play-lh.googleusercontent.com/6BR---l84afm3uDl0Is1feusM2KO2C_UKek4QNEd70rTRvIa7EgGtBPvl_HVdFyLXg",
+      "https://play-lh.googleusercontent.com/iv2O5J96YhJdfKNPZzafkGkrUqphn20Ivbjo0-sJzp6l-HJvrgJjmsknAHNft4DPjA"
     ],
     security: {
       checksum: "SHA-256: 9e107d9d372bb6826bd81d3542a419d6",
