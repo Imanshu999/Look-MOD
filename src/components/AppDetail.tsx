@@ -53,7 +53,6 @@ export const AppDetail: React.FC<AppDetailProps> = ({
       }, 1000);
       return () => clearTimeout(timer);
     } else if (downloading && downloadCountdown === 0) {
-      // 🛠️ FIX: यूजर को अपनी वेबसाइट पर बनाए रखने के लिए हिडन iframe का उपयोग करके बैकग्राउंड डाउनलोड ट्रिगर करना
       const iframe = document.createElement('iframe');
       iframe.style.display = 'none';
       iframe.src = app.downloadUrl;
@@ -61,7 +60,6 @@ export const AppDetail: React.FC<AppDetailProps> = ({
 
       console.log(`Starting secure background download of: ${app.downloadUrl}`);
       
-      // डाउनलोड इनिशियलाइज होने के बाद iframe को DOM से हटाना
       setTimeout(() => {
         document.body.removeChild(iframe);
         setDownloading(false);
@@ -205,7 +203,7 @@ export const AppDetail: React.FC<AppDetailProps> = ({
         {/* Left column: Overview, features, and screenshots */}
         <div className="lg:col-span-2 space-y-6">
           
-          {/* 🚀 Dynamic Responsive Screenshots Container */}
+          {/* Dynamic Screenshots Container */}
           <div className={`p-5 rounded-2xl border ${
             darkMode ? 'bg-slate-900/40 border-slate-800' : 'bg-white border-slate-100'
           }`}>
@@ -216,7 +214,7 @@ export const AppDetail: React.FC<AppDetailProps> = ({
               <span>Capturas de pantalla / Screenshots</span>
             </h3>
 
-            {/* हॉरिजॉन्टल स्क्रॉल होने वाला परफेक्ट फ्लैक्स बॉक्स */}
+            {/* Horizontal Scroll Layout */}
             <div className="flex gap-4 overflow-x-auto pb-3 scrollbar-thin scrollbar-thumb-slate-700 scrollbar-track-transparent snap-x items-center">
               {app.screenshots.map((screenshot, idx) => (
                 <div 
@@ -226,7 +224,6 @@ export const AppDetail: React.FC<AppDetailProps> = ({
                   <img 
                     src={screenshot} 
                     alt={`${app.name} screenshot ${idx + 1}`} 
-                    {/* h-full और w-auto का जादू इमेज के असली रेशियो को बिगड़ने नहीं देगा */}
                     className="h-[280px] sm:h-[360px] w-auto object-contain hover:scale-102 transition-transform duration-300"
                     referrerPolicy="no-referrer"
                   />
