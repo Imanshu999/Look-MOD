@@ -31,9 +31,18 @@ export const APPS_DATA: AppItem[] = [
     downloadUrl: "https://files.modapkdl.com/ROOT/All%20Documents%20File/Folder%202/CapCut_v18.5.0_(18500002)_Mod-APPS2APP.COM.apk",
     screenshots: [
       "https://play-lh.googleusercontent.com/bVcUMymeJZIxp5p01Ttmc1FHp9Jy501K4lQHB3-OXXSVfNLE6tUa76PY1goZ-O_VBg",
+      "https://play-lh.googleusercontent.com/tc7WpgpN90ij7FFkefwBwntXqPdS5TBCk0895Lf5-jB7rPIyz0FdH6OefiWNGlfpDTs",
       "https://play-lh.googleusercontent.com/WfwbtHi4g3vglzS6VgUxeRts_g_wgQ1tSa5DLQl91M4kOoTg8BQFsXi16J4FwIdIKTL_",
       "https://play-lh.googleusercontent.com/6BR---l84afm3uDl0Is1feusM2KO2C_UKek4QNEd70rTRvIa7EgGtBPvl_HVdFyLXg",
-      "https://play-lh.googleusercontent.com/iv2O5J96YhJdfKNPZzafkGkrUqphn20Ivbjo0-sJzp6l-HJvrgJjmsknAHNft4DPjA"
+      "https://play-lh.googleusercontent.com/iv2O5J96YhJdfKNPZzafkGkrUqphn20Ivbjo0-sJzp6l-HJvrgJjmsknAHNft4DPjA",
+      "https://play-lh.googleusercontent.com/lPWAbB_jZycmQg67n7QXxZ2zJRKCZ2lEs7uTwRlRBZIjTuBhJ_9IVsvS85U2BTG3Mhs",
+      "https://play-lh.googleusercontent.com/kvAqso_fnZQyheK31RGHZvPhy9UwirOrToD6dYsKiGJo41gQ6OcpxanqB4dG3G2tAQ",
+      "https://play-lh.googleusercontent.com/1iL8DEs-fViIMwtJ98yru4PNVgbhK6ndVUe-KwBaC5WVosmk6U_WXYq2Mup0q9K4ZvE",
+      "https://play-lh.googleusercontent.com/x4jrQP9_Ev18Cv06R3jGe6pwzRQbL71dN59qnY9M6QYTX6DyEeFQ4LTE7ho6KuA-92L-",
+      "https://play-lh.googleusercontent.com/D6F2g22GL-4mRjwAtHLrPmDr64O-4-L_EMsxVxy_K7uZFtTGaEeQKysd3Sx7Y4hxDoM",
+      "https://play-lh.googleusercontent.com/V8hd0zQ3-gvG09fe_SijjDuOvhh4UIVox58CfVB-lwkc0RwvpAFLA3yvxTdOD5e3Nw",
+      "https://play-lh.googleusercontent.com/V14aFGQw0xuV975eZBiCJfumTJTGEjsOQQx8Gt3LM_cOXh8Pam0UV8lfJiyN5wYJu8cV",
+      "https://play-lh.googleusercontent.com/WwhB9aG1IzQoYH1ijHkZ_8z2hyWMc5r718Fm7VW56cvSRLQW9aHXhBjUe2fHfWrT_N_AOepkwBVG3GPsfE6Y"
     ],
     security: {
       checksum: "SHA-256: 9e107d9d372bb6826bd81d3542a419d6",
