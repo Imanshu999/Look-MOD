@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { 
-  ArrowLeft, Star, Download, ShieldCheck, ChevronLeft, ChevronRight, 
+  ArrowLeft, Star, Download, ShieldCheck, 
   Info, CheckCircle2, RefreshCw, Terminal, Lock, Server, FileCheck2, Share2, Sparkles 
 } from 'lucide-react';
 import { AppItem } from '../types';
@@ -16,7 +16,6 @@ export const AppDetail: React.FC<AppDetailProps> = ({
   darkMode,
   onBack,
 }) => {
-  const [activeScreenshotIdx, setActiveScreenshotIdx] = useState(0);
   const [scanProgress, setScanProgress] = useState(0);
   const [scanState, setScanState] = useState<'idle' | 'scanning' | 'verified'>('idle');
   const [downloading, setDownloading] = useState(false);
@@ -74,14 +73,6 @@ export const AppDetail: React.FC<AppDetailProps> = ({
     navigator.clipboard.writeText(window.location.href);
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
-  };
-
-  const handleNextScreenshot = () => {
-    setActiveScreenshotIdx((prev) => (prev + 1) % app.screenshots.length);
-  };
-
-  const handlePrevScreenshot = () => {
-    setActiveScreenshotIdx((prev) => (prev - 1 + app.screenshots.length) % app.screenshots.length);
   };
 
   return (
@@ -214,7 +205,7 @@ export const AppDetail: React.FC<AppDetailProps> = ({
         {/* Left column: Overview, features, and screenshots */}
         <div className="lg:col-span-2 space-y-6">
           
-          {/* Screenshots Slider Container */}
+          {/* 🚀 Dynamic Responsive Screenshots Container */}
           <div className={`p-5 rounded-2xl border ${
             darkMode ? 'bg-slate-900/40 border-slate-800' : 'bg-white border-slate-100'
           }`}>
@@ -222,45 +213,30 @@ export const AppDetail: React.FC<AppDetailProps> = ({
               darkMode ? 'text-slate-200' : 'text-slate-800'
             }`}>
               <Sparkles className="w-4.5 h-4.5 text-store-accent" />
-              <span>Screenshots</span>
+              <span>Capturas de pantalla / Screenshots</span>
             </h3>
 
-            {/* Screenshots Slider */}
-            <div className="relative rounded-xl overflow-hidden aspect-video bg-black/40 border border-slate-800">
-              <img 
-                src={app.screenshots[activeScreenshotIdx]} 
-                alt={`${app.name} ss-${activeScreenshotIdx}`} 
-                className="w-full h-full object-cover transition-opacity duration-300"
-                referrerPolicy="no-referrer"
-              />
-
-              {/* Slider Nav Controls */}
-              <button
-                onClick={handlePrevScreenshot}
-                className="absolute inset-y-0 left-0 px-3 bg-black/20 hover:bg-black/60 text-white transition-colors flex items-center justify-center"
-              >
-                <ChevronLeft className="w-6 h-6" />
-              </button>
-              <button
-                onClick={handleNextScreenshot}
-                className="absolute inset-y-0 right-0 px-3 bg-black/20 hover:bg-black/60 text-white transition-colors flex items-center justify-center"
-              >
-                <ChevronRight className="w-6 h-6" />
-              </button>
-
-              {/* Indicator dots */}
-              <div className="absolute bottom-4 left-0 right-0 flex justify-center gap-1.5">
-                {app.screenshots.map((_, idx) => (
-                  <button
-                    key={idx}
-                    onClick={() => setActiveScreenshotIdx(idx)}
-                    className={`w-2 h-2 rounded-full transition-all ${
-                      idx === activeScreenshotIdx ? 'bg-store-accent w-4' : 'bg-white/40'
-                    }`}
+            {/* हॉरिजॉन्टल स्क्रॉल होने वाला परफेक्ट फ्लैक्स बॉक्स */}
+            <div className="flex gap-4 overflow-x-auto pb-3 scrollbar-thin scrollbar-thumb-slate-700 scrollbar-track-transparent snap-x items-center">
+              {app.screenshots.map((screenshot, idx) => (
+                <div 
+                  key={idx} 
+                  className="rounded-xl overflow-hidden border border-slate-800/40 shadow-md shrink-0 snap-start bg-slate-950/10 max-h-[320px] sm:max-h-[400px] transition-all duration-300"
+                >
+                  <img 
+                    src={screenshot} 
+                    alt={`${app.name} screenshot ${idx + 1}`} 
+                    {/* h-full और w-auto का जादू इमेज के असली रेशियो को बिगड़ने नहीं देगा */}
+                    className="h-[280px] sm:h-[360px] w-auto object-contain hover:scale-102 transition-transform duration-300"
+                    referrerPolicy="no-referrer"
                   />
-                ))}
-              </div>
+                </div>
+              ))}
             </div>
+            
+            <p className="text-[10px] text-slate-500 mt-2 text-center font-mono">
+              ← Swipe / Scroll to view all screenshots →
+            </p>
           </div>
 
           {/* About / Long Description */}
