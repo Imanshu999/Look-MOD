@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { 
   ArrowLeft, Star, Download, ShieldCheck, 
-  Info, CheckCircle2, RefreshCw, Terminal, Lock, Server, FileCheck2, Share2, Sparkles, X 
+  Info, CheckCircle2, RefreshCw, Terminal, Lock, Server, FileCheck2, Share2, Sparkles, X, ChevronLeft, ChevronRight 
 } from 'lucide-react';
 import { AppItem } from '../types';
 
@@ -22,8 +22,12 @@ export const AppDetail: React.FC<AppDetailProps> = ({
   const [downloadCountdown, setDownloadCountdown] = useState(5);
   const [copied, setCopied] = useState(false);
   
-  // Lightbox State for Image Preview
-  const [selectedImage, setSelectedImage] = useState<string | null>(null);
+  // Lightbox & Navigation States
+  const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
+  const [touchStart, setTouchStart] = useState<number | null>(null);
+  const [touchEnd, setTouchEnd] = useState<number | null>(null);
+
+  const minSwipeDistance = 50;
 
   useEffect(() => {
     setScanState('scanning');
@@ -60,8 +64,6 @@ export const AppDetail: React.FC<AppDetailProps> = ({
       iframe.style.display = 'none';
       iframe.src = app.downloadUrl;
       document.body.appendChild(iframe);
-
-      console.log(`Starting secure background download of: ${app.downloadUrl}`);
       
       setTimeout(() => {
         if (document.body.contains(iframe)) {
@@ -76,6 +78,51 @@ export const AppDetail: React.FC<AppDetailProps> = ({
     navigator.clipboard.writeText(window.location.href);
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
+  };
+
+  // Lightbox Navigation Functions
+  const showPrev = (e?: React.MouseEvent) => {
+    if (e) e.stopPropagation();
+    if (app.screenshots && selectedIndex !== null) {
+      setSelectedIndex((prev) => (prev !== null && prev > 0 ? prev - 1 : app.screenshots!.length - 1));
+    }
+  };
+
+  const showNext = (e?: React.MouseEvent) => {
+    if (e) e.stopPropagation();
+    if (app.screenshots && selectedIndex !== null) {
+      setSelectedIndex((prev) => (prev !== null && prev < app.screenshots!.length - 1 ? prev + 1 : 0));
+    }
+  };
+
+  // Keyboard support for left/right arrows
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (selectedIndex === null) return;
+      if (e.key === 'ArrowRight') showNext();
+      if (e.key === 'ArrowLeft') showPrev();
+      if (e.key === 'Escape') setSelectedIndex(null);
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [selectedIndex]);
+
+  // Touch Gesture Handlers for Swipe to Close (Vertical Swipe Only)
+  const onTouchStart = (e: React.TouchEvent) => {
+    setTouchEnd(null);
+    setTouchStart(e.targetTouches[0].clientY);
+  };
+
+  const onTouchMove = (e: React.TouchEvent) => {
+    setTouchEnd(e.targetTouches[0].clientY);
+  };
+
+  const onTouchEnd = () => {
+    if (!touchStart || !touchEnd) return;
+    const distance = touchStart - touchEnd;
+    if (Math.abs(distance) > minSwipeDistance) {
+      setSelectedIndex(null);
+    }
   };
 
   return (
@@ -200,7 +247,6 @@ export const AppDetail: React.FC<AppDetailProps> = ({
       {/* Description Grid */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         
-        {/* Left column: Overview, features, and screenshots */}
         <div className="lg:col-span-2 space-y-6">
           
           {/* Dynamic Screenshots Container */}
@@ -219,7 +265,7 @@ export const AppDetail: React.FC<AppDetailProps> = ({
                 {app.screenshots.map((screenshot, idx) => (
                   <div 
                     key={idx} 
-                    onClick={() => setSelectedImage(screenshot)}
+                    onClick={() => setSelectedIndex(idx)}
                     className="rounded-xl overflow-hidden border border-slate-800/40 shadow-md shrink-0 snap-start bg-slate-950/10 max-h-[320px] sm:max-h-[400px] transition-all duration-300 cursor-zoom-in"
                   >
                     <img 
@@ -238,7 +284,6 @@ export const AppDetail: React.FC<AppDetailProps> = ({
             </div>
           )}
 
-          {/* About / Long Description */}
           <div className={`p-5 rounded-2xl border ${
             darkMode ? 'bg-slate-900/40 border-slate-800' : 'bg-white border-slate-100'
           }`}>
@@ -256,10 +301,8 @@ export const AppDetail: React.FC<AppDetailProps> = ({
 
         </div>
 
-        {/* Right column: Technical specs */}
         <div className="space-y-6">
           
-          {/* Information Table Section */}
           <div className={`p-5 rounded-2xl border ${
             darkMode ? 'bg-slate-900/40 border-slate-800' : 'bg-white border-slate-100'
           }`}>
@@ -302,7 +345,6 @@ export const AppDetail: React.FC<AppDetailProps> = ({
             </div>
           </div>
 
-          {/* Security Integrity Scanner */}
           {app.security && (
             <div className={`p-5 rounded-2xl border ${
               darkMode ? 'bg-slate-900/40 border-slate-800' : 'bg-white border-slate-100'
@@ -354,7 +396,6 @@ export const AppDetail: React.FC<AppDetailProps> = ({
                 </div>
               </div>
 
-              {/* Checksum Details */}
               <div className="space-y-3.5">
                 <div className="flex gap-2.5 items-start">
                   <div className={`p-1.5 rounded-lg shrink-0 ${darkMode ? 'bg-slate-900' : 'bg-slate-100'}`}>
@@ -393,32 +434,58 @@ export const AppDetail: React.FC<AppDetailProps> = ({
 
       </div>
 
-      {/* --- IMAGE LIGHTBOX / MODAL POPUP --- */}
-      {selectedImage && (
+      {/* --- ADVANCED INTERACTIVE LIGHTBOX MODAL WITH ARROWS --- */}
+      {selectedIndex !== null && app.screenshots && (
         <div 
-          className="fixed inset-0 z-50 flex items-center justify-center bg-black/85 backdrop-blur-sm p-4 animate-fade-in"
-          onClick={() => setSelectedImage(null)}
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-[2px] p-4 select-none touch-none overflow-hidden"
+          onClick={() => setSelectedIndex(null)}
+          onTouchStart={onTouchStart}
+          onTouchMove={onTouchMove}
+          onTouchEnd={onTouchEnd}
         >
-          {/* Close Button */}
+          {/* Top Floating Action Bar with X Close Button */}
+          <div className="absolute top-4 right-4 z-50">
+            <button 
+              className="p-2.5 bg-slate-900/60 backdrop-blur-md border border-slate-700/50 text-white rounded-full hover:bg-slate-800/80 active:scale-90 transition-all cursor-pointer shadow-lg"
+              onClick={() => setSelectedIndex(null)}
+            >
+              <X className="w-5 h-5" />
+            </button>
+          </div>
+
+          {/* LEFT ARROW BUTTON */}
           <button 
-            className="absolute top-4 right-4 p-2 bg-slate-900/80 border border-slate-700 text-white rounded-full hover:bg-slate-800 transition-colors z-50"
-            onClick={() => setSelectedImage(null)}
+            className="absolute left-4 z-50 p-3 bg-slate-900/40 backdrop-blur-sm border border-slate-700/30 text-white rounded-full hover:bg-slate-800/60 active:scale-95 transition-all cursor-pointer shadow-md"
+            onClick={showPrev}
           >
-            <X className="w-6 h-6" />
+            <ChevronLeft className="w-6 h-6" />
           </button>
 
-          {/* Modal Content Container */}
+          {/* Locked & Centered Image Container */}
           <div 
-            className="relative max-w-4xl max-h-[85vh] flex items-center justify-center animate-scale-up"
-            onClick={(e) => e.stopPropagation()} // Prevents closing when clicking on the image itself
+            className="relative w-full max-w-3xl max-h-[75vh] flex flex-col items-center justify-center pointer-events-auto"
+            onClick={(e) => e.stopPropagation()}
           >
             <img 
-              src={selectedImage} 
-              alt="Expanded Preview" 
-              className="max-w-full max-h-[85vh] rounded-xl object-contain shadow-2xl border border-slate-800"
+              src={app.screenshots[selectedIndex]} 
+              alt={`Expanded Live View ${selectedIndex + 1}`} 
+              className="max-w-full max-h-[70vh] rounded-2xl object-contain shadow-2xl border border-slate-800/30 select-none pointer-events-none transition-transform duration-200"
               referrerPolicy="no-referrer"
             />
+            
+            {/* Image Subtitle / Counter Indicator matching video reference */}
+            <span className="text-white text-xs font-medium mt-3 bg-slate-900/50 px-3 py-1 rounded-full border border-slate-800/40 backdrop-blur-xs">
+              Captura de pantalla {selectedIndex + 1}
+            </span>
           </div>
+
+          {/* RIGHT ARROW BUTTON */}
+          <button 
+            className="absolute right-4 z-50 p-3 bg-slate-900/40 backdrop-blur-sm border border-slate-700/30 text-white rounded-full hover:bg-slate-800/60 active:scale-95 transition-all cursor-pointer shadow-md"
+            onClick={showNext}
+          >
+            <ChevronRight className="w-6 h-6" />
+          </button>
         </div>
       )}
 
