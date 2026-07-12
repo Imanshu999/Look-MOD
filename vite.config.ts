@@ -9,12 +9,11 @@ export default defineConfig(() => {
     plugins: [
       react(), 
       tailwindcss(),
-      // JavaScript Obfuscator: Jo code ko ulte-seedhe aksharon me badlega
       obfuscator({
         compact: true,
         controlFlowFlattening: true,
         controlFlowFlatteningThreshold: 0.8,
-        deadCodeInjection: true, // Faltu ka fake code add karega taaki hacker confuse ho jaye
+        deadCodeInjection: true,
         deadCodeInjectionThreshold: 0.4,
         numbersToExpressions: true,
         simplify: true,
@@ -29,15 +28,15 @@ export default defineConfig(() => {
       },
     },
     build: {
-      sourcemap: false, // Browser se original source code (.tsx) ko bilkul hide kar dega
-      minify: 'terser', // Sabse tight compression lagayega
+      sourcemap: false,
+      minify: 'terser',
       terserOptions: {
         compress: {
-          drop_console: true, // Saare console.log automatic delete kar dega
+          drop_console: true,
           drop_debugger: true,
         },
       },
-      cssMinify: true, // CSS file ko ek single compressed line me badal dega
+      cssMinify: true,
     },
     server: {
       hmr: process.env.DISABLE_HMR !== 'true',
