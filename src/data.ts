@@ -20,7 +20,7 @@ export const APPS_DATA: AppItem[] = [
     developer: "ByteDance",
     rating: "4.8",
     downloads: "100M",
-    size: "95 MB",
+    size: "298 MB",
     version: "3.5.0",
     category: "Video Editor",
     type: "App",
