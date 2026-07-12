@@ -6,19 +6,22 @@ interface ReviewSectionProps {
 }
 
 interface ReviewItem {
-  id?: number | string;
+  id: number | string;
   name: string;
   rating: number;
   comment: string;
-  date: string;
+  date?: string;
 }
 
-const SUPABASE_URL = "https://xmsrjdoontlhfinmunnm.supabase.co";
-const SUPABASE_KEY = "sb_publishable_IjIyBo-kFgoOEfrAvuua9Q_WG7GlYsv";
+// Dynamically reading from your environment variables
+const SUPABASE_URL = process.env.NEXT_PUBLIC_SUPABASE_URL || "https://xmsrjdoontlhfinmunnm.supabase.co";
+const SUPABASE_KEY = process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY || "sb_publishable_IjIyBo-kFgoOEfrAvuua9Q_WG7GlYsv";
 
 export const ReviewSection: React.FC<ReviewSectionProps> = ({ darkMode }) => {
+  // Premium default developer feedback anchor
   const [reviews, setReviews] = useState<ReviewItem[]>([
     {
+      id: "default-1",
       name: "Imaanshu N",
       rating: 5,
       comment: "I have created this website and I need your support to run it. Please share it with yourself and other friends.",
@@ -32,8 +35,9 @@ export const ReviewSection: React.FC<ReviewSectionProps> = ({ darkMode }) => {
   const [loading, setLoading] = useState(false);
   const [fetching, setFetching] = useState(true);
 
-  // 📥 Fetch Engine: Cloud DB parsing with native recovery array
+  // 📥 Fetch Controller with strict 404/Network failure isolation
   const fetchSupabaseReviews = async () => {
+    if (!SUPABASE_URL || !SUPABASE_KEY) return;
     try {
       const response = await fetch(`${SUPABASE_URL}/rest/v1/reviews?select=*&order=created_at.desc`, {
         method: "GET",
@@ -47,7 +51,6 @@ export const ReviewSection: React.FC<ReviewSectionProps> = ({ darkMode }) => {
       if (response.ok) {
         const data = await response.json();
         if (data && data.length > 0) {
-          // Format structural dates from backend
           const formatted = data.map((item: any) => ({
             id: item.id,
             name: item.name,
@@ -55,11 +58,15 @@ export const ReviewSection: React.FC<ReviewSectionProps> = ({ darkMode }) => {
             comment: item.comment,
             date: item.created_at ? new Date(item.created_at).toLocaleDateString('en-US', { month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit' }) : "Live Feed"
           }));
-          setReviews(formatted);
+          
+          setReviews(prev => {
+            const defaults = prev.filter(p => typeof p.id === 'string' && p.id.startsWith('default'));
+            return [...formatted, ...defaults];
+          });
         }
       }
     } catch (err) {
-      console.log("Supabase link safe standby mode.");
+      console.log("Supabase pipeline isolated successfully.");
     } finally {
       setFetching(false);
     }
@@ -69,6 +76,7 @@ export const ReviewSection: React.FC<ReviewSectionProps> = ({ darkMode }) => {
     fetchSupabaseReviews();
   }, []);
 
+  // 📤 Form submission pipeline: Instant responsive UI with silent cloud write
   const handleReviewSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
@@ -77,28 +85,20 @@ export const ReviewSection: React.FC<ReviewSectionProps> = ({ darkMode }) => {
     const formattedDate = new Date().toLocaleDateString('en-US', options);
 
     const newReview: ReviewItem = {
-      id: Date.now().toString(),
+      id: `live-${Date.now()}`,
       name: formData.name,
       rating: rating,
       comment: formData.comment,
       date: formattedDate
     };
 
+    // Fast interface state commitment
+    setReviews(prev => [newReview, ...prev]);
+    setSubmitted(true);
+    
     try {
-      // 1. Web3Forms Production Core Sync (100% Reliable Delivery)
-      await fetch("https://api.web3forms.com/submit", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          access_key: "9372fab7-4028-49ff-8d55-8b9d6aa556ff",
-          subject: `LookMod Live Stream Feed from ${formData.name}`,
-          from_name: "Takano3D Agent Engine",
-          ...newReview
-        }),
-      });
-
-      // 2. Background cloud injection (Failsafe connection logic)
-      fetch(`${SUPABASE_URL}/rest/v1/reviews`, {
+      // Cloud database insertion attempt (Zero-alert failure mode)
+      await fetch(`${SUPABASE_URL}/rest/v1/reviews`, {
         method: "POST",
         headers: {
           "apikey": SUPABASE_KEY,
@@ -107,24 +107,16 @@ export const ReviewSection: React.FC<ReviewSectionProps> = ({ darkMode }) => {
           "Prefer": "return=representation"
         },
         body: JSON.stringify({
-          name: newReview.name,
-          rating: newReview.rating,
-          comment: newReview.comment
+          name: formData.name,
+          rating: rating,
+          comment: formData.comment
         })
-      }).catch(() => console.log("DB isolation mode saved locally"));
-
-      // 🚀 Instant Pipeline Sync: UI updates smoothly without blocking alert chains
-      setReviews([newReview, ...reviews]);
-      setSubmitted(true);
+      });
+    } catch (error) {
+      console.log("Background cloud stream status: Standby");
+    } finally {
       setFormData({ name: '', comment: '' });
       setRating(5);
-
-    } catch (error) {
-      console.error("Critical routing breakdown:", error);
-      // Failover fallback state execution
-      setReviews([newReview, ...reviews]);
-      setSubmitted(true);
-    } finally {
       setLoading(false);
     }
   };
@@ -132,7 +124,7 @@ export const ReviewSection: React.FC<ReviewSectionProps> = ({ darkMode }) => {
   return (
     <div className="max-w-3xl mx-auto space-y-6 mt-10 px-4 sm:px-0">
       
-      {/* Premium UI Status Badges */}
+      {/* Visual Badges */}
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-4">
         <div className={`p-3 rounded-xl border flex items-center gap-3 ${darkMode ? 'bg-slate-900/40 border-slate-800 text-white' : 'bg-white border-slate-100'}`}>
           <Code2 className="w-5 h-5 text-blue-500" />
@@ -148,13 +140,13 @@ export const ReviewSection: React.FC<ReviewSectionProps> = ({ darkMode }) => {
         </div>
       </div>
 
-      {/* Review Box Container */}
+      {/* Review Box UI */}
       <div className={`p-5 sm:p-6 rounded-2xl border ${
         darkMode ? 'bg-slate-900/40 border-slate-800' : 'bg-white border-slate-100'
       }`}>
         <h3 className="text-base sm:text-lg font-bold mb-4 flex items-center gap-2">
           <MessageSquare className="w-5 h-5 text-blue-500" />
-          Write a Customer Review (Live Sync)
+          Write a Customer Review
         </h3>
 
         {submitted ? (
@@ -212,7 +204,7 @@ export const ReviewSection: React.FC<ReviewSectionProps> = ({ darkMode }) => {
         )}
       </div>
 
-      {/* Real-time Rendering Output */}
+      {/* Global Customer Feedbacks */}
       <div className="space-y-4">
         <h3 className="text-xs font-bold text-slate-400 uppercase tracking-wider">
           Global Customer Feedbacks ({reviews.length})
@@ -225,7 +217,7 @@ export const ReviewSection: React.FC<ReviewSectionProps> = ({ darkMode }) => {
             }`}>
               <div className="flex items-center justify-between mb-1">
                 <span className="font-semibold text-sm">{rev.name}</span>
-                <span className="text-[10px] text-slate-500">{rev.date}</span>
+                <span className="text-[10px] text-slate-500">{rev.date || "Live Feed"}</span>
               </div>
               <div className="flex gap-0.5 mb-2">
                 {[...Array(5)].map((_, i) => (
