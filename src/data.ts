@@ -95,10 +95,10 @@ export const APPS_DATA: AppItem[] = [
     category: "Adventure",
     type: "Game",
     updatedAt: "09/07/2026",
-    icon: "https://images.unsplash.com/photo-1605899435973-ca2d1a8861cf?w=150&auto=format&fit=crop&q=80",
+    icon: "https://imgcdn.latestmodapks.com/api/resize?url=https://www.latestmodapks.com/wp-content/uploads/2024/08/Minecraft-Pocket-Edition-APK-logo-media.webp&width=160",
     description: "Explore infinite worlds, build anything from the simplest home to the grandest castle.",
     longDescription: "Explore randomly generated worlds and build amazing things, from the simplest homes to the most majestic castles. Play in creative mode with unlimited resources, or delve into survival mode, where you will have to craft weapons and armor to defend yourself against dangerous creatures. Our special MOD version offers you completely free access to all premium aspects of the store, unlocked paid textures, and the ability to play on official multiplayer servers without license verification required.",
-    downloadUrl: "https://lookmodstore-cdn.takano3d.com/apks/Minecraft_v1.21.10_Mod.apk",
+    downloadUrl: "https://go.onehost.io/aMacNBG5x6Cr",
     screenshots: [
       "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=600&auto=format&fit=crop&q=80",
       "https://images.unsplash.com/photo-1509198397868-475647b2a1e5?w=600&auto=format&fit=crop&q=80",
