@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { 
   ArrowLeft, Star, Download, ShieldCheck, 
-  Info, CheckCircle2, RefreshCw, Terminal, Lock, Server, FileCheck2, Share2, Sparkles 
+  Info, CheckCircle2, RefreshCw, Terminal, Lock, Server, FileCheck2, Share2, Sparkles, X 
 } from 'lucide-react';
 import { AppItem } from '../types';
 
@@ -21,6 +21,9 @@ export const AppDetail: React.FC<AppDetailProps> = ({
   const [downloading, setDownloading] = useState(false);
   const [downloadCountdown, setDownloadCountdown] = useState(5);
   const [copied, setCopied] = useState(false);
+  
+  // Lightbox State for Image Preview
+  const [selectedImage, setSelectedImage] = useState<string | null>(null);
 
   useEffect(() => {
     setScanState('scanning');
@@ -78,6 +81,7 @@ export const AppDetail: React.FC<AppDetailProps> = ({
   return (
     <div className="space-y-6 animate-fade-in" key={app.id}>
       
+      {/* Back & Action Header */}
       <div className="flex items-center justify-between gap-4">
         <button
           onClick={onBack}
@@ -104,6 +108,7 @@ export const AppDetail: React.FC<AppDetailProps> = ({
         </button>
       </div>
 
+      {/* Main App Hero Details */}
       <div className={`p-5 sm:p-6 rounded-2xl border ${
         darkMode ? 'bg-slate-900/40 border-slate-800' : 'bg-white border-slate-100'
       }`}>
@@ -192,10 +197,13 @@ export const AppDetail: React.FC<AppDetailProps> = ({
         )}
       </div>
 
+      {/* Description Grid */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         
+        {/* Left column: Overview, features, and screenshots */}
         <div className="lg:col-span-2 space-y-6">
           
+          {/* Dynamic Screenshots Container */}
           {app.screenshots && app.screenshots.length > 0 && (
             <div className={`p-5 rounded-2xl border ${
               darkMode ? 'bg-slate-900/40 border-slate-800' : 'bg-white border-slate-100'
@@ -211,7 +219,8 @@ export const AppDetail: React.FC<AppDetailProps> = ({
                 {app.screenshots.map((screenshot, idx) => (
                   <div 
                     key={idx} 
-                    className="rounded-xl overflow-hidden border border-slate-800/40 shadow-md shrink-0 snap-start bg-slate-950/10 max-h-[320px] sm:max-h-[400px] transition-all duration-300"
+                    onClick={() => setSelectedImage(screenshot)}
+                    className="rounded-xl overflow-hidden border border-slate-800/40 shadow-md shrink-0 snap-start bg-slate-950/10 max-h-[320px] sm:max-h-[400px] transition-all duration-300 cursor-zoom-in"
                   >
                     <img 
                       src={screenshot} 
@@ -224,11 +233,12 @@ export const AppDetail: React.FC<AppDetailProps> = ({
               </div>
               
               <p className="text-[10px] text-slate-500 mt-2 text-center font-mono">
-                ← Swipe / Scroll to view all screenshots →
+                ← Swipe / Scroll to view all screenshots • Click to expand →
               </p>
             </div>
           )}
 
+          {/* About / Long Description */}
           <div className={`p-5 rounded-2xl border ${
             darkMode ? 'bg-slate-900/40 border-slate-800' : 'bg-white border-slate-100'
           }`}>
@@ -246,8 +256,10 @@ export const AppDetail: React.FC<AppDetailProps> = ({
 
         </div>
 
+        {/* Right column: Technical specs */}
         <div className="space-y-6">
           
+          {/* Information Table Section */}
           <div className={`p-5 rounded-2xl border ${
             darkMode ? 'bg-slate-900/40 border-slate-800' : 'bg-white border-slate-100'
           }`}>
@@ -290,6 +302,7 @@ export const AppDetail: React.FC<AppDetailProps> = ({
             </div>
           </div>
 
+          {/* Security Integrity Scanner */}
           {app.security && (
             <div className={`p-5 rounded-2xl border ${
               darkMode ? 'bg-slate-900/40 border-slate-800' : 'bg-white border-slate-100'
@@ -341,6 +354,7 @@ export const AppDetail: React.FC<AppDetailProps> = ({
                 </div>
               </div>
 
+              {/* Checksum Details */}
               <div className="space-y-3.5">
                 <div className="flex gap-2.5 items-start">
                   <div className={`p-1.5 rounded-lg shrink-0 ${darkMode ? 'bg-slate-900' : 'bg-slate-100'}`}>
@@ -378,6 +392,35 @@ export const AppDetail: React.FC<AppDetailProps> = ({
         </div>
 
       </div>
+
+      {/* --- IMAGE LIGHTBOX / MODAL POPUP --- */}
+      {selectedImage && (
+        <div 
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/85 backdrop-blur-sm p-4 animate-fade-in"
+          onClick={() => setSelectedImage(null)}
+        >
+          {/* Close Button */}
+          <button 
+            className="absolute top-4 right-4 p-2 bg-slate-900/80 border border-slate-700 text-white rounded-full hover:bg-slate-800 transition-colors z-50"
+            onClick={() => setSelectedImage(null)}
+          >
+            <X className="w-6 h-6" />
+          </button>
+
+          {/* Modal Content Container */}
+          <div 
+            className="relative max-w-4xl max-h-[85vh] flex items-center justify-center animate-scale-up"
+            onClick={(e) => e.stopPropagation()} // Prevents closing when clicking on the image itself
+          >
+            <img 
+              src={selectedImage} 
+              alt="Expanded Preview" 
+              className="max-w-full max-h-[85vh] rounded-xl object-contain shadow-2xl border border-slate-800"
+              referrerPolicy="no-referrer"
+            />
+          </div>
+        </div>
+      )}
 
     </div>
   );
