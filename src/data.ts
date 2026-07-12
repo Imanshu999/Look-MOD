@@ -29,6 +29,7 @@ export const APPS_DATA: AppItem[] = [
     description: "All-in-one video editor with premium effects, modern filters, and professional-level transitions.",
     longDescription: "CapCut is the most downloaded all-in-one free video editor in the world. Designed specifically for content creators on TikTok, Instagram, and YouTube, it allows you to cut, reverse, and change the speed of your clips with absolute precision. This modified premium version (MOD) unlocks all VIP templates, cinematic transitions, advanced color filters, and video export in 4K resolution at 60 FPS without annoying watermarks. In addition, it features a powerful AI-powered automatic subtitle generator to save you hours of manual editing.",
     downloadUrl: "https://download.liteapks.dev/CapCut/CapCut%20v18.5.0%20b18500002%20(Pro).apk?token=TVRjNE16ZzFNamszTkE9PQ%3D%3D",
+    videoUrl: "https://www.youtube.com/watch?v=kGgVfFhVvWk", // Added video URL
     screenshots: [
       "https://play-lh.googleusercontent.com/bVcUMymeJZIxp5p01Ttmc1FHp9Jy501K4lQHB3-OXXSVfNLE6tUa76PY1goZ-O_VBg",
       "https://play-lh.googleusercontent.com/tc7WpgpN90ij7FFkefwBwntXqPdS5TBCk0895Lf5-jB7rPIyz0FdH6OefiWNGlfpDTs",
@@ -69,6 +70,7 @@ export const APPS_DATA: AppItem[] = [
     description: "Dodge trains, run at full speed, and escape from the grumpy inspector with unlimited coins.",
     longDescription: "The ultimate endless runner game arrives at Look Mod Store with everything unlocked! Join Jake, Tricky, and Fresh in their exciting escape through the train tracks of the world. This premium MOD version includes infinite gold coins, unlimited resurrection keys, and all premium characters and surfboards unlocked from the first second. Enjoy colorful HD graphics optimized with an ultra-smooth refresh rate. Challenge your friends and dominate the global leaderboards with superior performance.",
     downloadUrl: "https://lookmodstore-cdn.takano3d.com/apks/Subway_Surfers_v3.24.1_Mod.apk",
+    videoUrl: "https://www.youtube.com/watch?v=tY2Z3bU0H4w", // Added video URL
     screenshots: [
       "https://images.unsplash.com/photo-1511512578047-dfb367046420?w=600&auto=format&fit=crop&q=80",
       "https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=600&auto=format&fit=crop&q=80",
@@ -99,6 +101,7 @@ export const APPS_DATA: AppItem[] = [
     description: "Explore infinite worlds, build anything from the simplest home to the grandest castle.",
     longDescription: "Explore randomly generated worlds and build amazing things, from the simplest homes to the most majestic castles. Play in creative mode with unlimited resources, or delve into survival mode, where you will have to craft weapons and armor to defend yourself against dangerous creatures. Our special MOD version offers you completely free access to all premium aspects of the store, unlocked paid textures, and the ability to play on official multiplayer servers without license verification required.",
     downloadUrl: "https://go.onehost.io/aMacNBG5x6Cr",
+    videoUrl: "https://www.youtube.com/watch?v=MmB9b5njVbA", // Added video URL
     screenshots: [
       "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=600&auto=format&fit=crop&q=80",
       "https://images.unsplash.com/photo-1509198397868-475647b2a1e5?w=600&auto=format&fit=crop&q=80",
@@ -129,6 +132,7 @@ export const APPS_DATA: AppItem[] = [
     description: "Listen to millions of songs, albums, and original podcasts without commercial ads.",
     longDescription: "Enjoy the best music and podcasts without limits. With Spotify Premium MOD, you will have the ultimate experience without audio or video advertising interruptions. Unlock the ability to skip songs unlimitedly, play any track you want on-demand with extreme audio quality (320kbps), and activate the music search bar. This version is optimized to consume less battery and RAM, allowing you to browse playlists and artists instantly.",
     downloadUrl: "https://lookmodstore-cdn.takano3d.com/apks/Spotify_Premium_v8.9.22_Mod.apk",
+    videoUrl: "https://www.youtube.com/watch?v=HUp3Xj7a86w", // Added video URL
     screenshots: [
       "https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=600&auto=format&fit=crop&q=80",
       "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?w=600&auto=format&fit=crop&q=80",
@@ -159,6 +163,7 @@ export const APPS_DATA: AppItem[] = [
     description: "Fast-paced 3v3 multiplayer and mobile battle royale mode with unlocked brawlers.",
     longDescription: "Brawl Stars by Supercell is the action multiplayer game of the moment! Enjoy quick three-minute battles in a variety of exciting game modes. This MOD grants you free unlimited gems, unlimited boxes to open immediately, and spectacular gold skins to show off to all your rivals. Play on a 100% stable private server with automatic matchmaking so you never have to wait to jump into battle.",
     downloadUrl: "https://lookmodstore-cdn.takano3d.com/apks/Brawl_Stars_v55.220_Mod.apk",
+    videoUrl: "https://www.youtube.com/watch?v=J64o3j8Wl7c", // Added video URL
     screenshots: [
       "https://images.unsplash.com/photo-1552820728-8b83bb6b773f?w=600&auto=format&fit=crop&q=80",
       "https://images.unsplash.com/photo-1538481199705-c710c4e965fc?w=600&auto=format&fit=crop&q=80",
@@ -189,6 +194,7 @@ export const APPS_DATA: AppItem[] = [
     description: "Watch millions of videos from around the world and download videos without watermarks.",
     longDescription: "TikTok Plus is an advanced modified version of the social media giant. It allows you to download any video directly to your local gallery without watermarks or logos. In addition, it removes all annoying sponsored ads from the main feed, unlocks high-fidelity audio playback, and adds a special button to change the geographical region of the feed to explore trends from any country in the world.",
     downloadUrl: "https://lookmodstore-cdn.takano3d.com/apks/TikTok_Plus_v32.8.4_Mod.apk",
+    videoUrl: "https://www.youtube.com/watch?v=2n-1t6BccWw", // Added video URL
     screenshots: [
       "https://images.unsplash.com/photo-1611162616305-c6a5ae5d2efd?w=600&auto=format&fit=crop&q=80",
       "https://images.unsplash.com/photo-1563986768609-322da13575f3?w=600&auto=format&fit=crop&q=80",
@@ -219,6 +225,7 @@ export const APPS_DATA: AppItem[] = [
     description: "Watch exclusive movies and TV shows in 4K HDR resolution without paying a monthly subscription.",
     longDescription: "Netflix Premium MOD offers you unlimited access to the entire original Netflix catalog, trending world TV series, award-winning documentaries, and stunning cinematic feature films. The best part is that it does not require registering a credit card or paying monthly fees. Stream simultaneously on up to 4 devices in UHD 4K resolution and Dolby Atmos surround sound. Includes multi-language options with perfect subtitles.",
     downloadUrl: "https://lookmodstore-cdn.takano3d.com/apks/Netflix_Premium_v10.6.2_Mod.apk",
+    videoUrl: "https://www.youtube.com/watch?v=GV3HUDMQ-F8", // Added video URL
     screenshots: [
       "https://images.unsplash.com/photo-1522869635100-9f4c5e86aa37?w=600&auto=format&fit=crop&q=80",
       "https://images.unsplash.com/photo-1594909122845-11baa439b7bf?w=600&auto=format&fit=crop&q=80",
@@ -249,6 +256,7 @@ export const APPS_DATA: AppItem[] = [
     description: "The number one multiplayer pool game with infinite guideline lines for perfect shots.",
     longDescription: "Play with friends and become a pool legend. Face competitors from all over the world in competitive 1v1 matches or participate in international tournaments to win exclusive trophies. This modified version provides the coveted long line guide that allows you to visualize the exact trajectory of the balls from start to finish, ensuring perfect bank shots and mastering the most difficult tables effortlessly.",
     downloadUrl: "https://lookmodstore-cdn.takano3d.com/apks/8_Ball_Pool_v5.14.2_Mod.apk",
+    videoUrl: "https://www.youtube.com/watch?v=5U0QoT5K_Xo", // Added video URL
     screenshots: [
       "https://images.unsplash.com/photo-1606167668584-78701c57f13d?w=600&auto=format&fit=crop&q=80",
       "https://images.unsplash.com/photo-1538481199705-c710c4e965fc?w=600&auto=format&fit=crop&q=80",
