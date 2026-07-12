@@ -6,16 +6,11 @@ interface ReviewSectionProps {
 }
 
 interface ReviewItem {
-  id: number;
   name: string;
   rating: number;
   comment: string;
   date: string;
 }
-
-// Ek public database endpoint jo data globally share karega sabhi users ke sath
-const GLOBAL_API_URL = "https://api.jsonbin.io/v3/b/6691763ee41b4d34e411b0e0"; 
-// Note: Production ke liye tum MockAPI.io ya Firebase use kar sakte ho.
 
 export const ReviewSection: React.FC<ReviewSectionProps> = ({ darkMode }) => {
   const [reviews, setReviews] = useState<ReviewItem[]>([]);
@@ -26,17 +21,22 @@ export const ReviewSection: React.FC<ReviewSectionProps> = ({ darkMode }) => {
   const [loading, setLoading] = useState(false);
   const [fetching, setFetching] = useState(true);
 
-  // 📥 Globally saare users ke reviews pull (fetch) karne ke liye
+  // 📥 Live cloud database se reviews download karne ke liye
   const fetchGlobalReviews = async () => {
     try {
-      const res = await fetch("https://6691763ee41b4d34e411b0e0.mockapi.io/api/v1/reviews");
+      const res = await fetch("https://api.jsonbin.io/v3/b/66922d4fe41b4d34e4120358/latest", {
+        headers: {
+          "X-Master-Key": "$2a$10$P24v6wz9B3E2XN3C6P1HBe.3gG8nB7L7x1Z2y3w4v5u6t7s8r9q1o"
+        }
+      });
       if (res.ok) {
-        const data = await res.json();
-        // Naye reviews upar dikhane ke liye reverse order
-        setReviews(data.reverse());
+        const json = await res.json();
+        if (json.record && Array.isArray(json.record.reviews)) {
+          setReviews(json.record.reviews);
+        }
       }
     } catch (err) {
-      console.error("Global fetch error:", err);
+      console.error("Fetch error:", err);
     } finally {
       setFetching(false);
     }
@@ -53,42 +53,46 @@ export const ReviewSection: React.FC<ReviewSectionProps> = ({ darkMode }) => {
     const options: Intl.DateTimeFormatOptions = { month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit' };
     const formattedDate = new Date().toLocaleDateString('en-US', options);
 
-    const newReview = {
+    const newReview: ReviewItem = {
       name: formData.name,
       rating: rating,
       comment: formData.comment,
       date: formattedDate
     };
 
+    // Nayi entries ko existing reviews ke upar jodhne ke liye array spread
+    const updatedReviews = [newReview, ...reviews];
+
     try {
-      // 1. Web3Forms par notification bhejo (dashboard aur email ke liye)
+      // 1. Web3Forms dashboard alert send karo
       await fetch("https://api.web3forms.com/submit", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           access_key: "9372fab7-4028-49ff-8d55-8b9d6aa556ff",
-          subject: `New Global Review from ${formData.name}`,
+          subject: `Global Feedback from ${formData.name}`,
           ...newReview
         }),
       });
 
-      // 2. 🚀 Global Database API par data save karo taaki sabko dikhe
-      const response = await fetch("https://6691763ee41b4d34e411b0e0.mockapi.io/api/v1/reviews", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(newReview),
+      // 2. 🚀 Live database cloud bucket ko modify karke data update karo
+      const response = await fetch("https://api.jsonbin.io/v3/b/66922d4fe41b4d34e4120358", {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+          "X-Master-Key": "$2a$10$P24v6wz9B3E2XN3C6P1HBe.3gG8nB7L7x1Z2y3w4v5u6t7s8r9q1o"
+        },
+        body: JSON.stringify({ reviews: updatedReviews }),
       });
 
       if (response.ok) {
+        setReviews(updatedReviews);
         setSubmitted(true);
         setFormData({ name: '', comment: '' });
         setRating(5);
-        // List ko update karo database se fresh data lekar
-        fetchGlobalReviews();
       }
     } catch (error) {
-      console.error("Global Post Error:", error);
-      alert("Database error. Try again!");
+      console.error("Post Error:", error);
     } finally {
       setLoading(false);
     }
@@ -96,14 +100,12 @@ export const ReviewSection: React.FC<ReviewSectionProps> = ({ darkMode }) => {
 
   return (
     <div className="max-w-3xl mx-auto space-y-6 mt-10 px-4 sm:px-0">
-      
-      {/* Review Form */}
       <div className={`p-5 sm:p-6 rounded-2xl border ${
         darkMode ? 'bg-slate-900/40 border-slate-800' : 'bg-white border-slate-100'
       }`}>
         <h3 className="text-base sm:text-lg font-bold mb-4 flex items-center gap-2">
           <MessageSquare className="w-5 h-5 text-store-accent" />
-          Write a Customer Review (Global)
+          Write a Customer Review (Global Live)
         </h3>
 
         {submitted ? (
@@ -124,12 +126,8 @@ export const ReviewSection: React.FC<ReviewSectionProps> = ({ darkMode }) => {
               <span className="text-xs font-semibold text-slate-400 mr-1">Select Rating:</span>
               {[1, 2, 3, 4, 5].map((star) => (
                 <button
-                  type="button"
-                  key={star}
-                  className="cursor-pointer transition-all"
-                  onClick={() => setRating(star)}
-                  onMouseEnter={() => setHover(star)}
-                  onMouseLeave={() => setHover(0)}
+                  type="button" key={star} className="cursor-pointer transition-all"
+                  onClick={() => setRating(star)} onMouseEnter={() => setHover(star)} onMouseLeave={() => setHover(0)}
                 >
                   <Star className={`w-5 h-5 ${
                     star <= (hover || rating) ? 'text-amber-400 fill-amber-400' : 'text-slate-600'
@@ -143,14 +141,14 @@ export const ReviewSection: React.FC<ReviewSectionProps> = ({ darkMode }) => {
                 type="text" required placeholder="Enter Your Name" value={formData.name}
                 onChange={(e) => setFormData({...formData, name: e.target.value})}
                 className={`w-full p-2.5 rounded-xl text-sm outline-none border ${
-                  darkMode ? 'bg-slate-950 border-slate-800 text-white focus:border-store-accent' : 'bg-slate-50 border-slate-200 focus:border-store-accent'
+                  darkMode ? 'bg-slate-950 border-slate-800 text-white' : 'bg-slate-50 border-slate-200'
                 }`}
               />
               <textarea 
                 rows={3} required placeholder="Share your experience globally..." value={formData.comment}
                 onChange={(e) => setFormData({...formData, comment: e.target.value})}
                 className={`w-full p-2.5 rounded-xl text-sm outline-none border resize-none ${
-                  darkMode ? 'bg-slate-950 border-slate-800 text-white focus:border-store-accent' : 'bg-slate-50 border-slate-200 focus:border-store-accent'
+                  darkMode ? 'bg-slate-950 border-slate-800 text-white' : 'bg-slate-50 border-slate-200'
                 }`}
               />
             </div>
@@ -165,7 +163,6 @@ export const ReviewSection: React.FC<ReviewSectionProps> = ({ darkMode }) => {
         )}
       </div>
 
-      {/* Global Reviews Display List */}
       <div className="space-y-4">
         <h3 className="text-xs font-bold text-slate-400 uppercase tracking-wider">
           Global Customer Feedbacks ({reviews.length})
@@ -196,7 +193,6 @@ export const ReviewSection: React.FC<ReviewSectionProps> = ({ darkMode }) => {
           </div>
         )}
       </div>
-
     </div>
   );
 };
