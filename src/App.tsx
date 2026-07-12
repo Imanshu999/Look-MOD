@@ -8,6 +8,7 @@ import { RecentCarousel } from './components/RecentCarousel';
 import { AppDetail } from './components/AppDetail';
 import { BlogSection } from './components/BlogSection';
 import { ContactSection } from './components/ContactSection';
+import { ReviewSection } from './components/ReviewSection'; // 👈 Naya Component Import Kiya
 import takano3dAvatar from './assets/images/takano3d_avatar_1783771284341.jpg';
 
 import { 
@@ -190,9 +191,11 @@ export default function App() {
             darkMode={darkMode}
           />
         ) : activeTab === 'contact' ? (
-          <ContactSection 
-            darkMode={darkMode}
-          />
+          // 🚀 Requests Section me Contact form aur Real Reviews dono attach ho gaye hain
+          <div className="space-y-6">
+            <ContactSection darkMode={darkMode} />
+            <ReviewSection darkMode={darkMode} />
+          </div>
         ) : (
           /* Main Apps Marketplace Catalog (Home, Games, Apps) */
           <div className="grid grid-cols-1 lg:grid-cols-4 gap-6 items-start">
