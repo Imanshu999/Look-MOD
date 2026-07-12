@@ -1,15 +1,15 @@
 import { AppItem, CategoryItem, BlogPost } from './types';
 
-export const CATEGORIES_DATA: CategoryItem[] = [
-  { name: 'Action', count: 339, icon: 'Sword' },
-  { name: 'Arcade', count: 139, icon: 'Gamepad2' },
-  { name: 'Sports', count: 51, icon: 'Trophy' },
-  { name: 'Video Editor', count: 124, icon: 'Video' },
-  { name: 'Music & Audio', count: 98, icon: 'Music' },
-  { name: 'Social', count: 182, icon: 'MessageCircle' },
-  { name: 'Tools', count: 215, icon: 'Wrench' },
-  { name: 'Productivity', count: 104, icon: 'Clock' },
-  { name: 'Adventure', count: 87, icon: 'Compass' },
+const BASE_CATEGORIES = [
+  { name: 'Action', icon: 'Sword' },
+  { name: 'Arcade', icon: 'Gamepad2' },
+  { name: 'Sports', icon: 'Trophy' },
+  { name: 'Video Editor', icon: 'Video' },
+  { name: 'Music & Audio', icon: 'Music' },
+  { name: 'Social', icon: 'MessageCircle' },
+  { name: 'Tools', icon: 'Wrench' },
+  { name: 'Productivity', icon: 'Clock' },
+  { name: 'Adventure', icon: 'Compass' },
 ];
 
 export const APPS_DATA: AppItem[] = [
@@ -264,6 +264,14 @@ export const APPS_DATA: AppItem[] = [
     isRecent: true
   }
 ];
+
+export const CATEGORIES_DATA: CategoryItem[] = BASE_CATEGORIES.map(category => {
+  const appsCount = APPS_DATA.filter(app => app.category === category.name).length;
+  return {
+    ...category,
+    count: appsCount
+  };
+});
 
 export const BLOG_POSTS: BlogPost[] = [
   {
