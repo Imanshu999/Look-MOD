@@ -1,20 +1,24 @@
 import React, { useState, useEffect } from 'react';
 import { 
   ArrowLeft, Star, Download, ShieldCheck, 
-  Info, CheckCircle2, RefreshCw, Terminal, Lock, Server, FileCheck2, Share2, Sparkles, X, ChevronLeft, ChevronRight 
+  Info, CheckCircle2, RefreshCw, Terminal, Lock, Server, FileCheck2, Share2, Sparkles, X, ChevronLeft, ChevronRight, Play 
 } from 'lucide-react';
 import { AppItem } from '../types';
 
 interface AppDetailProps {
   app: AppItem;
+  allApps: AppItem[]; // सजेस्टेड ऐप्स निकालने के लिए सभी ऐप्स की लिस्ट ली
   darkMode: boolean;
   onBack: () => void;
+  onAppSelect: (app: AppItem) => void; // सजेस्टेड ऐप पर क्लिक करने के लिए हैंडलर
 }
 
 export const AppDetail: React.FC<AppDetailProps> = ({
   app,
+  allApps,
   darkMode,
   onBack,
+  onAppSelect,
 }) => {
   const [scanProgress, setScanProgress] = useState(0);
   const [scanState, setScanState] = useState<'idle' | 'scanning' | 'verified'>('idle');
@@ -29,11 +33,38 @@ export const AppDetail: React.FC<AppDetailProps> = ({
 
   const minSwipeDistance = 50;
 
+  // --- 1. यूट्यूब URL को एम्बेड (Embed) करने लायक बनाने का लॉजिक ---
+  const getYouTubeEmbedUrl = (url?: string) => {
+    if (!url) return null;
+    let videoId = '';
+    
+    // youtube.com/watch?v=ID या youtu.be/ID दोनों को सपोर्ट करेगा
+    if (url.includes('youtube.com/watch')) {
+      const urlParams = new URLSearchParams(new URL(url).search);
+      videoId = urlParams.get('v') || '';
+    } else if (url.includes('youtu.be/')) {
+      videoId = url.split('youtu.be/')[1]?.split('?')[0] || '';
+    } else if (url.includes('youtube.com/embed/')) {
+      return url; // पहले से ही एम्बेड है तो सीधा भेज दो
+    }
+    
+    return videoId ? `https://www.youtube.com/embed/${videoId}` : null;
+  };
+
+  const embedVideoUrl = getYouTubeEmbedUrl(app.videoUrl);
+
+  // --- 2. सजेस्टेड ऐप्स निकालने का लॉजिक (प्ले स्टोर की तरह) ---
+  // करंट ऐप को छोड़कर, सेम कैटेगरी या सेम टाइप (Game/App) के ऐप्स फ़िल्टर करना
+  const suggestedApps = allApps
+    .filter(item => item.id !== app.id && (item.category === app.category || item.type === app.type))
+    .slice(0, 4); // सिर्फ टॉप 4 ऐप्स नीचे दिखाएंगे
+
   useEffect(() => {
     setScanState('scanning');
     setScanProgress(0);
     setDownloading(false);
-    
+    window.scrollTo({ top: 0, behavior: 'smooth' }); // नया ऐप ओपन होते ही पेज ऊपर स्क्रॉल हो जाएगा
+
     const interval = setInterval(() => {
       setScanProgress((prev) => {
         if (prev >= 100) {
@@ -46,7 +77,7 @@ export const AppDetail: React.FC<AppDetailProps> = ({
     }, 120);
 
     return () => clearInterval(interval);
-  }, [app.id, app.slug]);
+  }, [app.id]);
 
   const triggerDownload = () => {
     setDownloading(true);
@@ -80,7 +111,6 @@ export const AppDetail: React.FC<AppDetailProps> = ({
     setTimeout(() => setCopied(false), 2000);
   };
 
-  // Lightbox Navigation Functions
   const showPrev = (e?: React.MouseEvent) => {
     if (e) e.stopPropagation();
     if (app.screenshots && selectedIndex !== null) {
@@ -95,7 +125,6 @@ export const AppDetail: React.FC<AppDetailProps> = ({
     }
   };
 
-  // Keyboard support for left/right arrows
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (selectedIndex === null) return;
@@ -107,7 +136,6 @@ export const AppDetail: React.FC<AppDetailProps> = ({
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, [selectedIndex]);
 
-  // Touch Gesture Handlers for Swipe to Close (Vertical Swipe Only)
   const onTouchStart = (e: React.TouchEvent) => {
     setTouchEnd(null);
     setTouchStart(e.targetTouches[0].clientY);
@@ -231,9 +259,6 @@ export const AppDetail: React.FC<AppDetailProps> = ({
               <RefreshCw className="w-4 h-4 animate-spin" />
               Generating Secure Download Link...
             </h4>
-            <p className="text-xs text-slate-500 mt-1">
-              Your download will begin automatically in <strong className="text-store-accent">{downloadCountdown} seconds</strong>. Look Mod Store protects your device by encrypting the download.
-            </p>
             <div className="w-full bg-slate-800 rounded-full h-1.5 mt-3 overflow-hidden">
               <div 
                 className="bg-store-accent h-full transition-all duration-1000"
@@ -249,6 +274,30 @@ export const AppDetail: React.FC<AppDetailProps> = ({
         
         <div className="lg:col-span-2 space-y-6">
           
+          {/* --- यूट्यूब वीडियो प्लेयर सेक्शन --- */}
+          {embedVideoUrl && (
+            <div className={`p-5 rounded-2xl border ${
+              darkMode ? 'bg-slate-900/40 border-slate-800' : 'bg-white border-slate-100'
+            }`}>
+              <h3 className={`text-base font-display font-bold mb-4 flex items-center gap-2 ${
+                darkMode ? 'text-slate-200' : 'text-slate-800'
+              }`}>
+                <Play className="w-4.5 h-4.5 text-red-500 fill-red-500" />
+                <span>Video Preview / Demo</span>
+              </h3>
+              
+              <div className="relative w-full aspect-video rounded-xl overflow-hidden shadow-lg border border-slate-800/20 bg-black">
+                <iframe
+                  src={embedVideoUrl}
+                  title={`${app.name} Video Preview`}
+                  className="absolute top-0 left-0 w-full h-full border-0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowFullScreen
+                ></iframe>
+              </div>
+            </div>
+          )}
+
           {/* Dynamic Screenshots Container */}
           {app.screenshots && app.screenshots.length > 0 && (
             <div className={`p-5 rounded-2xl border ${
@@ -258,7 +307,7 @@ export const AppDetail: React.FC<AppDetailProps> = ({
                 darkMode ? 'text-slate-200' : 'text-slate-800'
               }`}>
                 <Sparkles className="w-4.5 h-4.5 text-store-accent" />
-                <span>Capturas de pantalla / Screenshots</span>
+                <span>Screenshots</span>
               </h3>
 
               <div className="flex gap-4 overflow-x-auto pb-3 scrollbar-thin scrollbar-thumb-slate-700 scrollbar-track-transparent snap-x items-center">
@@ -277,10 +326,6 @@ export const AppDetail: React.FC<AppDetailProps> = ({
                   </div>
                 ))}
               </div>
-              
-              <p className="text-[10px] text-slate-500 mt-2 text-center font-mono">
-                ← Swipe / Scroll to view all screenshots • Click to expand →
-              </p>
             </div>
           )}
 
@@ -301,8 +346,8 @@ export const AppDetail: React.FC<AppDetailProps> = ({
 
         </div>
 
+        {/* Right column: Specs */}
         <div className="space-y-6">
-          
           <div className={`p-5 rounded-2xl border ${
             darkMode ? 'bg-slate-900/40 border-slate-800' : 'bg-white border-slate-100'
           }`}>
@@ -323,118 +368,61 @@ export const AppDetail: React.FC<AppDetailProps> = ({
                 <span className={`font-mono font-bold ${darkMode ? 'text-slate-300' : 'text-slate-700'}`}>{app.size}</span>
               </div>
               <div className="py-2.5 flex justify-between">
-                <span className="text-slate-500 font-medium">Developer</span>
-                <span className={`font-bold ${darkMode ? 'text-slate-300' : 'text-slate-700'}`}>{app.developer}</span>
-              </div>
-              <div className="py-2.5 flex justify-between">
-                <span className="text-slate-500 font-medium">Total downloads</span>
-                <span className={`font-mono font-bold ${darkMode ? 'text-slate-300' : 'text-slate-700'}`}>{app.downloads}</span>
-              </div>
-              <div className="py-2.5 flex justify-between">
                 <span className="text-slate-500 font-medium">Category</span>
                 <span className={`font-bold ${darkMode ? 'text-slate-300' : 'text-slate-700'}`}>{app.category}</span>
               </div>
-              <div className="py-2.5 flex justify-between">
-                <span className="text-slate-500 font-medium">Content type</span>
-                <span className={`font-bold ${darkMode ? 'text-slate-300' : 'text-slate-700'}`}>{app.type === 'Game' ? 'Video Game' : 'Application'}</span>
-              </div>
-              <div className="py-2.5 flex justify-between">
-                <span className="text-slate-500 font-medium">Last update</span>
-                <span className={`font-mono font-bold ${darkMode ? 'text-slate-300' : 'text-slate-700'}`}>{app.updatedAt}</span>
-              </div>
             </div>
           </div>
-
-          {app.security && (
-            <div className={`p-5 rounded-2xl border ${
-              darkMode ? 'bg-slate-900/40 border-slate-800' : 'bg-white border-slate-100'
-            }`}>
-              <h3 className={`text-base font-display font-bold mb-3 flex items-center gap-2 ${
-                darkMode ? 'text-slate-200' : 'text-slate-800'
-              }`}>
-                <ShieldCheck className="w-5 h-5 text-emerald-400" />
-                <span>Security & Integrity</span>
-              </h3>
-
-              <div className={`p-3.5 rounded-xl border mb-4 font-mono text-[11px] ${
-                darkMode ? 'bg-slate-950 border-slate-900 text-slate-300' : 'bg-slate-50 border-slate-200 text-slate-700'
-              }`}>
-                <div className="flex items-center justify-between mb-2">
-                  <span className="text-slate-500 flex items-center gap-1">
-                    <Terminal className="w-3.5 h-3.5 text-store-accent" />
-                    Scanner v4.2
-                  </span>
-                  <span className={`font-bold ${
-                    scanState === 'scanning' ? 'text-yellow-400 animate-pulse' : 'text-emerald-400'
-                  }`}>
-                    {scanState === 'scanning' ? `Verifying ${scanProgress}%` : 'COMPLETE'}
-                  </span>
-                </div>
-
-                <div className="w-full bg-slate-800 rounded-full h-1 mb-3.5 overflow-hidden">
-                  <div 
-                    className={`h-full transition-all ${
-                      scanState === 'scanning' ? 'bg-yellow-400' : 'bg-emerald-400'
-                    }`}
-                    style={{ width: `${scanProgress}%` }}
-                  />
-                </div>
-
-                <div className="space-y-1.5">
-                  <div className="flex items-center gap-1.5">
-                    <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
-                    <span className="truncate">Original APK signature verified</span>
-                  </div>
-                  <div className="flex items-center gap-1.5">
-                    <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
-                    <span className="truncate">No adware, trojans, or spyware</span>
-                  </div>
-                  <div className="flex items-center gap-1.5">
-                    <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
-                    <span className="truncate">Active anti-detection protection</span>
-                  </div>
-                </div>
-              </div>
-
-              <div className="space-y-3.5">
-                <div className="flex gap-2.5 items-start">
-                  <div className={`p-1.5 rounded-lg shrink-0 ${darkMode ? 'bg-slate-900' : 'bg-slate-100'}`}>
-                    <FileCheck2 className="w-4 h-4 text-emerald-400" />
-                  </div>
-                  <div>
-                    <h4 className={`text-xs font-bold ${darkMode ? 'text-slate-300' : 'text-slate-700'}`}>Verified Checksum Signature</h4>
-                    <p className="text-[10px] text-slate-500 font-mono mt-0.5 break-all">{app.security.checksum}</p>
-                  </div>
-                </div>
-
-                <div className="flex gap-2.5 items-start">
-                  <div className={`p-1.5 rounded-lg shrink-0 ${darkMode ? 'bg-slate-900' : 'bg-slate-100'}`}>
-                    <Lock className="w-4 h-4 text-store-accent" />
-                  </div>
-                  <div>
-                    <h4 className={`text-xs font-bold ${darkMode ? 'text-slate-300' : 'text-slate-700'}`}>Secure SSL Token</h4>
-                    <p className="text-[10px] text-slate-500 mt-0.5">{app.security.secureToken}</p>
-                  </div>
-                </div>
-
-                <div className="flex gap-2.5 items-start">
-                  <div className={`p-1.5 rounded-lg shrink-0 ${darkMode ? 'bg-slate-900' : 'bg-slate-100'}`}>
-                    <Server className="w-4 h-4 text-blue-400" />
-                  </div>
-                  <div>
-                    <h4 className={`text-xs font-bold ${darkMode ? 'text-slate-300' : 'text-slate-700'}`}>Protected Servers</h4>
-                    <p className="text-[10px] text-slate-500 mt-0.5">{app.security.cloudStorage}</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          )}
-
         </div>
 
       </div>
 
-      {/* --- ADVANCED INTERACTIVE LIGHTBOX MODAL WITH ARROWS --- */}
+      {/* --- 3. सजेस्टेड ऐप्स सेक्शन (You Might Also Like / Recommended Section) --- */}
+      {suggestedApps.length > 0 && (
+        <div className={`p-5 sm:p-6 rounded-2xl border mt-6 ${
+          darkMode ? 'bg-slate-900/40 border-slate-800' : 'bg-white border-slate-100'
+        }`}>
+          <h3 className={`text-base font-display font-bold mb-4 flex items-center gap-2 ${
+            darkMode ? 'text-slate-200' : 'text-slate-800'
+          }`}>
+            <Sparkles className="w-4.5 h-4.5 text-store-accent" />
+            <span>Recommended Apps / Similar Options</span>
+          </h3>
+
+          {/* रिस्पॉन्सिव हॉरिजॉन्टल ग्रिड (प्ले स्टोर जैसा लुक) */}
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
+            {suggestedApps.map((item) => (
+              <div
+                key={item.id}
+                onClick={() => onAppSelect(item)}
+                className={`p-3.5 rounded-xl border transition-all cursor-pointer flex flex-col items-center text-center gap-2.5 active:scale-98 ${
+                  darkMode 
+                    ? 'bg-slate-950/40 border-slate-800/60 hover:bg-slate-900 hover:border-slate-700' 
+                    : 'bg-slate-50 border-slate-200 hover:bg-white hover:shadow-md'
+                }`}
+              >
+                <div className="w-14 h-14 rounded-xl overflow-hidden border border-slate-700/10 shadow-sm shrink-0">
+                  <img src={item.icon} alt={item.name} className="w-full h-full object-cover" />
+                </div>
+                
+                <div className="min-w-0 w-full">
+                  <h4 className={`text-xs font-bold truncate ${darkMode ? 'text-slate-200' : 'text-slate-700'}`}>
+                    {item.name}
+                  </h4>
+                  <p className="text-[10px] text-slate-500 truncate mt-0.5">{item.category}</p>
+                </div>
+
+                <div className="flex items-center gap-1 text-[10px] text-yellow-400 font-mono font-bold bg-yellow-400/5 px-2 py-0.5 rounded-md border border-yellow-400/10">
+                  <Star className="w-3 h-3 fill-current" />
+                  <span>{item.rating}</span>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+
+      {/* --- ADVANCED LIGHTBOX MODAL --- */}
       {selectedIndex !== null && app.screenshots && (
         <div 
           className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-[2px] p-4 select-none touch-none overflow-hidden"
@@ -443,47 +431,27 @@ export const AppDetail: React.FC<AppDetailProps> = ({
           onTouchMove={onTouchMove}
           onTouchEnd={onTouchEnd}
         >
-          {/* Top Floating Action Bar with X Close Button */}
           <div className="absolute top-4 right-4 z-50">
             <button 
-              className="p-2.5 bg-slate-900/60 backdrop-blur-md border border-slate-700/50 text-white rounded-full hover:bg-slate-800/80 active:scale-90 transition-all cursor-pointer shadow-lg"
+              className="p-2.5 bg-slate-900/60 backdrop-blur-md border border-slate-700/50 text-white rounded-full hover:bg-slate-800/80 cursor-pointer"
               onClick={() => setSelectedIndex(null)}
             >
               <X className="w-5 h-5" />
             </button>
           </div>
 
-          {/* LEFT ARROW BUTTON */}
-          <button 
-            className="absolute left-4 z-50 p-3 bg-slate-900/40 backdrop-blur-sm border border-slate-700/30 text-white rounded-full hover:bg-slate-800/60 active:scale-95 transition-all cursor-pointer shadow-md"
-            onClick={showPrev}
-          >
+          <button className="absolute left-4 z-50 p-3 bg-slate-900/40 text-white rounded-full cursor-pointer" onClick={showPrev}>
             <ChevronLeft className="w-6 h-6" />
           </button>
 
-          {/* Locked & Centered Image Container */}
-          <div 
-            className="relative w-full max-w-3xl max-h-[75vh] flex flex-col items-center justify-center pointer-events-auto"
-            onClick={(e) => e.stopPropagation()}
-          >
-            <img 
-              src={app.screenshots[selectedIndex]} 
-              alt={`Expanded Live View ${selectedIndex + 1}`} 
-              className="max-w-full max-h-[70vh] rounded-2xl object-contain shadow-2xl border border-slate-800/30 select-none pointer-events-none transition-transform duration-200"
-              referrerPolicy="no-referrer"
-            />
-            
-            {/* Image Subtitle / Counter Indicator matching video reference */}
-            <span className="text-white text-xs font-medium mt-3 bg-slate-900/50 px-3 py-1 rounded-full border border-slate-800/40 backdrop-blur-xs">
-              Captura de pantalla {selectedIndex + 1}
+          <div className="relative w-full max-w-3xl max-h-[75vh] flex flex-col items-center justify-center pointer-events-auto" onClick={(e) => e.stopPropagation()}>
+            <img src={app.screenshots[selectedIndex]} alt="Live Preview" className="max-w-full max-h-[70vh] rounded-2xl object-contain border border-slate-800/30" />
+            <span className="text-white text-xs font-medium mt-3 bg-slate-900/50 px-3 py-1 rounded-full">
+              Screenshot {selectedIndex + 1}
             </span>
           </div>
 
-          {/* RIGHT ARROW BUTTON */}
-          <button 
-            className="absolute right-4 z-50 p-3 bg-slate-900/40 backdrop-blur-sm border border-slate-700/30 text-white rounded-full hover:bg-slate-800/60 active:scale-95 transition-all cursor-pointer shadow-md"
-            onClick={showNext}
-          >
+          <button className="absolute right-4 z-50 p-3 bg-slate-900/40 text-white rounded-full cursor-pointer" onClick={showNext}>
             <ChevronRight className="w-6 h-6" />
           </button>
         </div>
