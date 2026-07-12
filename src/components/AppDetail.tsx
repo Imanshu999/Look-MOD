@@ -22,10 +22,12 @@ export const AppDetail: React.FC<AppDetailProps> = ({
   const [downloadCountdown, setDownloadCountdown] = useState(5);
   const [copied, setCopied] = useState(false);
 
-  // Start the security check scanner automatically when page loads
+  // Trigger reset and start scanner whenever a DIFFERENT app loads
   useEffect(() => {
     setScanState('scanning');
     setScanProgress(0);
+    setDownloading(false); // Reset download state on app change
+    
     const interval = setInterval(() => {
       setScanProgress((prev) => {
         if (prev >= 100) {
@@ -38,7 +40,7 @@ export const AppDetail: React.FC<AppDetailProps> = ({
     }, 120);
 
     return () => clearInterval(interval);
-  }, [app.id]);
+  }, [app.id, app.slug]); // Added slug to keep it highly reactive
 
   // Handle simulated download triggers
   const triggerDownload = () => {
@@ -61,7 +63,9 @@ export const AppDetail: React.FC<AppDetailProps> = ({
       console.log(`Starting secure background download of: ${app.downloadUrl}`);
       
       setTimeout(() => {
-        document.body.removeChild(iframe);
+        if (document.body.contains(iframe)) {
+          document.body.removeChild(iframe);
+        }
         setDownloading(false);
       }, 2500);
     }
@@ -74,7 +78,7 @@ export const AppDetail: React.FC<AppDetailProps> = ({
   };
 
   return (
-    <div className="space-y-6 animate-fade-in">
+    <div className="space-y-6 animate-fade-in" key={app.id}>
       
       {/* Back & Action Header */}
       <div className="flex items-center justify-between gap-4">
@@ -166,7 +170,6 @@ export const AppDetail: React.FC<AppDetailProps> = ({
               <span>{downloading ? `Preparing (${downloadCountdown}s)...` : 'Download APK'}</span>
             </button>
 
-            {/* Green security verification tag */}
             <div className="flex items-center justify-center gap-1.5 text-xs text-emerald-400 font-medium py-1 bg-emerald-500/5 rounded-lg border border-emerald-500/15">
               <ShieldCheck className="w-4 h-4 fill-emerald-500/10" />
               <span>SHA-256 Verified</span>
@@ -185,7 +188,7 @@ export const AppDetail: React.FC<AppDetailProps> = ({
               Generating Secure Download Link...
             </h4>
             <p className="text-xs text-slate-500 mt-1">
-              Your download will begin automatically in <strong className="text-store-accent">{downloadCountdown} seconds</strong>. Look Mod Store protects your device by encrypting the download on high-fidelity redundant servers.
+              Your download will begin automatically in <strong className="text-store-accent">{downloadCountdown} seconds</strong>. Look Mod Store protects your device by encrypting the download.
             </p>
             <div className="w-full bg-slate-800 rounded-full h-1.5 mt-3 overflow-hidden">
               <div 
@@ -204,37 +207,38 @@ export const AppDetail: React.FC<AppDetailProps> = ({
         <div className="lg:col-span-2 space-y-6">
           
           {/* Dynamic Screenshots Container */}
-          <div className={`p-5 rounded-2xl border ${
-            darkMode ? 'bg-slate-900/40 border-slate-800' : 'bg-white border-slate-100'
-          }`}>
-            <h3 className={`text-base font-display font-bold mb-4 flex items-center gap-2 ${
-              darkMode ? 'text-slate-200' : 'text-slate-800'
+          {app.screenshots && app.screenshots.length > 0 && (
+            <div className={`p-5 rounded-2xl border ${
+              darkMode ? 'bg-slate-900/40 border-slate-800' : 'bg-white border-slate-100'
             }`}>
-              <Sparkles className="w-4.5 h-4.5 text-store-accent" />
-              <span>Capturas de pantalla / Screenshots</span>
-            </h3>
+              <h3 className={`text-base font-display font-bold mb-4 flex items-center gap-2 ${
+                darkMode ? 'text-slate-200' : 'text-slate-800'
+              }`}>
+                <Sparkles className="w-4.5 h-4.5 text-store-accent" />
+                <span>Capturas de pantalla / Screenshots</span>
+              </h3>
 
-            {/* Horizontal Scroll Layout */}
-            <div className="flex gap-4 overflow-x-auto pb-3 scrollbar-thin scrollbar-thumb-slate-700 scrollbar-track-transparent snap-x items-center">
-              {app.screenshots.map((screenshot, idx) => (
-                <div 
-                  key={idx} 
-                  className="rounded-xl overflow-hidden border border-slate-800/40 shadow-md shrink-0 snap-start bg-slate-950/10 max-h-[320px] sm:max-h-[400px] transition-all duration-300"
-                >
-                  <img 
-                    src={screenshot} 
-                    alt={`${app.name} screenshot ${idx + 1}`} 
-                    className="h-[280px] sm:h-[360px] w-auto object-contain hover:scale-102 transition-transform duration-300"
-                    referrerPolicy="no-referrer"
-                  />
-                </div>
-              ))}
+              <div className="flex gap-4 overflow-x-auto pb-3 scrollbar-thin scrollbar-thumb-slate-700 scrollbar-track-transparent snap-x items-center">
+                {app.screenshots.map((screenshot, idx) => (
+                  <div 
+                    key={idx} 
+                    className="rounded-xl overflow-hidden border border-slate-800/40 shadow-md shrink-0 snap-start bg-slate-950/10 max-h-[320px] sm:max-h-[400px] transition-all duration-300"
+                  >
+                    <img 
+                      src={screenshot} 
+                      alt={`${app.name} screenshot ${idx + 1}`} 
+                      className="h-[280px] sm:h-[360px] w-auto object-contain hover:scale-102 transition-transform duration-300"
+                      referrerPolicy="no-referrer"
+                    />
+                  </div>
+                ))}
+              </div>
+              
+              <p className="text-[10px] text-slate-500 mt-2 text-center font-mono">
+                ← Swipe / Scroll to view all screenshots →
+              </p>
             </div>
-            
-            <p className="text-[10px] text-slate-500 mt-2 text-center font-mono">
-              ← Swipe / Scroll to view all screenshots →
-            </p>
-          </div>
+          )}
 
           {/* About / Long Description */}
           <div className={`p-5 rounded-2xl border ${
@@ -245,7 +249,7 @@ export const AppDetail: React.FC<AppDetailProps> = ({
             }`}>
               MOD Description
             </h3>
-            <p className={`text-sm leading-relaxed text-slate-400 whitespace-pre-line ${
+            <p className={`text-sm leading-relaxed whitespace-pre-line ${
               darkMode ? 'text-slate-300' : 'text-slate-600'
             }`}>
               {app.longDescription || app.description}
@@ -254,10 +258,10 @@ export const AppDetail: React.FC<AppDetailProps> = ({
 
         </div>
 
-        {/* Right column: Technical specs, checksums and automated integrity scanner */}
+        {/* Right column: Technical specs */}
         <div className="space-y-6">
           
-          {/* Informacion Table Section */}
+          {/* Information Table Section */}
           <div className={`p-5 rounded-2xl border ${
             darkMode ? 'bg-slate-900/40 border-slate-800' : 'bg-white border-slate-100'
           }`}>
@@ -300,92 +304,92 @@ export const AppDetail: React.FC<AppDetailProps> = ({
             </div>
           </div>
 
-          {/* Seguridad e Integridad Scanner */}
-          <div className={`p-5 rounded-2xl border ${
-            darkMode ? 'bg-slate-900/40 border-slate-800' : 'bg-white border-slate-100'
-          }`}>
-            <h3 className={`text-base font-display font-bold mb-3 flex items-center gap-2 ${
-              darkMode ? 'text-slate-200' : 'text-slate-800'
+          {/* Security Integrity Scanner */}
+          {app.security && (
+            <div className={`p-5 rounded-2xl border ${
+              darkMode ? 'bg-slate-900/40 border-slate-800' : 'bg-white border-slate-100'
             }`}>
-              <ShieldCheck className="w-5 h-5 text-emerald-400" />
-              <span>Security & Integrity</span>
-            </h3>
+              <h3 className={`text-base font-display font-bold mb-3 flex items-center gap-2 ${
+                darkMode ? 'text-slate-200' : 'text-slate-800'
+              }`}>
+                <ShieldCheck className="w-5 h-5 text-emerald-400" />
+                <span>Security & Integrity</span>
+              </h3>
 
-            {/* Scanner Display */}
-            <div className={`p-3.5 rounded-xl border mb-4 font-mono text-[11px] ${
-              darkMode ? 'bg-slate-950 border-slate-900 text-slate-300' : 'bg-slate-50 border-slate-200 text-slate-700'
-            }`}>
-              <div className="flex items-center justify-between mb-2">
-                <span className="text-slate-500 flex items-center gap-1">
-                  <Terminal className="w-3.5 h-3.5 text-store-accent" />
-                  Scanner v4.2
-                </span>
-                <span className={`font-bold ${
-                  scanState === 'scanning' ? 'text-yellow-400 animate-pulse' : 'text-emerald-400'
-                }`}>
-                  {scanState === 'scanning' ? `Verifying ${scanProgress}%` : 'COMPLETE'}
-                </span>
+              <div className={`p-3.5 rounded-xl border mb-4 font-mono text-[11px] ${
+                darkMode ? 'bg-slate-950 border-slate-900 text-slate-300' : 'bg-slate-50 border-slate-200 text-slate-700'
+              }`}>
+                <div className="flex items-center justify-between mb-2">
+                  <span className="text-slate-500 flex items-center gap-1">
+                    <Terminal className="w-3.5 h-3.5 text-store-accent" />
+                    Scanner v4.2
+                  </span>
+                  <span className={`font-bold ${
+                    scanState === 'scanning' ? 'text-yellow-400 animate-pulse' : 'text-emerald-400'
+                  }`}>
+                    {scanState === 'scanning' ? `Verifying ${scanProgress}%` : 'COMPLETE'}
+                  </span>
+                </div>
+
+                <div className="w-full bg-slate-800 rounded-full h-1 mb-3.5 overflow-hidden">
+                  <div 
+                    className={`h-full transition-all ${
+                      scanState === 'scanning' ? 'bg-yellow-400' : 'bg-emerald-400'
+                    }`}
+                    style={{ width: `${scanProgress}%` }}
+                  />
+                </div>
+
+                <div className="space-y-1.5">
+                  <div className="flex items-center gap-1.5">
+                    <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
+                    <span className="truncate">Original APK signature verified</span>
+                  </div>
+                  <div className="flex items-center gap-1.5">
+                    <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
+                    <span className="truncate">No adware, trojans, or spyware</span>
+                  </div>
+                  <div className="flex items-center gap-1.5">
+                    <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
+                    <span className="truncate">Active anti-detection protection</span>
+                  </div>
+                </div>
               </div>
 
-              {/* Progress bar */}
-              <div className="w-full bg-slate-800 rounded-full h-1 mb-3.5 overflow-hidden">
-                <div 
-                  className={`h-full transition-all ${
-                    scanState === 'scanning' ? 'bg-yellow-400' : 'bg-emerald-400'
-                  }`}
-                  style={{ width: `${scanProgress}%` }}
-                />
-              </div>
+              {/* Checksum Details */}
+              <div className="space-y-3.5">
+                <div className="flex gap-2.5 items-start">
+                  <div className={`p-1.5 rounded-lg shrink-0 ${darkMode ? 'bg-slate-900' : 'bg-slate-100'}`}>
+                    <FileCheck2 className="w-4 h-4 text-emerald-400" />
+                  </div>
+                  <div>
+                    <h4 className={`text-xs font-bold ${darkMode ? 'text-slate-300' : 'text-slate-700'}`}>Verified Checksum Signature</h4>
+                    <p className="text-[10px] text-slate-500 font-mono mt-0.5 break-all">{app.security.checksum}</p>
+                  </div>
+                </div>
 
-              <div className="space-y-1.5">
-                <div className="flex items-center gap-1.5">
-                  <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
-                  <span className="truncate">Original APK signature verified</span>
+                <div className="flex gap-2.5 items-start">
+                  <div className={`p-1.5 rounded-lg shrink-0 ${darkMode ? 'bg-slate-900' : 'bg-slate-100'}`}>
+                    <Lock className="w-4 h-4 text-store-accent" />
+                  </div>
+                  <div>
+                    <h4 className={`text-xs font-bold ${darkMode ? 'text-slate-300' : 'text-slate-700'}`}>Secure SSL Token</h4>
+                    <p className="text-[10px] text-slate-500 mt-0.5">{app.security.secureToken}</p>
+                  </div>
                 </div>
-                <div className="flex items-center gap-1.5">
-                  <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
-                  <span className="truncate">No adware, trojans, or spyware</span>
-                </div>
-                <div className="flex items-center gap-1.5">
-                  <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
-                  <span className="truncate">Active anti-detection protection</span>
+
+                <div className="flex gap-2.5 items-start">
+                  <div className={`p-1.5 rounded-lg shrink-0 ${darkMode ? 'bg-slate-900' : 'bg-slate-100'}`}>
+                    <Server className="w-4 h-4 text-blue-400" />
+                  </div>
+                  <div>
+                    <h4 className={`text-xs font-bold ${darkMode ? 'text-slate-300' : 'text-slate-700'}`}>Protected Servers</h4>
+                    <p className="text-[10px] text-slate-500 mt-0.5">{app.security.cloudStorage}</p>
+                  </div>
                 </div>
               </div>
             </div>
-
-            {/* Checksum Details */}
-            <div className="space-y-3.5">
-              <div className="flex gap-2.5 items-start">
-                <div className={`p-1.5 rounded-lg shrink-0 ${darkMode ? 'bg-slate-900' : 'bg-slate-100'}`}>
-                  <FileCheck2 className="w-4 h-4 text-emerald-400" />
-                </div>
-                <div>
-                  <h4 className={`text-xs font-bold ${darkMode ? 'text-slate-300' : 'text-slate-700'}`}>Verified Checksum Signature</h4>
-                  <p className="text-[10px] text-slate-500 font-mono mt-0.5 break-all">{app.security.checksum}</p>
-                </div>
-              </div>
-
-              <div className="flex gap-2.5 items-start">
-                <div className={`p-1.5 rounded-lg shrink-0 ${darkMode ? 'bg-slate-900' : 'bg-slate-100'}`}>
-                  <Lock className="w-4 h-4 text-store-accent" />
-                </div>
-                <div>
-                  <h4 className={`text-xs font-bold ${darkMode ? 'text-slate-300' : 'text-slate-700'}`}>Secure SSL Token</h4>
-                  <p className="text-[10px] text-slate-500 mt-0.5">{app.security.secureToken}</p>
-                </div>
-              </div>
-
-              <div className="flex gap-2.5 items-start">
-                <div className={`p-1.5 rounded-lg shrink-0 ${darkMode ? 'bg-slate-900' : 'bg-slate-100'}`}>
-                  <Server className="w-4 h-4 text-blue-400" />
-                </div>
-                <div>
-                  <h4 className={`text-xs font-bold ${darkMode ? 'text-slate-300' : 'text-slate-700'}`}>Protected Servers</h4>
-                  <p className="text-[10px] text-slate-500 mt-0.5">{app.security.cloudStorage}</p>
-                </div>
-              </div>
-            </div>
-          </div>
+          )}
 
         </div>
 
