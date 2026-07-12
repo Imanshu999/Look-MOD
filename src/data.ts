@@ -31,7 +31,6 @@ export const APPS_DATA: AppItem[] = [
     downloadUrl: "https://download.liteapks.dev/CapCut/CapCut%20v18.5.0%20b18500002%20(Pro).apk?token=TVRjNE16ZzFNamszTkE9PQ%3D%3D",
     videoUrl: "https://www.youtube.com/watch?v=kGgVfFhVvWk", // Added video URL
     screenshots: [
-      "https://youtube.com/watch?v=k9ieSzR_MSw"'
       "https://play-lh.googleusercontent.com/bVcUMymeJZIxp5p01Ttmc1FHp9Jy501K4lQHB3-OXXSVfNLE6tUa76PY1goZ-O_VBg",
       "https://play-lh.googleusercontent.com/tc7WpgpN90ij7FFkefwBwntXqPdS5TBCk0895Lf5-jB7rPIyz0FdH6OefiWNGlfpDTs",
       "https://play-lh.googleusercontent.com/WfwbtHi4g3vglzS6VgUxeRts_g_wgQ1tSa5DLQl91M4kOoTg8BQFsXi16J4FwIdIKTL_",
