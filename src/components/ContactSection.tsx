@@ -15,16 +15,41 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ darkMode }) => {
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
 
-    // Simulate safe API trigger
-    setTimeout(() => {
+    try {
+      // 🚀 Asli message bhej raha hai tumhari Gmail par
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          access_key: "MY_API_KEY", // 👈 Tumhari Access Key yahan set kar di hai
+          name: formData.name,
+          email: formData.email,
+          subject: `Takano3D Store: New Request from ${formData.name}`,
+          appName: formData.appName,
+          message: `Requested App: ${formData.appName}\n\nMessage/Details:\n${formData.message}`,
+        }),
+      });
+
+      const result = await response.json();
+      if (result.success) {
+        setSubmitted(true);
+        setFormData({ name: '', email: '', appName: '', message: '' });
+      } else {
+        alert("Message bhejne me koi dikkat aayi, please firse check karein.");
+      }
+    } catch (error) {
+      console.error("Form error:", error);
+      alert("Internet connectivity check karein.");
+    } finally {
       setLoading(false);
-      setSubmitted(true);
-      setFormData({ name: '', email: '', appName: '', message: '' });
-    }, 1200);
+    }
   };
 
   return (
