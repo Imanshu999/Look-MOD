@@ -22,11 +22,10 @@ export const AppDetail: React.FC<AppDetailProps> = ({
   const [downloadCountdown, setDownloadCountdown] = useState(5);
   const [copied, setCopied] = useState(false);
 
-  // Trigger reset and start scanner whenever a DIFFERENT app loads
   useEffect(() => {
     setScanState('scanning');
     setScanProgress(0);
-    setDownloading(false); // Reset download state on app change
+    setDownloading(false);
     
     const interval = setInterval(() => {
       setScanProgress((prev) => {
@@ -40,9 +39,8 @@ export const AppDetail: React.FC<AppDetailProps> = ({
     }, 120);
 
     return () => clearInterval(interval);
-  }, [app.id, app.slug]); // Added slug to keep it highly reactive
+  }, [app.id, app.slug]);
 
-  // Handle simulated download triggers
   const triggerDownload = () => {
     setDownloading(true);
     setDownloadCountdown(5);
@@ -80,7 +78,6 @@ export const AppDetail: React.FC<AppDetailProps> = ({
   return (
     <div className="space-y-6 animate-fade-in" key={app.id}>
       
-      {/* Back & Action Header */}
       <div className="flex items-center justify-between gap-4">
         <button
           onClick={onBack}
@@ -107,14 +104,12 @@ export const AppDetail: React.FC<AppDetailProps> = ({
         </button>
       </div>
 
-      {/* Main App Hero Details */}
       <div className={`p-5 sm:p-6 rounded-2xl border ${
         darkMode ? 'bg-slate-900/40 border-slate-800' : 'bg-white border-slate-100'
       }`}>
-        <div className="flex flex-col sm:flex-row gap-5 items-start sm:items-center">
+        <div className="flex flex-col items-center text-center gap-5">
           
-          {/* Large App Icon */}
-          <div className="relative w-24 h-24 sm:w-28 sm:h-28 rounded-2xl overflow-hidden border border-slate-700/20 shadow-xl shrink-0 mx-auto sm:mx-0">
+          <div className="relative w-24 h-24 sm:w-28 sm:h-28 rounded-2xl overflow-hidden border border-slate-700/20 shadow-xl shrink-0 mx-auto">
             <img 
               src={app.icon} 
               alt={app.name} 
@@ -123,9 +118,8 @@ export const AppDetail: React.FC<AppDetailProps> = ({
             />
           </div>
 
-          {/* Central Title Details */}
-          <div className="flex-1 text-center sm:text-left min-w-0">
-            <div className="flex flex-wrap items-center justify-center sm:justify-start gap-2 mb-1.5">
+          <div className="flex-1 text-center min-w-0">
+            <div className="flex flex-wrap items-center justify-center gap-2 mb-1.5">
               <span className={`text-[10px] font-mono font-bold px-2 py-0.5 rounded-full ${
                 darkMode ? 'bg-slate-800 text-blue-400' : 'bg-slate-100 text-blue-600'
               }`}>
@@ -143,7 +137,7 @@ export const AppDetail: React.FC<AppDetailProps> = ({
             </h2>
             <p className="text-sm text-slate-500">{app.developer}</p>
 
-            <div className="flex items-center justify-center sm:justify-start gap-4 mt-3 text-xs">
+            <div className="flex items-center justify-center gap-4 mt-3 text-xs">
               <div className="flex items-center text-yellow-400 font-mono font-bold">
                 <Star className="w-4 h-4 fill-current mr-1" />
                 <span>{app.rating} / 5</span>
@@ -155,12 +149,11 @@ export const AppDetail: React.FC<AppDetailProps> = ({
             </div>
           </div>
 
-          {/* Action Callouts */}
-          <div className="w-full sm:w-auto shrink-0 flex flex-col gap-2">
+          <div className="w-full max-w-md shrink-0 flex flex-col gap-2 mx-auto">
             <button
               onClick={triggerDownload}
               disabled={downloading}
-              className={`w-full sm:w-auto flex items-center justify-center gap-2 py-3 px-6 rounded-xl font-bold text-sm text-white transition-all shadow-lg cursor-pointer ${
+              className={`w-full flex items-center justify-center gap-2 py-3 px-6 rounded-xl font-bold text-sm text-white transition-all shadow-lg cursor-pointer ${
                 downloading 
                   ? 'bg-slate-800 cursor-not-allowed' 
                   : 'bg-store-accent hover:bg-blue-600 shadow-store-accent/20 hover:shadow-store-accent/35 active:scale-95'
@@ -178,7 +171,6 @@ export const AppDetail: React.FC<AppDetailProps> = ({
 
         </div>
 
-        {/* Dynamic Download Dialog/Panel when downloading */}
         {downloading && (
           <div className={`mt-5 p-4 rounded-xl border animate-pulse ${
             darkMode ? 'bg-slate-950/60 border-slate-800' : 'bg-slate-50 border-slate-200'
@@ -200,13 +192,10 @@ export const AppDetail: React.FC<AppDetailProps> = ({
         )}
       </div>
 
-      {/* Description Grid */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         
-        {/* Left column: Overview, features, and screenshots */}
         <div className="lg:col-span-2 space-y-6">
           
-          {/* Dynamic Screenshots Container */}
           {app.screenshots && app.screenshots.length > 0 && (
             <div className={`p-5 rounded-2xl border ${
               darkMode ? 'bg-slate-900/40 border-slate-800' : 'bg-white border-slate-100'
@@ -240,7 +229,6 @@ export const AppDetail: React.FC<AppDetailProps> = ({
             </div>
           )}
 
-          {/* About / Long Description */}
           <div className={`p-5 rounded-2xl border ${
             darkMode ? 'bg-slate-900/40 border-slate-800' : 'bg-white border-slate-100'
           }`}>
@@ -258,10 +246,8 @@ export const AppDetail: React.FC<AppDetailProps> = ({
 
         </div>
 
-        {/* Right column: Technical specs */}
         <div className="space-y-6">
           
-          {/* Information Table Section */}
           <div className={`p-5 rounded-2xl border ${
             darkMode ? 'bg-slate-900/40 border-slate-800' : 'bg-white border-slate-100'
           }`}>
@@ -304,7 +290,6 @@ export const AppDetail: React.FC<AppDetailProps> = ({
             </div>
           </div>
 
-          {/* Security Integrity Scanner */}
           {app.security && (
             <div className={`p-5 rounded-2xl border ${
               darkMode ? 'bg-slate-900/40 border-slate-800' : 'bg-white border-slate-100'
@@ -356,7 +341,6 @@ export const AppDetail: React.FC<AppDetailProps> = ({
                 </div>
               </div>
 
-              {/* Checksum Details */}
               <div className="space-y-3.5">
                 <div className="flex gap-2.5 items-start">
                   <div className={`p-1.5 rounded-lg shrink-0 ${darkMode ? 'bg-slate-900' : 'bg-slate-100'}`}>
