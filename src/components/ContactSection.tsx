@@ -28,7 +28,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ darkMode }) => {
           Accept: "application/json",
         },
         body: JSON.stringify({
-          access_key: "MY_API_KEY", // 👈 Tumhari Access Key yahan set kar di hai
+          access_key: "9372fab7-4028-49ff-8d55-8b9d6aa556ff", // 👈 Tumhari Access Key yahan set kar di hai
           name: formData.name,
           email: formData.email,
           subject: `Takano3D Store: New Request from ${formData.name}`,
