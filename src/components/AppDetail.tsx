@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { 
   ArrowLeft, Star, Download, ShieldCheck, 
-  Info, CheckCircle2, RefreshCw, Terminal, Lock, Server, FileCheck2, Share2, Sparkles, X, ChevronLeft, ChevronRight 
+  Info, CheckCircle2, RefreshCw, Terminal, Lock, Server, FileCheck2, Share2, Sparkles, X, ChevronLeft, ChevronRight,
+  Video // Added Video icon for the trailer section
 } from 'lucide-react';
 import { AppItem } from '../types';
 
@@ -79,6 +80,16 @@ export const AppDetail: React.FC<AppDetailProps> = ({
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
   };
+
+  // Helper to extract YouTube ID and build embed URL safely
+  const getYouTubeEmbedUrl = (url?: string) => {
+    if (!url) return null;
+    const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/;
+    const match = url.match(regExp);
+    return (match && match[2].length === 11) ? `https://www.youtube.com/embed/${match[2]}` : null;
+  };
+
+  const embedUrl = getYouTubeEmbedUrl(app.videoUrl);
 
   // Lightbox Navigation Functions
   const showPrev = (e?: React.MouseEvent) => {
@@ -248,6 +259,30 @@ export const AppDetail: React.FC<AppDetailProps> = ({
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         
         <div className="lg:col-span-2 space-y-6">
+          
+          {/* Dynamic Video Trailer Section */}
+          {embedUrl && (
+            <div className={`p-5 rounded-2xl border ${
+              darkMode ? 'bg-slate-900/40 border-slate-800' : 'bg-white border-slate-100'
+            }`}>
+              <h3 className={`text-base font-display font-bold mb-4 flex items-center gap-2 ${
+                darkMode ? 'text-slate-200' : 'text-slate-800'
+              }`}>
+                <Video className="w-4.5 h-4.5 text-store-accent" />
+                <span>Video Trailer / Gameplay</span>
+              </h3>
+              <div className="relative w-full aspect-video rounded-xl overflow-hidden border border-slate-800/20 shadow-md">
+                <iframe
+                  className="absolute inset-0 w-full h-full"
+                  src={embedUrl}
+                  title={`${app.name} Video Trailer`}
+                  frameBorder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowFullScreen
+                ></iframe>
+              </div>
+            </div>
+          )}
           
           {/* Dynamic Screenshots Container */}
           {app.screenshots && app.screenshots.length > 0 && (
