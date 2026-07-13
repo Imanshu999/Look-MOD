@@ -180,25 +180,29 @@ export const APPS_DATA: AppItem[] = [
   },
   {
     id: "6",
-    name: "TikTok Plus",
-    slug: "tiktok-plus",
-    developer: "TikTok Ltd",
+    name: "InstaPro",
+    slug: "instapro",
+    developer: "Sam MOD",
     rating: "4.7",
     downloads: "1B",
-    size: "110 MB",
+    size: "173.68 MB",
     version: "32.8.4",
     category: "Social",
     type: "App",
     updatedAt: "05/07/2026",
-    icon: "https://images.unsplash.com/photo-1598257006458-087169a1f08d?w=150&auto=format&fit=crop&q=80",
+    icon: "https://apps2app.com/wp-content/uploads/2026/03/Insta-Pro-APK-150x150.png",
     description: "Watch millions of videos from around the world and download videos without watermarks.",
-    longDescription: "TikTok Plus is an advanced modified version of the social media giant. It allows you to download any video directly to your local gallery without watermarks or logos. In addition, it removes all annoying sponsored ads from the main feed, unlocks high-fidelity audio playback, and adds a special button to change the geographical region of the feed to explore trends from any country in the world.",
-    downloadUrl: "https://lookmodstore-cdn.takano3d.com/apks/TikTok_Plus_v32.8.4_Mod.apk",
-    videoUrl: "https://www.youtube.com/watch?v=2n-1t6BccWw", // Added video URL
+    longDescription: "InstaPro is an advanced modified version of the social media giant. It allows you to download any photo, video, or reel directly to your local gallery without watermarks. In addition, it removes all annoying sponsored ads from the main feed, unlocks high-fidelity media upload quality, and adds special privacy controls to view stories anonymously, hide typing status, and read messages without sending read receipts.
+      ",
+    downloadUrl: "https://www.mediafire.com/file/gn9tjx0oui36cl4/InstaPro-v15.20-look-mod.vercel.app.apk/file",
+    videoUrl: "https://youtube.com/watch?v=YXUF8lvSNyU", // Added video URL
     screenshots: [
-      "https://images.unsplash.com/photo-1611162616305-c6a5ae5d2efd?w=600&auto=format&fit=crop&q=80",
-      "https://images.unsplash.com/photo-1563986768609-322da13575f3?w=600&auto=format&fit=crop&q=80",
-      "https://images.unsplash.com/photo-1516251193007-45ef944ab0c6?w=600&auto=format&fit=crop&q=80"
+      "https://play-lh.googleusercontent.com/hZ2Ob6d0MqLse2lIdNOGgl93H5y82uhX4hC6mWDUpdwK8LjXAunweDQZ6Hocy0riv4KX0lTIzKJz6lhRDV_BiHg=h305",
+      "https://play-lh.googleusercontent.com/EvykD5h_-49MNu1JNfAyP0h9xMLceepomvT4DmZgJcy51a6My9G4XjxILgO7LCnEgfYElXY5tWnpmiaZMfMT=h305",
+      "https://play-lh.googleusercontent.com/7h2Yo9e9ay8J4Uwt5WkhPCyfLQtI1LzcMbqopSbcGlUcnNS1gWtu9Q2jto2WvhgtB2roGwWyp7wsZudyHhqeLw=h305",
+      "https://play-lh.googleusercontent.com/CxApBF84EDVWl6wUS1yeQcCdsOGaFgaI3lujcVqRuIUJiPcxGoPvy7br1D3f9XKW8VRT6hyHlZFFYR0ZbKSz4A=h305",
+      "https://play-lh.googleusercontent.com/Jr_DSebXQK02c2iHuZ5thdxg5v3UsOY2wfE7LpaAuhpZxi-ZQeJfILU21zJODaZOg05ZqyzQ2m05nG42ald3=h305",
+      "https://play-lh.googleusercontent.com/zYyKKicgmcvhFArPvVoqjUogVev1xsRkX8sa3HGuFJmJ-XiDljYfvinWCK6gzEXcYXruCIb-wbaxeWJnvM1_PA=h305"
     ],
     security: {
       checksum: "SHA-256: d241e4d372fc5927ad81d3542a4192dd",
