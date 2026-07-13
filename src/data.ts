@@ -128,11 +128,11 @@ export const APPS_DATA: AppItem[] = [
     category: "Music & Audio",
     type: "App",
     updatedAt: "11/07/2026",
-    icon: "https://images.unsplash.com/photo-1611339555312-e607c8352fd7?w=150&auto=format&fit=crop&q=80",
+    icon: "https://apkgstore.co/wp-content/uploads/2025/09/spotify-app-msica-y-podcasts-thumbnail-18615853.webp",
     description: "Listen to millions of songs, albums, and original podcasts without commercial ads.",
     longDescription: "Enjoy the best music and podcasts without limits. With Spotify Premium MOD, you will have the ultimate experience without audio or video advertising interruptions. Unlock the ability to skip songs unlimitedly, play any track you want on-demand with extreme audio quality (320kbps), and activate the music search bar. This version is optimized to consume less battery and RAM, allowing you to browse playlists and artists instantly.",
-    downloadUrl: "https://lookmodstore-cdn.takano3d.com/apks/Spotify_Premium_v8.9.22_Mod.apk",
-    videoUrls: ["https://www.youtube.com/watch?v=HUp3Xj7a86w"], // Converted to array support
+    downloadUrl: "https://www.mediafire.com/file/xlh990he1t8u8pf/Spotify_Web_Premium_v1.0.0.apk/file",
+    videoUrls: ["https://youtube.com/watch?v=wx2i9zOLSBM"], // Converted to array support
     screenshots: [
       "https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=600&auto=format&fit=crop&q=80",
       "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?w=600&auto=format&fit=crop&q=80",
