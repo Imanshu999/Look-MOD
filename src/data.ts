@@ -219,20 +219,30 @@ export const APPS_DATA: AppItem[] = [
     developer: "Netflix Inc.",
     rating: "4.5",
     downloads: "100M",
-    size: "42 MB",
+    size: "10 MB",
     version: "10.6.2",
-    category: "Video Editor",
+    category: "Movie",
     type: "App",
     updatedAt: "04/07/2026",
-    icon: "https://images.unsplash.com/photo-1574375927938-d5a98e8ffe85?w=150&auto=format&fit=crop&q=80",
+    icon: "https://apkgstore.co/wp-content/uploads/2026/06/netflix-icon-09428465.png",
     description: "Watch exclusive movies and TV shows in 4K HDR resolution without paying a monthly subscription.",
     longDescription: "Netflix Premium MOD offers you unlimited access to the entire original Netflix catalog, trending world TV series, award-winning documentaries, and stunning cinematic feature films. The best part is that it does not require registering a credit card or paying monthly fees. Stream simultaneously on up to 4 devices in UHD 4K resolution and Dolby Atmos surround sound. Includes multi-language options with perfect subtitles.",
-    downloadUrl: "https://lookmodstore-cdn.takano3d.com/apks/Netflix_Premium_v10.6.2_Mod.apk",
-    videoUrl: "https://www.youtube.com/watch?v=GV3HUDMQ-F8", // Added video URL
+    downloadUrl: "https://www.mediafire.com/file/6gc2lq1qarpe74t/NetFlix+Mirror+Pro+v9.72.0-look-mod.vercel.app.apk/file",
+    videoUrl: [
+      "https://www.youtube.com/watch?v=GV3HUDMQ-F8", // Added video URL
+      "https://youtu.be/L5AM7I2JgDM?si=LmpHNAwb73h4CHzH"
+      ]
     screenshots: [
-      "https://images.unsplash.com/photo-1522869635100-9f4c5e86aa37?w=600&auto=format&fit=crop&q=80",
-      "https://images.unsplash.com/photo-1594909122845-11baa439b7bf?w=600&auto=format&fit=crop&q=80",
-      "https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?w=600&auto=format&fit=crop&q=80"
+      "https://play-lh.googleusercontent.com/bJrIdbqnzVixnnsYe8MgD2Ifsj95Az71ZBVyfHn34mLutfkWFvZG6W6Y6UAVQFBB6pnBFeX3NunRb23DqW-V6w",
+      "https://play-lh.googleusercontent.com/QWBsHU-ACYxbmx-JsQd1UKL3QYiIe1nVqi4WnrC6D7FvRdIjo4RCrA3sS9gvTF8LLdg5w5ScBx1gRCZVtMqEB98",
+      "https://play-lh.googleusercontent.com/-JL_3aAY99L85bez_VDAd2Kj_vITNDjLP7tjQqhf8JEbW1N3ppKBDSak4RKtkcLLC9EEBPSq3kzK0R91pklypQ",
+      "https://play-lh.googleusercontent.com/-JL_3aAY99L85bez_VDAd2Kj_vITNDjLP7tjQqhf8JEbW1N3ppKBDSak4RKtkcLLC9EEBPSq3kzK0R91pklypQ",
+      "https://play-lh.googleusercontent.com/UBMcCQ95xZuppNDv4DHCai60jqzxHNpgPNDPlp7ZBT-T-RS6YRdmyAic6TxwYR9hP5atUv7U21MvsdBuHHB2wA"'
+      "https://play-lh.googleusercontent.com/cxnMndqnsbcFGfLDk0lgxWJFRbO95GMle7runCUqOK1tV4tyW2ZdYVhD6JfPfRtQicF1DWVyMsXr6fGNu_UmGg"'
+      "https://play-lh.googleusercontent.com/1a1yokGJqW3LaJEqu4ai-l4-zKz4Fy0KR8LhggJfy4Q4vDgtJ9VWjViVPBghorazrYiQgUgKmzEKYw88m7t7MQ"'
+      "https://play-lh.googleusercontent.com/fZHmTfieMrR8QpiqJyaUOQBjWEtWZ2jFEesdShn4gchWtpSIf6RtLGYD7Ct2sLp7_XP1Gfkh248pqF6fy-gDdwI"'
+      "https://play-lh.googleusercontent.com/DmM6jsNTdgqNoDC-npaxhkxY6VCS49Z5B-pacu0RP4mWxFlYOhs2w8ZxJhofG3UaYMcpVh6tB0by6YXRlD5gLQ"'
+      "https://play-lh.googleusercontent.com/mRlPKnD8yWWILvIKEpSnE28niTg3e2UGkoXmUTPIcwAVzKG3P8C0inohOpkbkvtAKB-THH4wae2DQh1Py1JVSQ"
     ],
     security: {
       checksum: "SHA-256: e810e4d372fc5927ad81d3542a419ab7",
