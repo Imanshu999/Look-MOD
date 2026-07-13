@@ -1,3 +1,5 @@
+Dako jo ya image ha es ka size ki es YouTube video wal ko kr do please 
+
 import React, { useState, useEffect } from 'react';
 import { 
   ArrowLeft, Star, Download, ShieldCheck, 
@@ -274,7 +276,7 @@ export const AppDetail: React.FC<AppDetailProps> = ({
 
               <div className="flex gap-4 overflow-x-auto pb-3 scrollbar-thin scrollbar-thumb-slate-700 scrollbar-track-transparent snap-x items-center">
                 
-                {/* 1. Multiple Videos Loop - FIX: FIXED HEIGHT TO MATCH IMAGES */}
+                {/* 1. Multiple Videos Loop */}
                 {app.videoUrls && app.videoUrls.map((videoUrl, vIdx) => {
                   const embedUrl = getYouTubeEmbedUrl(videoUrl);
                   if (!embedUrl) return null;
@@ -282,7 +284,7 @@ export const AppDetail: React.FC<AppDetailProps> = ({
                   return (
                     <div 
                       key={`video-${vIdx}`} 
-                      className="rounded-xl overflow-hidden border border-slate-800/40 shadow-md shrink-0 snap-start bg-black h-[280px] sm:h-[360px] aspect-[9/16] relative"
+                      className="rounded-xl overflow-hidden border border-slate-800/40 shadow-md shrink-0 snap-start bg-black w-[280px] sm:w-[360px] aspect-[9/16] max-h-[280px] sm:max-h-[360px] relative"
                     >
                       <iframe
                         className="absolute inset-0 w-full h-full"
