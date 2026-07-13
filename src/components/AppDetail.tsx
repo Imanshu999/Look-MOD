@@ -469,10 +469,11 @@ export const AppDetail: React.FC<AppDetailProps> = ({
 
       </div>
 
-      {/* --- RECOMMENDED SECTION WITH ALL HANDLERS & PROPS INTRACT --- */}
+      {/* --- RECOMMENDED SECTION WITH ALL HANDLERS & PROPS INTERACT --- */}
       <RecommendedApps 
         currentCategory={app.category}
         currentAppId={app.id} 
+        onAppClick={onAppChange}
       />
 
       {/* --- ADVANCED INTERACTIVE LIGHTBOX MODAL WITH ARROWS --- */}
