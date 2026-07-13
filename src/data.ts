@@ -230,7 +230,7 @@ export const APPS_DATA: AppItem[] = [
     downloadUrl: "https://www.mediafire.com/file/6gc2lq1qarpe74t/NetFlix+Mirror+Pro+v9.72.0-look-mod.vercel.app.apk/file",
     videoUrl: [
       "https://www.youtube.com/watch?v=GV3HUDMQ-F8", // Added video URL
-      "https://youtu.be/L5AM7I2JgDM?si=LmpHNAwb73h4CHzH"
+      "https://youtu.be/L5AM7I2JgDM?si=LmpHNAwb73h4CHzH",
       ]
     screenshots: [
       "https://play-lh.googleusercontent.com/bJrIdbqnzVixnnsYe8MgD2Ifsj95Az71ZBVyfHn34mLutfkWFvZG6W6Y6UAVQFBB6pnBFeX3NunRb23DqW-V6w",
