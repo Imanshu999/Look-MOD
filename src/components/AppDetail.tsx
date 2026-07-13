@@ -83,12 +83,14 @@ export const AppDetail: React.FC<AppDetailProps> = ({
     setTimeout(() => setCopied(false), 2000);
   };
 
-  // Helper to extract YouTube ID and build embed URL safely
+  // Helper to extract YouTube ID and build clean vertical/embed URL
   const getYouTubeEmbedUrl = (url?: string) => {
     if (!url) return null;
-    const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/;
+    const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=|\/shorts\/)([^#\&\?]*).*/;
     const match = url.match(regExp);
-    return (match && match[2].length === 11) ? `https://www.youtube.com/embed/${match[2]}` : null;
+    return (match && match[2].length === 11) 
+      ? `https://www.youtube.com/embed/${match[2]}?autoplay=0&mute=1&modestbranding=1&rel=0` 
+      : null;
   };
 
   // Lightbox Navigation Functions
@@ -272,7 +274,7 @@ export const AppDetail: React.FC<AppDetailProps> = ({
                 <span>Multimedia / Gallery</span>
               </h3>
 
-              <div className="flex gap-4 overflow-x-auto pb-3 scrollbar-thin scrollbar-thumb-slate-700 scrollbar-track-transparent snap-x items-center">
+              <div className="flex gap-4 overflow-x-auto pb-3 scrollbar-thin scrollbar-thumb-slate-700 scrollbar-track-transparent snap-x items-stretch">
                 
                 {/* 1. Multiple Videos Loop */}
                 {app.videoUrls && app.videoUrls.map((videoUrl, vIdx) => {
@@ -282,10 +284,10 @@ export const AppDetail: React.FC<AppDetailProps> = ({
                   return (
                     <div 
                       key={`video-${vIdx}`} 
-                      className="rounded-xl overflow-hidden border border-slate-800/40 shadow-md shrink-0 snap-start bg-black w-[280px] sm:w-[360px] aspect-[9/16] max-h-[280px] sm:max-h-[360px] relative"
+                      className="rounded-xl overflow-hidden border border-slate-800/40 shadow-md shrink-0 snap-start bg-black w-[200px] sm:w-[220px] aspect-[9/16] relative"
                     >
                       <iframe
-                        className="absolute inset-0 w-full h-full"
+                        className="absolute inset-0 w-full h-full object-cover"
                         src={embedUrl}
                         title={`${app.name} Video Trailer ${vIdx + 1}`}
                         frameBorder="0"
@@ -301,12 +303,12 @@ export const AppDetail: React.FC<AppDetailProps> = ({
                   <div 
                     key={`screen-${idx}`} 
                     onClick={() => setSelectedIndex(idx)}
-                    className="rounded-xl overflow-hidden border border-slate-800/40 shadow-md shrink-0 snap-start bg-slate-950/10 max-h-[280px] sm:max-h-[360px] transition-all duration-300 cursor-zoom-in"
+                    className="rounded-xl overflow-hidden border border-slate-800/40 shadow-md shrink-0 snap-start bg-slate-950/10 w-[200px] sm:w-[220px] aspect-[9/16] transition-all duration-300 cursor-zoom-in"
                   >
                     <img 
                       src={screenshot} 
                       alt={`${app.name} screenshot ${idx + 1}`} 
-                      className="h-[280px] sm:h-[360px] w-auto object-contain hover:scale-102 transition-transform duration-300"
+                      className="w-full h-full object-cover hover:scale-102 transition-transform duration-300"
                       referrerPolicy="no-referrer"
                     />
                   </div>
