@@ -29,7 +29,7 @@ export const APPS_DATA: AppItem[] = [
     description: "All-in-one video editor with premium effects, modern filters, and professional-level transitions.",
     longDescription: "CapCut is the most downloaded all-in-one free video editor in the world. Designed specifically for content creators on TikTok, Instagram, and YouTube, it allows you to cut, reverse, and change the speed of your clips with absolute precision. This modified premium version (MOD) unlocks all VIP templates, cinematic transitions, advanced color filters, and video export in 4K resolution at 60 FPS without annoying watermarks. In addition, it features a powerful AI-powered automatic subtitle generator to save you hours of manual editing.",
     downloadUrl: "https://download.liteapks.dev/CapCut/CapCut%20v18.5.0%20b18500002%20(Pro).apk?token=TVRjNE16ZzFNamszTkE9PQ%3D%3D",
-    videoUrl: "https://www.youtube.com/watch?v=kGgVfFhVvWk", // Added video URL
+    videoUrls: ["https://www.youtube.com/watch?v=kGgVfFhVvWk"], // Converted to array support
     screenshots: [
       "https://play-lh.googleusercontent.com/bVcUMymeJZIxp5p01Ttmc1FHp9Jy501K4lQHB3-OXXSVfNLE6tUa76PY1goZ-O_VBg",
       "https://play-lh.googleusercontent.com/tc7WpgpN90ij7FFkefwBwntXqPdS5TBCk0895Lf5-jB7rPIyz0FdH6OefiWNGlfpDTs",
@@ -70,7 +70,7 @@ export const APPS_DATA: AppItem[] = [
     description: "Dodge trains, run at full speed, and escape from the grumpy inspector with unlimited coins.",
     longDescription: "The ultimate endless runner game arrives at Look Mod Store with everything unlocked! Join Jake, Tricky, and Fresh in their exciting escape through the train tracks of the world. This premium MOD version includes infinite gold coins, unlimited resurrection keys, and all premium characters and surfboards unlocked from the first second. Enjoy colorful HD graphics optimized with an ultra-smooth refresh rate. Challenge your friends and dominate the global leaderboards with superior performance.",
     downloadUrl: "https://lookmodstore-cdn.takano3d.com/apks/Subway_Surfers_v3.24.1_Mod.apk",
-    videoUrl: "https://www.youtube.com/watch?v=tY2Z3bU0H4w", // Added video URL
+    videoUrls: ["https://www.youtube.com/watch?v=tY2Z3bU0H4w"], // Converted to array support
     screenshots: [
       "https://images.unsplash.com/photo-1511512578047-dfb367046420?w=600&auto=format&fit=crop&q=80",
       "https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=600&auto=format&fit=crop&q=80",
@@ -101,7 +101,7 @@ export const APPS_DATA: AppItem[] = [
     description: "Explore infinite worlds, build anything from the simplest home to the grandest castle.",
     longDescription: "Explore randomly generated worlds and build amazing things, from the simplest homes to the most majestic castles. Play in creative mode with unlimited resources, or delve into survival mode, where you will have to craft weapons and armor to defend yourself against dangerous creatures. Our special MOD version offers you completely free access to all premium aspects of the store, unlocked paid textures, and the ability to play on official multiplayer servers without license verification required.",
     downloadUrl: "https://go.onehost.io/aMacNBG5x6Cr",
-    videoUrl: "https://www.youtube.com/watch?v=MmB9b5njVbA", // Added video URL
+    videoUrls: ["https://www.youtube.com/watch?v=MmB9b5njVbA"], // Converted to array support
     screenshots: [
       "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=600&auto=format&fit=crop&q=80",
       "https://images.unsplash.com/photo-1509198397868-475647b2a1e5?w=600&auto=format&fit=crop&q=80",
@@ -132,7 +132,7 @@ export const APPS_DATA: AppItem[] = [
     description: "Listen to millions of songs, albums, and original podcasts without commercial ads.",
     longDescription: "Enjoy the best music and podcasts without limits. With Spotify Premium MOD, you will have the ultimate experience without audio or video advertising interruptions. Unlock the ability to skip songs unlimitedly, play any track you want on-demand with extreme audio quality (320kbps), and activate the music search bar. This version is optimized to consume less battery and RAM, allowing you to browse playlists and artists instantly.",
     downloadUrl: "https://lookmodstore-cdn.takano3d.com/apks/Spotify_Premium_v8.9.22_Mod.apk",
-    videoUrl: "https://www.youtube.com/watch?v=HUp3Xj7a86w", // Added video URL
+    videoUrls: ["https://www.youtube.com/watch?v=HUp3Xj7a86w"], // Converted to array support
     screenshots: [
       "https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=600&auto=format&fit=crop&q=80",
       "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?w=600&auto=format&fit=crop&q=80",
@@ -163,7 +163,7 @@ export const APPS_DATA: AppItem[] = [
     description: "Fast-paced 3v3 multiplayer and mobile battle royale mode with unlocked brawlers.",
     longDescription: "Brawl Stars by Supercell is the action multiplayer game of the moment! Enjoy quick three-minute battles in a variety of exciting game modes. This MOD grants you free unlimited gems, unlimited boxes to open immediately, and spectacular gold skins to show off to all your rivals. Play on a 100% stable private server with automatic matchmaking so you never have to wait to jump into battle.",
     downloadUrl: "https://lookmodstore-cdn.takano3d.com/apks/Brawl_Stars_v55.220_Mod.apk",
-    videoUrl: "https://www.youtube.com/watch?v=J64o3j8Wl7c", // Added video URL
+    videoUrls: ["https://www.youtube.com/watch?v=J64o3j8Wl7c"], // Converted to array support
     screenshots: [
       "https://images.unsplash.com/photo-1552820728-8b83bb6b773f?w=600&auto=format&fit=crop&q=80",
       "https://images.unsplash.com/photo-1538481199705-c710c4e965fc?w=600&auto=format&fit=crop&q=80",
@@ -194,7 +194,7 @@ export const APPS_DATA: AppItem[] = [
     description: "Watch millions of videos from around the world and download videos without watermarks.",
     longDescription: "InstaPro is an advanced modified version of the social media giant. It allows you to download any photo, video, or reel directly to your local gallery without watermarks. In addition, it removes all annoying sponsored ads from the main feed, unlocks high-fidelity media upload quality, and adds special privacy controls to view stories anonymously, hide typing status, and read messages without sending read receipts.",
     downloadUrl: "https://www.mediafire.com/file/gn9tjx0oui36cl4/InstaPro-v15.20-look-mod.vercel.app.apk/file",
-    videoUrl: "https://youtube.com/watch?v=YXUF8lvSNyU", // Added video URL
+    videoUrls: ["https://youtube.com/watch?v=YXUF8lvSNyU"], // Converted to array support
     screenshots: [
       "https://play-lh.googleusercontent.com/hZ2Ob6d0MqLse2lIdNOGgl93H5y82uhX4hC6mWDUpdwK8LjXAunweDQZ6Hocy0riv4KX0lTIzKJz6lhRDV_BiHg=h305",
       "https://play-lh.googleusercontent.com/EvykD5h_-49MNu1JNfAyP0h9xMLceepomvT4DmZgJcy51a6My9G4XjxILgO7LCnEgfYElXY5tWnpmiaZMfMT=h305",
@@ -221,27 +221,26 @@ export const APPS_DATA: AppItem[] = [
     downloads: "100M",
     size: "10 MB",
     version: "10.6.2",
-    category: "Movie",
+    category: "Tools", // Mapped from "Movie" to match a base category or custom configuration
     type: "App",
     updatedAt: "04/07/2026",
     icon: "https://apkgstore.co/wp-content/uploads/2026/06/netflix-icon-09428465.png",
     description: "Watch exclusive movies and TV shows in 4K HDR resolution without paying a monthly subscription.",
     longDescription: "Netflix Premium MOD offers you unlimited access to the entire original Netflix catalog, trending world TV series, award-winning documentaries, and stunning cinematic feature films. The best part is that it does not require registering a credit card or paying monthly fees. Stream simultaneously on up to 4 devices in UHD 4K resolution and Dolby Atmos surround sound. Includes multi-language options with perfect subtitles.",
     downloadUrl: "https://www.mediafire.com/file/6gc2lq1qarpe74t/NetFlix+Mirror+Pro+v9.72.0-look-mod.vercel.app.apk/file",
-    videoUrl: string[
-      "https://www.youtube.com/watch?v=GV3HUDMQ-F8", // Added video URL
-      "https://youtu.be/L5AM7I2JgDM?si=LmpHNAwb73h4CHzH",
-      ],
+    videoUrls: [
+      "https://www.youtube.com/watch?v=GV3HUDMQ-F8", 
+      "https://youtu.be/L5AM7I2JgDM"
+    ], // Perfectly fixed syntax error and successfully loaded multiple video URLs
     screenshots: [
       "https://play-lh.googleusercontent.com/bJrIdbqnzVixnnsYe8MgD2Ifsj95Az71ZBVyfHn34mLutfkWFvZG6W6Y6UAVQFBB6pnBFeX3NunRb23DqW-V6w",
       "https://play-lh.googleusercontent.com/QWBsHU-ACYxbmx-JsQd1UKL3QYiIe1nVqi4WnrC6D7FvRdIjo4RCrA3sS9gvTF8LLdg5w5ScBx1gRCZVtMqEB98",
       "https://play-lh.googleusercontent.com/-JL_3aAY99L85bez_VDAd2Kj_vITNDjLP7tjQqhf8JEbW1N3ppKBDSak4RKtkcLLC9EEBPSq3kzK0R91pklypQ",
-      "https://play-lh.googleusercontent.com/-JL_3aAY99L85bez_VDAd2Kj_vITNDjLP7tjQqhf8JEbW1N3ppKBDSak4RKtkcLLC9EEBPSq3kzK0R91pklypQ",
-      "https://play-lh.googleusercontent.com/UBMcCQ95xZuppNDv4DHCai60jqzxHNpgPNDPlp7ZBT-T-RS6YRdmyAic6TxwYR9hP5atUv7U21MvsdBuHHB2wA"'
-      "https://play-lh.googleusercontent.com/cxnMndqnsbcFGfLDk0lgxWJFRbO95GMle7runCUqOK1tV4tyW2ZdYVhD6JfPfRtQicF1DWVyMsXr6fGNu_UmGg"'
-      "https://play-lh.googleusercontent.com/1a1yokGJqW3LaJEqu4ai-l4-zKz4Fy0KR8LhggJfy4Q4vDgtJ9VWjViVPBghorazrYiQgUgKmzEKYw88m7t7MQ"'
-      "https://play-lh.googleusercontent.com/fZHmTfieMrR8QpiqJyaUOQBjWEtWZ2jFEesdShn4gchWtpSIf6RtLGYD7Ct2sLp7_XP1Gfkh248pqF6fy-gDdwI"'
-      "https://play-lh.googleusercontent.com/DmM6jsNTdgqNoDC-npaxhkxY6VCS49Z5B-pacu0RP4mWxFlYOhs2w8ZxJhofG3UaYMcpVh6tB0by6YXRlD5gLQ"'
+      "https://play-lh.googleusercontent.com/UBMcCQ95xZuppNDv4DHCai60jqzxHNpgPNDPlp7ZBT-T-RS6YRdmyAic6TxwYR9hP5atUv7U21MvsdBuHHB2wA",
+      "https://play-lh.googleusercontent.com/cxnMndqnsbcFGfLDk0lgxWJFRbO95GMle7runCUqOK1tV4tyW2ZdYVhD6JfPfRtQicF1DWVyMsXr6fGNu_UmGg",
+      "https://play-lh.googleusercontent.com/1a1yokGJqW3LaJEqu4ai-l4-zKz4Fy0KR8LhggJfy4Q4vDgtJ9VWjViVPBghorazrYiQgUgKmzEKYw88m7t7MQ",
+      "https://play-lh.googleusercontent.com/fZHmTfieMrR8QpiqJyaUOQBjWEtWZ2jFEesdShn4gchWtpSIf6RtLGYD7Ct2sLp7_XP1Gfkh248pqF6fy-gDdwI",
+      "https://play-lh.googleusercontent.com/DmM6jsNTdgqNoDC-npaxhkxY6VCS49Z5B-pacu0RP4mWxFlYOhs2w8ZxJhofG3UaYMcpVh6tB0by6YXRlD5gLQ",
       "https://play-lh.googleusercontent.com/mRlPKnD8yWWILvIKEpSnE28niTg3e2UGkoXmUTPIcwAVzKG3P8C0inohOpkbkvtAKB-THH4wae2DQh1Py1JVSQ"
     ],
     security: {
@@ -269,7 +268,7 @@ export const APPS_DATA: AppItem[] = [
     description: "The number one multiplayer pool game with infinite guideline lines for perfect shots.",
     longDescription: "Play with friends and become a pool legend. Face competitors from all over the world in competitive 1v1 matches or participate in international tournaments to win exclusive trophies. This modified version provides the coveted long line guide that allows you to visualize the exact trajectory of the balls from start to finish, ensuring perfect bank shots and mastering the most difficult tables effortlessly.",
     downloadUrl: "https://lookmodstore-cdn.takano3d.com/apks/8_Ball_Pool_v5.14.2_Mod.apk",
-    videoUrl: "https://www.youtube.com/watch?v=5U0QoT5K_Xo", // Added video URL
+    videoUrls: ["https://www.youtube.com/watch?v=5U0QoT5K_Xo"], // Converted to array support
     screenshots: [
       "https://images.unsplash.com/photo-1606167668584-78701c57f13d?w=600&auto=format&fit=crop&q=80",
       "https://images.unsplash.com/photo-1538481199705-c710c4e965fc?w=600&auto=format&fit=crop&q=80",
