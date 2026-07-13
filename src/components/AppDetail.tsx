@@ -274,7 +274,7 @@ export const AppDetail: React.FC<AppDetailProps> = ({
 
               <div className="flex gap-4 overflow-x-auto pb-3 scrollbar-thin scrollbar-thumb-slate-700 scrollbar-track-transparent snap-x items-center">
                 
-                {/* 1. Multiple Videos Loop */}
+                {/* 1. Multiple Videos Loop - FIX: FIXED HEIGHT TO MATCH IMAGES */}
                 {app.videoUrls && app.videoUrls.map((videoUrl, vIdx) => {
                   const embedUrl = getYouTubeEmbedUrl(videoUrl);
                   if (!embedUrl) return null;
@@ -282,7 +282,7 @@ export const AppDetail: React.FC<AppDetailProps> = ({
                   return (
                     <div 
                       key={`video-${vIdx}`} 
-                      className="rounded-xl overflow-hidden border border-slate-800/40 shadow-md shrink-0 snap-start bg-black w-[280px] sm:w-[360px] aspect-[9/16] max-h-[280px] sm:max-h-[360px] relative"
+                      className="rounded-xl overflow-hidden border border-slate-800/40 shadow-md shrink-0 snap-start bg-black h-[280px] sm:h-[360px] aspect-[9/16] relative"
                     >
                       <iframe
                         className="absolute inset-0 w-full h-full"
@@ -469,10 +469,11 @@ export const AppDetail: React.FC<AppDetailProps> = ({
 
       </div>
 
-      {/* --- RECOMMENDED SECTION WITH ALL HANDLERS & PROPS INTRACT --- */}
+      {/* --- RECOMMENDED SECTION WITH ALL HANDLERS & PROPS INTERACT --- */}
       <RecommendedApps 
         currentCategory={app.category}
         currentAppId={app.id} 
+        onAppClick={onAppChange}
       />
 
       {/* --- ADVANCED INTERACTIVE LIGHTBOX MODAL WITH ARROWS --- */}
