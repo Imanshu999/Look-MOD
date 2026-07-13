@@ -1,5 +1,4 @@
-Dako jo ya image ha es ka size ki es YouTube video wal ko kr do please 
-
+// Dako jo ya image ha es ka size ki es YouTube video wal ko
 import React, { useState, useEffect } from 'react';
 import { 
   ArrowLeft, Star, Download, ShieldCheck, 
