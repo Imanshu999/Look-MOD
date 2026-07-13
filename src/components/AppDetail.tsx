@@ -4,7 +4,7 @@ import {
   Info, CheckCircle2, RefreshCw, Terminal, Lock, Server, FileCheck2, Share2, Sparkles, X, ChevronLeft, ChevronRight
 } from 'lucide-react';
 import { AppItem } from '../types';
-import { RecommendedApps } from './RecommendedApps';
+import { RecommendedApps } from './RecommendedApps'; // Recommended apps component import
 
 interface AppDetailProps {
   app: AppItem;
@@ -25,6 +25,7 @@ export const AppDetail: React.FC<AppDetailProps> = ({
   const [downloadCountdown, setDownloadCountdown] = useState(5);
   const [copied, setCopied] = useState(false);
   
+  // Lightbox & Navigation States
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
   const [touchStart, setTouchStart] = useState<number | null>(null);
   const [touchEnd, setTouchEnd] = useState<number | null>(null);
@@ -82,6 +83,7 @@ export const AppDetail: React.FC<AppDetailProps> = ({
     setTimeout(() => setCopied(false), 2000);
   };
 
+  // Helper to extract YouTube ID and build clean vertical/embed URL
   const getYouTubeEmbedUrl = (url?: string) => {
     if (!url) return null;
     const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=|\/shorts\/)([^#\&\?]*).*/;
@@ -91,6 +93,7 @@ export const AppDetail: React.FC<AppDetailProps> = ({
       : null;
   };
 
+  // Lightbox Navigation Functions
   const showPrev = (e?: React.MouseEvent) => {
     if (e) e.stopPropagation();
     if (app.screenshots && selectedIndex !== null) {
@@ -105,6 +108,7 @@ export const AppDetail: React.FC<AppDetailProps> = ({
     }
   };
 
+  // Keyboard support for left/right arrows
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (selectedIndex === null) return;
@@ -116,6 +120,7 @@ export const AppDetail: React.FC<AppDetailProps> = ({
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, [selectedIndex]);
 
+  // Touch Gesture Handlers for Swipe to Close (Vertical Swipe Only)
   const onTouchStart = (e: React.TouchEvent) => {
     setTouchEnd(null);
     setTouchStart(e.targetTouches[0].clientY);
@@ -271,7 +276,7 @@ export const AppDetail: React.FC<AppDetailProps> = ({
 
               <div className="flex gap-4 overflow-x-auto pb-3 scrollbar-thin scrollbar-thumb-slate-700 scrollbar-track-transparent snap-x items-stretch">
                 
-                {/* 1. Multiple Videos Loop - Set to stretch perfectly without black side borders */}
+                {/* 1. Multiple Videos Loop */}
                 {app.videoUrls && app.videoUrls.map((videoUrl, vIdx) => {
                   const embedUrl = getYouTubeEmbedUrl(videoUrl);
                   if (!embedUrl) return null;
@@ -279,10 +284,10 @@ export const AppDetail: React.FC<AppDetailProps> = ({
                   return (
                     <div 
                       key={`video-${vIdx}`} 
-                      className="rounded-xl overflow-hidden border border-slate-800/40 shadow-md shrink-0 snap-start bg-black w-[200px] sm:w-[220px] h-[355px] sm:h-[390px] relative"
+                      className="rounded-xl overflow-hidden border border-slate-800/40 shadow-md shrink-0 snap-start bg-black w-[200px] sm:w-[220px] aspect-[9/16] relative"
                     >
                       <iframe
-                        className="absolute inset-0 w-full h-full"
+                        className="absolute inset-0 w-full h-full object-cover"
                         src={embedUrl}
                         title={`${app.name} Video Trailer ${vIdx + 1}`}
                         frameBorder="0"
@@ -293,12 +298,12 @@ export const AppDetail: React.FC<AppDetailProps> = ({
                   );
                 })}
 
-                {/* 2. Screenshots Lineup - Height matches video height perfectly */}
+                {/* 2. Screenshots Lineup */}
                 {app.screenshots && app.screenshots.map((screenshot, idx) => (
                   <div 
                     key={`screen-${idx}`} 
                     onClick={() => setSelectedIndex(idx)}
-                    className="rounded-xl overflow-hidden border border-slate-800/40 shadow-md shrink-0 snap-start bg-slate-950/10 w-[200px] sm:w-[220px] h-[355px] sm:h-[390px] transition-all duration-300 cursor-zoom-in"
+                    className="rounded-xl overflow-hidden border border-slate-800/40 shadow-md shrink-0 snap-start bg-slate-950/10 w-[200px] sm:w-[220px] aspect-[9/16] transition-all duration-300 cursor-zoom-in"
                   >
                     <img 
                       src={screenshot} 
@@ -466,12 +471,14 @@ export const AppDetail: React.FC<AppDetailProps> = ({
 
       </div>
 
+      {/* --- RECOMMENDED SECTION WITH ALL HANDLERS & PROPS INTERACT --- */}
       <RecommendedApps 
         currentCategory={app.category}
         currentAppId={app.id} 
         onAppClick={onAppChange}
       />
 
+      {/* --- ADVANCED INTERACTIVE LIGHTBOX MODAL WITH ARROWS --- */}
       {selectedIndex !== null && app.screenshots && (
         <div 
           className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-[2px] p-4 select-none touch-none overflow-hidden"
@@ -480,6 +487,7 @@ export const AppDetail: React.FC<AppDetailProps> = ({
           onTouchMove={onTouchMove}
           onTouchEnd={onTouchEnd}
         >
+          {/* Top Floating Action Bar with X Close Button */}
           <div className="absolute top-4 right-4 z-50">
             <button 
               className="p-2.5 bg-slate-900/60 backdrop-blur-md border border-slate-700/50 text-white rounded-full hover:bg-slate-800/80 active:scale-90 transition-all cursor-pointer shadow-lg"
@@ -489,6 +497,7 @@ export const AppDetail: React.FC<AppDetailProps> = ({
             </button>
           </div>
 
+          {/* LEFT ARROW BUTTON */}
           <button 
             className="absolute left-4 z-50 p-3 bg-slate-900/40 backdrop-blur-sm border border-slate-700/30 text-white rounded-full hover:bg-slate-800/60 active:scale-95 transition-all cursor-pointer shadow-md"
             onClick={showPrev}
@@ -496,6 +505,7 @@ export const AppDetail: React.FC<AppDetailProps> = ({
             <ChevronLeft className="w-6 h-6" />
           </button>
 
+          {/* Locked & Centered Image Container */}
           <div 
             className="relative w-full max-w-3xl max-h-[75vh] flex flex-col items-center justify-center pointer-events-auto"
             onClick={(e) => e.stopPropagation()}
@@ -507,11 +517,13 @@ export const AppDetail: React.FC<AppDetailProps> = ({
               referrerPolicy="no-referrer"
             />
             
+            {/* Image Subtitle / Counter Indicator */}
             <span className="text-white text-xs font-medium mt-3 bg-slate-900/50 px-3 py-1 rounded-full border border-slate-800/40 backdrop-blur-xs">
               Captura de pantalla {selectedIndex + 1}
             </span>
           </div>
 
+          {/* RIGHT ARROW BUTTON */}
           <button 
             className="absolute right-4 z-50 p-3 bg-slate-900/40 backdrop-blur-sm border border-slate-700/30 text-white rounded-full hover:bg-slate-800/60 active:scale-95 transition-all cursor-pointer shadow-md"
             onClick={showNext}
