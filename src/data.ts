@@ -300,15 +300,20 @@ export const APPS_DATA: AppItem[] = [
     category: "Sports",
     type: "Game",
     updatedAt: "01/07/2026",
-    icon: "https://images.unsplash.com/photo-1544698310-74ea9d1c8258?w=150&auto=format&fit=crop&q=80",
+    icon: "https://imgcdn.latestmodapks.com/api/resize?url=https://www.latestmodapks.com/wp-content/uploads/2022/10/com.miniclip.eightballpool.jpg&width=160",
     description: "The number one multiplayer pool game with infinite guideline lines for perfect shots.",
     longDescription: "Play with friends and become a pool legend. Face competitors from all over the world in competitive 1v1 matches or participate in international tournaments to win exclusive trophies. This modified version provides the coveted long line guide that allows you to visualize the exact trajectory of the balls from start to finish, ensuring perfect bank shots and mastering the most difficult tables effortlessly.",
-    downloadUrl: "https://lookmodstore-cdn.takano3d.com/apks/8_Ball_Pool_v5.14.2_Mod.apk",
-    videoUrls: ["https://www.youtube.com/watch?v=5U0QoT5K_Xo"], // Converted to array support
+    downloadUrl: "https://dl.8bpoolproapk.com/8.Ball.Pool.MOD.APK.8bpoolproapk.com.apk",
+    videoUrls: ["https://youtu.be/MarGQrmbPm0?si=AF8RDd7cXCeDf7XM"], // Converted to array support
     screenshots: [
-      "https://images.unsplash.com/photo-1606167668584-78701c57f13d?w=600&auto=format&fit=crop&q=80",
-      "https://images.unsplash.com/photo-1538481199705-c710c4e965fc?w=600&auto=format&fit=crop&q=80",
-      "https://images.unsplash.com/photo-1511512578047-dfb367046420?w=600&auto=format&fit=crop&q=80"
+      "https://imgcdn.latestmodapks.com/api/resize?url=https://www.latestmodapks.com/wp-content/uploads/2022/10/WhatsApp-Image-2022-10-09-at-5.21.54-AM-1.jpeg",
+      "https://imgcdn.latestmodapks.com/api/resize?url=https://www.latestmodapks.com/wp-content/uploads/2022/10/WhatsApp-Image-2022-10-09-at-5.21.54-AM.jpeg",
+      "https://imgcdn.latestmodapks.com/api/resize?url=https://www.latestmodapks.com/wp-content/uploads/2022/10/WhatsApp-Image-2022-10-09-at-5.21.53-AM-2.jpeg",
+      "https://imgcdn.latestmodapks.com/api/resize?url=https://www.latestmodapks.com/wp-content/uploads/2022/10/WhatsApp-Image-2022-10-09-at-5.21.53-AM-1.jpeg",
+      "https://imgcdn.latestmodapks.com/api/resize?url=https://www.latestmodapks.com/wp-content/uploads/2022/10/WhatsApp-Image-2022-10-09-at-5.21.53-AM.jpeg",
+      "https://imgcdn.latestmodapks.com/api/resize?url=https://www.latestmodapks.com/wp-content/uploads/2022/10/WhatsApp-Image-2022-10-09-at-5.21.52-AM-1.jpeg",
+      "https://imgcdn.latestmodapks.com/api/resize?url=https://www.latestmodapks.com/wp-content/uploads/2022/10/WhatsApp-Image-2022-10-09-at-5.21.55-AM.jpeg",
+      "https://imgcdn.latestmodapks.com/api/resize?url=https://www.latestmodapks.com/wp-content/uploads/2022/10/WhatsApp-Image-2022-10-09-at-5.21.54-AM-2.jpeg"
     ],
     security: {
       checksum: "SHA-256: 7810e4d372fc5927ad81d3542a419a42",
