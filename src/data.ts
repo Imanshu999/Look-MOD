@@ -131,7 +131,7 @@ export const APPS_DATA: AppItem[] = [
     icon: "https://apkgstore.co/wp-content/uploads/2025/09/spotify-app-msica-y-podcasts-thumbnail-18615853.webp",
     description: "Listen to millions of songs, albums, and original podcasts without commercial ads.",
     longDescription: "Enjoy the best music and podcasts without limits. With Spotify Premium MOD, you will have the ultimate experience without audio or video advertising interruptions. Unlock the ability to skip songs unlimitedly, play any track you want on-demand with extreme audio quality (320kbps), and activate the music search bar. This version is optimized to consume less battery and RAM, allowing you to browse playlists and artists instantly.",
-    downloadUrl: "https://download.liteapks.dev/Spotify/Spotify%20v9.1.60.1970%20(PREMIUM).apk?token=TVRjNE5EQXhPVEkzTlE9PQ%3D%3D",
+    downloadUrl: "https://dl.modded-1.com/v3/2Mml",
     videoUrls: ["https://youtu.be/ZGwLcs0aot0?si=g-Wmn73gCwNnR1vL",
                 "https://youtube.com/watch?v=wx2i9zOLSBM"], // Converted to array support
     screenshots: [
