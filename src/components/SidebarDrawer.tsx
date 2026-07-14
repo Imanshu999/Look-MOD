@@ -1,5 +1,5 @@
 import React from 'react';
-import { X, Home, Gamepad2, Smartphone, BookOpen, Mail, ShieldAlert, Sparkles, ChevronRight, Instagram, Youtube, Send } from 'lucide-react';
+import { X, Home, Gamepad2, Smartphone, BookOpen, Mail, ShieldAlert, Sparkles, ChevronRight, Instagram, Youtube, Send, Facebook } from 'lucide-react';
 
 interface SidebarDrawerProps {
   isOpen: boolean;
@@ -94,8 +94,11 @@ export const SidebarDrawer: React.FC<SidebarDrawerProps> = ({
             );
           })}
 
-          {/* Social Media Section - आपकी पट्टी (Strip) */}
+          {/* Social Media Section */}
           <div className={`mt-6 mx-3 p-4 rounded-xl flex justify-between items-center ${darkMode ? 'bg-slate-900' : 'bg-slate-100'}`}>
+            <a href="https://www.facebook.com/yourprofile" target="_blank" rel="noreferrer" className="text-[#1877F2] hover:scale-110 transition-transform">
+              <Facebook className="w-6 h-6" />
+            </a>
             <a href="https://www.instagram.com/look_mod.vercel.app?igsh=MXh6NzUyZmY1ajRqZw==" target="_blank" rel="noreferrer" className="text-[#E1306C] hover:scale-110 transition-transform">
               <Instagram className="w-6 h-6" />
             </a>
@@ -108,10 +111,6 @@ export const SidebarDrawer: React.FC<SidebarDrawerProps> = ({
             <a href="https://t.me/Imaanshu_N" target="_blank" rel="noreferrer" className="text-[#0088cc] hover:scale-110 transition-transform">
               <Send className="w-6 h-6" />
             </a>
-            <a href="YOUR_FACEBOOK_URL" target="_blank" rel="noreferrer" className="text-[#1877F2] hover:scale-110 transition-transform">
-              <Facebook className="w-6 h-6" />
-            </a>
-
           </div>
         </nav>
 
