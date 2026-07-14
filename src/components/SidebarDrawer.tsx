@@ -1,5 +1,5 @@
 import React from 'react';
-import { X, Home, Gamepad2, Smartphone, BookOpen, Mail, ShieldAlert, Sparkles, ChevronRight, Instagram, Youtube, Twitter, Facebook, Send } from 'lucide-react';
+import { X, Home, Gamepad2, Smartphone, BookOpen, Mail, ShieldAlert, ChevronRight, Instagram, Youtube, Send } from 'lucide-react';
 
 interface SidebarDrawerProps {
   isOpen: boolean;
@@ -91,18 +91,18 @@ export const SidebarDrawer: React.FC<SidebarDrawerProps> = ({
           })}
 
           {/* Social Media Section */}
-          <div className="mt-6 pt-6 border-t border-slate-800/20 flex justify-center gap-4">
-            <a href="https://www.instagram.com/look_mod.vercel.app?igsh=MXh6NzUyZmY1ajRqZw==" target="_blank" rel="noreferrer" className="text-slate-500 hover:text-pink-500 transition-colors">
-              <Instagram className="w-5 h-5" />
+          <div className="mt-8 pt-6 border-t border-slate-800/20 flex justify-center items-center gap-6">
+            <a href="https://www.instagram.com/look_mod.vercel.app?igsh=MXh6NzUyZmY1ajRqZw==" target="_blank" rel="noreferrer" className="text-slate-400 hover:text-[#E1306C] transition-all duration-300 transform hover:scale-125">
+              <Instagram className="w-7 h-7" />
             </a>
-            <a href="https://www.instagram.com/xi_r7.czx_?igsh=N3VwbDNzMGs5OWps" target="_blank" rel="noreferrer" className="text-slate-500 hover:text-pink-500 transition-colors">
-              <Instagram className="w-5 h-5" />
+            <a href="https://www.instagram.com/xi_r7.czx_?igsh=N3VwbDNzMGs5OWps" target="_blank" rel="noreferrer" className="text-slate-400 hover:text-[#E1306C] transition-all duration-300 transform hover:scale-125">
+              <Instagram className="w-7 h-7" />
             </a>
-            <a href="https://youtube.com/@look-mod.vercel?si=AQ4duw4Yz0g6itdC" target="_blank" rel="noreferrer" className="text-slate-500 hover:text-red-500 transition-colors">
-              <Youtube className="w-5 h-5" />
+            <a href="https://youtube.com/@look-mod.vercel?si=AQ4duw4Yz0g6itdC" target="_blank" rel="noreferrer" className="text-slate-400 hover:text-[#FF0000] transition-all duration-300 transform hover:scale-125">
+              <Youtube className="w-7 h-7" />
             </a>
-            <a href="t.me/Imaanshu_N" target="_blank" rel="noreferrer" className="text-slate-500 hover:text-blue-400 transition-colors">
-              <Send className="w-5 h-5" />
+            <a href="https://t.me/Imaanshu_N" target="_blank" rel="noreferrer" className="text-slate-400 hover:text-[#0088cc] transition-all duration-300 transform hover:scale-125">
+              <Send className="w-7 h-7" />
             </a>
           </div>
         </nav>
