@@ -1,5 +1,5 @@
 import React from 'react';
-import { X, Home, Gamepad2, Smartphone, BookOpen, Mail, ShieldAlert, ChevronRight, Instagram, Youtube, Send } from 'lucide-react';
+import { X, Home, Gamepad2, Smartphone, BookOpen, Mail, ShieldAlert, Sparkles, ChevronRight, Instagram, Youtube, Send } from 'lucide-react';
 
 interface SidebarDrawerProps {
   isOpen: boolean;
@@ -33,14 +33,17 @@ export const SidebarDrawer: React.FC<SidebarDrawerProps> = ({
 
   return (
     <div className="fixed inset-0 z-50 overflow-hidden">
+      {/* Overlay Backdrop with blur */}
       <div 
         className="absolute inset-0 bg-black/60 backdrop-blur-sm transition-opacity duration-300"
         onClick={onClose}
       />
 
+      {/* Drawer content */}
       <div className={`absolute inset-y-0 right-0 max-w-xs w-full shadow-2xl flex flex-col transition-transform duration-300 transform translate-x-0 ${
         darkMode ? 'bg-slate-950 border-l border-slate-900 text-white' : 'bg-white border-l border-slate-200 text-slate-800'
       }`}>
+        {/* Drawer Header */}
         <div className={`p-4 border-b flex items-center justify-between ${
           darkMode ? 'border-slate-900' : 'border-slate-100'
         }`}>
@@ -60,6 +63,7 @@ export const SidebarDrawer: React.FC<SidebarDrawerProps> = ({
           </button>
         </div>
 
+        {/* Drawer Navigation */}
         <nav className="flex-1 overflow-y-auto py-4 px-3 space-y-1.5">
           {navItems.map((item) => {
             const Icon = item.icon;
@@ -90,23 +94,24 @@ export const SidebarDrawer: React.FC<SidebarDrawerProps> = ({
             );
           })}
 
-          {/* Social Media Section */}
-          <div className="mt-8 pt-6 border-t border-slate-800/20 flex justify-center items-center gap-6">
-            <a href="https://www.instagram.com/look_mod.vercel.app?igsh=MXh6NzUyZmY1ajRqZw==" target="_blank" rel="noreferrer" className="text-slate-400 hover:text-[#E1306C] transition-all duration-300 transform hover:scale-125">
-              <Instagram className="w-7 h-7" />
+          {/* Social Media Section - आपकी पट्टी (Strip) */}
+          <div className={`mt-6 mx-3 p-4 rounded-xl flex justify-between items-center ${darkMode ? 'bg-slate-900' : 'bg-slate-100'}`}>
+            <a href="https://www.instagram.com/look_mod.vercel.app?igsh=MXh6NzUyZmY1ajRqZw==" target="_blank" rel="noreferrer" className="text-[#E1306C] hover:scale-110 transition-transform">
+              <Instagram className="w-6 h-6" />
             </a>
-            <a href="https://www.instagram.com/xi_r7.czx_?igsh=N3VwbDNzMGs5OWps" target="_blank" rel="noreferrer" className="text-slate-400 hover:text-[#E1306C] transition-all duration-300 transform hover:scale-125">
-              <Instagram className="w-7 h-7" />
+            <a href="https://www.instagram.com/xi_r7.czx_?igsh=N3VwbDNzMGs5OWps" target="_blank" rel="noreferrer" className="text-[#E1306C] hover:scale-110 transition-transform">
+              <Instagram className="w-6 h-6" />
             </a>
-            <a href="https://youtube.com/@look-mod.vercel?si=AQ4duw4Yz0g6itdC" target="_blank" rel="noreferrer" className="text-slate-400 hover:text-[#FF0000] transition-all duration-300 transform hover:scale-125">
-              <Youtube className="w-7 h-7" />
+            <a href="https://youtube.com/@look-mod.vercel?si=AQ4duw4Yz0g6itdC" target="_blank" rel="noreferrer" className="text-[#FF0000] hover:scale-110 transition-transform">
+              <Youtube className="w-6 h-6" />
             </a>
-            <a href="https://t.me/Imaanshu_N" target="_blank" rel="noreferrer" className="text-slate-400 hover:text-[#0088cc] transition-all duration-300 transform hover:scale-125">
-              <Send className="w-7 h-7" />
+            <a href="https://t.me/Imaanshu_N" target="_blank" rel="noreferrer" className="text-[#0088cc] hover:scale-110 transition-transform">
+              <Send className="w-6 h-6" />
             </a>
           </div>
         </nav>
 
+        {/* Brand footer inside drawer */}
         <div className={`p-4 border-t text-center font-mono ${
           darkMode ? 'border-slate-900 bg-slate-900/25' : 'border-slate-100 bg-slate-50/50'
         }`}>
