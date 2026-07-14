@@ -274,7 +274,7 @@ export default function App() {
                       <h3 className="text-lg font-display font-bold">Recommended</h3>
                     </div>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                      {recommendedApps.slice(0, 4).map((app) => (
+                      {recommendedApps.map((app) => (
                         <AppCard
                           key={app.id}
                           app={app}
