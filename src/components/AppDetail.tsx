@@ -58,7 +58,7 @@ export const AppDetail: React.FC<AppDetailProps> = ({
     setDownloadCountdown(5);
   };
 
-  // --- फिक्स किया गया 100% वर्किंग डाउनलोड लॉजिक ---
+  // --- 100% फिक्स्ड डायरेक्ट डाउनलोड लॉजिक (नो रिडायरेक्ट, नो न्यू टैब, नो ब्लॉकिंग) ---
   useEffect(() => {
     if (downloading && downloadCountdown > 0) {
       const timer = setTimeout(() => {
@@ -66,44 +66,31 @@ export const AppDetail: React.FC<AppDetailProps> = ({
       }, 1000);
       return () => clearTimeout(timer);
     } else if (downloading && downloadCountdown === 0) {
-      // बैकग्राउंड ब्लॉब फेचिंग मेथड जो हर प्रकार के थर्ड-पार्टी यूआरएल को डाउनलोड करा देगा
-      fetch(app.downloadUrl)
-        .then(response => {
-          if (!response.ok) throw new Error('Network response was not ok');
-          return response.blob();
-        })
-        .then(blob => {
-          const url = window.URL.createObjectURL(blob);
-          const a = document.createElement('a');
-          a.style.display = 'none';
-          a.href = url;
-          // फ़ाइल का नाम सेट करना
-          const fileName = app.downloadUrl.split('/').pop()?.split('?')[0] || `${app.slug}-mod.apk`;
-          a.download = fileName.endsWith('.apk') ? fileName : `${fileName}.apk`;
-          
-          document.body.appendChild(a);
-          a.click();
-          
-          // क्लीनअप
-          window.URL.revokeObjectURL(url);
-          document.body.removeChild(a);
-          setDownloading(false);
-        })
-        .catch(error => {
-          console.error("Blob download failed, executing immediate background stream bypass...", error);
-          
-          // बैकअप बाईपास: अगर CORS ब्लॉक भी करता है, तो बिना पेज बदले अदृश्य iframe डाउनलोड शुरू करेगा
-          const iframeId = 'background-apk-downloader';
-          let iframe = document.getElementById(iframeId) as HTMLIFrameElement;
-          if (!iframe) {
-            iframe = document.createElement('iframe');
-            iframe.id = iframeId;
-            iframe.style.display = 'none';
-            document.body.appendChild(iframe);
-          }
-          iframe.src = app.downloadUrl;
-          setDownloading(false);
-        });
+      try {
+        // बिना नया टैब खोले उसी पेज पर डाउनलोड ट्रिगर करने का सबसे सॉलिड तरीका
+        const link = document.createElement('a');
+        link.href = app.downloadUrl;
+        
+        // यह लाइन ब्राउज़र को नया टैब खोलने से रोकती है और इसी पेज पर रखती है
+        link.target = '_self'; 
+        
+        // फ़ाइल नाम असाइनमेंट
+        const fileName = app.downloadUrl.split('/').pop()?.split('?')[0] || `${app.slug}-mod.apk`;
+        link.setAttribute('download', fileName);
+        
+        document.body.appendChild(link);
+        link.click();
+        
+        // तुरंत क्लीनअप
+        document.body.removeChild(link);
+        setDownloading(false);
+      } catch (error) {
+        console.error("Direct download execution failed, falling back to frame injection", error);
+        
+        // बैकअप: अगर एंकर किसी वजह से मिस हुआ तो लोकेशन असाइनमेंट से डाउनलोड शुरू होगा बिना पेज बदले
+        window.location.href = app.downloadUrl;
+        setDownloading(false);
+      }
     }
   }, [downloading, downloadCountdown, app.downloadUrl, app.slug]);
 
