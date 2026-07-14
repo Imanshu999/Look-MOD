@@ -58,7 +58,7 @@ export const APPS_DATA: AppItem[] = [
     id: "2",
     name: "Subway Surfers",
     slug: "subway-surfers",
-    developer: "SYBO Games",
+    developer: "Imaanshu N",
     rating: "4.7",
     downloads: "1B",
     size: "135 MB",
@@ -66,15 +66,18 @@ export const APPS_DATA: AppItem[] = [
     category: "Arcade",
     type: "Game",
     updatedAt: "10/07/2026",
-    icon: "https://images.unsplash.com/photo-1551103782-8ab07afd45c1?w=150&auto=format&fit=crop&q=80",
+    icon: "https://imgcdn.latestmodapks.com/api/resize?url=https://www.latestmodapks.com/wp-content/uploads/2023/06/subwaysurf.png&width=160",
     description: "Dodge trains, run at full speed, and escape from the grumpy inspector with unlimited coins.",
     longDescription: "The ultimate endless runner game arrives at Look Mod Store with everything unlocked! Join Jake, Tricky, and Fresh in their exciting escape through the train tracks of the world. This premium MOD version includes infinite gold coins, unlimited resurrection keys, and all premium characters and surfboards unlocked from the first second. Enjoy colorful HD graphics optimized with an ultra-smooth refresh rate. Challenge your friends and dominate the global leaderboards with superior performance.",
-    downloadUrl: "https://lookmodstore-cdn.takano3d.com/apks/Subway_Surfers_v3.24.1_Mod.apk",
-    videoUrls: ["https://www.youtube.com/watch?v=tY2Z3bU0H4w"], // Converted to array support
+    downloadUrl: "https://cdn800.onehost.io/2023/Subway_Surfers_3.66.0_1783939501_latestmodapks.com.apk",
+    videoUrls: ["https://youtu.be/o-3sDXTaiEY?si=FZUMMsrE6EkPUrqw"], // Converted to array support
     screenshots: [
-      "https://images.unsplash.com/photo-1511512578047-dfb367046420?w=600&auto=format&fit=crop&q=80",
-      "https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=600&auto=format&fit=crop&q=80",
-      "https://images.unsplash.com/photo-1553481187-be93c21490a9?w=600&auto=format&fit=crop&q=80"
+      "https://imgcdn.latestmodapks.com/api/resize?url=https://www.latestmodapks.com/wp-content/uploads/2023/06/Subway-Surfers1.webp",
+      "https://imgcdn.latestmodapks.com/api/resize?url=https://www.latestmodapks.com/wp-content/uploads/2023/06/Subway-Surfers2.webp",
+      "https://imgcdn.latestmodapks.com/api/resize?url=https://www.latestmodapks.com/wp-content/uploads/2023/06/Subway-Surfers3.webp",
+      "https://imgcdn.latestmodapks.com/api/resize?url=https://www.latestmodapks.com/wp-content/uploads/2023/06/Subway-Surfers4.webp",
+      "https://imgcdn.latestmodapks.com/api/resize?url=https://www.latestmodapks.com/wp-content/uploads/2023/06/Subway-Surfers5.webp",
+      "https://imgcdn.latestmodapks.com/api/resize?url=https://www.latestmodapks.com/wp-content/uploads/2023/06/Subway-Surfers.webp"
     ],
     security: {
       checksum: "SHA-256: a1e87d9d372bc6826bd81d3542a419f1",
