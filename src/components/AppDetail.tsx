@@ -52,7 +52,6 @@ export const AppDetail: React.FC<AppDetailProps> = ({
     return () => clearInterval(interval);
   }, [app.id, app.slug]);
 
- // --- 100% WORKING SINGLE-TAB DOWNLOADER ---
 const triggerDownload = (e: React.MouseEvent) => {
   e.preventDefault();
   if (!app.downloadUrl) {
@@ -60,20 +59,31 @@ const triggerDownload = (e: React.MouseEvent) => {
     return;
   }
 
-  // डाउनलोड बटन को डिसेबल करें
   setDownloading(true);
 
   try {
-    /* 
-       नया टैब खोलने के बजाय, हम वर्तमान विंडो का URL बदल रहे हैं।
-       यह यूजर को आपकी वेबसाइट पर ही रखता है। 
-       यदि थर्ड-पार्टी लिंक फाइल डायरेक्ट डाउनलोड का है, तो ब्राउज़र 
-       उसे आपकी वेबसाइट पर ही प्रोसेस कर देगा।
-    */
-    window.location.href = app.downloadUrl;
+    // 1. एक छुपा हुआ लिंक एलिमेंट बनाएं
+    const link = document.createElement('a');
+    link.href = app.downloadUrl;
+    
+    // 2. 'download' एट्रिब्यूट फाइल को वेबपेज की तरह लोड होने से रोकता है
+    // और उसे फाइल के रूप में सेव करने का प्रयास करता है
+    link.setAttribute('download', `${app.slug || 'download'}.apk`);
+    
+    // 3. इसे वर्तमान टैब में ट्रिगर करें
+    link.target = '_self'; 
+    
+    // 4.DOM में जोड़कर क्लिक करें
+    document.body.appendChild(link);
+    link.click();
+    
+    // 5. सफाई करें (DOM से हटाएं)
+    document.body.removeChild(link);
     
   } catch (error) {
-    console.error("Download failed:", error);
+    console.error("Download trigger error, falling back:", error);
+    // अगर ऊपर वाला तरीका फेल हो जाए, तो आखिरी रास्ता रीडायरेक्ट है
+    window.location.href = app.downloadUrl;
   }
 
   // 4 सेकंड बाद बटन को फिर से रेडी कर दें
