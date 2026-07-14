@@ -23,7 +23,7 @@ export const AppDetail: React.FC<AppDetailProps> = ({
   const [downloadCountdown, setDownloadCountdown] = useState(5);
   const [copied, setCopied] = useState(false);
   
-  // Video Trailer Active Tab State (Feature Added)
+  // Video Trailer Active Tab State
   const [activeVideoIdx, setActiveVideoIdx] = useState<number>(0);
   
   // Lightbox & Navigation States
@@ -37,7 +37,7 @@ export const AppDetail: React.FC<AppDetailProps> = ({
     setScanState('scanning');
     setScanProgress(0);
     setDownloading(false);
-    setActiveVideoIdx(0); // Reset active video on app change
+    setActiveVideoIdx(0); 
     
     const interval = setInterval(() => {
       setScanProgress((prev) => {
@@ -58,6 +58,7 @@ export const AppDetail: React.FC<AppDetailProps> = ({
     setDownloadCountdown(5);
   };
 
+  // --- FIXED DOWNLOAD LOGIC ---
   useEffect(() => {
     if (downloading && downloadCountdown > 0) {
       const timer = setTimeout(() => {
@@ -65,19 +66,34 @@ export const AppDetail: React.FC<AppDetailProps> = ({
       }, 1000);
       return () => clearTimeout(timer);
     } else if (downloading && downloadCountdown === 0) {
-      const iframe = document.createElement('iframe');
-      iframe.style.display = 'none';
-      iframe.src = app.downloadUrl;
-      document.body.appendChild(iframe);
-      
-      setTimeout(() => {
-        if (document.body.contains(iframe)) {
-          document.body.removeChild(iframe);
-        }
+      try {
+        // ब्राउज़र ब्लॉकिंग को बायपास करने का सबसे सुरक्षित और आधुनिक तरीका
+        const link = document.createElement('a');
+        link.href = app.downloadUrl;
+        link.target = '_blank';
+        link.rel = 'noopener noreferrer';
+        
+        // फाइल का नाम असाइन करने की कोशिश
+        const fileName = app.downloadUrl.split('/').pop()?.split('?')[0] || `${app.slug}-mod.apk`;
+        link.setAttribute('download', fileName);
+        
+        document.body.appendChild(link);
+        link.click();
+        
+        // क्लीनअप
+        setTimeout(() => {
+          if (document.body.contains(link)) {
+            document.body.removeChild(link);
+          }
+          setDownloading(false);
+        }, 100);
+      } catch (error) {
+        console.error("Download failed, falling back to window.open", error);
+        window.open(app.downloadUrl, '_blank');
         setDownloading(false);
-      }, 2500);
+      }
     }
-  }, [downloading, downloadCountdown, app.downloadUrl]);
+  }, [downloading, downloadCountdown, app.downloadUrl, app.slug]);
 
   const handleShare = () => {
     navigator.clipboard.writeText(window.location.href);
@@ -93,7 +109,6 @@ export const AppDetail: React.FC<AppDetailProps> = ({
     return (match && match[2].length === 11) ? `https://www.youtube.com/embed/${match[2]}` : null;
   };
 
-  // Process all video URLs from the array support
   const validEmbedUrls = (app.videoUrls || [])
     .map(url => getYouTubeEmbedUrl(url))
     .filter((url): url is string => url !== null);
@@ -115,7 +130,6 @@ export const AppDetail: React.FC<AppDetailProps> = ({
     }
   };
 
-  // Keyboard support for left/right arrows
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (selectedIndex === null) return;
@@ -127,7 +141,6 @@ export const AppDetail: React.FC<AppDetailProps> = ({
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, [selectedIndex]);
 
-  // Touch Gesture Handlers for Swipe to Close (Vertical Swipe Only)
   const onTouchStart = (e: React.TouchEvent) => {
     setTouchEnd(null);
     setTouchStart(e.targetTouches[0].clientY);
@@ -269,7 +282,7 @@ export const AppDetail: React.FC<AppDetailProps> = ({
         
         <div className="lg:col-span-2 space-y-6">
           
-          {/* Dynamic Video Trailer Section (Updated for Multiple Videos support) */}
+          {/* Dynamic Video Trailer Section */}
           {embedUrl && (
             <div className={`p-5 rounded-2xl border ${
               darkMode ? 'bg-slate-900/40 border-slate-800' : 'bg-white border-slate-100'
@@ -374,7 +387,7 @@ export const AppDetail: React.FC<AppDetailProps> = ({
           }`}>
             <h3 className={`text-base font-display font-bold mb-4 flex items-center gap-2 ${
               darkMode ? 'text-slate-200' : 'text-slate-800'
-            }`}>
+                }`}>
               <Info className="w-4.5 h-4.5 text-store-accent" />
               <span>Technical Information</span>
             </h3>
