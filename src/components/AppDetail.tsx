@@ -52,38 +52,22 @@ export const AppDetail: React.FC<AppDetailProps> = ({
     return () => clearInterval(interval);
   }, [app.id, app.slug]);
 
-  // --- 100% WORKING UNSTOPPABLE INSTANT DOWNLOAD ---
-  const triggerDownload = (e: React.MouseEvent<HTMLButtonElement>) => {
-    e.preventDefault(); // रिएक्ट के किसी भी एक्स्ट्रा रेंडर या डिफ़ॉल्ट बिहेवियर को ब्लॉक करें
-    
+  // --- 100% SAME-TAB DIRECT DOWNLOAD (NO NEW TAB) ---
+  const triggerDownload = (e: React.MouseEvent) => {
     if (!app.downloadUrl) {
       console.error("Download URL missing!");
       return;
     }
 
-    // स्टेट अपडेट करने से पहले डाउनलोड ट्रिगर करना जरूरी है 
-    // ताकि ब्राउज़र को असली ह्यूमन जेस्चर मिले और री-रेंडरिंग से पहले क्लिक रजिस्टर हो जाए।
-    try {
-      const link = document.createElement('a');
-      link.href = app.downloadUrl;
-      link.target = '_blank'; // क्रोम की ब्लू लाइन को फ़ोर्सफुली स्टार्ट करने के लिए
-      link.rel = 'noopener noreferrer';
-      link.setAttribute('download', `${app.slug}-mod.apk`);
-      document.body.appendChild(link);
-      link.click();
-      document.body.removeChild(link);
-    } catch (err) {
-      console.error("Standard download failed, falling back to direct location window.", err);
-      window.location.href = app.downloadUrl;
-    }
+    // स्टेट चेंज के री-रेंडर को बायपास करके सीधे इसी विंडो में डाउनलोड पुश करें
+    // इससे कोई नया टैब नहीं खुलेगा और क्रोम की ब्लू डाउनलोड लाइन तुरंत चालू हो जाएगी
+    window.location.href = app.downloadUrl;
 
-    // डाउनलोड ट्रिगर करने के बाद बटन की स्टेट चेंज करो
+    // सिर्फ यूज़र को दिखाने के लिए बटन को डाउनलोडिंग स्टेट में डालो
     setDownloading(true);
-
-    // 3 सेकंड बाद बटन को वापस नॉर्मल स्टेट में लाएं
     setTimeout(() => {
       setDownloading(false);
-    }, 3000);
+    }, 4000);
   };
 
   const handleShare = () => {
