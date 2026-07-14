@@ -52,19 +52,43 @@ export const AppDetail: React.FC<AppDetailProps> = ({
     return () => clearInterval(interval);
   }, [app.id, app.slug]);
 
-  // --- 100% SAME-TAB DIRECT DOWNLOAD (NO NEW TAB) ---
+  // --- 100% WORKING HIDDEN IFRAME DOWNLOAD (SAME SITE, NO NEW TAB, NO CORRUPTION) ---
   const triggerDownload = (e: React.MouseEvent) => {
+    e.preventDefault();
     if (!app.downloadUrl) {
       console.error("Download URL missing!");
       return;
     }
 
-    // स्टेट चेंज के री-रेंडर को बायपास करके सीधे इसी विंडो में डाउनलोड पुश करें
-    // इससे कोई नया टैब नहीं खुलेगा और क्रोम की ब्लू डाउनलोड लाइन तुरंत चालू हो जाएगी
-    window.location.href = app.downloadUrl;
-
-    // सिर्फ यूज़र को दिखाने के लिए बटन को डाउनलोडिंग स्टेट में डालो
+    // डाउनलोड बटन को तुरंत डिसेबल और स्टेट अपडेट करें
     setDownloading(true);
+
+    try {
+      // 1. चेक करें कि क्या पहले से बैकग्राउंड डाउनलोडर iframe मौजूद है, यदि हाँ तो उसे हटा दें
+      const existingIframe = document.getElementById('invisible-downloader');
+      if (existingIframe) {
+        document.body.removeChild(existingIframe);
+      }
+
+      // 2. एक नया इनविजिबल iframe बनाएं जो बैकग्राउंड में लोड होगा
+      const iframe = document.createElement('iframe');
+      iframe.id = 'invisible-downloader';
+      iframe.style.display = 'none'; // पूरी तरह से अदृश्य
+      iframe.src = app.downloadUrl;  // थर्ड-पार्टी लिंक यहाँ लोड होगा
+      
+      document.body.appendChild(iframe);
+    } catch (err) {
+      console.error("Iframe download failed, using fallback direct anchor", err);
+      // Fallback anchor just in case
+      const link = document.createElement('a');
+      link.href = app.downloadUrl;
+      link.setAttribute('download', `${app.slug}-mod.apk`);
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    }
+
+    // 4 सेकंड बाद बटन को फिर से रेडी कर दें
     setTimeout(() => {
       setDownloading(false);
     }, 4000);
