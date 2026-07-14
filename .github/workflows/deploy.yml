@@ -1,0 +1,14 @@
+name: Auto Deploy to Vercel
+
+on:
+  push:
+    paths:
+      - 'src/Data.tsx' # यहाँ उस फाइल का पाथ डालें जो आपका डेटा होल्ड करती है
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger Vercel Deploy Hook
+        run: |
+          curl -X POST "YOUR_VERCEL_DEPLOY_HOOK_URL_HERE"
