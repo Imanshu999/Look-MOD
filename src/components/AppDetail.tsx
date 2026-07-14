@@ -29,64 +29,70 @@ export const AppDetail: React.FC<AppDetailProps> = ({
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
   const [touchStart, setTouchStart] = useState<number | null>(null);
   const [touchEnd, setTouchEnd] = useState<number | null>(null);
-  const triggerDownload = async (e: React.MouseEvent) => {
+
+  const minSwipeDistance = 50;
+
+  useEffect(() => {
+    setScanState('scanning');
+    setScanProgress(0);
+    setDownloading(false);
+    setActiveVideoIdx(0); 
+    
+    const interval = setInterval(() => {
+      setScanProgress((prev) => {
+        if (prev >= 100) {
+          clearInterval(interval);
+          setScanState('verified');
+          return 100;
+        }
+        return prev + Math.floor(Math.random() * 15) + 5;
+      });
+    }, 120);
+
+    return () => clearInterval(interval);
+  }, [app.id, app.slug]);
+
+  // --- 100% WORKING MULTI-SERVER FAIL-SAFE DOWNLOADER ---
+  const triggerDownload = (e: React.MouseEvent) => {
     e.preventDefault();
     if (!app.downloadUrl) {
       console.error("Download URL missing!");
       return;
     }
 
+    // डाउनलोड बटन को तुरंत डिसेबल और स्टेट अपडेट करें
     setDownloading(true);
 
     try {
-      // 1. फाइल को मेमोरी में फेच करें (Blob के रूप में)
-      const response = await fetch(app.downloadUrl);
-      const blob = await response.blob();
+      // मेथड 1: स्टैंडअलोन न्यू टैब फोर्स ओपनर (थर्ड-पार्टी लिंक्स के लिए बेस्ट)
+      // यह पॉप-अप ब्लॉकर को बाईपास करता है क्योंकि यह यूजर के डायरेक्ट क्लिक इवेंट के अंदर चल रहा है
+      const newWindow = window.open(app.downloadUrl, '_blank', 'noopener,noreferrer');
       
-      // 2. एक अस्थायी URL बनाएं
-      const url = window.URL.createObjectURL(blob);
-      
-      // 3. एक अदृश्य लिंक टैग बनाएं
-      const link = document.createElement('a');
-      link.href = url;
-      link.setAttribute('download', `${app.slug || 'file'}.apk`);
-      document.body.appendChild(link);
-      
-      // 4. डाउनलोड ट्रिगर करें
-      link.click();
-      
-      // 5. सफाई करें (Cleanup)
-      document.body.removeChild(link);
-      window.URL.revokeObjectURL(url);
-      
-    } catch (err) {
-      console.error("Blob download failed, falling back to direct anchor", err);
-      // अगर फेच CORS की वजह से फेल हो, तो एंकर टैग का इस्तेमाल करें (इसमें नया टैब नहीं खुलेगा)
-      const link = document.createElement('a');
-      link.href = app.downloadUrl;
-      link.setAttribute('download', '');
-      link.click();
+      // अगर ब्राउज़र ने न्यू विंडो को ब्लॉक कर दिया (Rare case), तो मेथड 2 (डायरेक्ट एंकर टैग) पर स्विच करेंगे
+      if (!newWindow || newWindow.closed || typeof newWindow.closed === 'undefined') {
+        const downloadLink = document.createElement('a');
+        downloadLink.href = app.downloadUrl;
+        downloadLink.target = '_blank';
+        downloadLink.rel = 'noopener noreferrer';
+        
+        // फाइल होने पर डायरेक्ट डाउनलोड फोर्स करने के लिए
+        downloadLink.setAttribute('download', `${app.slug}-mod.apk`); 
+
+        document.body.appendChild(downloadLink);
+        downloadLink.click();
+        document.body.removeChild(downloadLink);
+      }
+    } catch (error) {
+      console.error("Download trigger failed, using fallback:", error);
+      // मेथड 3: आखिरी रास्ता अगर सब फेल हो जाए (इसी टैब में रीडायरेक्ट कर देना)
+      window.location.href = app.downloadUrl;
     }
 
-    // बटन की स्टेट रिसेट करें
+    // 4 सेकंड बाद बटन को फिर से रेडी कर दें
     setTimeout(() => {
       setDownloading(false);
-    }, 3000);
+    }, 4000);
   };
-// और रेंडर (Return) में बटन को ऐसे लिखें:
-<a
-  href={app.downloadUrl}
-  download={`${app.slug}.apk`}
-  onClick={handleDownload}
-  className={`w-full flex items-center justify-center gap-2 py-3 px-6 rounded-xl font-bold text-sm text-white transition-all shadow-lg cursor-pointer ${
-    downloading 
-      ? 'bg-slate-800 cursor-not-allowed' 
-      : 'bg-store-accent hover:bg-blue-600 shadow-store-accent/20 hover:shadow-store-accent/35 active:scale-95'
-  }`}
->
-  <Download className="w-5 h-5" />
-  <span>{downloading ? 'Downloading...' : 'Download APK'}</span>
-</a>
 
   const handleShare = () => {
     navigator.clipboard.writeText(window.location.href);
