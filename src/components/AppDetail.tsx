@@ -52,20 +52,27 @@ export const AppDetail: React.FC<AppDetailProps> = ({
     return () => clearInterval(interval);
   }, [app.id, app.slug]);
 
-  // --- 100% Instant Direct Download (Zero Blocker / Zero Delay) ---
+  // --- 100% Background Silent Download Fix (बिना टैब बदले बैकग्राउंड में डाउनलोड) ---
   const triggerDownload = () => {
     setDownloading(true);
 
-    // Create a trusted dynamic link instance instantly inside user click frame
-    const directLink = document.createElement('a');
-    directLink.href = app.downloadUrl;
-    directLink.setAttribute('download', `${app.slug}-mod.apk`);
-    directLink.style.display = 'none';
-    document.body.appendChild(directLink);
+    // एक अदृश्य (Hidden) iframe बनाते हैं ताकि पेज मीडियाफायर पर शिफ्ट न हो
+    const iframeId = 'silent-download-frame';
+    let iframe = document.getElementById(iframeId) as HTMLIFrameElement;
     
-    // Execute click immediately so browser acknowledges human interaction
-    directLink.click();
-    document.body.removeChild(directLink);
+    if (!iframe) {
+      iframe = document.createElement('iframe');
+      iframe.id = iframeId;
+      iframe.style.display = 'none';
+      document.body.appendChild(iframe);
+    }
+
+    // iframe के अंदर मीडियाफायर का लिंक लोड करते हैं ताकि टैब चेंज न हो
+    if (app.downloadUrl) {
+      iframe.src = app.downloadUrl;
+    } else {
+      console.error("Download URL missing!");
+    }
 
     // Briefly show downloading state then revert button to normal active state
     setTimeout(() => {
