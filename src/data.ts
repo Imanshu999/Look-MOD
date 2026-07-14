@@ -137,8 +137,9 @@ export const APPS_DATA: AppItem[] = [
     description: "Listen to millions of songs, albums, and original podcasts without commercial ads.",
     longDescription: "Enjoy the best music and podcasts without limits. With Spotify Premium MOD, you will have the ultimate experience without audio or video advertising interruptions. Unlock the ability to skip songs unlimitedly, play any track you want on-demand with extreme audio quality (320kbps), and activate the music search bar. This version is optimized to consume less battery and RAM, allowing you to browse playlists and artists instantly.",
     downloadUrl: "https://dl.modded-1.com/v3/2Mml",
-    videoUrls: ["https://youtu.be/ZGwLcs0aot0?si=g-Wmn73gCwNnR1vL",
-                "https://youtube.com/watch?v=wx2i9zOLSBM"], // Converted to array support
+    videoUrls: ["https://youtu.be/0Wun0877Mrc?si=AfFuVnBZUUqj73sQ",
+                "https://youtu.be/ZGwLcs0aot0?si=g-Wmn73gCwNnR1vL",
+                "https://youtu.be/UTx5f4M01Wg?si=VcHHIWdQEVXCS0iK"], // Converted to array support
     screenshots: [
       "https://apkgstore.co/wp-content/uploads/2025/09/spotify-app-msica-y-podcasts-screenshot-1-18621311.jpg",
       "https://apkgstore.co/wp-content/uploads/2025/09/spotify-app-msica-y-podcasts-screenshot-2-18631173.jpg",
