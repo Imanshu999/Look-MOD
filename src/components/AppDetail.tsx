@@ -52,51 +52,35 @@ export const AppDetail: React.FC<AppDetailProps> = ({
     return () => clearInterval(interval);
   }, [app.id, app.slug]);
 
-   // --- 100% WORKING HIDDEN IFRAME DOWNLOAD (SAME SITE, NO NEW TAB) ---
-  const triggerDownload = (e: React.MouseEvent) => {
+ // अपने Component के अंदर इस फंक्शन को ऐसे लिखें
+const handleDownload = (e: React.MouseEvent) => {
+  if (!app.downloadUrl) {
     e.preventDefault();
-    if (!app.downloadUrl) {
-      console.error("Download URL missing!");
-      return;
-    }
+    return;
+  }
+  // यहाँ आप अपनी डाउनलोड स्टेट को 'downloading' सेट कर सकते हैं
+  setDownloading(true);
 
-    setDownloading(true);
+  // 4 सेकंड बाद बटन वापस नॉर्मल हो जाएगा
+  setTimeout(() => {
+    setDownloading(false);
+  }, 4000);
+};
 
-    try {
-      // 1. अगर पहले से कोई iframe है, तो उसे हटा दें
-      const existingIframe = document.getElementById('hidden-download-iframe');
-      if (existingIframe) {
-        document.body.removeChild(existingIframe);
-      }
-
-      // 2. नया इनविजिबल iframe बनाएं
-      const iframe = document.createElement('iframe');
-      iframe.id = 'hidden-download-iframe';
-      iframe.style.display = 'none';
-      
-      // 3. डाउनलोड शुरू करने के लिए src सेट करें
-      iframe.src = app.downloadUrl;
-      
-      document.body.appendChild(iframe);
-
-      // 4. कुछ समय बाद iframe को साफ कर दें
-      setTimeout(() => {
-        if (document.body.contains(iframe)) {
-          document.body.removeChild(iframe);
-        }
-      }, 5000);
-
-    } catch (err) {
-      console.error("Iframe download failed, falling back to window location", err);
-      // अगर किसी सुरक्षा कारण (CORS) से iframe काम न करे, तो उसी टैब में लिंक खोलें
-      window.location.href = app.downloadUrl;
-    }
-
-    // 4 सेकंड बाद बटन की स्टेट रिसेट करें
-    setTimeout(() => {
-      setDownloading(false);
-    }, 4000);
-  };
+// और रेंडर (Return) में बटन को ऐसे लिखें:
+<a
+  href={app.downloadUrl}
+  download={`${app.slug}.apk`}
+  onClick={handleDownload}
+  className={`w-full flex items-center justify-center gap-2 py-3 px-6 rounded-xl font-bold text-sm text-white transition-all shadow-lg cursor-pointer ${
+    downloading 
+      ? 'bg-slate-800 cursor-not-allowed' 
+      : 'bg-store-accent hover:bg-blue-600 shadow-store-accent/20 hover:shadow-store-accent/35 active:scale-95'
+  }`}
+>
+  <Download className="w-5 h-5" />
+  <span>{downloading ? 'Downloading...' : 'Download APK'}</span>
+</a>
 
   const handleShare = () => {
     navigator.clipboard.writeText(window.location.href);
