@@ -329,7 +329,41 @@ export const APPS_DATA: AppItem[] = [
     tags: ["MOD", "Long Line", "Free"],
     isRecommendation: false,
     isRecent: true
+  },
+    {
+    id: "9",
+    name: "MovieBox",
+    slug: "moviebox",
+    developer: "Imaanshu N",
+    rating: "4.7/5",
+    downloads: "500M",
+    size: "58 MB",
+    version: "5.14.2",
+    category: "Movie",
+    type: "app",
+    updatedAt: "01/07/2026",
+    icon: "https://apps2app.com/wp-content/uploads/2026/03/moviebox-150x150.webp",
+    description: "The number one Free, HD, No Ads. Watch HD, Offline. No Ads, Free HD. ​Premium, Ad-free. ​Fast, HD Streaming.",
+    longDescription: "MovieBox Mod APK Key Features:Unlimited access to premium content, free subscription model, massive library of movies and TV shows, extensive collection of web series, diverse genre support including action and drama, horror and romance categories, offline content downloading capabilities, uninterrupted offline viewing, high-definition streaming support, 1080p video resolution, 4K playback quality, optimized streaming performance, multilingual content library, native Hindi language support, English language accessibility, broad regional language options, no mandatory registration required, privacy-focused data handling, completely ad-free interface, seamless playback experience, intuitive user-friendly design, efficient navigation system, broad Android 5.0 compatibility, high device performance optimization, frequent library content updates, instant access to new releases, accelerated loading speeds, integrated data-saving modes, advanced security protocols, clean minimalist user interface, unrestricted content exploration, personalized favorites list, customizable playback settings, advanced internal media player, enhanced buffering optimization, streamlined installation process, stable performance on low-end devices, modern aesthetic interface, instant content accessibility.",
+    downloadUrl: "https://files.modapkdl.com/ROOT/All%20Documents%20File/Folder%202/MovieBox_v3.0.16.0709.03_(50020116)_Mod-APPS2APP.COM.apk",
+    videoUrls: ["https://youtu.be/rWoUM_nMPtc?si=bC-_r2uBqnE9f83m", "https://youtu.be/c8kXsCAOj8Y?si=TQhywvjtO0O0g16I"], // Converted to array support
+    screenshots: [
+      "https://play-lh.googleusercontent.com/lTQL8FNUICbVoVuSO8jMSRNIsz1vJs0ggttRks6d4TTsMiirAeN9c06oH6h-W6PNYUE=h305",
+      "https://play-lh.googleusercontent.com/tkBwbyjRS1Wxnjrs_D55htQWuByuK8eHBm1pPb1so0_kv204P9pnqKF7097yLoySzQ=h305",
+      "https://play-lh.googleusercontent.com/x-hk0oonVM-SLHcvbJMpYMz7KHflTUtJuqCcecKyke9saZDj7AA4WNZUu_kGA2TikSzd=h305",
+      "https://play-lh.googleusercontent.com/yB9xDtcmAHScwfq2PDKcik1ASCnukkJMXWuRop21htGi5aDwxoctsqyo92tx3HJNhsI=h305",
+      "https://play-lh.googleusercontent.com/VkcwvhZ6JJ38NA7t-EiNc5KT9bEOABWhM2BYmgwYGGGzTdH3lz_h4eDqgpnGardsBU8=h305",
+    ],
+    security: {
+      checksum: "SHA-256: 91yeb72te8wg8w9sg6euw8hw7wh8w",
+      secureToken: "Secure accounts without ban risk",
+      cloudStorage: "Direct connection to Moviebox servers"
+    },
+    tags: ["MOD", "Long Line", "Free"],
+    isRecommendation: false,
+    isRecent: true
   }
+
 ];
 
 export const CATEGORIES_DATA: CategoryItem[] = BASE_CATEGORIES.map(category => {
