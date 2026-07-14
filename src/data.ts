@@ -196,16 +196,21 @@ export const APPS_DATA: AppItem[] = [
     category: "Action",
     type: "Game",
     updatedAt: "08/07/2026",
-    icon: "https://images.unsplash.com/photo-1542751371-adc38448a05e?w=150&auto=format&fit=crop&q=80",
+    icon: "https://imgcdn.latestmodapks.com/api/resize?url=https://www.latestmodapks.com/wp-content/uploads/2022/04/brawl-stars.png&width=160",
     description: "Fast-paced 3v3 multiplayer and mobile battle royale mode with unlocked brawlers.",
     longDescription: "Brawl Stars by Supercell is the action multiplayer game of the moment! Enjoy quick three-minute battles in a variety of exciting game modes. This MOD grants you free unlimited gems, unlimited boxes to open immediately, and spectacular gold skins to show off to all your rivals. Play on a 100% stable private server with automatic matchmaking so you never have to wait to jump into battle.",
-    downloadUrl: "https://lookmodstore-cdn.takano3d.com/apks/Brawl_Stars_v55.220_Mod.apk",
-    videoUrls: ["https://www.youtube.com/watch?v=J64o3j8Wl7c"], // Converted to array support
+    downloadUrl: "https://cdn600.onehost.io/2023/Brawl_Stars_67.264_1777009851_latestmodapks.com.apk",
+    videoUrls: ["https://youtu.be/CaryjOdYFa0?si=8K0IEKko45XQ-CrM"], // Converted to array support
     screenshots: [
-      "https://images.unsplash.com/photo-1552820728-8b83bb6b773f?w=600&auto=format&fit=crop&q=80",
-      "https://images.unsplash.com/photo-1538481199705-c710c4e965fc?w=600&auto=format&fit=crop&q=80",
-      "https://images.unsplash.com/photo-1560253023-3ec5d502959f?w=600&auto=format&fit=crop&q=80"
-    ],
+      "https://imgcdn.latestmodapks.com/api/resize?url=https://www.latestmodapks.com/wp-content/uploads/2022/08/brawlstars1.webp",
+      "https://imgcdn.latestmodapks.com/api/resize?url=https://www.latestmodapks.com/wp-content/uploads/2022/08/brawlstars2.webp",
+      "https://imgcdn.latestmodapks.com/api/resize?url=https://www.latestmodapks.com/wp-content/uploads/2022/08/brawlstars3.webp",
+      "https://imgcdn.latestmodapks.com/api/resize?url=https://www.latestmodapks.com/wp-content/uploads/2022/08/brawlstars4.webp",
+      "https://imgcdn.latestmodapks.com/api/resize?url=https://www.latestmodapks.com/wp-content/uploads/2022/08/brawlstars5.webp",
+      "https://imgcdn.latestmodapks.com/api/resize?url=https://www.latestmodapks.com/wp-content/uploads/2022/08/brawlstars6.webp",
+      "https://imgcdn.latestmodapks.com/api/resize?url=https://www.latestmodapks.com/wp-content/uploads/2022/08/brawlstars7.webp",
+      "https://imgcdn.latestmodapks.com/api/resize?url=https://www.latestmodapks.com/wp-content/uploads/2022/08/brawlstars8.webp"
+      ],
     security: {
       checksum: "SHA-256: b882e4d372fc5927ad81d3542a4192b3",
       secureToken: "High security anti-ban bypass",
