@@ -3,11 +3,12 @@ import react from '@vitejs/plugin-react';
 import path from 'path';
 import { defineConfig } from 'vite';
 import obfuscator from 'vite-plugin-javascript-obfuscator';
+import { ViteSitemap } from 'vite-plugin-sitemap'; // यहाँ प्लगइन इम्पोर्ट किया है
 
 export default defineConfig({
   plugins: [
     react(), 
-    tailwindcss(), // यहाँ () लगाना सबसे जरूरी है
+    tailwindcss(), 
     obfuscator({
       compact: true,
       controlFlowFlattening: true,
@@ -19,11 +20,15 @@ export default defineConfig({
       stringArray: true,
       stringArrayThreshold: 0.8,
       splitStrings: true,
+    }),
+    ViteSitemap({ // यहाँ प्लगइन को ऐड कर दिया है
+      hostname: 'https://look-mod.vercel.app',
+      dynamicRoutes: ['/app/capcut'], // अपने अन्य ऐप्स के पाथ यहाँ जोड़ते रहें
     })
   ],
   resolve: {
     alias: {
-      '@': path.resolve(__dirname, './'), // यहाँ ./ का ध्यान रखें
+      '@': path.resolve(__dirname, './'),
     },
   },
   build: {
