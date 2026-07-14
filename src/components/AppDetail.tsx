@@ -52,47 +52,35 @@ export const AppDetail: React.FC<AppDetailProps> = ({
     return () => clearInterval(interval);
   }, [app.id, app.slug]);
 
-  // --- 100% WORKING MULTI-SERVER FAIL-SAFE DOWNLOADER ---
-  const triggerDownload = (e: React.MouseEvent) => {
-    e.preventDefault();
-    if (!app.downloadUrl) {
-      console.error("Download URL missing!");
-      return;
-    }
+ // --- 100% WORKING SINGLE-TAB DOWNLOADER ---
+const triggerDownload = (e: React.MouseEvent) => {
+  e.preventDefault();
+  if (!app.downloadUrl) {
+    console.error("Download URL missing!");
+    return;
+  }
 
-    // डाउनलोड बटन को तुरंत डिसेबल और स्टेट अपडेट करें
-    setDownloading(true);
+  // डाउनलोड बटन को डिसेबल करें
+  setDownloading(true);
 
-    try {
-      // मेथड 1: स्टैंडअलोन न्यू टैब फोर्स ओपनर (थर्ड-पार्टी लिंक्स के लिए बेस्ट)
-      // यह पॉप-अप ब्लॉकर को बाईपास करता है क्योंकि यह यूजर के डायरेक्ट क्लिक इवेंट के अंदर चल रहा है
-      const newWindow = window.open(app.downloadUrl, '_blank', 'noopener,noreferrer');
-      
-      // अगर ब्राउज़र ने न्यू विंडो को ब्लॉक कर दिया (Rare case), तो मेथड 2 (डायरेक्ट एंकर टैग) पर स्विच करेंगे
-      if (!newWindow || newWindow.closed || typeof newWindow.closed === 'undefined') {
-        const downloadLink = document.createElement('a');
-        downloadLink.href = app.downloadUrl;
-        downloadLink.target = '_blank';
-        downloadLink.rel = 'noopener noreferrer';
-        
-        // फाइल होने पर डायरेक्ट डाउनलोड फोर्स करने के लिए
-        downloadLink.setAttribute('download', `${app.slug}-mod.apk`); 
+  try {
+    /* 
+       नया टैब खोलने के बजाय, हम वर्तमान विंडो का URL बदल रहे हैं।
+       यह यूजर को आपकी वेबसाइट पर ही रखता है। 
+       यदि थर्ड-पार्टी लिंक फाइल डायरेक्ट डाउनलोड का है, तो ब्राउज़र 
+       उसे आपकी वेबसाइट पर ही प्रोसेस कर देगा।
+    */
+    window.location.href = app.downloadUrl;
+    
+  } catch (error) {
+    console.error("Download failed:", error);
+  }
 
-        document.body.appendChild(downloadLink);
-        downloadLink.click();
-        document.body.removeChild(downloadLink);
-      }
-    } catch (error) {
-      console.error("Download trigger failed, using fallback:", error);
-      // मेथड 3: आखिरी रास्ता अगर सब फेल हो जाए (इसी टैब में रीडायरेक्ट कर देना)
-      window.location.href = app.downloadUrl;
-    }
-
-    // 4 सेकंड बाद बटन को फिर से रेडी कर दें
-    setTimeout(() => {
-      setDownloading(false);
-    }, 4000);
-  };
+  // 4 सेकंड बाद बटन को फिर से रेडी कर दें
+  setTimeout(() => {
+    setDownloading(false);
+  }, 4000);
+};
 
   const handleShare = () => {
     navigator.clipboard.writeText(window.location.href);
