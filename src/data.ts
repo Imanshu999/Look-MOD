@@ -228,7 +228,9 @@ export const APPS_DATA: AppItem[] = [
     description: "Watch exclusive movies and TV shows in 4K HDR resolution without paying a monthly subscription.",
     longDescription: "Netflix Premium MOD offers you unlimited access to the entire original Netflix catalog, trending world TV series, award-winning documentaries, and stunning cinematic feature films. The best part is that it does not require registering a credit card or paying monthly fees. Stream simultaneously on up to 4 devices in UHD 4K resolution and Dolby Atmos surround sound. Includes multi-language options with perfect subtitles.",
     downloadUrl: "https://www.mediafire.com/file/6gc2lq1qarpe74t/NetFlix+Mirror+Pro+v9.72.0-look-mod.vercel.app.apk/file",
-    videoUrls: ["https://www.youtube.com/watch?v=GV3HUDMQ-F8"],// Perfectly fixed syntax error and successfully loaded multiple video URLs
+    videoUrls: ["https://www.youtube.com/watch?v=GV3HUDMQ-F8",
+                "https://youtu.be/L5AM7I2JgDM?si=IduY4U-CgoN5BAZr"
+    ],// Perfectly fixed syntax error and successfully loaded multiple video URLs
     screenshots: [
       "https://play-lh.googleusercontent.com/bJrIdbqnzVixnnsYe8MgD2Ifsj95Az71ZBVyfHn34mLutfkWFvZG6W6Y6UAVQFBB6pnBFeX3NunRb23DqW-V6w",
       "https://play-lh.googleusercontent.com/QWBsHU-ACYxbmx-JsQd1UKL3QYiIe1nVqi4WnrC6D7FvRdIjo4RCrA3sS9gvTF8LLdg5w5ScBx1gRCZVtMqEB98",
