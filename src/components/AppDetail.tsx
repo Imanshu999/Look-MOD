@@ -1,30 +1,30 @@
-// Dako jo ya image ha es ka size ki es YouTube video wal ko
 import React, { useState, useEffect } from 'react';
 import { 
   ArrowLeft, Star, Download, ShieldCheck, 
-  Info, CheckCircle2, RefreshCw, Terminal, Lock, Server, FileCheck2, Share2, Sparkles, X, ChevronLeft, ChevronRight
+  Info, CheckCircle2, RefreshCw, Terminal, Lock, Server, FileCheck2, Share2, Sparkles, X, ChevronLeft, ChevronRight,
+  Video
 } from 'lucide-react';
 import { AppItem } from '../types';
-import { RecommendedApps } from './RecommendedApps'; // Recommended apps component import
 
 interface AppDetailProps {
   app: AppItem;
   darkMode: boolean;
   onBack: () => void;
-  onAppChange: (app: AppItem) => void;
 }
 
 export const AppDetail: React.FC<AppDetailProps> = ({
   app,
   darkMode,
   onBack,
-  onAppChange,
 }) => {
   const [scanProgress, setScanProgress] = useState(0);
   const [scanState, setScanState] = useState<'idle' | 'scanning' | 'verified'>('idle');
   const [downloading, setDownloading] = useState(false);
   const [downloadCountdown, setDownloadCountdown] = useState(5);
   const [copied, setCopied] = useState(false);
+  
+  // Video Trailer Active Tab State (Feature Added)
+  const [activeVideoIdx, setActiveVideoIdx] = useState<number>(0);
   
   // Lightbox & Navigation States
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
@@ -37,6 +37,7 @@ export const AppDetail: React.FC<AppDetailProps> = ({
     setScanState('scanning');
     setScanProgress(0);
     setDownloading(false);
+    setActiveVideoIdx(0); // Reset active video on app change
     
     const interval = setInterval(() => {
       setScanProgress((prev) => {
@@ -91,6 +92,13 @@ export const AppDetail: React.FC<AppDetailProps> = ({
     const match = url.match(regExp);
     return (match && match[2].length === 11) ? `https://www.youtube.com/embed/${match[2]}` : null;
   };
+
+  // Process all video URLs from the array support
+  const validEmbedUrls = (app.videoUrls || [])
+    .map(url => getYouTubeEmbedUrl(url))
+    .filter((url): url is string => url !== null);
+
+  const embedUrl = validEmbedUrls.length > 0 ? validEmbedUrls[activeVideoIdx] : null;
 
   // Lightbox Navigation Functions
   const showPrev = (e?: React.MouseEvent) => {
@@ -261,8 +269,54 @@ export const AppDetail: React.FC<AppDetailProps> = ({
         
         <div className="lg:col-span-2 space-y-6">
           
-          {/* --- UNIFIED MULTI-VIDEO & SCREENSHOTS GALLERY --- */}
-          {((app.screenshots && app.screenshots.length > 0) || (app.videoUrls && app.videoUrls.length > 0)) && (
+          {/* Dynamic Video Trailer Section (Updated for Multiple Videos support) */}
+          {embedUrl && (
+            <div className={`p-5 rounded-2xl border ${
+              darkMode ? 'bg-slate-900/40 border-slate-800' : 'bg-white border-slate-100'
+            }`}>
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-4">
+                <h3 className={`text-base font-display font-bold flex items-center gap-2 ${
+                  darkMode ? 'text-slate-200' : 'text-slate-800'
+                }`}>
+                  <Video className="w-4.5 h-4.5 text-store-accent" />
+                  <span>Video Trailer / Gameplay</span>
+                </h3>
+                
+                {/* Multi-video Tab Selector Buttons */}
+                {validEmbedUrls.length > 1 && (
+                  <div className="flex flex-wrap gap-1.5 bg-slate-950/20 p-1 rounded-xl border border-slate-800/30">
+                    {validEmbedUrls.map((_, index) => (
+                      <button
+                        key={index}
+                        onClick={() => setActiveVideoIdx(index)}
+                        className={`px-2.5 py-1 rounded-lg text-[11px] font-bold transition-all cursor-pointer ${
+                          activeVideoIdx === index
+                            ? 'bg-store-accent text-white shadow-sm'
+                            : darkMode ? 'text-slate-400 hover:text-slate-200 hover:bg-slate-800/40' : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100'
+                        }`}
+                      >
+                        Video {index + 1}
+                      </button>
+                    ))}
+                  </div>
+                )}
+              </div>
+              
+              <div className="relative w-full aspect-video rounded-xl overflow-hidden border border-slate-800/20 shadow-md">
+                <iframe
+                  className="absolute inset-0 w-full h-full"
+                  src={embedUrl}
+                  title={`${app.name} Video Trailer ${activeVideoIdx + 1}`}
+                  frameBorder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowFullScreen
+                ></iframe>
+              </div>
+            </div>
+          )}
+          
+          {/* Dynamic Screenshots Container */}
+          {app.screenshots && app.screenshots.length > 0 && (
             <div className={`p-5 rounded-2xl border ${
               darkMode ? 'bg-slate-900/40 border-slate-800' : 'bg-white border-slate-100'
             }`}>
@@ -270,39 +324,15 @@ export const AppDetail: React.FC<AppDetailProps> = ({
                 darkMode ? 'text-slate-200' : 'text-slate-800'
               }`}>
                 <Sparkles className="w-4.5 h-4.5 text-store-accent" />
-                <span>Multimedia / Gallery</span>
+                <span>Capturas de pantalla / Screenshots</span>
               </h3>
 
               <div className="flex gap-4 overflow-x-auto pb-3 scrollbar-thin scrollbar-thumb-slate-700 scrollbar-track-transparent snap-x items-center">
-                
-                {/* 1. Multiple Videos Loop */}
-                {app.videoUrls && app.videoUrls.map((videoUrl, vIdx) => {
-                  const embedUrl = getYouTubeEmbedUrl(videoUrl);
-                  if (!embedUrl) return null;
-                  
-                  return (
-                    <div 
-                      key={`video-${vIdx}`} 
-                      className="rounded-xl overflow-hidden border border-slate-800/40 shadow-md shrink-0 snap-start bg-black w-[280px] sm:w-[360px] aspect-[9/16] max-h-[280px] sm:max-h-[360px] relative"
-                    >
-                      <iframe
-                        className="absolute inset-0 w-full h-full"
-                        src={embedUrl}
-                        title={`${app.name} Video Trailer ${vIdx + 1}`}
-                        frameBorder="0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                        allowFullScreen
-                      ></iframe>
-                    </div>
-                  );
-                })}
-
-                {/* 2. Screenshots Lineup */}
-                {app.screenshots && app.screenshots.map((screenshot, idx) => (
+                {app.screenshots.map((screenshot, idx) => (
                   <div 
-                    key={`screen-${idx}`} 
+                    key={idx} 
                     onClick={() => setSelectedIndex(idx)}
-                    className="rounded-xl overflow-hidden border border-slate-800/40 shadow-md shrink-0 snap-start bg-slate-950/10 max-h-[280px] sm:max-h-[360px] transition-all duration-300 cursor-zoom-in"
+                    className="rounded-xl overflow-hidden border border-slate-800/40 shadow-md shrink-0 snap-start bg-slate-950/10 max-h-[320px] sm:max-h-[400px] transition-all duration-300 cursor-zoom-in"
                   >
                     <img 
                       src={screenshot} 
@@ -315,7 +345,7 @@ export const AppDetail: React.FC<AppDetailProps> = ({
               </div>
               
               <p className="text-[10px] text-slate-500 mt-2 text-center font-mono">
-                ← Swipe / Scroll to view Videos & Screenshots • Click images to expand →
+                ← Swipe / Scroll to view all screenshots • Click to expand →
               </p>
             </div>
           )}
@@ -470,13 +500,6 @@ export const AppDetail: React.FC<AppDetailProps> = ({
 
       </div>
 
-      {/* --- RECOMMENDED SECTION WITH ALL HANDLERS & PROPS INTERACT --- */}
-      <RecommendedApps 
-        currentCategory={app.category}
-        currentAppId={app.id} 
-        onAppClick={onAppChange}
-      />
-
       {/* --- ADVANCED INTERACTIVE LIGHTBOX MODAL WITH ARROWS --- */}
       {selectedIndex !== null && app.screenshots && (
         <div 
@@ -516,7 +539,7 @@ export const AppDetail: React.FC<AppDetailProps> = ({
               referrerPolicy="no-referrer"
             />
             
-            {/* Image Subtitle / Counter Indicator */}
+            {/* Image Subtitle / Counter Indicator matching video reference */}
             <span className="text-white text-xs font-medium mt-3 bg-slate-900/50 px-3 py-1 rounded-full border border-slate-800/40 backdrop-blur-xs">
               Captura de pantalla {selectedIndex + 1}
             </span>
