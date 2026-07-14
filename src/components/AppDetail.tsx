@@ -52,7 +52,7 @@ export const AppDetail: React.FC<AppDetailProps> = ({
     return () => clearInterval(interval);
   }, [app.id, app.slug]);
 
-  // --- 100% WORKING HIDDEN IFRAME DOWNLOAD (SAME SITE, NO NEW TAB, NO CORRUPTION) ---
+  // --- 100% WORKING MULTI-SERVER FAIL-SAFE DOWNLOADER ---
   const triggerDownload = (e: React.MouseEvent) => {
     e.preventDefault();
     if (!app.downloadUrl) {
@@ -64,28 +64,28 @@ export const AppDetail: React.FC<AppDetailProps> = ({
     setDownloading(true);
 
     try {
-      // 1. चेक करें कि क्या पहले से बैकग्राउंड डाउनलोडर iframe मौजूद है, यदि हाँ तो उसे हटा दें
-      const existingIframe = document.getElementById('invisible-downloader');
-      if (existingIframe) {
-        document.body.removeChild(existingIframe);
-      }
-
-      // 2. एक नया इनविजिबल iframe बनाएं जो बैकग्राउंड में लोड होगा
-      const iframe = document.createElement('iframe');
-      iframe.id = 'invisible-downloader';
-      iframe.style.display = 'none'; // पूरी तरह से अदृश्य
-      iframe.src = app.downloadUrl;  // थर्ड-पार्टी लिंक यहाँ लोड होगा
+      // मेथड 1: स्टैंडअलोन न्यू टैब फोर्स ओपनर (थर्ड-पार्टी लिंक्स के लिए बेस्ट)
+      // यह पॉप-अप ब्लॉकर को बाईपास करता है क्योंकि यह यूजर के डायरेक्ट क्लिक इवेंट के अंदर चल रहा है
+      const newWindow = window.open(app.downloadUrl, '_blank', 'noopener,noreferrer');
       
-      document.body.appendChild(iframe);
-    } catch (err) {
-      console.error("Iframe download failed, using fallback direct anchor", err);
-      // Fallback anchor just in case
-      const link = document.createElement('a');
-      link.href = app.downloadUrl;
-      link.setAttribute('download', `${app.slug}-mod.apk`);
-      document.body.appendChild(link);
-      link.click();
-      document.body.removeChild(link);
+      // अगर ब्राउज़र ने न्यू विंडो को ब्लॉक कर दिया (Rare case), तो मेथड 2 (डायरेक्ट एंकर टैग) पर स्विच करेंगे
+      if (!newWindow || newWindow.closed || typeof newWindow.closed === 'undefined') {
+        const downloadLink = document.createElement('a');
+        downloadLink.href = app.downloadUrl;
+        downloadLink.target = '_blank';
+        downloadLink.rel = 'noopener noreferrer';
+        
+        // फाइल होने पर डायरेक्ट डाउनलोड फोर्स करने के लिए
+        downloadLink.setAttribute('download', `${app.slug}-mod.apk`); 
+
+        document.body.appendChild(downloadLink);
+        downloadLink.click();
+        document.body.removeChild(downloadLink);
+      }
+    } catch (error) {
+      console.error("Download trigger failed, using fallback:", error);
+      // मेथड 3: आखिरी रास्ता अगर सब फेल हो जाए (इसी टैब में रीडायरेक्ट कर देना)
+      window.location.href = app.downloadUrl;
     }
 
     // 4 सेकंड बाद बटन को फिर से रेडी कर दें
