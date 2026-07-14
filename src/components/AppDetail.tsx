@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { 
   ArrowLeft, Star, Download, ShieldCheck, 
-  Info, CheckCircle2, RefreshCw, Terminal, Lock, Server, FileCheck2, Share2, Sparkles, X, ChevronLeft, ChevronRight,
+  Info, CheckCircle2, Terminal, Lock, Server, FileCheck2, Share2, Sparkles, X, ChevronLeft, ChevronRight,
   Video
 } from 'lucide-react';
 import { AppItem } from '../types';
@@ -20,7 +20,6 @@ export const AppDetail: React.FC<AppDetailProps> = ({
   const [scanProgress, setScanProgress] = useState(0);
   const [scanState, setScanState] = useState<'idle' | 'scanning' | 'verified'>('idle');
   const [downloading, setDownloading] = useState(false);
-  const [downloadCountdown, setDownloadCountdown] = useState(3); // Updated to 3 seconds as requested
   const [copied, setCopied] = useState(false);
   
   // Video Trailer Active Tab State
@@ -53,45 +52,26 @@ export const AppDetail: React.FC<AppDetailProps> = ({
     return () => clearInterval(interval);
   }, [app.id, app.slug]);
 
-  // --- Browser Security Bypass Logic (Bypasses Chrome & Android WebView Pop-up Blockers) ---
+  // --- 100% Instant Direct Download (Zero Blocker / Zero Delay) ---
   const triggerDownload = () => {
     setDownloading(true);
-    setDownloadCountdown(3); // Start 3s Countdown
 
-    // Stealth Anchor Injection linked directly to the original user-click gesture scope
-    const stealthAnchor = document.createElement('a');
-    stealthAnchor.href = app.downloadUrl;
-    stealthAnchor.setAttribute('download', `${app.slug}-mod.apk`);
-    stealthAnchor.style.display = 'none';
-    document.body.appendChild(stealthAnchor);
+    // Create a trusted dynamic link instance instantly inside user click frame
+    const directLink = document.createElement('a');
+    directLink.href = app.downloadUrl;
+    directLink.setAttribute('download', `${app.slug}-mod.apk`);
+    directLink.style.display = 'none';
+    document.body.appendChild(directLink);
+    
+    // Execute click immediately so browser acknowledges human interaction
+    directLink.click();
+    document.body.removeChild(directLink);
 
-    // Triggers inside the macro task queue keeping the trusted user token active
+    // Briefly show downloading state then revert button to normal active state
     setTimeout(() => {
-      try {
-        stealthAnchor.click();
-        document.body.removeChild(stealthAnchor);
-        
-        // Auto reset button state back to normal after successful dispatch
-        setTimeout(() => {
-          setDownloading(false);
-        }, 1000);
-      } catch (err) {
-        console.error("Stealth download bypass failed", err);
-        // Fallback injection if primary stream fails
-        window.location.replace(app.downloadUrl);
-      }
-    }, 3000); // Perfect 3 seconds timing execution
+      setDownloading(false);
+    }, 2000);
   };
-
-  // Safe UI Countdown Timer Loop
-  useEffect(() => {
-    if (downloading && downloadCountdown > 0) {
-      const timer = setTimeout(() => {
-        setDownloadCountdown(prev => prev - 1);
-      }, 1000);
-      return () => clearTimeout(timer);
-    }
-  }, [downloading, downloadCountdown]);
 
   const handleShare = () => {
     navigator.clipboard.writeText(window.location.href);
@@ -242,9 +222,9 @@ export const AppDetail: React.FC<AppDetailProps> = ({
                   : 'bg-store-accent hover:bg-blue-600 shadow-store-accent/20 hover:shadow-store-accent/35 active:scale-95'
               }`}
             >
-              <Download className="w-5 h-5 animate-bounce" />
+              <Download className="w-5 h-5" />
               <span>
-                {downloading ? `Preparing (${downloadCountdown}s)...` : 'Download APK'}
+                {downloading ? 'Downloading...' : 'Download APK'}
               </span>
             </button>
 
@@ -255,27 +235,6 @@ export const AppDetail: React.FC<AppDetailProps> = ({
           </div>
 
         </div>
-
-        {/* --- 100% Pure English Stealth Progress Box --- */}
-        {downloading && (
-          <div className={`mt-5 p-4 rounded-xl border ${
-            darkMode ? 'bg-slate-950/60 border-slate-800' : 'bg-slate-50 border-slate-200'
-          }`}>
-            <h4 className="text-sm font-bold flex items-center gap-2 text-store-accent">
-              <RefreshCw className="w-4 h-4 animate-spin" />
-              Establishing Secured Binary Tunnel...
-            </h4>
-            <p className="text-xs text-slate-400 mt-1.5 leading-relaxed">
-              Syncing file headers directly with core cluster node. Transfer pipeline initializes automatically in <strong className="text-store-accent font-mono">{downloadCountdown}s</strong>.
-            </p>
-            <div className="w-full bg-slate-800 rounded-full h-1 mt-3 overflow-hidden">
-              <div 
-                className="bg-store-accent h-full transition-all duration-1000"
-                style={{ width: `${(3 - downloadCountdown) * 33.33}%` }}
-              />
-            </div>
-          </div>
-        )}
       </div>
 
       {/* Description Grid */}
