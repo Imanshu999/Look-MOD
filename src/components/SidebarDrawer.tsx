@@ -94,8 +94,9 @@ export const SidebarDrawer: React.FC<SidebarDrawerProps> = ({
             );
           })}
 
-          {/* Social Media Section */}
-          <div className={`mt-6 mx-3 p-4 rounded-xl flex justify-between items-center ${darkMode ? 'bg-slate-900' : 'bg-slate-100'}`}>
+          {/* Social Media Section - एनिमेटेड, कलरफुल पट्टी */}
+          <div className="mt-6 mx-3 p-4 rounded-xl flex justify-between items-center relative overflow-hidden transition-all duration-500 border border-white/10 shadow-[0_0_15px_rgba(59,130,246,0.3)] bg-gradient-to-r from-blue-500/10 via-purple-500/10 to-pink-500/10 animate-pulse">
+            <div className="absolute inset-0 rounded-xl border border-white/20 pointer-events-none" />
             <a href="https://www.facebook.com/share/19JUUNiUBb/" target="_blank" rel="noreferrer" className="text-[#1877F2] hover:scale-110 transition-transform">
               <Facebook className="w-6 h-6" />
             </a>
