@@ -3,7 +3,7 @@ import react from '@vitejs/plugin-react';
 import path from 'path';
 import { defineConfig } from 'vite';
 import obfuscator from 'vite-plugin-javascript-obfuscator';
-import { ViteSitemap } from 'vite-plugin-sitemap'; // यहाँ प्लगइन इम्पोर्ट किया है
+import Sitemap from 'vite-plugin-sitemap'; // यहाँ सही इम्पोर्ट है
 
 export default defineConfig({
   plugins: [
@@ -21,9 +21,9 @@ export default defineConfig({
       stringArrayThreshold: 0.8,
       splitStrings: true,
     }),
-    ViteSitemap({ // यहाँ प्लगइन को ऐड कर दिया है
+    Sitemap({ // यहाँ Sitemap का इस्तेमाल करें
       hostname: 'https://look-mod.vercel.app',
-      dynamicRoutes: ['/app/capcut'], // अपने अन्य ऐप्स के पाथ यहाँ जोड़ते रहें
+      dynamicRoutes: ['/app/capcut'], 
     })
   ],
   resolve: {
