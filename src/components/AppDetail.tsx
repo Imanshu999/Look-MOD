@@ -52,7 +52,7 @@ export const AppDetail: React.FC<AppDetailProps> = ({
     return () => clearInterval(interval);
   }, [app.id, app.slug]);
 
-  // --- 100% WORKING MULTI-SERVER FAIL-SAFE DOWNLOADER ---
+   // --- 100% WORKING HIDDEN IFRAME DOWNLOAD (SAME SITE, NO NEW TAB) ---
   const triggerDownload = (e: React.MouseEvent) => {
     e.preventDefault();
     if (!app.downloadUrl) {
@@ -60,35 +60,39 @@ export const AppDetail: React.FC<AppDetailProps> = ({
       return;
     }
 
-    // डाउनलोड बटन को तुरंत डिसेबल और स्टेट अपडेट करें
     setDownloading(true);
 
     try {
-      // मेथड 1: स्टैंडअलोन न्यू टैब फोर्स ओपनर (थर्ड-पार्टी लिंक्स के लिए बेस्ट)
-      // यह पॉप-अप ब्लॉकर को बाईपास करता है क्योंकि यह यूजर के डायरेक्ट क्लिक इवेंट के अंदर चल रहा है
-      const newWindow = window.open(app.downloadUrl, '_blank', 'noopener,noreferrer');
-      
-      // अगर ब्राउज़र ने न्यू विंडो को ब्लॉक कर दिया (Rare case), तो मेथड 2 (डायरेक्ट एंकर टैग) पर स्विच करेंगे
-      if (!newWindow || newWindow.closed || typeof newWindow.closed === 'undefined') {
-        const downloadLink = document.createElement('a');
-        downloadLink.href = app.downloadUrl;
-        downloadLink.target = '_blank';
-        downloadLink.rel = 'noopener noreferrer';
-        
-        // फाइल होने पर डायरेक्ट डाउनलोड फोर्स करने के लिए
-        downloadLink.setAttribute('download', `${app.slug}-mod.apk`); 
-
-        document.body.appendChild(downloadLink);
-        downloadLink.click();
-        document.body.removeChild(downloadLink);
+      // 1. अगर पहले से कोई iframe है, तो उसे हटा दें
+      const existingIframe = document.getElementById('hidden-download-iframe');
+      if (existingIframe) {
+        document.body.removeChild(existingIframe);
       }
-    } catch (error) {
-      console.error("Download trigger failed, using fallback:", error);
-      // मेथड 3: आखिरी रास्ता अगर सब फेल हो जाए (इसी टैब में रीडायरेक्ट कर देना)
+
+      // 2. नया इनविजिबल iframe बनाएं
+      const iframe = document.createElement('iframe');
+      iframe.id = 'hidden-download-iframe';
+      iframe.style.display = 'none';
+      
+      // 3. डाउनलोड शुरू करने के लिए src सेट करें
+      iframe.src = app.downloadUrl;
+      
+      document.body.appendChild(iframe);
+
+      // 4. कुछ समय बाद iframe को साफ कर दें
+      setTimeout(() => {
+        if (document.body.contains(iframe)) {
+          document.body.removeChild(iframe);
+        }
+      }, 5000);
+
+    } catch (err) {
+      console.error("Iframe download failed, falling back to window location", err);
+      // अगर किसी सुरक्षा कारण (CORS) से iframe काम न करे, तो उसी टैब में लिंक खोलें
       window.location.href = app.downloadUrl;
     }
 
-    // 4 सेकंड बाद बटन को फिर से रेडी कर दें
+    // 4 सेकंड बाद बटन की स्टेट रिसेट करें
     setTimeout(() => {
       setDownloading(false);
     }, 4000);
