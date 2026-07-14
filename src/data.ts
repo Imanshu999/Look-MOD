@@ -335,7 +335,7 @@ export const APPS_DATA: AppItem[] = [
     name: "MovieBox",
     slug: "moviebox",
     developer: "Imaanshu N",
-    rating: "4.7/5",
+    rating: "4.7",
     downloads: "500M",
     size: "58 MB",
     version: "5.14.2",
