@@ -103,9 +103,11 @@ export const APPS_DATA: AppItem[] = [
     downloadUrl: "https://go.onehost.io/aMacNBG5x6Cr",
     videoUrls: ["https://www.youtube.com/watch?v=MmB9b5njVbA"], // Converted to array support
     screenshots: [
-      "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=600&auto=format&fit=crop&q=80",
-      "https://images.unsplash.com/photo-1509198397868-475647b2a1e5?w=600&auto=format&fit=crop&q=80",
-      "https://images.unsplash.com/photo-1627856013091-fed6e4e30025?w=600&auto=format&fit=crop&q=80"
+      "https://imgcdn.latestmodapks.com/api/resize?url=https://www.latestmodapks.com/wp-content/uploads/2024/08/minecraft-pocket-edition-1-media.webp",
+      "https://imgcdn.latestmodapks.com/api/resize?url=https://www.latestmodapks.com/wp-content/uploads/2024/08/minecraft-pocket-edition-2-media.webp",
+      "https://imgcdn.latestmodapks.com/api/resize?url=https://www.latestmodapks.com/wp-content/uploads/2024/08/minecraft-pocket-edition-3-media.webp",
+      "https://imgcdn.latestmodapks.com/api/resize?url=https://www.latestmodapks.com/wp-content/uploads/2024/08/minecraft-pocket-edition-4-media.webp",
+      "https://imgcdn.latestmodapks.com/api/resize?url=https://www.latestmodapks.com/wp-content/uploads/2024/08/minecraft-pocket-edition-5-media.webp"
     ],
     security: {
       checksum: "SHA-256: c398e4d372fc5927ad81d3542a419f9",
