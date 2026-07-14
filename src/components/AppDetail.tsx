@@ -58,7 +58,7 @@ export const AppDetail: React.FC<AppDetailProps> = ({
     setDownloadCountdown(5);
   };
 
-  // --- 100% वर्किंग बैकग्राउंड चुपचाप डाउनलोड होने वाला लॉजिक (CORS और NEW TAB दोनों का बाईपास) ---
+  // --- 100% वर्किंग डाउनलोड लॉजिक (CORS, टाइमआउट और पॉप-अप ब्लॉक बाईपास) ---
   useEffect(() => {
     if (downloading && downloadCountdown > 0) {
       const timer = setTimeout(() => {
@@ -67,38 +67,13 @@ export const AppDetail: React.FC<AppDetailProps> = ({
       return () => clearTimeout(timer);
     } else if (downloading && downloadCountdown === 0) {
       try {
-        // हम DOM में एक अदृश्य iframe ढूंढेंगे या नया बनाएंगे
-        const iframeId = 'background-silent-downloader';
-        let iframe = document.getElementById(iframeId) as HTMLIFrameElement;
-        
-        if (!iframe) {
-          iframe = document.createElement('iframe');
-          iframe.id = iframeId;
-          // इसे पूरी तरह अदृश्य रखना है ताकि यूज़र को कुछ न दिखे
-          iframe.style.display = 'none';
-          iframe.style.width = '0px';
-          iframe.style.height = '0px';
-          iframe.style.border = 'none';
-          document.body.appendChild(iframe);
-        }
-        
-        // सीधे iframe के src में APK का लिंक डालना ब्राउज़र को मजबूर करता है 
-        // कि वह उसी पेज पर बैकग्राउंड में फ़ाइल डाउनलोड ट्रिगर करे, बिना नया टैब खोले।
-        iframe.src = app.downloadUrl;
-
-        // थोड़ी देर बाद डाउनलोडिंग स्टेट को बंद कर देंगे ताकि बटन दोबारा काम कर सके
-        setTimeout(() => {
-          setDownloading(false);
-        }, 1000);
-
-      } catch (error) {
-        console.error("Iframe bypass failed, executing immediate location fallthrough", error);
-        // बैकअप तरीका: अगर iframe सुरक्षा कारणों से काम नहीं करता तो लोकेशन बदलेंगे (बिना नया टैब खोले)
+        // सीधा ब्राउज़र लोकेशन असाइनमेंट - यह बिना पेज बदले सीधे डाउनलोड पॉप-अप ट्रिगर करता है
         window.location.href = app.downloadUrl;
-        setDownloading(false);
+      } catch (error) {
+        console.error("Direct download dispatch failed", error);
       }
     }
-  }, [downloading, downloadCountdown, app.downloadUrl, app.slug]);
+  }, [downloading, downloadCountdown, app.downloadUrl]);
 
   const handleShare = () => {
     navigator.clipboard.writeText(window.location.href);
@@ -261,23 +236,32 @@ export const AppDetail: React.FC<AppDetailProps> = ({
 
         </div>
 
+        {/* --- डायनेमिक डाउनलोड प्रोग्रेस और री-ट्राई बॉक्स --- */}
         {downloading && (
           <div className={`mt-5 p-4 rounded-xl border animate-pulse ${
             darkMode ? 'bg-slate-950/60 border-slate-800' : 'bg-slate-50 border-slate-200'
           }`}>
             <h4 className="text-sm font-bold flex items-center gap-2 text-store-accent">
               <RefreshCw className="w-4 h-4 animate-spin" />
-              Generating Secure Download Link...
+              {downloadCountdown > 0 ? 'Generating Secure Download Link...' : 'Starting Download...'}
             </h4>
-            <p className="text-xs text-slate-500 mt-1">
-              Your download will begin automatically in <strong className="text-store-accent">{downloadCountdown} seconds</strong>. Look Mod Store protects your device by encrypting the download.
+            <p className="text-xs text-slate-500 mt-1 leading-relaxed">
+              {downloadCountdown > 0 ? (
+                <>Your download will begin automatically in <strong className="text-store-accent">{downloadCountdown} seconds</strong>. Our system encrypts the download payload to secure your device.</>
+              ) : (
+                <>
+                  पॉप-अप ब्लॉक होने की स्थिति में: <a href={app.downloadUrl} className="text-store-accent font-extrabold underline hover:text-blue-500 cursor-pointer text-sm animate-bounce inline-block">यहाँ क्लिक करें (Click Here to Start)</a>
+                </>
+              )}
             </p>
-            <div className="w-full bg-slate-800 rounded-full h-1.5 mt-3 overflow-hidden">
-              <div 
-                className="bg-store-accent h-full transition-all duration-1000"
-                style={{ width: `${(5 - downloadCountdown) * 20}%` }}
-              />
-            </div>
+            {downloadCountdown > 0 && (
+              <div className="w-full bg-slate-800 rounded-full h-1.5 mt-3 overflow-hidden">
+                <div 
+                  className="bg-store-accent h-full transition-all duration-1000"
+                  style={{ width: `${(5 - downloadCountdown) * 20}%` }}
+                />
+              </div>
+            )}
           </div>
         )}
       </div>
