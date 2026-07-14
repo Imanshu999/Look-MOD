@@ -8,7 +8,7 @@ import { RecentCarousel } from './components/RecentCarousel';
 import { AppDetail } from './components/AppDetail';
 import { BlogSection } from './components/BlogSection';
 import { ContactSection } from './components/ContactSection';
-import { ReviewSection } from './components/ReviewSection'; // 👈 Naya Component Import Kiya
+import { ReviewSection } from './components/ReviewSection';
 import takano3dAvatar from './assets/images/takano3d_avatar_1783771284341.jpg';
 
 import { 
