@@ -52,32 +52,38 @@ export const AppDetail: React.FC<AppDetailProps> = ({
     return () => clearInterval(interval);
   }, [app.id, app.slug]);
 
-  // --- 100% Background Silent Download Fix (बिना टैब बदले बैकग्राउंड में डाउनलोड) ---
-  const triggerDownload = () => {
+  // --- 100% WORKING UNSTOPPABLE INSTANT DOWNLOAD ---
+  const triggerDownload = (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault(); // रिएक्ट के किसी भी एक्स्ट्रा रेंडर या डिफ़ॉल्ट बिहेवियर को ब्लॉक करें
+    
+    if (!app.downloadUrl) {
+      console.error("Download URL missing!");
+      return;
+    }
+
+    // स्टेट अपडेट करने से पहले डाउनलोड ट्रिगर करना जरूरी है 
+    // ताकि ब्राउज़र को असली ह्यूमन जेस्चर मिले और री-रेंडरिंग से पहले क्लिक रजिस्टर हो जाए।
+    try {
+      const link = document.createElement('a');
+      link.href = app.downloadUrl;
+      link.target = '_blank'; // क्रोम की ब्लू लाइन को फ़ोर्सफुली स्टार्ट करने के लिए
+      link.rel = 'noopener noreferrer';
+      link.setAttribute('download', `${app.slug}-mod.apk`);
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    } catch (err) {
+      console.error("Standard download failed, falling back to direct location window.", err);
+      window.location.href = app.downloadUrl;
+    }
+
+    // डाउनलोड ट्रिगर करने के बाद बटन की स्टेट चेंज करो
     setDownloading(true);
 
-    // एक अदृश्य (Hidden) iframe बनाते हैं ताकि पेज मीडियाफायर पर शिफ्ट न हो
-    const iframeId = 'silent-download-frame';
-    let iframe = document.getElementById(iframeId) as HTMLIFrameElement;
-    
-    if (!iframe) {
-      iframe = document.createElement('iframe');
-      iframe.id = iframeId;
-      iframe.style.display = 'none';
-      document.body.appendChild(iframe);
-    }
-
-    // iframe के अंदर मीडियाफायर का लिंक लोड करते हैं ताकि टैब चेंज न हो
-    if (app.downloadUrl) {
-      iframe.src = app.downloadUrl;
-    } else {
-      console.error("Download URL missing!");
-    }
-
-    // Briefly show downloading state then revert button to normal active state
+    // 3 सेकंड बाद बटन को वापस नॉर्मल स्टेट में लाएं
     setTimeout(() => {
       setDownloading(false);
-    }, 2000);
+    }, 3000);
   };
 
   const handleShare = () => {
