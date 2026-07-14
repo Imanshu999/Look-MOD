@@ -108,6 +108,10 @@ export const SidebarDrawer: React.FC<SidebarDrawerProps> = ({
             <a href="https://t.me/Imaanshu_N" target="_blank" rel="noreferrer" className="text-[#0088cc] hover:scale-110 transition-transform">
               <Send className="w-6 h-6" />
             </a>
+            <a href="YOUR_FACEBOOK_URL" target="_blank" rel="noreferrer" className="text-[#1877F2] hover:scale-110 transition-transform">
+              <Facebook className="w-6 h-6" />
+            </a>
+
           </div>
         </nav>
 
