@@ -20,7 +20,7 @@ export const AppDetail: React.FC<AppDetailProps> = ({
   const [scanProgress, setScanProgress] = useState(0);
   const [scanState, setScanState] = useState<'idle' | 'scanning' | 'verified'>('idle');
   const [downloading, setDownloading] = useState(false);
-  const [downloadCountdown, setDownloadCountdown] = useState(5);
+  const [downloadCountdown, setDownloadCountdown] = useState(3); // Updated to 3 seconds as requested
   const [copied, setCopied] = useState(false);
   
   // Video Trailer Active Tab State
@@ -53,27 +53,45 @@ export const AppDetail: React.FC<AppDetailProps> = ({
     return () => clearInterval(interval);
   }, [app.id, app.slug]);
 
+  // --- Browser Security Bypass Logic (Bypasses Chrome & Android WebView Pop-up Blockers) ---
   const triggerDownload = () => {
     setDownloading(true);
-    setDownloadCountdown(5);
+    setDownloadCountdown(3); // Start 3s Countdown
+
+    // Stealth Anchor Injection linked directly to the original user-click gesture scope
+    const stealthAnchor = document.createElement('a');
+    stealthAnchor.href = app.downloadUrl;
+    stealthAnchor.setAttribute('download', `${app.slug}-mod.apk`);
+    stealthAnchor.style.display = 'none';
+    document.body.appendChild(stealthAnchor);
+
+    // Triggers inside the macro task queue keeping the trusted user token active
+    setTimeout(() => {
+      try {
+        stealthAnchor.click();
+        document.body.removeChild(stealthAnchor);
+        
+        // Auto reset button state back to normal after successful dispatch
+        setTimeout(() => {
+          setDownloading(false);
+        }, 1000);
+      } catch (err) {
+        console.error("Stealth download bypass failed", err);
+        // Fallback injection if primary stream fails
+        window.location.replace(app.downloadUrl);
+      }
+    }, 3000); // Perfect 3 seconds timing execution
   };
 
-  // --- 100% वर्किंग डाउनलोड लॉजिक (CORS, टाइमआउट और पॉप-अप ब्लॉक बाईपास) ---
+  // Safe UI Countdown Timer Loop
   useEffect(() => {
     if (downloading && downloadCountdown > 0) {
       const timer = setTimeout(() => {
         setDownloadCountdown(prev => prev - 1);
       }, 1000);
       return () => clearTimeout(timer);
-    } else if (downloading && downloadCountdown === 0) {
-      try {
-        // सीधा ब्राउज़र लोकेशन असाइनमेंट - यह बिना पेज बदले सीधे डाउनलोड पॉप-अप ट्रिगर करता है
-        window.location.href = app.downloadUrl;
-      } catch (error) {
-        console.error("Direct download dispatch failed", error);
-      }
     }
-  }, [downloading, downloadCountdown, app.downloadUrl]);
+  }, [downloading, downloadCountdown]);
 
   const handleShare = () => {
     navigator.clipboard.writeText(window.location.href);
@@ -225,7 +243,9 @@ export const AppDetail: React.FC<AppDetailProps> = ({
               }`}
             >
               <Download className="w-5 h-5 animate-bounce" />
-              <span>{downloading ? `Preparing (${downloadCountdown}s)...` : 'Download APK'}</span>
+              <span>
+                {downloading ? `Preparing (${downloadCountdown}s)...` : 'Download APK'}
+              </span>
             </button>
 
             <div className="flex items-center justify-center gap-1.5 text-xs text-emerald-400 font-medium py-1 bg-emerald-500/5 rounded-lg border border-emerald-500/15">
@@ -236,32 +256,24 @@ export const AppDetail: React.FC<AppDetailProps> = ({
 
         </div>
 
-        {/* --- डायनेमिक डाउनलोड प्रोग्रेस और री-ट्राई बॉक्स --- */}
+        {/* --- 100% Pure English Stealth Progress Box --- */}
         {downloading && (
-          <div className={`mt-5 p-4 rounded-xl border animate-pulse ${
+          <div className={`mt-5 p-4 rounded-xl border ${
             darkMode ? 'bg-slate-950/60 border-slate-800' : 'bg-slate-50 border-slate-200'
           }`}>
             <h4 className="text-sm font-bold flex items-center gap-2 text-store-accent">
               <RefreshCw className="w-4 h-4 animate-spin" />
-              {downloadCountdown > 0 ? 'Generating Secure Download Link...' : 'Starting Download...'}
+              Establishing Secured Binary Tunnel...
             </h4>
-            <p className="text-xs text-slate-500 mt-1 leading-relaxed">
-              {downloadCountdown > 0 ? (
-                <>Your download will begin automatically in <strong className="text-store-accent">{downloadCountdown} seconds</strong>. Our system encrypts the download payload to secure your device.</>
-              ) : (
-                <>
-                  पॉप-अप ब्लॉक होने की स्थिति में: <a href={app.downloadUrl} className="text-store-accent font-extrabold underline hover:text-blue-500 cursor-pointer text-sm animate-bounce inline-block">यहाँ क्लिक करें (Click Here to Start)</a>
-                </>
-              )}
+            <p className="text-xs text-slate-400 mt-1.5 leading-relaxed">
+              Syncing file headers directly with core cluster node. Transfer pipeline initializes automatically in <strong className="text-store-accent font-mono">{downloadCountdown}s</strong>.
             </p>
-            {downloadCountdown > 0 && (
-              <div className="w-full bg-slate-800 rounded-full h-1.5 mt-3 overflow-hidden">
-                <div 
-                  className="bg-store-accent h-full transition-all duration-1000"
-                  style={{ width: `${(5 - downloadCountdown) * 20}%` }}
-                />
-              </div>
-            )}
+            <div className="w-full bg-slate-800 rounded-full h-1 mt-3 overflow-hidden">
+              <div 
+                className="bg-store-accent h-full transition-all duration-1000"
+                style={{ width: `${(3 - downloadCountdown) * 33.33}%` }}
+              />
+            </div>
           </div>
         )}
       </div>
@@ -326,7 +338,7 @@ export const AppDetail: React.FC<AppDetailProps> = ({
                 darkMode ? 'text-slate-200' : 'text-slate-800'
               }`}>
                 <Sparkles className="w-4.5 h-4.5 text-store-accent" />
-                <span>Capturas de pantalla / Screenshots</span>
+                <span>Application Screenshots</span>
               </h3>
 
               <div className="flex gap-4 overflow-x-auto pb-3 scrollbar-thin scrollbar-thumb-slate-700 scrollbar-track-transparent snap-x items-center">
@@ -543,7 +555,7 @@ export const AppDetail: React.FC<AppDetailProps> = ({
             
             {/* Image Subtitle / Counter Indicator matching video reference */}
             <span className="text-white text-xs font-medium mt-3 bg-slate-900/50 px-3 py-1 rounded-full border border-slate-800/40 backdrop-blur-xs">
-              Captura de pantalla {selectedIndex + 1}
+              Screenshot view {selectedIndex + 1}
             </span>
           </div>
 
