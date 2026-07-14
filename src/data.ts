@@ -340,7 +340,7 @@ export const APPS_DATA: AppItem[] = [
     size: "58 MB",
     version: "5.14.2",
     category: "Movie",
-    type: "app",
+    type: "App",
     updatedAt: "01/07/2026",
     icon: "https://apps2app.com/wp-content/uploads/2026/03/moviebox-150x150.webp",
     description: "The number one Free, HD, No Ads. Watch HD, Offline. No Ads, Free HD. ​Premium, Ad-free. ​Fast, HD Streaming.",
