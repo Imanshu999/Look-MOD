@@ -29,44 +29,50 @@ export const AppDetail: React.FC<AppDetailProps> = ({
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
   const [touchStart, setTouchStart] = useState<number | null>(null);
   const [touchEnd, setTouchEnd] = useState<number | null>(null);
-
-  const minSwipeDistance = 50;
-
-  useEffect(() => {
-    setScanState('scanning');
-    setScanProgress(0);
-    setDownloading(false);
-    setActiveVideoIdx(0); 
-    
-    const interval = setInterval(() => {
-      setScanProgress((prev) => {
-        if (prev >= 100) {
-          clearInterval(interval);
-          setScanState('verified');
-          return 100;
-        }
-        return prev + Math.floor(Math.random() * 15) + 5;
-      });
-    }, 120);
-
-    return () => clearInterval(interval);
-  }, [app.id, app.slug]);
-
- // अपने Component के अंदर इस फंक्शन को ऐसे लिखें
-const handleDownload = (e: React.MouseEvent) => {
-  if (!app.downloadUrl) {
+  const triggerDownload = async (e: React.MouseEvent) => {
     e.preventDefault();
-    return;
-  }
-  // यहाँ आप अपनी डाउनलोड स्टेट को 'downloading' सेट कर सकते हैं
-  setDownloading(true);
+    if (!app.downloadUrl) {
+      console.error("Download URL missing!");
+      return;
+    }
 
-  // 4 सेकंड बाद बटन वापस नॉर्मल हो जाएगा
-  setTimeout(() => {
-    setDownloading(false);
-  }, 4000);
-};
+    setDownloading(true);
 
+    try {
+      // 1. फाइल को मेमोरी में फेच करें (Blob के रूप में)
+      const response = await fetch(app.downloadUrl);
+      const blob = await response.blob();
+      
+      // 2. एक अस्थायी URL बनाएं
+      const url = window.URL.createObjectURL(blob);
+      
+      // 3. एक अदृश्य लिंक टैग बनाएं
+      const link = document.createElement('a');
+      link.href = url;
+      link.setAttribute('download', `${app.slug || 'file'}.apk`);
+      document.body.appendChild(link);
+      
+      // 4. डाउनलोड ट्रिगर करें
+      link.click();
+      
+      // 5. सफाई करें (Cleanup)
+      document.body.removeChild(link);
+      window.URL.revokeObjectURL(url);
+      
+    } catch (err) {
+      console.error("Blob download failed, falling back to direct anchor", err);
+      // अगर फेच CORS की वजह से फेल हो, तो एंकर टैग का इस्तेमाल करें (इसमें नया टैब नहीं खुलेगा)
+      const link = document.createElement('a');
+      link.href = app.downloadUrl;
+      link.setAttribute('download', '');
+      link.click();
+    }
+
+    // बटन की स्टेट रिसेट करें
+    setTimeout(() => {
+      setDownloading(false);
+    }, 3000);
+  };
 // और रेंडर (Return) में बटन को ऐसे लिखें:
 <a
   href={app.downloadUrl}
