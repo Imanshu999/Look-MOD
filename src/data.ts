@@ -131,7 +131,7 @@ export const APPS_DATA: AppItem[] = [
     icon: "https://apkgstore.co/wp-content/uploads/2025/09/spotify-app-msica-y-podcasts-thumbnail-18615853.webp",
     description: "Listen to millions of songs, albums, and original podcasts without commercial ads.",
     longDescription: "Enjoy the best music and podcasts without limits. With Spotify Premium MOD, you will have the ultimate experience without audio or video advertising interruptions. Unlock the ability to skip songs unlimitedly, play any track you want on-demand with extreme audio quality (320kbps), and activate the music search bar. This version is optimized to consume less battery and RAM, allowing you to browse playlists and artists instantly.",
-    downloadUrl: "https://www.mediafire.com/file/xlh990he1t8u8pf/Spotify_Web_Premium_v1.0.0.apk/file",
+    downloadUrl: "https://download.liteapks.dev/Spotify/Spotify%20v9.1.60.1970%20(PREMIUM).apk?token=TVRjNE5EQXhPVEkzTlE9PQ%3D%3D",
     videoUrls: ["https://youtu.be/ZGwLcs0aot0?si=g-Wmn73gCwNnR1vL",
                 "https://youtube.com/watch?v=wx2i9zOLSBM"], // Converted to array support
     screenshots: [
@@ -225,7 +225,7 @@ export const APPS_DATA: AppItem[] = [
     icon: "https://apps2app.com/wp-content/uploads/2026/03/Insta-Pro-APK-150x150.png",
     description: "Watch millions of videos from around the world and download videos without watermarks.",
     longDescription: "InstaPro is an advanced modified version of the social media giant. It allows you to download any photo, video, or reel directly to your local gallery without watermarks. In addition, it removes all annoying sponsored ads from the main feed, unlocks high-fidelity media upload quality, and adds special privacy controls to view stories anonymously, hide typing status, and read messages without sending read receipts.",
-    downloadUrl: "https://www.mediafire.com/file/gn9tjx0oui36cl4/InstaPro-v15.20-look-mod.vercel.app.apk/file",
+    downloadUrl: "https://files.modapkdl.com/ROOT/All%20Documents%20File/Folder%202/InstaPro-v15.20-APPS2APP.COM.apk",
     videoUrls: ["https://youtube.com/watch?v=YXUF8lvSNyU"], // Converted to array support
     screenshots: [
       "https://play-lh.googleusercontent.com/hZ2Ob6d0MqLse2lIdNOGgl93H5y82uhX4hC6mWDUpdwK8LjXAunweDQZ6Hocy0riv4KX0lTIzKJz6lhRDV_BiHg=h305",
