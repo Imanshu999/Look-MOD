@@ -1,4 +1,4 @@
-import tailwindcss from '@tailwindcss/vite';
+import tailwindcss from '@tailwindcss/vite'; // यह सही है
 import react from '@vitejs/plugin-react';
 import path from 'path';
 import { defineConfig } from 'vite';
@@ -8,39 +8,14 @@ export default defineConfig(() => {
   return {
     plugins: [
       react(), 
-      tailwindcss(),
+      tailwindcss(), // यहाँ () लगाना जरूरी है क्योंकि यह एक फंक्शन है
       obfuscator({
+        // ... बाकी आपका कोड वही रहेगा
         compact: true,
         controlFlowFlattening: true,
-        controlFlowFlatteningThreshold: 0.8,
-        deadCodeInjection: true,
-        deadCodeInjectionThreshold: 0.4,
-        numbersToExpressions: true,
-        simplify: true,
-        stringArray: true,
-        stringArrayThreshold: 0.8,
-        splitStrings: true,
+        // ... बाकी सेटिंग्स
       })
     ],
-    resolve: {
-      alias: {
-        '@': path.resolve(__dirname, '.'),
-      },
-    },
-    build: {
-      sourcemap: false,
-      minify: 'terser',
-      terserOptions: {
-        compress: {
-          drop_console: true,
-          drop_debugger: true,
-        },
-      },
-      cssMinify: true,
-    },
-    server: {
-      hmr: process.env.DISABLE_HMR !== 'true',
-      watch: process.env.DISABLE_HMR === 'true' ? null : {},
-    },
+    // ... बाकी कोड
   };
 });
