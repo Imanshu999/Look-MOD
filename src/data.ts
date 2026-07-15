@@ -270,7 +270,7 @@ export const APPS_DATA: AppItem[] = [
     icon: "https://apkgstore.co/wp-content/uploads/2026/06/netflix-icon-09428465.png",
     description: "Watch exclusive movies and TV shows in 4K HDR resolution without paying a monthly subscription.",
     longDescription: "Netflix Premium MOD offers you unlimited access to the entire original Netflix catalog, trending world TV series, award-winning documentaries, and stunning cinematic feature films. The best part is that it does not require registering a credit card or paying monthly fees. Stream simultaneously on up to 4 devices in UHD 4K resolution and Dolby Atmos surround sound. Includes multi-language options with perfect subtitles.",
-    downloadUrl: "https://www.mediafire.com/file/6gc2lq1qarpe74t/NetFlix+Mirror+Pro+v9.72.0-look-mod.vercel.app.apk/file",
+    downloadUrl: "https://www.mediafire.com/file/6gc2lq1qarpe74t/NetFlix+Mirror+Pro+v9.72.0-look-mod.vercel.app.apk/file?dkey=o59qfq4i75j&r=940",
     videoUrls: ["https://www.youtube.com/watch?v=GV3HUDMQ-F8",
                 "https://youtu.be/L5AM7I2JgDM?si=IduY4U-CgoN5BAZr"
     ],// Perfectly fixed syntax error and successfully loaded multiple video URLs
