@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { Analytics } from '@vercel/analytics/react';
 import { APPS_DATA, CATEGORIES_DATA, BLOG_POSTS } from './data';
 import { Header } from './components/Header';
 import { SidebarDrawer } from './components/SidebarDrawer';
@@ -449,6 +450,8 @@ export default function App() {
         </button>
       </div>
 
+      {/* Vercel Analytics */}
+      <Analytics />
     </div>
   );
 }
