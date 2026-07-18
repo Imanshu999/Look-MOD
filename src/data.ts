@@ -125,7 +125,7 @@ export const APPS_DATA: AppItem[] = [
     id: "4",
     name: "Spotify Premium",
     slug: "spotify",
-    developer: "Spotify AB",
+    developer: "Imaanshu N",
     rating: "4.8",
     downloads: "500M",
     size: "65 MB",
