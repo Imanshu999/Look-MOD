@@ -225,7 +225,7 @@ export const APPS_DATA: AppItem[] = [
     id: "6",
     name: "InstaPro",
     slug: "instapro",
-    developer: "Sam MOD",
+    developer: "Imaanshu N",
     rating: "4.7",
     downloads: "1B",
     size: "173.68 MB",
