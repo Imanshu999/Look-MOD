@@ -17,7 +17,7 @@ export const APPS_DATA: AppItem[] = [
     id: "1",
     name: "CapCut",
     slug: "capcut",
-    developer: "ByteDance",
+    developer: "Imaanshu N",
     rating: "4.8",
     downloads: "100M",
     size: "298 MB",
