@@ -25,7 +25,7 @@ export const APPS_DATA: AppItem[] = [
     category: "Video Editor",
     type: "App",
     updatedAt: "11/07/2026",
-    icon: "https://upload.wikimedia.org/wikipedia/commons/5/5f/Capcut.png",
+    icon: "https://apkgstore.co/wp-content/uploads/2026/06/capcut-video-editor-icon-15093990.png",
     description: "All-in-one video editor with premium effects, modern filters, and professional-level transitions.",
     longDescription: "CapCut is the most downloaded all-in-one free video editor in the world. Designed specifically for content creators on TikTok, Instagram, and YouTube, it allows you to cut, reverse, and change the speed of your clips with absolute precision. This modified premium version (MOD) unlocks all VIP templates, cinematic transitions, advanced color filters, and video export in 4K resolution at 60 FPS without annoying watermarks. In addition, it features a powerful AI-powered automatic subtitle generator to save you hours of manual editing.",
     downloadUrl: "https://www.mediafire.com/file/7wgg623wh4lzmlv/CapCut_MOD_Hub_v27.0.0_%2528Imaanshu_N%2529.apk/file",
