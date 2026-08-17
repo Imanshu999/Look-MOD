@@ -332,14 +332,52 @@ export const APPS_DATA: AppItem[] = [
   },
     {
     id: "9",
+    name: "ibis Paint X MOD",
+    slug: "ibis-paint-x",
+    developer: "Imaanshu N",
+    rating: "4.7",
+    downloads: "500M",
+    size: "55 MB",
+    version: "5.14.2",
+    category: "Arts",
+    type: "App",
+    updatedAt: "01/07/2026",
+    icon: "https://an1.ca/wp-content/uploads/2026/07/ibis-paint-x-icon.webp",
+    description: "The number one multiplayer pool game with infinite guideline lines for perfect shots.",
+    longDescription: "Ibis Paint X MOD APK has earned its popularity by combining professional drawing features with an interface that remains approachable for artists of every experience level. Its extensive brush library, advanced layer support, precision editing tools, and creative effects provide everything needed to produce high-quality digital artwork. Whether you are drawing for fun, studying illustration, creating comics, or working on professional designs, the app delivers a reliable and enjoyable creative experience. For anyone passionate about digital art, Ibis Paint X continues to be one of the best drawing apps available on Android.",
+    downloadUrl: "https://cdn903.onehost.io/2023/ibisPaint_X_14.0.9_1785402201_latestmodapks.com.apk",
+    videoUrls: ["https://youtube.com/watch?v=WwAQ0KbSc2Y",
+               "https://youtube.com/watch?v=jBxoqMWLcbc",
+               "https://youtube.com/watch?v=FGWBNcUupUU"], // Converted to array support
+    screenshots: [
+      "https://static.apkmody.com/play-lh.googleusercontent.com/KjfgitN0PxaWIc9SR0y3cebP0Jd_e_G60uZE_NSXpqnrzWMfa5bTlExxaTV47B9nrWEYb1jpBQJObIfMcX-xRpQ=-rw",
+      "https://static.apkmody.com/play-lh.googleusercontent.com/1ykLwPhWJP_1CRoEfeVsV7sRN6YQV28Vm0fUIT3FuWinAfiJJPZLtgmm3o3yGu00klbLoWUKL13BFTSKPAgBP00=-rw",
+      "https://static.apkmody.com/play-lh.googleusercontent.com/kHNr82olZY2GTW7W6LV76rkU0edTfIovoErKaU4mk-cRdxchgtNbmtW57qdhOHwxXhALJSHJdsUZB15bS9CKmGI=-rw",
+      "https://static.apkmody.com/play-lh.googleusercontent.com/ezqj65P6eqUeNPyokehwU471iuKUzErRr9hiIExQom5fRl4qgu2FFonvG2w25j2KxmvZxHHlIzJ27wQ3R4AUVpw=-rw",
+      "https://static.apkmody.com/play-lh.googleusercontent.com/52oC3ZJvG6rubJ84QhDAkCfX3YUOEDj2KlkbyOuWOo3iXA6M5GkQdLfANrwGrnFis1z-9lTrxfzoV5TxCNKw2ZU=-rw",
+      "https://static.apkmody.com/play-lh.googleusercontent.com/JZw2b4Ffi9fLGwCdvOyBRSh-oKLJhwNA6asjWG5ZmSxA17YmTubxkFQyoCRnWUncgpFqHX6axEVEeGDvx4VpKgE=-rw",
+      "https://static.apkmody.com/play-lh.googleusercontent.com/5lAykUR6o2vYW6dExj1_MKJOLQ9lTIq3UH2BPr6WRt6M35N1YExMNS1kXOpChaVpTyvTw7DHulhh97_yyIPI=-rw",
+      "https://static.apkmody.com/play-lh.googleusercontent.com/hlNbZMbLGwvwQVg2H-Nv0gjgSx1ggvPrXAm90HqXi1450fzyEklc3Xc33d1UrTbKcOnjyJ50VLn-_xiNcMeu=-rw"
+    ],
+    security: {
+      checksum: "SHA-256: 7810e4d372fc5927ad81d3542a419a42",
+      secureToken: "Secure accounts without ban risk",
+      cloudStorage: "Direct connection to Miniclip servers"
+    },
+    tags: ["MOD", "Long Line", "Free"],
+    isRecommendation: false,
+    isRecent: true
+  },
+    {
+    id: "10",
     name: "MovieBox",
     slug: "moviebox",
     developer: "Imaanshu N",
     rating: "4.7",
     downloads: "500M",
     size: "58 MB",
-    version: "5.14.2",
-    category: "Movie",
+    version: "14.0.6",
+    category: "movie",
     type: "App",
     updatedAt: "01/07/2026",
     icon: "https://apps2app.com/wp-content/uploads/2026/03/moviebox-150x150.webp",
@@ -348,7 +386,7 @@ export const APPS_DATA: AppItem[] = [
     downloadUrl: "https://files.modapkdl.com/ROOT/All%20Documents%20File/Folder%202/MovieBox_v3.0.16.0709.03_(50020116)_Mod-APPS2APP.COM.apk",
     videoUrls: ["https://youtu.be/rWoUM_nMPtc?si=bC-_r2uBqnE9f83m", "https://youtu.be/c8kXsCAOj8Y?si=TQhywvjtO0O0g16I"], // Converted to array support
     screenshots: [
-      "https://play-lh.googleusercontent.com/lTQL8FNUICbVoVuSO8jMSRNIsz1vJs0ggttRks6d4TTsMiirAeN9c06oH6h-W6PNYUE=h305",
+      "https://play-lh.googleusercontent.com/lTQL8FNUICbVoVuSO8jMSRNIsz1vJs0ggttRk6d4TTsMiirAeN9c06oH6h-W6PNYUE=h305",
       "https://play-lh.googleusercontent.com/tkBwbyjRS1Wxnjrs_D55htQWuByuK8eHBm1pPb1so0_kv204P9pnqKF7097yLoySzQ=h305",
       "https://play-lh.googleusercontent.com/x-hk0oonVM-SLHcvbJMpYMz7KHflTUtJuqCcecKyke9saZDj7AA4WNZUu_kGA2TikSzd=h305",
       "https://play-lh.googleusercontent.com/yB9xDtcmAHScwfq2PDKcik1ASCnukkJMXWuRop21htGi5aDwxoctsqyo92tx3HJNhsI=h305",
