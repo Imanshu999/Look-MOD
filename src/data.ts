@@ -406,6 +406,39 @@ export const APPS_DATA: AppItem[] = [
   },
     {
     id: "11",
+    name: "Jio Hotstar",
+    slug: "jio-hotstar",
+    developer: "Imaanshu N",
+    rating: "4.8",
+    downloads: "177M",
+    size: "89 MB",
+    version: "26.04.15.1",
+    category: "tool",
+    type: "App",
+    updatedAt: "04/24/2026",
+    icon: "https://static.apkmody.com/play-lh.googleusercontent.com/bp4jknyVZ8yDKhER9thIS1p9MBeU2LABqBX-sO8uaL1h5_keqlgMUmXv-CjfRWaqKw=s150-rw",
+    description: "JioHotstar is an application that presents entertainment programs from the company Novi Digital. This is an extremely popular application in India and the US, you will easily find the content you like and have a variety of experiences. In addition, JioHotstar also supports many different languages for users to customize. Language will no longer be a barrier preventing you from accessing top entertainment movies and TV shows.",
+    downloadUrl: "https://s1.1phut.io/v2/j4AY",
+    videoUrls: ["https://youtube.com/watch?v=wELTVUjFbGY",
+                "https://youtube.com/watch?v=01Ps5mDUkyo"], // Converted to array support
+    screenshots: [
+      "https://static.apkmody.com/play-lh.googleusercontent.com/jw9bHtu-k6ztqmZtud710UxehHrycUR9d8dHL3k2DNwcZJ1brxY2rv5EiX3jTCDwdJLAysDVMeVzTHkBiFMQH84=-rw",
+      "https://static.apkmody.com/play-lh.googleusercontent.com/HqfBYKArJwswZvKDD7BSP0AZF74MUGKm0BGPE10juRqWhIkZTJ3eHv14NqinvngvIiccpZfoje0o2wnJB2yso2Y=-rw",
+      "https://static.apkmody.com/play-lh.googleusercontent.com/mTlWjybBSxZly2jOjPvlUmTDJOJXFhFIdNuzhPMg-8sEXxJkSJKFZatEX9YWkTBPZXbE1dUrECLQ8aey3W7pkhg=-rw",
+      "https://static.apkmody.com/play-lh.googleusercontent.com/1STaFRX428oh3h7fTqSjsKddoH1UrHTdkdFDtAqrJoFKQkg58lt6KODom60E_5-Lp3y3YU4xBtymb2BrcqEQYg=-rw",
+      "https://static.apkmody.com/play-lh.googleusercontent.com/WSg9X5ZEiulI1X6ILtrRVuoEeIUd4YrmURuN_9WjrsEtuh8FmoJ6CwHd1DC2U8ApPTBS98LVDsEPzkT01sNvrWk=-rw",
+    ],
+      security: {
+      checksum: "SHA-256: 91yeb72te8wg8w9sg6euw8hw7wh8w",
+      secureToken: "Secure accounts without ban risk",
+      cloudStorage: "When two worlds come together, the extraordinary takes shape."
+    },
+    tags: ["MOD", "Long Line", "Free"],
+    isRecommendation: false,
+    isRecent: true
+  },
+    {
+    id: "12",
     name: "MovieBox",
     slug: "moviebox",
     developer: "Imaanshu N",
