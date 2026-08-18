@@ -372,7 +372,7 @@ export const APPS_DATA: AppItem[] = [
     id: "10",
     name: "Free Fire Max",
     slug: "free-fire-max",
-    developer: "Imaanshu N",
+    developer: "Garena International I",
     rating: "5.0",
     downloads: "500M",
     size: "498 MB",
