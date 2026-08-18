@@ -100,7 +100,7 @@ export const SidebarDrawer: React.FC<SidebarDrawerProps> = ({
             <a href="https://www.facebook.com/share/19JUUNiUBb/" target="_blank" rel="noreferrer" className="text-[#1877F2] hover:scale-110 transition-transform">
               <Facebook className="w-6 h-6" />
             </a>
-            <a href="https://www.instagram.com/look_mod.vercel.app?igsh=MXh6NzUyZmY1ajRqZw==" target="_blank" rel="noreferrer" className="text-[#E1306C] hover:scale-110 transition-transform">
+            <a href="https://www.instagram.com/fxr7.edit?igsh=MXh6NzUyZmY1ajRqZw==" target="_blank" rel="noreferrer" className="text-[#E1306C] hover:scale-110 transition-transform">
               <Instagram className="w-6 h-6" />
             </a>
             <a href="https://www.instagram.com/xi_r7.czx_?igsh=N3VwbDNzMGs5OWps" target="_blank" rel="noreferrer" className="text-[#E1306C] hover:scale-110 transition-transform">
