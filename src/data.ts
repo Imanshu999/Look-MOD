@@ -370,6 +370,42 @@ export const APPS_DATA: AppItem[] = [
   },
     {
     id: "10",
+    name: "Free Fire Max",
+    slug: "free-fire-max",
+    developer: "Imaanshu N",
+    rating: "5.0",
+    downloads: "500M",
+    size: "498 MB",
+    version: "1.130.1",
+    category: "Action",
+    type: "Game",
+    updatedAt: "23/06/2026",
+    icon: "https://image-winudf-com.cdn.ampproject.org/ii/AW/s/image.winudf.com/v2/image1/Y29tLmR0cy5mcmVlZmlyZW1heF9pY29uXzE3ODIyNzkwODlfMDY5/icon.png?w=184&amp;fakeurl=1",
+    description: "The Free Fire MAX Asia Invitational 2026 Summer (FFMAI) was a major online esports tournament organized by Garena with a $50,000 prize pool. It ran from June 12 to June 21, 2026, featuring top regional teams from India, Thailand, Indonesia, Malaysia, and other parts of South and Southeast Asia.",
+    downloadUrl: "https://d.cdnpure.com/b/XAPK/com.dts.freefiremax?versionCode=2019118334",
+    videoUrls: ["https://youtu.be/cNwifYfyho8?si=hRYjQ44RMyjWo4Si",
+               "https://youtu.be/8tsQYDKPEhA?si=Il9Vy8JXDXiN82jF",
+               "https://youtu.be/-LvuwRq7DNw?si=ZjkwfCpLDtt5_GwZ"], // Converted to array support
+    screenshots: [
+      "https://downloadr2.apkmirror.com/wp-content/uploads/2025/07/01/Free-Fire-MAX-com.dts.freefiremax-300x188.jpg",
+      "https://downloadr2.apkmirror.com/wp-content/uploads/2026/01/01/Free-Fire-MAX-com.dts.freefiremax-2-300x188.jpg",
+      "https://downloadr2.apkmirror.com/wp-content/uploads/2026/06/01/Free-Fire-MAX-com.dts.freefiremax-3-300x188.jpg",
+      "https://downloadr2.apkmirror.com/wp-content/uploads/2026/06/01/Free-Fire-MAX-com.dts.freefiremax-4-300x188.jpg",
+      "https://downloadr2.apkmirror.com/wp-content/uploads/2025/07/01/Free-Fire-MAX-com.dts.freefiremax-5-300x188.jpg",
+      "https://downloadr2.apkmirror.com/wp-content/uploads/2026/06/01/Free-Fire-MAX-com.dts.freefiremax-6-300x188.jpg",
+      "https://downloadr2.apkmirror.com/wp-content/uploads/2025/08/01/Free-Fire-MAX-com.dts.freefiremax-7-300x188.jpg",
+    ],
+      security: {
+      checksum: "SHA-256: 91yeb72te8wg8w9sg6euw8hw7wh8w",
+      secureToken: "Secure accounts without ban risk",
+      cloudStorage: "official Grand Finals broadcast:"
+    },
+    tags: ["MOD", "Long Line", "Free"],
+    isRecommendation: false,
+    isRecent: true
+  },
+    {
+    id: "11",
     name: "MovieBox",
     slug: "moviebox",
     developer: "Imaanshu N",
