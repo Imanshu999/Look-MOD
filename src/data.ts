@@ -413,7 +413,7 @@ export const APPS_DATA: AppItem[] = [
     downloads: "177M",
     size: "89 MB",
     version: "26.04.15.1",
-    category: "tTools",
+    category: "Tools",
     type: "App",
     updatedAt: "04/24/2026",
     icon: "https://static.apkmody.com/play-lh.googleusercontent.com/bp4jknyVZ8yDKhER9thIS1p9MBeU2LABqBX-sO8uaL1h5_keqlgMUmXv-CjfRWaqKw=s150-rw",
