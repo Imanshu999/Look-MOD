@@ -26,6 +26,8 @@ export default function App() {
   const [selectedAppSlug, setSelectedAppSlug] = useState<string | null>(null);
   const [isDrawerOpen, setIsDrawerOpen] = useState<boolean>(false);
   const [searchTerm, setSearchTerm] = useState<string>('');
+  
+  // Pagination State for grid listings
   const [currentPage, setCurrentPage] = useState<number>(1);
   
   // Glowing avatar state click feedback
@@ -58,7 +60,6 @@ export default function App() {
     };
 
     window.addEventListener('hashchange', handleHashChange);
-    // Initial check
     handleHashChange();
 
     return () => window.removeEventListener('hashchange', handleHashChange);
@@ -74,7 +75,6 @@ export default function App() {
   };
 
   const handleCloseDetail = () => {
-    // Return to the active section hash
     if (activeTab === 'all') navigateToHash('/');
     else navigateToHash(`/${activeTab}`);
   };
@@ -91,7 +91,6 @@ export default function App() {
   // Filter apps based on active search, selected tab, and categories
   const getFilteredApps = () => {
     return APPS_DATA.filter((app) => {
-      // 1. Filter by search term
       const matchesSearch = 
         app.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
         app.category.toLowerCase().includes(searchTerm.toLowerCase()) ||
@@ -99,11 +98,8 @@ export default function App() {
 
       if (!matchesSearch) return false;
 
-      // 2. Filter by tab category types
       if (activeTab === 'games' && app.type !== 'Game') return false;
       if (activeTab === 'apps' && app.type !== 'App') return false;
-
-      // 3. Filter by side categories selection
       if (selectedCategory && app.category !== selectedCategory) return false;
 
       return true;
@@ -121,24 +117,19 @@ export default function App() {
   const totalPages = Math.ceil(filteredApps.length / itemsPerPage);
   const currentApps = filteredApps.slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage);
 
-  // Carousel specific lists
   const recentApps = APPS_DATA.filter(app => app.isRecent);
-  const recommendedApps = APPS_DATA.filter(app => app.isRecommendation);
 
-  // Quick reset helper
   const handleClearAllFilters = () => {
     setSearchTerm('');
     setSelectedCategory(null);
   };
 
-  // Handle Middle Glowing Avatar Button clicks
   const handleAvatarClick = () => {
     setGlowFlash(true);
     setTimeout(() => setGlowFlash(false), 1200);
     handleSelectTab('all');
   };
 
-  // Set top-level page class on body
   useEffect(() => {
     const root = window.document.documentElement;
     if (darkMode) {
@@ -154,9 +145,7 @@ export default function App() {
     const list = APPS_DATA.filter(app => app.type === type);
     if (recommendedOnly) {
       const recs = list.filter(app => app.isRecommendation);
-      if (recs.length >= 18) {
-        return recs.slice(0, 18);
-      }
+      if (recs.length >= 18) return recs.slice(0, 18);
       const nonRecs = list.filter(app => !app.isRecommendation);
       return [...recs, ...nonRecs].slice(0, 18);
     }
@@ -229,7 +218,6 @@ export default function App() {
       darkMode ? 'bg-[#0b0f19] text-slate-100' : 'bg-slate-50 text-slate-800'
     }`}>
       
-      {/* Header bar with branding & search */}
       <Header
         darkMode={darkMode}
         setDarkMode={setDarkMode}
@@ -245,7 +233,6 @@ export default function App() {
         onNavigateHome={() => handleSelectTab('all')}
       />
 
-      {/* Navigation Drawer for side elements */}
       <SidebarDrawer
         isOpen={isDrawerOpen}
         onClose={() => setIsDrawerOpen(false)}
@@ -254,17 +241,47 @@ export default function App() {
         setActiveTab={handleSelectTab}
       />
 
-      {/* Main Container Grid */}
       <main className="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-6 pb-24 sm:pb-8">
         
-        {/* Dynamic Inner view dispatcher */}
         {activeAppDetail ? (
-          <AppDetail 
-            app={activeAppDetail}
-            darkMode={darkMode}
-            onBack={handleCloseDetail}
-            onSelectApp={handleSelectApp}
-          />
+          <div className="space-y-6">
+            <AppDetail 
+              app={activeAppDetail}
+              darkMode={darkMode}
+              onBack={handleCloseDetail}
+              onSelectApp={handleSelectApp}
+            />
+
+            {/* ✨ More Games / More Apps 2-Column Section inside App Detail view */}
+            <div className="space-y-4 pt-6 mt-6 border-t border-slate-800">
+              <div className="flex items-center justify-between">
+                <div className="flex items-center gap-2">
+                  <span className="text-store-accent font-bold text-lg">✦</span>
+                  <h3 className="text-lg font-display font-bold tracking-tight text-white">
+                    {activeAppDetail.type === 'Game' ? 'More Games' : 'More Apps'}
+                  </h3>
+                  <span className="text-[10px] font-mono font-semibold px-2 py-0.5 rounded-full bg-slate-800 text-slate-400">
+                    {APPS_DATA.filter(item => item.type === activeAppDetail.type && item.id !== activeAppDetail.id).length} curated
+                  </span>
+                </div>
+              </div>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                {APPS_DATA
+                  .filter(item => item.type === activeAppDetail.type && item.id !== activeAppDetail.id)
+                  .slice(0, 6)
+                  .map((relatedApp) => (
+                    <AppCard
+                      key={relatedApp.id}
+                      app={relatedApp}
+                      darkMode={darkMode}
+                      variant="list"
+                      onSelect={handleSelectApp}
+                    />
+                  ))}
+              </div>
+            </div>
+          </div>
         ) : activeTab === 'blog' ? (
           <BlogSection 
             posts={BLOG_POSTS}
@@ -276,10 +293,8 @@ export default function App() {
             <ReviewSection darkMode={darkMode} />
           </div>
         ) : (
-          /* Main Apps Marketplace Catalog (Home, Games, Apps) */
           <div className="grid grid-cols-1 lg:grid-cols-4 gap-6 items-start">
             
-            {/* Left Sidebar Pane: Categories List */}
             <aside className={`lg:col-span-1 rounded-2xl p-4 border transition-all ${
               darkMode 
                 ? 'bg-slate-900/30 border-slate-800/60' 
@@ -299,12 +314,10 @@ export default function App() {
               />
             </aside>
 
-            {/* Right Main Panel: Carousel and Grid Lists */}
             <section className="lg:col-span-3 space-y-8 min-w-0">
               
               {activeTab === 'all' && !selectedCategory && !searchTerm && (
                 <>
-                  {/* Hero banner promotion block */}
                   <div className={`p-6 sm:p-8 rounded-3xl relative overflow-hidden border ${
                     darkMode 
                       ? 'bg-gradient-to-tr from-slate-950 to-store-card border-slate-800' 
@@ -334,7 +347,6 @@ export default function App() {
                     </div>
                   </div>
 
-                  {/* Recently Added Section Carousel */}
                   <RecentCarousel
                     apps={recentApps}
                     darkMode={darkMode}
@@ -343,7 +355,6 @@ export default function App() {
                 </>
               )}
 
-              {/* Grid Content List or Horizontal Sections */}
               {activeTab === 'all' && !selectedCategory && !searchTerm ? (
                 <div className="space-y-8 pt-4">
                   {renderHorizontalSection(
@@ -504,7 +515,6 @@ export default function App() {
         )}
       </main>
 
-      {/* Footer information bar on desktop */}
       <footer className={`hidden sm:block py-6 border-t text-center ${
         darkMode ? 'bg-slate-950/40 border-slate-900 text-slate-500' : 'bg-slate-100/55 border-slate-200 text-slate-500'
       }`}>
@@ -524,7 +534,6 @@ export default function App() {
         </div>
       </footer>
 
-      {/* Bottom Navigation Bar (Mobile / Sticky Pinned Layout) */}
       <div className={`sm:hidden fixed bottom-0 inset-x-0 z-40 border-t backdrop-blur-md py-2.5 px-6 flex items-center justify-between transition-colors ${
         darkMode ? 'bg-[#0b0f19]/90 border-slate-900 text-slate-400' : 'bg-white/95 border-slate-200 text-slate-600'
       }`}>
@@ -586,7 +595,7 @@ export default function App() {
         <button 
           onClick={() => handleSelectTab('contact')}
           className={`flex flex-col items-center gap-1 transition-colors ${
-            activeTab === 'contact' && !selectedAppSlug ? 'text-store-accent' : 'hover:text-slate-300'
+            activeTab === 'contact' && !selectedAppSlug ? 'text-store-accent' : 'hover:text-site-accent'
           }`}
         >
           <Mail className="w-5 h-5" />
