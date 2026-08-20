@@ -1,4 +1,4 @@
-Import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { APPS_DATA, CATEGORIES_DATA, BLOG_POSTS } from './data';
 import { Header } from './components/Header';
 import { SidebarDrawer } from './components/SidebarDrawer';
@@ -26,8 +26,6 @@ export default function App() {
   const [selectedAppSlug, setSelectedAppSlug] = useState<string | null>(null);
   const [isDrawerOpen, setIsDrawerOpen] = useState<boolean>(false);
   const [searchTerm, setSearchTerm] = useState<string>('');
-  
-  // Pagination State for grid listings
   const [currentPage, setCurrentPage] = useState<number>(1);
   
   // Glowing avatar state click feedback
@@ -152,19 +150,19 @@ export default function App() {
     }
   }, [darkMode]);
 
-  // Helper to chunk lists for horizontal sliders on Home view
   const getSectionData = (type: 'App' | 'Game', recommendedOnly: boolean) => {
     const list = APPS_DATA.filter(app => app.type === type);
     if (recommendedOnly) {
       const recs = list.filter(app => app.isRecommendation);
-      if (recs.length >= 18) return recs.slice(0, 18);
+      if (recs.length >= 18) {
+        return recs.slice(0, 18);
+      }
       const nonRecs = list.filter(app => !app.isRecommendation);
       return [...recs, ...nonRecs].slice(0, 18);
     }
     return list.slice(0, 18);
   };
 
-  // Render Horizontal Sliding Sections for Home View
   const renderHorizontalSection = (
     title: string, 
     appsList: typeof APPS_DATA, 
@@ -304,9 +302,9 @@ export default function App() {
             {/* Right Main Panel: Carousel and Grid Lists */}
             <section className="lg:col-span-3 space-y-8 min-w-0">
               
-              {/* If no filters selected and on Home tab, show Hero banner & Recently Added Carousel */}
               {activeTab === 'all' && !selectedCategory && !searchTerm && (
                 <>
+                  {/* Hero banner promotion block */}
                   <div className={`p-6 sm:p-8 rounded-3xl relative overflow-hidden border ${
                     darkMode 
                       ? 'bg-gradient-to-tr from-slate-950 to-store-card border-slate-800' 
@@ -336,6 +334,7 @@ export default function App() {
                     </div>
                   </div>
 
+                  {/* Recently Added Section Carousel */}
                   <RecentCarousel
                     apps={recentApps}
                     darkMode={darkMode}
@@ -344,7 +343,7 @@ export default function App() {
                 </>
               )}
 
-              {/* Grid Content List / Sections View */}
+              {/* Grid Content List or Horizontal Sections */}
               {activeTab === 'all' && !selectedCategory && !searchTerm ? (
                 <div className="space-y-8 pt-4">
                   {renderHorizontalSection(
@@ -376,7 +375,6 @@ export default function App() {
                   )}
                 </div>
               ) : (
-                /* Filtered, Games, Apps or Search results with Pagination */
                 <div className="space-y-4">
                   <div className="flex items-center justify-between">
                     <div className="flex items-center gap-2">
@@ -436,7 +434,6 @@ export default function App() {
                         ))}
                       </div>
 
-                      {/* Pagination Controls */}
                       {totalPages > 1 && (
                         <div className={`flex flex-col sm:flex-row items-center justify-between gap-4 pt-6 mt-6 border-t ${
                           darkMode ? 'border-slate-900' : 'border-slate-100'
@@ -589,7 +586,7 @@ export default function App() {
         <button 
           onClick={() => handleSelectTab('contact')}
           className={`flex flex-col items-center gap-1 transition-colors ${
-            activeTab === 'contact' && !selectedAppSlug ? 'text-store-accent' : 'hover:text-site-accent'
+            activeTab === 'contact' && !selectedAppSlug ? 'text-store-accent' : 'hover:text-slate-300'
           }`}
         >
           <Mail className="w-5 h-5" />
@@ -600,4 +597,3 @@ export default function App() {
     </div>
   );
 }
-
