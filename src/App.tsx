@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+Import React, { useState, useEffect } from 'react';
 import { APPS_DATA, CATEGORIES_DATA, BLOG_POSTS } from './data';
 import { Header } from './components/Header';
 import { SidebarDrawer } from './components/SidebarDrawer';
@@ -15,20 +15,6 @@ import {
   Home as HomeIcon, Gamepad2, Smartphone, BookOpen, Mail, 
   Sparkles, CheckCircle2, ShieldCheck, AlertCircle, RefreshCw 
 } from 'lucide-react';
-
-// छोटा विज्ञापन कॉम्पोनेंट (Ad Banner)
-const AdBanner: React.FC<{ darkMode: boolean }> = ({ darkMode }) => {
-  return (
-    <div className={`my-4 p-4 rounded-2xl border text-center transition-all ${
-      darkMode ? 'bg-slate-900/50 border-slate-800 text-slate-400' : 'bg-slate-100 border-slate-200 text-slate-500'
-    }`}>
-      <span className="text-[10px] uppercase tracking-wider font-mono block mb-1 opacity-60">Sponsored Ad</span>
-      <div className="min-h-[60px] flex items-center justify-center border border-dashed rounded-xl border-slate-700/40">
-        <p className="text-xs font-mono">Ad Space (Responsive)</p>
-      </div>
-    </div>
-  );
-};
 
 export default function App() {
   // Theme state: defaults to premium deep dark slate #0b0f19
@@ -166,25 +152,30 @@ export default function App() {
     }
   }, [darkMode]);
 
-  // Helper to get slice data for sections
+  // Helper to chunk lists for horizontal sliders on Home view
   const getSectionData = (type: 'App' | 'Game', recommendedOnly: boolean) => {
     const list = APPS_DATA.filter(app => app.type === type);
     if (recommendedOnly) {
       const recs = list.filter(app => app.isRecommendation);
-      if (recs.length >= 6) return recs.slice(0, 6);
+      if (recs.length >= 18) return recs.slice(0, 18);
       const nonRecs = list.filter(app => !app.isRecommendation);
-      return [...recs, ...nonRecs].slice(0, 6);
+      return [...recs, ...nonRecs].slice(0, 18);
     }
-    return list.slice(0, 6);
+    return list.slice(0, 18);
   };
 
-  // 2-Column Grid Layout สำหรับ More Apps / More Games (रोलिंग की जगह सुंदर ग्रिड लेआउट)
+  // Render Horizontal Sliding Sections for Home View
   const renderHorizontalSection = (
     title: string, 
     appsList: typeof APPS_DATA, 
     viewAllTab: 'apps' | 'games',
     sectionIcon: React.ReactNode
   ) => {
+    const groups: (typeof APPS_DATA)[] = [];
+    for (let i = 0; i < appsList.length; i += 3) {
+      groups.push(appsList.slice(i, i + 3));
+    }
+
     return (
       <div className="space-y-3">
         <div className="flex items-center justify-between">
@@ -196,7 +187,7 @@ export default function App() {
             <span className={`text-[10px] font-mono font-semibold px-2 py-0.5 rounded-full ${
               darkMode ? 'bg-slate-800 text-slate-400' : 'bg-slate-200/60 text-slate-600'
             }`}>
-              {appsList.length} curated
+              {appsList.length} updates
             </span>
           </div>
           
@@ -209,15 +200,22 @@ export default function App() {
           </button>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-          {appsList.map((app) => (
-            <AppCard
-              key={app.id}
-              app={app}
-              darkMode={darkMode}
-              variant="list"
-              onSelect={handleSelectApp}
-            />
+        <div className="flex gap-4 overflow-x-auto pb-4 pt-1 px-1 snap-x no-scrollbar">
+          {groups.map((group, groupIdx) => (
+            <div 
+              key={groupIdx} 
+              className="w-[280px] xs:w-[320px] sm:w-[420px] md:w-[460px] shrink-0 snap-start flex flex-col gap-3"
+            >
+              {group.map((app) => (
+                <AppCard
+                  key={app.id}
+                  app={app}
+                  darkMode={darkMode}
+                  variant="list"
+                  onSelect={handleSelectApp}
+                />
+              ))}
+            </div>
           ))}
         </div>
       </div>
@@ -350,21 +348,18 @@ export default function App() {
               {activeTab === 'all' && !selectedCategory && !searchTerm ? (
                 <div className="space-y-8 pt-4">
                   {renderHorizontalSection(
-                    'More Apps', 
+                    'Latest Apps', 
                     getSectionData('App', false), 
                     'apps',
                     <Smartphone className="w-5 h-5 text-store-accent" />
                   )}
 
                   {renderHorizontalSection(
-                    'More Games', 
+                    'Latest Games', 
                     getSectionData('Game', false), 
                     'games',
                     <Gamepad2 className="w-5 h-5 text-store-accent" />
                   )}
-
-                  {/* यहाँ विज्ञापन (AdBanner) जोड़ा गया है */}
-                  <AdBanner darkMode={darkMode} />
 
                   {renderHorizontalSection(
                     'Recommended Apps', 
@@ -429,7 +424,7 @@ export default function App() {
                     </div>
                   ) : (
                     <>
-                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                      <div className="flex flex-col gap-3">
                         {currentApps.map((app) => (
                           <AppCard
                             key={app.id}
