@@ -482,7 +482,7 @@ export const APPS_DATA: AppItem[] = [
     category: "Tools",
     type: "Game",
     updatedAt: "25/08/2026",
-    icon: "apkvision.org/wp-content/uploads/2026/08/sally-face-140x140.png",
+    icon: "https://apkvision.org/wp-content/uploads/2026/08/sally-face-140x140.png",
     description: "Sally Face invites players into a haunting adventure centered on a boy with a prosthetic face who communicates with the dead through his handheld video game system. As he and his friends investigate a series of mysterious murders, they uncover dark secrets lurking in their small town. With a unique blend of 1990s cartoon inspiration and personal nightmares, players can engage with bizarre characters and tackle challenging optional puzzles that deepen the narrative. The game features handcrafted art, design, and music by a solo developer, creating an immersive and unsettling experience.",
     downloadUrl: "https://dl.apkvision.org/sally-face/Sally-Face-v1.5.51-full-apkvision.apk",
     videoUrls: ["https://youtu.be/ZUvCKwkbl3c?si=RGqEMgnLAgljYz4Y"], // Converted to array support
