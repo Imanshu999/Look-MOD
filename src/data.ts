@@ -492,6 +492,9 @@ export const APPS_DATA: AppItem[] = [
       "https://img.apkvision.org/sally-face/sally-face-3.webp",
       "https://img.apkvision.org/sally-face/sally-face-4.webp",
       "https://img.apkvision.org/sally-face/sally-face-5.webp",
+      "https://play-lh.googleusercontent.com/BK987Mgsgv7o9sIxOH_416_cawtBqZwPuGgYrHoqsiahEj_Rge5e76qbi5fQd4GL7vPlj87pgi6u9TsxD4q_GWc=w1052-h592",
+      "https://play-lh.googleusercontent.com/RbWQeaOd82Jljkc-TMl6w-hCHpGpzcoiL9qpZNx6UTA6yX1XOLGhO58C6CxB743OGGKjrnAQ5Fkc_lWLgZs=w1052-h592",
+      "https://play-lh.googleusercontent.com/vO96TGIFLwyjEtNP1sBdLCALj004ndoiteRrjh68IbrwbiBIeAGHHqM8SYwwR4t8euHtCXuvGo2Q7Ic9rAlV_Q=w1052-h592"
     ],
     security: {
       checksum: "SHA-256: 91yeb72te8wg8w9sg6euw8hw7wh8w",
