@@ -504,6 +504,39 @@ export const APPS_DATA: AppItem[] = [
     tags: ["MOD", "Long Line", "Free"],
     isRecommendation: false,
     isRecent: true
+  },
+      {
+    id: "14",
+    name: "Caravan SandWitch",
+    slug: "caravan-sandWitch",
+    developer: "Imaanshu N",
+    rating: "3.4",
+    downloads: "5k",
+    size: "886 MB",
+    version: "1.4.196",
+    category: "Tools",
+    type: "Game",
+    updatedAt: "25/08/2026",
+    icon: "https://static.apkmody.com/play-lh.googleusercontent.com/w1OHWOIIh2j98zzTn0fVs1DTCeASlzAyzgBAlfPTGDFwh0tzveHbB3KLvyWfHVrr3Uz55miJD3VYL8Q6c0AU=s150-rw",
+   description: " Caravan SandWitch is an open-world sci-fi adventure game that takes players to a deserted planet filled with vast landscapes, mysterious ruins, and a heartfelt story about searching for a missing sister. Instead of focusing on constant combat, this open-world adventure game offers a relaxing exploration experience where you drive across deserts, uncover clues, and meet unique communities surviving on the planet.",
+    downloadUrl: "https://s1.1phut.io/v2/5ym8",
+    videoUrls: ["https://youtu.be/ZUvCKwkbl3c?si=RGqEMgnLAgljYz4Y"], // Converted to array support
+    screenshots: [
+      "https://static.apkmody.com/play-lh.googleusercontent.com/qvL37EvRjZK8qXfpMq08fIYXNJHwVoXZmyOJw65eDcLvN0HXxJi4QUcSqvWzYGRyP5fykRIzzn0842JCNpZF=-rw",
+      "https://static.apkmody.com/play-lh.googleusercontent.com/Rbs4Xd6hURoOz5ePMvfsIf0E2DwWznIvtI5cIw2d1MGtslYJnTDrzRKAZPs4pu87o9EfZyOgCqzxfz0HV-dW=-rw",
+      "https://static.apkmody.com/play-lh.googleusercontent.com/iXf_jIcScc3m2E4iH_exuaBcjlwaeUEGJyX35cQVf_IiLJt6oWWTqcAcwsGY5RnoMzpyIa69n-FrYsa_xYja=-rw",
+      "https://static.apkmody.com/play-lh.googleusercontent.com/D3ijmXob7Nh9HCs6Q-5mAN92kyjS0EKeN3xTTzxHFubPKula8tY5BpfjFaFMnrQAxwy-oVY5ASRjNi0h0UgK=-rw",
+      "https://static.apkmody.com/play-lh.googleusercontent.com/zoBF24RMUwi6Ja_i0VIcu-CjLvPsQG63_FizIXtPA2QFs145yHpCYWD2awojyE-c6CtlieY1KsPq9AravH6Fbg=-rw",
+      "https://static.apkmody.com/play-lh.googleusercontent.com/gwNhePNMNLyTOzURLwPYUsONrAViJCccBmdAcOx32rXivzK8d8j62m8ttTSzDNfE_FkC9wI5-frD4v0eKUsSWLw=-rw",
+    ],
+    security: {
+      checksum: "SHA-256: 91yeb72te8wg8w9sg6euw8hw7wh8w",
+      secureToken: "Secure accounts without ban risk",
+      cloudStorage: "Direct connection to Moviebox servers"
+    },
+    tags: ["MOD", "Long Line", "Free"],
+    isRecommendation: false,
+    isRecent: true
   }
 
 ];
