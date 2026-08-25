@@ -469,6 +469,38 @@ export const APPS_DATA: AppItem[] = [
     tags: ["MOD", "Long Line", "Free"],
     isRecommendation: false,
     isRecent: true
+  },
+    {
+    id: "13",
+    name: "Sally Face",
+    slug: "sally-face",
+    developer: "Imaanshu N",
+    rating: "6.0",
+    downloads: "1k",
+    size: "732.86 MB",
+    version: "1.5.51",
+    category: "Tools",
+    type: "Game",
+    updatedAt: "25/08/2026",
+    icon: "apkvision.org/wp-content/uploads/2026/08/sally-face-140x140.png",
+    description: "Sally Face invites players into a haunting adventure centered on a boy with a prosthetic face who communicates with the dead through his handheld video game system. As he and his friends investigate a series of mysterious murders, they uncover dark secrets lurking in their small town. With a unique blend of 1990s cartoon inspiration and personal nightmares, players can engage with bizarre characters and tackle challenging optional puzzles that deepen the narrative. The game features handcrafted art, design, and music by a solo developer, creating an immersive and unsettling experience.",
+    downloadUrl: "https://dl.apkvision.org/sally-face/Sally-Face-v1.5.51-full-apkvision.apk",
+    videoUrls: ["https://youtu.be/ZUvCKwkbl3c?si=RGqEMgnLAgljYz4Y"], // Converted to array support
+    screenshots: [
+      "https://img.apkvision.org/sally-face/sally-face-1.webp",
+      "https://img.apkvision.org/sally-face/sally-face-2.webp",
+      "https://img.apkvision.org/sally-face/sally-face-3.webp",
+      "https://img.apkvision.org/sally-face/sally-face-4.webp",
+      "https://img.apkvision.org/sally-face/sally-face-5.webp",
+    ],
+    security: {
+      checksum: "SHA-256: 91yeb72te8wg8w9sg6euw8hw7wh8w",
+      secureToken: "Secure accounts without ban risk",
+      cloudStorage: "Direct connection to Moviebox servers"
+    },
+    tags: ["MOD", "Long Line", "Free"],
+    isRecommendation: false,
+    isRecent: true
   }
 
 ];
