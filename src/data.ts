@@ -520,7 +520,8 @@ export const APPS_DATA: AppItem[] = [
     icon: "https://static.apkmody.com/play-lh.googleusercontent.com/w1OHWOIIh2j98zzTn0fVs1DTCeASlzAyzgBAlfPTGDFwh0tzveHbB3KLvyWfHVrr3Uz55miJD3VYL8Q6c0AU=s150-rw",
    description: " Caravan SandWitch is an open-world sci-fi adventure game that takes players to a deserted planet filled with vast landscapes, mysterious ruins, and a heartfelt story about searching for a missing sister. Instead of focusing on constant combat, this open-world adventure game offers a relaxing exploration experience where you drive across deserts, uncover clues, and meet unique communities surviving on the planet.",
     downloadUrl: "https://s1.1phut.io/v2/5ym8",
-    videoUrls: ["https://youtu.be/ZUvCKwkbl3c?si=RGqEMgnLAgljYz4Y"], // Converted to array support
+    videoUrls: ["https://youtube.com/watch?v=Z9IHy90XgNo",
+                "https://youtube.com/watch?v=b4_HKS5q4MM"], // Converted to array support
     screenshots: [
       "https://static.apkmody.com/play-lh.googleusercontent.com/qvL37EvRjZK8qXfpMq08fIYXNJHwVoXZmyOJw65eDcLvN0HXxJi4QUcSqvWzYGRyP5fykRIzzn0842JCNpZF=-rw",
       "https://static.apkmody.com/play-lh.googleusercontent.com/Rbs4Xd6hURoOz5ePMvfsIf0E2DwWznIvtI5cIw2d1MGtslYJnTDrzRKAZPs4pu87o9EfZyOgCqzxfz0HV-dW=-rw",
