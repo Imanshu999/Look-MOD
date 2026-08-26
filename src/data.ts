@@ -538,6 +538,40 @@ export const APPS_DATA: AppItem[] = [
     tags: ["MOD", "Long Line", "Free"],
     isRecommendation: false,
     isRecent: true
+  },
+    {
+    id: "15",
+    name: "Little Nightmares",
+    slug: "little-nightmares",
+    developer: "Imaanshu N",
+    rating: "5.0",
+    downloads: "15k",
+    size: "1.2 GB",
+    version: "1.4",
+    category: "Tools",
+    type: "Game",
+    updatedAt: "25/08/2026",
+    icon: "https://static.apkmody.com/play-lh.googleusercontent.com/vEJAwZwhOv7Wzf1Md7PsMzOyo087y0Z4rhRgidtfv03c682RicoBz3BOsrigdiXA-7I=s150-rw",
+   description: "Little Nightmares has a part 2 on PC and console, but for mobile we have only enjoyed Very Little Nightmare, the mobile version of the original game that didn’t have everything as expected. Now everything is different. Puzzle enthusiasts, listening to Little Nightmares for a long time can officially play this game on mobile in its entirety. You can experience the full story, content and features. The graphics are as good as the console version.",
+    downloadUrl: "https://s1.1phut.io/v2/4pKa",
+    videoUrls: ["https://youtube.com/watch?v=aOadxZBsPiA"], // Converted to array support
+    screenshots: [
+      "https://static.apkmody.com/play-lh.googleusercontent.com/HeyCMUVHE3-YbyNmypziTF3yDI9edQKZYAzVdL7slCwrqEBwzAWOJBVXkaQKA63dCQ=-rw",
+      "https://static.apkmody.com/play-lh.googleusercontent.com/bYN-PFWw1oO6YaYJHu64ZpSlImVfIp6vxRxpc20XBKRU2pCbISNiNTDSzqTnuqMo-54=-rw",
+      "https://static.apkmody.com/play-lh.googleusercontent.com/nLDF-IZZlTgIvL-NNVKdI8Bdz9HK2MErU5qg8W-3Q7HDJiVRIM9UUdqR7vrQMNBZWg=-rw",
+      "https://static.apkmody.com/play-lh.googleusercontent.com/FfYV5lsivGjYZ2G91lGkRAniQU8TKZCjoT9fQsVnI1U5W4U8n5I7On-BcTeWSa8YSog=-rw",
+      "https://static.apkmody.com/play-lh.googleusercontent.com/Ctsqn7NOFx1NIhz8MqdE_xBLZgeK6HaL1kCu6XKZ8xri0BgfnrgUwYDPsaFtoBsVYxvZ=-rw",
+      "https://static.apkmody.com/play-lh.googleusercontent.com/lvpxljRwoZPWWycoZWrujkveO8nd-TFFtoGrstdYX3Jkx8mw7uvAGWp2NvmWD00ikA=-rw",
+      "https://static.apkmody.com/play-lh.googleusercontent.com/NvpJKUbb4RFJKh3BUqUOh5DUHVI6vCoTZVwFuj_h2njPBqMOiJ9gpeyNxpATnm44zbI=-rw",
+    ],
+    security: {
+      checksum: "SHA-256: 91yeb72te8wg8w9sg6euw8hw7wh8w",
+      secureToken: "Secure accounts without ban risk",
+      cloudStorage: "Direct connection to Takano3D servers MOD APK"
+    },
+    tags: ["MOD", "Long Line", "Free"],
+    isRecommendation: false,
+    isRecent: true
   }
 
 ];
