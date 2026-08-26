@@ -572,6 +572,72 @@ export const APPS_DATA: AppItem[] = [
     tags: ["MOD", "Long Line", "Free"],
     isRecommendation: false,
     isRecent: true
+  },
+    {
+    id: "16",
+    name: "Final Fantasy VII ",
+    slug: "final-fantasy-vii",
+    developer: "Imaanshu N",
+    rating: "3.3",
+    downloads: "500K",
+    size: "2.0 GB",
+    version: "1.1.0",
+    category: "Tools",
+    type: "Game",
+    updatedAt: "25/08/2026",
+    icon: "https://share.google/ssu6T0LXChNXsjbK9",
+   description: "FINAL FANTASY VII brings the iconic RPG experience to Android, featuring a captivating story where Cloud Strife joins a rebel group to challenge the power of the Shinra Electric Power Company. This port retains the original’s dramatic narrative and introduces 3D backgrounds and full combat stages. Players can customize characters using a versatile material system and enjoy new features like enemy encounter toggles and a Max Stats command. Note that the app requires significant memory, and users should frequently save their progress to avoid bugs related to transportation mechanics. Check device compatibility for optimal gameplay.",
+    downloadUrl: "https://dl.apkvision.org/final-fantasy-vii/FinalFantasy7-v1.1.0-full-apkvision.apk",
+    videoUrls: ["https://youtu.be/p-pgBQgFLP4?si=Qu4sAMceSaO2jmlt"], // Converted to array support
+    screenshots: [
+      "https://img.apkvision.org/final-fantasy-vii/final-fantasy-vii-1.webp",
+      "https://img.apkvision.org/final-fantasy-vii/final-fantasy-vii-2.webp",
+      "https://img.apkvision.org/final-fantasy-vii/final-fantasy-vii-3.webp",
+      "https://img.apkvision.org/final-fantasy-vii/final-fantasy-vii-4.webp",
+      "https://img.apkvision.org/final-fantasy-vii/final-fantasy-vii-5.webp",
+    ],
+    security: {
+      checksum: "SHA-256: 91yeb72te8wg8w9sg6euw8hw7wh8w",
+      secureToken: "Secure accounts without ban risk",
+      cloudStorage: "Takano3D Server on MOD APK"
+    },
+    tags: ["MOD", "Free"],
+    isRecommendation: false,
+    isRecent: true
+  },
+      {
+    id: "17",
+    name: "FINAL FANTASY VII EVER CRISIS",
+    slug: "final-fantasy-vii-ever-crisis ",
+    developer: "Square Enix",
+    rating: "3.8",
+    downloads: "2k",
+    size: "394 MB",
+    version: "3.6.0",
+    category: "Tools",
+    type: "Game",
+    updatedAt: "04/08/2026",
+    icon: "https://static.apkmody.com/play-lh.googleusercontent.com/s_JGrjTxF2GHVrlp8U0iwxE4UfLq6CHclZheCZuEp4m1suyE4w2CfUA-DVXk8mDyI23gM6pINJ0p2nWyT1A8NLI=s150-rw",
+   description: "Developed by Square Enix, FINAL FANTASY VII EVER CRISIS, a customized mobile version that will help you relive memorable moments, iconic characters from the world of FFVII. It’s time for you to experience this great heroic journey right on your mobile.",
+    downloadUrl: "https://s1.1phut.io/v2/xmM3",
+    videoUrls: ["https://youtube.com/watch?v=87TNASkXOWQ"], // Converted to array support
+    screenshots: [
+      "https://static.apkmody.com/play-lh.googleusercontent.com/tZn49K2htCKaHZH8Pz3KWOZEeCWbYfk2Z5NZVsYlP0YfIOJCVAtR6YQ5CudI2TAKgNkdNF-H9rnO2_6fO5yP=-rw",
+      "https://static.apkmody.com/play-lh.googleusercontent.com/bgWy0vOrdFCxQP5tfvY1hT0WctDhHISfnoMc6HT1ngGiJXdpoeRPZWZbgrGe6gF_V1s=-rw",
+      "https://static.apkmody.com/play-lh.googleusercontent.com/U021ufSiXXN0UWmT1RCmz9OyK1E5syRO5y9r48D1Is1q08F8LFZxbGb4gRl71suZFuEE=-rw",
+      "https://static.apkmody.com/play-lh.googleusercontent.com/KusXwq3H_U1PucnD6TVjAzdi7GSV5A8CyFTdb9oJ6wAIzzgCbROLz7DsM3Vyra89XAyk=-rw",
+      "https://static.apkmody.com/play-lh.googleusercontent.com/0pkVAJMpIk823l4gkw7p-YZADempMJSgAu_B-UF3FjudnrDABOdeR_SNUXTNWNpqrg=-rw",
+      "https://static.apkmody.com/play-lh.googleusercontent.com/yj1VLQLh0DlLvrhJmdkk2sKHlniSUyX6TOMkNAjjUEb7MblNqibYOeJ2vw71tve0Zw=-rw",
+      "https://static.apkmody.com/play-lh.googleusercontent.com/DcLPhwjso1iv1p0y6pE6yxG5vgqrT3TXqdcZecXCR9RbEjQb1Zc3pWfbl_6ctiwbeiw=-rw",
+    ],
+    security: {
+      checksum: "SHA-256: 91yeb72te8wg8w9sg6euw8hw7wh8w",
+      secureToken: "Secure accounts without ban risk",
+      cloudStorage: "Takano3D Server on MOD APK"
+    },
+    tags: ["MOD", "Long Line", "Free"],
+    isRecommendation: true,
+    isRecent: false
   }
 
 ];
