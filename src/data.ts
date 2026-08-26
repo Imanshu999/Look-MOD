@@ -673,6 +673,39 @@ export const APPS_DATA: AppItem[] = [
     tags: ["MOD", "Free"],
     isRecommendation: false,
     isRecent: true
+  },
+      {
+    id: "19",
+    name: "DREDGE",
+    slug: "dredge",
+    developer: "Black Salt Games",
+    rating: "5.0",
+    downloads: "1L",
+    size: "653 MB",
+    version: "4.5",
+    category: "Tools",
+    type: "Game",
+    updatedAt: "25/08/2026",
+    icon: "https://share.google/Hei727ckNLBMaYEww",
+   description: "DREDGE is a captivating fishing adventure game that combines exploration and resource management. Players navigate through mysterious waters, uncovering hidden secrets and completing quests while balancing the demands of fishing and survival. As they catch various fish, players must also contend with eerie elements that lurk beneath the surface, adding layers of suspense and intrigue. The game encourages players to delve deep into its rich narrative and atmospheric world, blending a sense of adventure with strategic gameplay.",
+    downloadUrl: "https://dl.apkvision.org/dredge/DREDGE-v1.5.18-b100518171-unlocked-apkvision.apk",
+    videoUrls: ["https://youtu.be/sJX9VSp2vAA?si=JboP9PsAyuj8TVb7"], // Converted to array support
+    screenshots: [
+      "https://share.google/ew3gbGOnlM2xGk3xD",
+      "https://share.google/3VCnOx4n8bg7RJGUa",
+      "https://share.google/At4vPSUMIwrjmObjh",
+      "https://share.google/bWMPjuMNUf87rNnhB",
+      "https://share.google/3O9sgV4dyIKGqQ4hG",
+      "https://share.google/1r5lvYirxQipIQqzP",
+    ],
+    security: {
+      checksum: "SHA-256: 91yeb72te8wg8w9sg6euw8hw7wh8w",
+      secureToken: "Secure accounts without ban risk",
+      cloudStorage: "Takano3D Server on MOD APK"
+    },
+    tags: ["MOD", "Free"],
+    isRecommendation: false,
+    isRecent: true
   }
 
 ];
