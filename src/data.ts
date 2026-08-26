@@ -638,6 +638,41 @@ export const APPS_DATA: AppItem[] = [
     tags: ["MOD", "Long Line", "Free"],
     isRecommendation: true,
     isRecent: false
+  },
+      {
+    id: "18",
+    name: "Webbly Life",
+    slug: "webbly-life",
+    developer: "Curve Games",
+    rating: "4.5",
+    downloads: "5k",
+    size: "1.41 GB",
+    version: "1.0.0.3",
+    category: "Tools",
+    type: "Game",
+    updatedAt: "25/08/2026",
+    icon: "https://play-lh.googleusercontent.com/cH7yJARfE_wJ2lXnrsKiXnpAdJlv5VNKWthRQdQ4bnOnYYZJjmuoX7inCu7MKGU6r2unnNG6VIIe0z9EXE_3=w480-h960",
+   description: "Wobbly Life invites players into a vibrant, physics-based open-world where exploration and fun await. Tasked by Grandma to get a job, players can choose from over 20 unique roles to earn money, unlocking new content and customizing their characters, homes, and vehicles. With a vast landscape filled with towns, mountains, and hidden secrets, players can embark on exciting missions, collect pets, and engage in mini-games. Compete with friends and others globally to climb leaderboards, making every adventure a chance for creativity and excitement in this family-friendly sandbox experience.",
+    downloadUrl: "https://dl.apkvision.org/wobbly-life/Wobbly-Life-v1.1.0.7-full-apkvision.apk",
+    videoUrls: ["https://youtu.be/uALEoh3aj3s?si=L9OockkFhNVrkU_P"], // Converted to array support
+    screenshots: [
+      "https://play-lh.googleusercontent.com/9yImHsrLfjLmM0sYvwUoCUY_oNqALzqdRWwwhd5e1A4cqJcD-iiOrt0jm-RdPWWjAOzLhIZU9l-tZyuPMYP-zic=w1052-h592",
+      "https://play-lh.googleusercontent.com/2hKIwF61Xsx_wLhHFrn9quZbH_CuiNEZUEw96TJ-Ufw0tapIa53CU7hPULbjT8t8c15gWDG9vKJR4TuOXCH7PA=w1052-h592",
+      "https://play-lh.googleusercontent.com/Gbnw-wBXYFtZvDboDJ9T7quILXGBVrKLy6yC4FOJa-ypvWAQCgFWIfswbUkpoyFwOpynUOgj8RnAoEsbzuTijg=w1052-h592",
+      "https://play-lh.googleusercontent.com/drTB9Aeb7oQIRF0hrKEB5SSAe_Zq6VHGoaA8P5vZegz81Qd9uaArSNrIpWSFWuoDoBMNbNdg0WTJUxPQi3TqTA=w1052-h592",
+      "https://play-lh.googleusercontent.com/N_GnOEJrE3UWmIpG8CtMHrwJ7yeF9cCYsuscwkcQ4DHberHyMoJ6TxKL1Wzl01dykGwna9oGpjM9JnR16kxq7A=w1052-h592",
+      "https://play-lh.googleusercontent.com/ye6JelEa7ZE4nkqUdDD860_pTkyEBnmn4ndfDP63CyhjY6V6wN5TrlDEzEjGs0MJxvX67uRYA6BjFtfC-16T=w1052-h592",
+      "https://play-lh.googleusercontent.com/IMAUt2XDGHoZNvp_HFmSHG6j8qvXCbsy47iyOuMr6-V0BWHJjhtm9nLCb2plNIr2uRbunKl7jdmWbT1JXBg3=w1052-h592",
+      "https://play-lh.googleusercontent.com/3edzzyf2yto5Jj2jCrEKHvZ3b74Uu3AS2CGNGs0b56S4fd53vw5R5fF3kQ8L9F74WlZhFrYXboTPhqslIUHv=w1052-h592",
+    ],
+    security: {
+      checksum: "SHA-256: 91yeb72te8wg8w9sg6euw8hw7wh8w",
+      secureToken: "Secure accounts without ban risk",
+      cloudStorage: "Takano3D Server on MOD APK"
+    },
+    tags: ["MOD", "Free"],
+    isRecommendation: false,
+    isRecent: true
   }
 
 ];
