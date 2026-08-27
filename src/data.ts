@@ -706,8 +706,79 @@ export const APPS_DATA: AppItem[] = [
     tags: ["MOD", "Free"],
     isRecommendation: false,
     isRecent: true
+  },
+     {
+    id: "20",
+    name: "Minecraft",
+    slug: "minecraft",
+    developer: "Imaanshu N",
+    rating: "4.9",
+    downloads: "200k",
+    size: "1.0 GB",
+    version: "1.26.44.3",
+    category: "Tools",
+    type: "Game",
+    updatedAt: "25/08/2026",
+    icon: "https://static.apkmody.com/play-lh.googleusercontent.com/27O5tpaYE82W6m30rJ_MX3-UvshlDM6O8oXDxb6GseYW2T7P8UNT19727MGmz-0q3w=s150-rw",
+   description: "Minecraft is not just a game but also a rich and limitless open world. With a version specifically designed for mobile operating systems, Minecraft has unveiled a unique experience, allowing players to immerse themselves in an infinite world of creativity and exploration on their Android smartphones or tablets.",
+    downloadUrl: "https://s1.1phut.io/v2/4DeD",
+    videoUrls: ["https://youtu.be/BLtLrFNRE-E?si=dCx4oPY0qkUj_7q-"], // Converted to array support
+    screenshots: [
+      "https://static.apkmody.com/play-lh.googleusercontent.com/E3ae4Jm7cLqmGEHg4In5rXdKrMAwDPPNb26coEAESZw4RjvkgS_bBJtRwFNGZrBMfw=-rw",
+      "https://static.apkmody.com/play-lh.googleusercontent.com/ZSMzOOE-yQt2I2VjA1rqZ2hkQ1PzWBDXUnqkW6sCQMGs2d_H6X2UBVB-LF-B6Gm4VjYz=-rw",
+      "https://static.apkmody.com/play-lh.googleusercontent.com/Va5XplRkZCroi-q8NZI5TLd1vHHndW1ps6o98X4fvtnSMwmS4iOHxwxB2B7fri-lOGA=-rw",
+      "https://static.apkmody.com/play-lh.googleusercontent.com/V1CnCHYr1JP9pYrJLs53qS3YG9rbJVhxmLApqXY_pWt17ZQIwbXIibXeC2gGeckksy8=-rw",
+      "https://static.apkmody.com/play-lh.googleusercontent.com/nZTKxyLI6340xoPhTTLMODDCCb9GW5tdb-_7rcOsN350fnGd7c2ph7-0RgC8Ot_-E4s=-rw",
+      "https://static.apkmody.com/play-lh.googleusercontent.com/srkig0NrEF-DQI067-yYDRWmtDGyMWet_ocNu7GBU0fnoElm6WVmCXBgMZYJ8H4kfQ=-rw",
+      "https://static.apkmody.com/play-lh.googleusercontent.com/zsJ6j0KZTru9deKTA4cI2NXzsFNgD-Qd-fl3B4TVItRlVSwVibo7q8gNcFysvx51sso=-rw",
+      "https://static.apkmody.com/play-lh.googleusercontent.com/dqCRCJb1nRGv5XtuA2Ml4mTDYuGRaD68juil4wfFHsYWiV0kvjG1mgDpiZHTMWG0-WD1=-rw",
+    ],
+    security: {
+      checksum: "SHA-256: 91yeb72te8wg8w9sg6euw8hw7wh8w",
+      secureToken: "Secure accounts without ban risk",
+      cloudStorage: "Takano3D Server on MOD APK"
+    },
+    tags: ["MOD", "Free"],
+    isRecommendation: false,
+    isRecent: true
+  },
+  
+   {
+    id: "21",
+    name: "Minecraft Beta",
+    slug: "minecraft-beta",
+    developer: "Imaanshu N",
+    rating: "4.9",
+    downloads: "200k",
+    size: "1.0 GB",
+    version: "1.26.44.3",
+    category: "Tools",
+    type: "Game",
+    updatedAt: "25/08/2026",
+    icon: "https://static.apkmody.com/play-lh.googleusercontent.com/27O5tpaYE82W6m30rJ_MX3-UvshlDM6O8oXDxb6GseYW2T7P8UNT19727MGmz-0q3w=s150-rw",
+   description: "Minecraft is not just a game but also a rich and limitless open world. With a version specifically designed for mobile operating systems, Minecraft has unveiled a unique experience, allowing players to immerse themselves in an infinite world of creativity and exploration on their Android smartphones or tablets.",
+    downloadUrl: "https://s1.1phut.io/v2/2oa7",
+    videoUrls: ["https://youtu.be/BLtLrFNRE-E?si=dCx4oPY0qkUj_7q-"], // Converted to array support
+    screenshots: [
+      "https://static.apkmody.com/play-lh.googleusercontent.com/E3ae4Jm7cLqmGEHg4In5rXdKrMAwDPPNb26coEAESZw4RjvkgS_bBJtRwFNGZrBMfw=-rw",
+      "https://static.apkmody.com/play-lh.googleusercontent.com/ZSMzOOE-yQt2I2VjA1rqZ2hkQ1PzWBDXUnqkW6sCQMGs2d_H6X2UBVB-LF-B6Gm4VjYz=-rw",
+      "https://static.apkmody.com/play-lh.googleusercontent.com/Va5XplRkZCroi-q8NZI5TLd1vHHndW1ps6o98X4fvtnSMwmS4iOHxwxB2B7fri-lOGA=-rw",
+      "https://static.apkmody.com/play-lh.googleusercontent.com/V1CnCHYr1JP9pYrJLs53qS3YG9rbJVhxmLApqXY_pWt17ZQIwbXIibXeC2gGeckksy8=-rw",
+      "https://static.apkmody.com/play-lh.googleusercontent.com/nZTKxyLI6340xoPhTTLMODDCCb9GW5tdb-_7rcOsN350fnGd7c2ph7-0RgC8Ot_-E4s=-rw",
+      "https://static.apkmody.com/play-lh.googleusercontent.com/srkig0NrEF-DQI067-yYDRWmtDGyMWet_ocNu7GBU0fnoElm6WVmCXBgMZYJ8H4kfQ=-rw",
+      "https://static.apkmody.com/play-lh.googleusercontent.com/zsJ6j0KZTru9deKTA4cI2NXzsFNgD-Qd-fl3B4TVItRlVSwVibo7q8gNcFysvx51sso=-rw",
+      "https://static.apkmody.com/play-lh.googleusercontent.com/dqCRCJb1nRGv5XtuA2Ml4mTDYuGRaD68juil4wfFHsYWiV0kvjG1mgDpiZHTMWG0-WD1=-rw",
+    ],
+    security: {
+      checksum: "SHA-256: 91yeb72te8wg8w9sg6euw8hw7wh8w",
+      secureToken: "Secure accounts without ban risk",
+      cloudStorage: "Takano3D Server on MOD APK"
+    },
+    tags: ["MOD", "Free"],
+    isRecommendation: false,
+    isRecent: true
   }
-
+  
 ];
 
 export const CATEGORIES_DATA: CategoryItem[] = BASE_CATEGORIES.map(category => {
