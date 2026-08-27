@@ -795,7 +795,7 @@ export const APPS_DATA: AppItem[] = [
    description: "Eyes: Scary Thriller – Horror is a terrifying survival horror game that combines exploration, suspense, and supernatural encounters. The game places players in dark and mysterious locations where they must search for valuable items, uncover secrets, and find a way to escape while being hunted by frightening creatures. With its unsettling atmosphere and unpredictable threats, this horror survival game is designed for players who enjoy intense and nerve-racking experiences.",
     downloadUrl: "https://s1.1phut.io/v2/vlrB",
     videoUrls: ["https://youtube.com/watch?v=_a5EbWkfwyc",
-    "https://youtube.com/watch?v=n4dbmcxUM_I"], // Converted to array support
+                "https://youtube.com/watch?v=n4dbmcxUM_I"], // Converted to array support
     screenshots: [
       "https://static.apkmody.com/play-lh.googleusercontent.com/aSGnh3x2ovfNhavd6TFquXsSK2yXRa61_02tNi9zJDgWQxDAZBtjYFCaVCrH86NSRKeSERxFR5lqUClC6XhW=-rw",
       "https://static.apkmody.com/play-lh.googleusercontent.com/WhjYoeQnM_ilzplnOI0ThF18YjvYUakz-LjonjA79m4ywstFsAsYAhJToz7oqR8swR9JMTRY0cqJYU9K1ky2=-rw",
@@ -812,7 +812,7 @@ export const APPS_DATA: AppItem[] = [
     },
     tags: ["MOD", "Free"],
     isRecommendation: false,
-    isRecent: true
+    isRecent: false
   }
   
 ];
