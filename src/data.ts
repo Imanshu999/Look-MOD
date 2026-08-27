@@ -609,7 +609,7 @@ export const APPS_DATA: AppItem[] = [
    {
     id: "17",
     name: "FINAL FANTASY VII EVER CRISIS",
-    slug: "final-fantasy-vii-ever-crisis ",
+    slug: "final-fantasy-vii-ever-crisis",
     developer: "Square Enix",
     rating: "3.8",
     downloads: "2k",
