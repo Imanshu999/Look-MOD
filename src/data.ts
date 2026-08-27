@@ -870,7 +870,7 @@ export const BLOG_POSTS: BlogPost[] = [
   title: "CEO of a Takano3D company",
   summary: "An exclusive look into the vision, mobile development journey, and independent ecosystem behind Takano3D.",
   content: "As the founder and lead engineer of Takano3D, every architecture, script, and application layout is built entirely from a mobile workflow. From web infrastructure and modding ecosystems to creating seamless user experiences, this is the story of pushing mobile development limits without relying on a PC.",
-  image: "https://chatgpt.com/backend-api/estuary/content?id=file_00000000205082068ccd8acee14c6306&ts=496618&p=fs&cid=1&sig=28d0cd59e0c339c4478e248c875a26902580daa4db89a4fbdbeb0e5878b449d4&v=0",
+  image: "https://6a900b5efbbe2019f0957b40.imgix.net/sandbox/1000043555.png?auto=format&dpr=1",
   date: "11 July, 2026",
   author: "Takano3D"
   },
