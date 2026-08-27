@@ -866,7 +866,16 @@ export const CATEGORIES_DATA: CategoryItem[] = BASE_CATEGORIES.map(category => {
 
 export const BLOG_POSTS: BlogPost[] = [
   {
-    id: "b1",
+  id: "b1",
+  title: "CEO of a Takano3D company",
+  summary: "An exclusive look into the vision, mobile development journey, and independent ecosystem behind Takano3D.",
+  content: "As the founder and lead engineer of Takano3D, every architecture, script, and application layout is built entirely from a mobile workflow. From web infrastructure and modding ecosystems to creating seamless user experiences, this is the story of pushing mobile development limits without relying on a PC.",
+  image: "https://6a900b5efbbe2019f0957b40.imgix.net/sandbox/806b1fc9-70d0-4f7f-957a-7a73fef9ae08-1_all_1154.jpg?w=320&h=320&fit=crop&crop=entropy&auto=format",
+  date: "11 July, 2026",
+  author: "Takano3D"
+  },
+  {
+    id: "b2",
     title: "Top 5 Android MODs of the Month",
     summary: "Discover modified apps and games with the most outstanding features unlocked completely free of charge.",
     content: "Android stands out over other mobile ecosystems for its versatility and freedom of installation. In this article, we delve into five exceptional modifications that will allow you to optimize your applications and expand your entertainment limits. From Spotify Premium to professional video editors without watermarks, we explain how to install them safely on your smartphone using the clean and pre-verified files available on Look Mod Store.",
@@ -875,7 +884,7 @@ export const BLOG_POSTS: BlogPost[] = [
     author: "Takano3D"
   },
   {
-    id: "b2",
+    id: "b3",
     title: "How to Safely Install an APK / OBB File",
     summary: "Step-by-step guide for beginners and advanced users on how to enable unknown sources without compromising your phone.",
     content: "Manual installation of APK files is a simple task but requires attention to certain critical security details. First, you must go to Settings > Security and enable 'Install applications from unknown sources'. In this guide, we show you how to use our integrated SHA-256 validator to confirm that no files have been tampered with, protecting your personal information at all times.",
