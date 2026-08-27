@@ -813,7 +813,44 @@ export const APPS_DATA: AppItem[] = [
     tags: ["MOD", "Free"],
     isRecommendation: false,
     isRecent: false
+  },
+  
+    {
+    id: "23",
+    name: "Machinarium",
+    slug: "machinarium",
+    developer: "Imaanshu N",
+    rating: "5.0",
+    downloads: "33k",
+    size: "301 MB",
+    version: "3.5.0",
+    category: "Tools",
+    type: "Game",
+    updatedAt: "25/08/2026",
+    icon: "https://static.apkmody.com/play-lh.googleusercontent.com/8s7VpaT4BJgaTq8u7eF2FIgW3-gOZzdOYRvI6-edXj2mpJms_XZS8ULxbe1VSd8RoVs=s150-rw",
+   description: "Machinarium is a fun and beautiful point-and-click adventure game for Android mobiles. Although it was released a decade ago, until now, Machinarium has received many compliments for its beautiful graphics, vivid sound and extremely innovative gameplay.",
+    downloadUrl: "https://s1.1phut.io/v2/ezLZ",
+    videoUrls: ["https://youtube.com/watch?v=uwZBdWRSBRs",
+    "https://youtube.com/watch?v=4xb3IImki-4"], // Converted to array support
+    screenshots: [
+      "https://static.apkmody.com/play-lh.googleusercontent.com/UnB9YP-Gt0FpKHDtv6KmqMJhPuxTCOUTrcFqUUVGmYf56_eAhqWC6wzF2seTEXAh2g=-rw",
+      "https://static.apkmody.com/play-lh.googleusercontent.com/ZJzdfmw2oTY3MoV6wxJlk63rAl7hLj60MuVvRC-0vvb7TY4o5ixjmWMUWtAtAryFc2c=-rw",
+      "https://static.apkmody.com/play-lh.googleusercontent.com/NJ4zNH6axXLxGn_bn5jTwj_YeozXZvV1bSql85M3Y2Xhj36zDBfKc4o9BMpCecOJgsg=-rw",
+      "https://static.apkmody.com/play-lh.googleusercontent.com/GBoDpK1JO91ZGqjUypZ-O8mKCyI2mnDOsDOH6RDCXDuqNE1Qh5MLTWuZbetyvITN1Xs=-rw",
+      "https://static.apkmody.com/play-lh.googleusercontent.com/e0KDKNCSahPDeffA1hVQr-o9eMJQ8ipcp97vaOtFaUCjM9HJauNvQhqqxgGaXOalEr0=-rw",
+      "https://static.apkmody.com/play-lh.googleusercontent.com/ljTzIpQcsTo1EO37EFlszOiTNc4bAU6iN2_U_vv6v_O3kUhn-rb_AODQiNsHQTaTTv3K=-rw",
+      "https://static.apkmody.com/play-lh.googleusercontent.com/yG3szf-3TV-YioVtJ0j31qkdcCG8dUz2WmlZb2cx40UchTDVxbSsC0FhvH91ECcXMQI=-rw",
+    ],
+    security: {
+      checksum: "SHA-256: 91yeb72te8wg8w9sg6euw8hw7wh8w",
+      secureToken: "Secure accounts without ban risk",
+      cloudStorage: "Direct connection to Moviebox servers"
+    },
+    tags: ["MOD", "Free"],
+    isRecommendation: false,
+    isRecent: true
   }
+
   
 ];
 
