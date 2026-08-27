@@ -778,6 +778,7 @@ export const APPS_DATA: AppItem[] = [
     isRecommendation: false,
     isRecent: true
   },
+  
    {
      id: "22",
     name: "Eyes: Scary Thriller – Horror",
