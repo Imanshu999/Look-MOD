@@ -606,7 +606,7 @@ export const APPS_DATA: AppItem[] = [
     isRecent: true
   },
   
-    {
+   {
     id: "17",
     name: "FINAL FANTASY VII EVER CRISIS",
     slug: "final-fantasy-vii-ever-crisis ",
@@ -619,7 +619,7 @@ export const APPS_DATA: AppItem[] = [
     type: "Game",
     updatedAt: "04/08/2026",
     icon: "https://static.apkmody.com/play-lh.googleusercontent.com/s_JGrjTxF2GHVrlp8U0iwxE4UfLq6CHclZheCZuEp4m1suyE4w2CfUA-DVXk8mDyI23gM6pINJ0p2nWyT1A8NLI=s150-rw",
-   description: "Developed by Square Enix, FINAL FANTASY VII EVER CRISIS, a customized mobile version that will help you relive memorable moments, iconic characters from the world of FFVII. It’s time for you to experience this great heroic journey right on your mobile.",
+    description: "Developed by Square Enix, FINAL FANTASY VII EVER CRISIS, a customized mobile version that will help you relive memorable moments, iconic characters from the world of FFVII. It’s time for you to experience this great heroic journey right on your mobile.",
     downloadUrl: "https://s1.1phut.io/v2/xmM3",
     videoUrls: ["https://youtube.com/watch?v=87TNASkXOWQ"], // Converted to array support
     screenshots: [
@@ -638,10 +638,10 @@ export const APPS_DATA: AppItem[] = [
     },
     tags: ["MOD", "Free"],
     isRecommendation: true,
-    isRecent: false
+    isRecent: true
   },
   
-      {
+     {
     id: "18",
     name: "Webbly Life",
     slug: "webbly-life",
