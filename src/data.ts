@@ -782,7 +782,7 @@ export const APPS_DATA: AppItem[] = [
    {
      id: "22",
     name: "Eyes: Scary Thriller – Horror",
-    slug: "eyes:-Sscary-thriller-–-horror",
+    slug: "eyes-Sscary-thriller-horror",
     developer: "Imaanshu N",
     rating: "4.9",
     downloads: "20k",
