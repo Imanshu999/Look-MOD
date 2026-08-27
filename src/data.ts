@@ -777,6 +777,41 @@ export const APPS_DATA: AppItem[] = [
     tags: ["MOD", "Free"],
     isRecommendation: false,
     isRecent: true
+  },
+   {
+     id: "22",
+    name: "Eyes: Scary Thriller – Horror",
+    slug: "eyes:-Sscary-thriller-–-horror",
+    developer: "Imaanshu N",
+    rating: "4.9",
+    downloads: "20k",
+    size: "1.0 GB",
+    version: "8.0.88",
+    category: "Tools",
+    type: "Game",
+    updatedAt: "25/08/2026",
+    icon: "https://static.apkmody.com/play-lh.googleusercontent.com/E1YAxY5YgAqI9kR5MAo8lzsfaSbgsS0tevynKQIaVxbCOKLeYi6d8NYaLQRlsGpAzfcU6Kgt1H2ntiY89Aow=s150-rw",
+   description: "Eyes: Scary Thriller – Horror is a terrifying survival horror game that combines exploration, suspense, and supernatural encounters. The game places players in dark and mysterious locations where they must search for valuable items, uncover secrets, and find a way to escape while being hunted by frightening creatures. With its unsettling atmosphere and unpredictable threats, this horror survival game is designed for players who enjoy intense and nerve-racking experiences.",
+    downloadUrl: "https://s1.1phut.io/v2/vlrB",
+    videoUrls: ["https://youtube.com/watch?v=_a5EbWkfwyc",
+    "https://youtube.com/watch?v=n4dbmcxUM_I"], // Converted to array support
+    screenshots: [
+      "https://static.apkmody.com/play-lh.googleusercontent.com/aSGnh3x2ovfNhavd6TFquXsSK2yXRa61_02tNi9zJDgWQxDAZBtjYFCaVCrH86NSRKeSERxFR5lqUClC6XhW=-rw",
+      "https://static.apkmody.com/play-lh.googleusercontent.com/WhjYoeQnM_ilzplnOI0ThF18YjvYUakz-LjonjA79m4ywstFsAsYAhJToz7oqR8swR9JMTRY0cqJYU9K1ky2=-rw",
+      "https://static.apkmody.com/play-lh.googleusercontent.com/abvLUJXSjHAAFXRZ5b6_cATPNXApDyHQtygK8Vh_j2-EwCCDnI1nvs0XoFdq0pFXkA_7Cqw9EfxA8ULHBPd4zA=-rw",
+      "https://static.apkmody.com/play-lh.googleusercontent.com/lyseNtJQOFol5ZALiWx4Dy34Ej25pU1HK0xEalzzdkqlDGBr9JYdYLOaIbhk9-INnqevquC7mV5aOmtdNfNZLZ8=-rw",
+      "https://static.apkmody.com/play-lh.googleusercontent.com/fo5pZ9-vZjxkbZoUaa8MLibjjlxyZcta9su512JCcI7re25gAdPbaV5enoVhyXuHgGBMwIVfdh_CZgOTv_C1YQ=-rw",
+      "https://static.apkmody.com/play-lh.googleusercontent.com/M8T4NCjwOGlhwVzqgHtxMX90gw0wvL3nK8e_vSykgUMFZOTXfUi-lsR44PjBKF0o1eyXQQzsZqNiyxSbtNvMFQ=-rw",
+      "https://static.apkmody.com/play-lh.googleusercontent.com/jKmXdToU6yV7hazSTqBZxUgXbkCT3m6PoWgPgi4pRuKv0-19vVOEPRnGeUF7zjXARjQzaGMvsW4eZlUWJIt_gA=-rw",
+    ],
+    security: {
+      checksum: "SHA-256: 91yeb72te8wg8w9sg6euw8hw7wh8w",
+      secureToken: "Secure accounts without ban risk",
+      cloudStorage: "Takano3D Server on MOD APK"
+    },
+    tags: ["MOD", "Free"],
+    isRecommendation: false,
+    isRecent: true
   }
   
 ];
