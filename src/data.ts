@@ -605,7 +605,8 @@ export const APPS_DATA: AppItem[] = [
     isRecommendation: false,
     isRecent: true
   },
-      {
+  
+    {
     id: "17",
     name: "FINAL FANTASY VII EVER CRISIS",
     slug: "final-fantasy-vii-ever-crisis ",
@@ -635,10 +636,11 @@ export const APPS_DATA: AppItem[] = [
       secureToken: "Secure accounts without ban risk",
       cloudStorage: "Takano3D Server on MOD APK"
     },
-    tags: ["MOD", "Long Line", "Free"],
+    tags: ["MOD", "Free"],
     isRecommendation: true,
     isRecent: false
   },
+  
       {
     id: "18",
     name: "Webbly Life",
