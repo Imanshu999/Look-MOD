@@ -223,20 +223,20 @@ export const APPS_DATA: AppItem[] = [
   },
   {
     id: "6",
-    name: "InstaPro",
+    name: "InstaPro ♚",
     slug: "instapro",
     developer: "Imaanshu N",
     rating: "4.7",
     downloads: "1B",
     size: "173.68 MB",
-    version: "32.8.4",
+    version: "15.60.0",
     category: "Social",
     type: "App",
     updatedAt: "05/07/2026",
     icon: "https://upload.wikimedia.org/wikipedia/commons/0/0f/Icon_instapro.png",
     description: "Watch millions of videos from around the world and download videos without watermarks.",
     longDescription: "InstaPro is an advanced modified version of the social media giant. It allows you to download any photo, video, or reel directly to your local gallery without watermarks. In addition, it removes all annoying sponsored ads from the main feed, unlocks high-fidelity media upload quality, and adds special privacy controls to view stories anonymously, hide typing status, and read messages without sending read receipts.",
-    downloadUrl: "https://www.mediafire.com/file/6wsggqu5avlt4to/InstaPro+♚_signed_sign+(2)_sign.apk/file",
+    downloadUrl: "https://www.mediafire.com/file/rxlkisab413texj/InstaPro-v15.50-look-mod.vercel.app.apk/file?dkey=kq5mibpf2gl&r=1924",
     videoUrls: ["https://youtu.be/ZnT2azDpIA0?si=zZHJkU4VHIMgnlhj"], // Converted to array support
     screenshots: [
       "https://play-lh.googleusercontent.com/hZ2Ob6d0MqLse2lIdNOGgl93H5y82uhX4hC6mWDUpdwK8LjXAunweDQZ6Hocy0riv4KX0lTIzKJz6lhRDV_BiHg=h305",
