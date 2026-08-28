@@ -967,7 +967,7 @@ export const APPS_DATA: AppItem[] = [
     developer: "Imaanshu N",
     rating: "4.6",
     downloads: "10k",
-    size: " MB",
+    size: "105 MB",
     version: "1.2.6",
     category: "Tools",
     type: "Game",
