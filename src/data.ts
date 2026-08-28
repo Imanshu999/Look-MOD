@@ -51,8 +51,8 @@ export const APPS_DATA: AppItem[] = [
       cloudStorage: "High-speed cloud storage with encrypted access"
     },
     tags: ["MOD", "Free", "No Watermark"],
-    isRecommendation: true,
-    isRecent: true
+    isRecommendation: false,
+    isRecent: false
   },
   {
     id: "2",
