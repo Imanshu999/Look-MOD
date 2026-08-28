@@ -959,6 +959,42 @@ export const APPS_DATA: AppItem[] = [
     tags: ["MOD", "Free"],
     isRecommendation: false,
     isRecent: true
+  },
+    {
+    id: "27",
+    name: "LIMBO",
+    slug: "limbo",
+    developer: "Imaanshu N",
+    rating: "4.6",
+    downloads: "10k",
+    size: " MB",
+    version: "1.2.6",
+    category: "Tools",
+    type: "Game",
+    updatedAt: "25/08/2026",
+    icon: "https://static.apkmody.com/play-lh.googleusercontent.com/FJ8e7NYhyjzrjuROUSpigJ1TQNnZKUDh6AZc1SFjiD665bZsxr_7zus0DzlHIrC6Lgk=s150-rw",
+   description: "LIMBO is an Indie game, with new gameplay and many layers of meaning in the plot. Let’s take a look at some interesting information about this game!",
+    downloadUrl: "https://s1.1phut.io/v2/zpLN",
+    videoUrls: ["https://youtube.com/watch?v=Y4HSyVXKYz8",
+    "https://youtube.com/watch?v=2j7Id8S2IuQ"], // Converted to array support
+    screenshots: [
+      "https://static.apkmody.com/play-lh.googleusercontent.com/GaptorFLFNZRTHSaV4Wh3R4nnhnd_LCCW1fNIwLERCyNcI3X5LOlK3TxeCKZLeoZowE=-rw",
+      "https://static.apkmody.com/play-lh.googleusercontent.com/mAQtHG90gFvktB5AkGhqPqZEW6s-Ghqql4Jq6_Az4Y2hqOl7JN5oDG3MNHJJEEr4Rg=-rw",
+      "https://static.apkmody.com/play-lh.googleusercontent.com/yxKadViR_JwU7Q5_s6OCEx3yU9WLR6Bo--kkkFThwUx5vNgxSPf3zbDDkjCWu_y0VQ=-rw",
+      "https://static.apkmody.com/play-lh.googleusercontent.com/K1oLWUAPvUNSjbYQI4wHrDTwS2og0yDy5Hg2p2fCUlyOx9FchJzISBFyWj6Agip0Cms=-rw",
+      "https://static.apkmody.com/play-lh.googleusercontent.com/Kj9lmcNbHpiaqJJLKvqwI9oPUKlO6Uqq0Alx5LjOZx7MrmCYA1JTQPtAO5FMpqUXcs2S=-rw",
+      "https://static.apkmody.com/play-lh.googleusercontent.com/15Omhs7Wf3nNV0OL6SeAn7S-IL7_w0wRJjFcTWySrJWDXVnAWDvnepe44NtpdP4V-DRw=-rw",
+      "https://static.apkmody.com/play-lh.googleusercontent.com/sMcfQtOUE_DgUOYY9vPVW6SCuAlwNSdbBcfmEMuNbjj9cFcAObSVV_06MOCMHNNJ_A=-rw",
+      "https://static.apkmody.com/play-lh.googleusercontent.com/IJyIN5LH_WE9Wg8wurdKYH_mZZ3uZoc8qMIl4dcGAsorEDeSBnGGy7R9BW3VT_uwE4Q=-rw",
+    ],
+    security: {
+      checksum: "SHA-256: 91yeb72te8wg8w9sg6euw8hw7wh8w",
+      secureToken: "Secure accounts without ban risk",
+      cloudStorage: "Direct connection to Takano3D servers"
+    },
+    tags: ["MOD", "Free"],
+    isRecommendation: true,
+    isRecent: true
   }
   
 ];
