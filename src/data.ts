@@ -923,7 +923,43 @@ export const APPS_DATA: AppItem[] = [
     tags: ["MOD", "Free"],
     isRecommendation: false,
     isRecent: true
-    }
+    },
+      {
+    id: "26",
+    name: "TrueCaller",
+    slug: "truecaller",
+    developer: "Imaanshu N",
+    rating: "5.0",
+    downloads: "100M",
+    size: "96 MB",
+    version: "26.30.5",
+    category: "Tools",
+    type: "App",
+    updatedAt: "25/08/2026",
+    icon: "https://static.apkmody.com/play-lh.googleusercontent.com/qtgLcbI3f7CHcg8vUjYQQv3jzJ05-prQ5wr6VN0F-ehAFqLEjNNhFD_QbjujOAy-r4w=s150-rw",
+   description: "Life is increasingly developing and becoming more complicated, so the leakage of information as well as personal phone numbers on the Internet is inevitable. There are many ways to infiltrate personal information, one of which is through spam calls and messages. Therefore, understanding the common psychology of everyone, Truecaller was launched to support users to limit the above situation. So let’s learn about the Truecaller application to know more about the features and benefits users receive when using it.",
+    downloadUrl: "https://s1.1phut.io/v2/vbBB",
+    videoUrls: ["https://youtube.com/watch?v=j4gGqUVBFsU",
+    "https://youtube.com/watch?v=7949Q9PM528"], // Converted to array support
+    screenshots: [
+      "https://static.apkmody.com/play-lh.googleusercontent.com/9ClODl-X8Q0knZWaCbkNTgl3HU_PR0brO8-HEdDpgizF7Lh9XtrI3qPuE7jRB8_qZnpwu7ALkItbtFcbOY6hBR4=-rw",
+      "https://static.apkmody.com/play-lh.googleusercontent.com/1EOKR5B-LYsbSkoFsYOedir7v1WGYOyKk6_FGEUeW3Zk-8wssWWvuE-cdUqVjGsAkV09KQ9L9LjzltLz9M6BQrU=-rw",
+      "https://static.apkmody.com/play-lh.googleusercontent.com/XjFnPExxAVVNmwkrECdRoiINaa85eQiFHxpj2077Qugv4LBVIA_Of_LYH7rEkkHlDMBdQGs-lmBjXRJIz2j9=-rw",
+      "https://static.apkmody.com/play-lh.googleusercontent.com/yplNJstbgv4BEIT4dla4ZfHhj4aUr9XdyF6DKxR_LGXQokKnMrFeWjkOSuGeM52onZ7yzmuYXa1sdw7crcJZSbw=-rw",
+      "https://static.apkmody.com/play-lh.googleusercontent.com/qq9CJe8yXnrKZdC347xnqz1x8eDLO4fJ0cZoOypTHcjCcm_VUQ0hBCDKo4mCFktGeq5iAtjHAY0paAo50P6R=-rw",
+      "https://static.apkmody.com/play-lh.googleusercontent.com/hBhTArdNoIZ3Op6Fr9X9WBLP9gnkEIKLzg8CvnIcvFhJjcOYxGZGjT9ZtmGoKzQDuanJBQF0i6vnDjCO5Gp_Rw=-rw",
+      "https://static.apkmody.com/play-lh.googleusercontent.com/Ro2RM3kqCEGSMKF7Zk7cpFpSaayMXzga02-Q7LWyP6WzY4_EwjteA8ffayh65fezFCiXSOtuIQz8OADatHqIEA=-rw",
+      "https://static.apkmody.com/play-lh.googleusercontent.com/DrOYPQbdLc78fb9Excr5j7BsgZjWHyzlWiMGH9r0-ifhSegxHwVoi8OsXFeOZvnCHTi5VvemLw7RYwDPUHthxls=-rw",
+    ],
+    security: {
+      checksum: "SHA-256: 91yeb72te8wg8w9sg6euw8hw7wh8w",
+      secureToken: "Secure accounts without ban risk",
+      cloudStorage: "Direct connection to Takano3D servers"
+    },
+    tags: ["MOD", "Free"],
+    isRecommendation: false,
+    isRecent: true
+  }
   
 ];
 
