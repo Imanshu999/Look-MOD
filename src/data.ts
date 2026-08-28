@@ -292,7 +292,7 @@ export const APPS_DATA: AppItem[] = [
     },
     tags: ["Paid Subscription Unlocked", "Free", "Ultra HD 4K"],
     isRecommendation: false,
-    isRecent: true
+    isRecent: false
   },
   {
     id: "8",
