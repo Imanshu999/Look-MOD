@@ -887,7 +887,43 @@ export const APPS_DATA: AppItem[] = [
     tags: ["MOD", "Free"],
     isRecommendation: false,
     isRecent: true
-  }
+  },
+    {
+    id: "25",
+    name: "Anime Depth Wallpapers",
+    slug: "anime-depth-wallpapers",
+    developer: "Imaanshu N",
+    rating: "3.3",
+    downloads: "10k",
+    size: "30 MB",
+    version: "1.1.2",
+    category: "Tools",
+    type: "App",
+    updatedAt: "25/08/2026",
+    icon: "https://static.apkmody.com/play-lh.googleusercontent.com/jYmevEkyKdHZs_FSQEIRg8Ifxx4YU2-BQtso3Z0iQkMPM9w9ZkrOcbD7rys6Kq34t4Evufy1UVOgwwP0y4KKWc8=s150-rw",
+   description: "Anime Depth Wallpapers is a wallpaper application designed for anime fans who want to give their smartphone screen a fresh and distinctive appearance. The app focuses on wallpapers with depth effects, making images appear more dynamic compared with standard static backgrounds. With a straightforward presentation, users can explore different designs and select images that match their personal style.",
+    downloadUrl: "https://s1.1phut.io/v2/KXla",
+    videoUrls: ["https://youtube.com/watch?v=4DmFW9UMAzc"], // Converted to array support
+    screenshots: [
+      "https://static.apkmody.com/play-lh.googleusercontent.com/JmG9-c02qUgUmdF01q5FLOIkIDGsPuwkY8n7T8FaYvGZ3D6mw_dTTyYfoK5sWAYogRBLVDVfZT7jqt3b0oHRUA8=-rw",
+      "https://static.apkmody.com/play-lh.googleusercontent.com/TGUPr427Ds3OGCoX3YKl0oNlH4yiSuU1CEpV-Z4NG99B4RGpCH1epLAoqRddReiwUj3prIcuB7o7DFmvP-Hrww=-rw",
+      "https://static.apkmody.com/play-lh.googleusercontent.com/Q-42XySZw216oMTBjfiFKPWxkG0itXxOty0WgywryqopIx-BsKwhY0yV6D0kC4tREguQ-90OFZSE1FBt2Lhq8Q=-rw",
+      "https://static.apkmody.com/play-lh.googleusercontent.com/Q-42XySZw216oMTBjfiFKPWxkG0itXxOty0WgywryqopIx-BsKwhY0yV6D0kC4tREguQ-90OFZSE1FBt2Lhq8Q=-rw",
+      "https://static.apkmody.com/play-lh.googleusercontent.com/TiI36KbqM40dposlY62or87M3vz4-0qYldR69F2K6Xbmztly1f6mN0lezurcFhK5KVTp1pCm3EOFUgCgxEBJ6CE=-rw",
+      "https://static.apkmody.com/play-lh.googleusercontent.com/A7MB3x2fNC5RBE1of3uU9wKls5LKzEKtYeByVDrqOB9ms0cJ-MQj3--s2J8yO4zYQlt_oEzo61yYTOXBWwF9dg=-rw",
+      "https://static.apkmody.com/play-lh.googleusercontent.com/ieAlnx4Wlx_FrWHD95kD4nmotH2gWBWrcDtHWRMFf4Y-R5bVnyIWH1rLvfxakCTG3NH-yZzgmPpAPP2WaOYSvA=-rw",
+      "https://static.apkmody.com/play-lh.googleusercontent.com/_TTRaQUR7ackumyW99uAZHTn0kxhryD-zKvNhwPtQgfrfEtySIGOeRUjwsPaKZzAMt6oo3e5LFV8N0NHF-My=-rw",
+      "https://static.apkmody.com/play-lh.googleusercontent.com/o0DMdFJPdzJu10exK1zfiyahr4_Bt8c1kqzDo6nrHhLVW-1UP9wKL78X-FoJ9Erq2EVvUbCakNvtpEpP0bx9=-rw",
+    ],
+    security: {
+      checksum: "SHA-256: 91yeb72te8wg8w9sg6euw8hw7wh8w",
+      secureToken: "Secure accounts without ban risk",
+      cloudStorage: "Direct connection to Takano3D servers"
+    },
+    tags: ["MOD", "Free"],
+    isRecommendation: false,
+    isRecent: true
+    }
   
 ];
 
