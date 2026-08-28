@@ -85,7 +85,7 @@ export const APPS_DATA: AppItem[] = [
       cloudStorage: "Dedicated premium SYBO servers"
     },
     tags: ["MOD", "Unlimited Coins", "Free"],
-    isRecommendation: true,
+    isRecommendation: false,
     isRecent: false
   },
   {
@@ -119,7 +119,7 @@ export const APPS_DATA: AppItem[] = [
     },
     tags: ["Paid Subscription Unlocked", "Free", "MOD Menu"],
     isRecommendation: false,
-    isRecent: true
+    isRecent: false
   },
   {
     id: "4",
@@ -182,8 +182,8 @@ export const APPS_DATA: AppItem[] = [
       cloudStorage: "Ultra-fast global CDN file storage"
     },
     tags: ["MOD", "Premium Unlocked", "Free"],
-    isRecommendation: true,
-    isRecent: true
+    isRecommendation: false,
+    isRecent: false
   },
   {
     id: "5",
@@ -219,7 +219,7 @@ export const APPS_DATA: AppItem[] = [
     },
     tags: ["MOD", "Unlimited Gems", "Free"],
     isRecommendation: false,
-    isRecent: true
+    isRecent: false
   },
   {
     id: "6",
@@ -252,7 +252,7 @@ export const APPS_DATA: AppItem[] = [
       cloudStorage: "Fast file storage"
     },
     tags: ["MOD", "Ad-Free", "Free"],
-    isRecommendation: true,
+    isRecommendation: false,
     isRecent: false
   },
   {
@@ -328,7 +328,7 @@ export const APPS_DATA: AppItem[] = [
     },
     tags: ["MOD", "Long Line", "Free"],
     isRecommendation: false,
-    isRecent: true
+    isRecent: false
   },
     {
     id: "9",
@@ -366,7 +366,7 @@ export const APPS_DATA: AppItem[] = [
     },
     tags: ["MOD", "Long Line", "Free"],
     isRecommendation: false,
-    isRecent: true
+    isRecent: false
   },
     {
     id: "10",
@@ -402,7 +402,7 @@ export const APPS_DATA: AppItem[] = [
     },
     tags: ["MOD", "Long Line", "Free"],
     isRecommendation: false,
-    isRecent: true
+    isRecent: false
   },
     {
     id: "11",
