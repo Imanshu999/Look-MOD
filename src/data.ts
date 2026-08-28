@@ -851,8 +851,43 @@ export const APPS_DATA: AppItem[] = [
     tags: ["MOD", "Free"],
     isRecommendation: false,
     isRecent: true
+  },
+    {
+    id: "24",
+    name: "Dream Road: Online",
+    slug: "dream-road-online",
+    developer: "Imaanshu N",
+    rating: "4.3",
+    downloads: "100k",
+    size: "623 MB",
+    version: "1.4.3",
+    category: "Tools",
+    type: "Game",
+    updatedAt: "25/08/2026",
+    icon: "https://static.apkmody.com/play-lh.googleusercontent.com/Zwg0qf7UFn4JYuf-ftl2_fty827AI08IAsbhTl-hJ0cJUSxn0L76e6O5CU5R7fdgSw=s150-rw",
+   description: "If you are a street racing enthusiast, or love the excitement of chasing opponents on supercars, Dream Road: Online MOD APK is exactly the game for you. Exciting adventures around the city on your dream car, are you ready to conquer the challenges in this game? Let’s explore right away.",
+    downloadUrl: "https://s1.1phut.io/v2/5yNp",
+    videoUrls: ["https://youtube.com/watch?v=Xv69QyU3c6w",
+    "https://youtube.com/watch?v=Fv7GmYMyC0o"], // Converted to array support
+    screenshots: [
+      "https://static.apkmody.com/play-lh.googleusercontent.com/q_7IYmzs0D6vNw1mEsz7BpwsQl4MC8RTAtV6aS0LPM9jKCCDWm86pFe7_Dcz1NwE7OI=-rw",
+      "https://static.apkmody.com/play-lh.googleusercontent.com/bTp5-ePcKm4VhmX-v5MJldF8Rnmkd8aMCltQptuW5_TYfSdG6vWdtZusa12xXPdFmk4=-rw",
+      "https://static.apkmody.com/play-lh.googleusercontent.com/SKLDBTp4a03-G2TsiITU3gBA3CVlGLuwX8vtiViU2akmJ8vOyVGU6yQ-KmVUv7HgUJI=-rw",
+      "https://static.apkmody.com/play-lh.googleusercontent.com/DYe5durDQ2JTisaC_ib4HIxfsVdZrzfYLDJIRaWIRMg7ceNC_mT8-b9BcWsn5nyS2g=-rw",
+      "https://static.apkmody.com/play-lh.googleusercontent.com/s6dyNtSJtqiC7Jb8Z-RuT37DRvme6ZyL7K7OaynAdOFp-z6Vikk4RzMhq9rX3LOd0Ew=-rw",
+      "https://static.apkmody.com/play-lh.googleusercontent.com/EeoFP4lI-6jkI9TcOXCFKQyn0XSt5-i3DpJYgNuzbgQUOU_zk5yXDRoxVdaaYWZc1IVu=-rw",
+      "https://static.apkmody.com/play-lh.googleusercontent.com/1tN2LWB6dXxgxH81Ow-t_G_0PQYIlhfY4oQmLSHJmjGKgQXkMj3T582FpNj1HDfY30k=-rw",
+      "https://static.apkmody.com/play-lh.googleusercontent.com/i_pQh1uuFlDMnucJf_1xWjuAhlDVRIN5UN_Al4lfKkxwpz1VahVRKkSmAcbQIqjqHDU=-rw",
+    ],
+    security: {
+      checksum: "SHA-256: 91yeb72te8wg8w9sg6euw8hw7wh8w",
+      secureToken: "Secure accounts without ban risk",
+      cloudStorage: "Direct connection to Takano3D servers"
+    },
+    tags: ["MOD", "Free"],
+    isRecommendation: false,
+    isRecent: true
   }
-
   
 ];
 
