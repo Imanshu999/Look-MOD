@@ -455,9 +455,9 @@ export const APPS_DATA: AppItem[] = [
     downloadUrl: "https://files.modapkdl.com/ROOT/All%20Documents%20File/Folder%202/MovieBox_v3.0.16.0709.03_(50020116)_Mod-APPS2APP.COM.apk",
     videoUrls: ["https://youtu.be/rWoUM_nMPtc?si=bC-_r2uBqnE9f83m", "https://youtu.be/c8kXsCAOj8Y?si=TQhywvjtO0O0g16I"], // Converted to array support
     screenshots: [
-      "https://ibb.co/mCrzR8rN",
-      "https://ibb.co/yF0brYD3",
-      "https://ibb.co/Z602DQ4s",
+      "https://iili.io/CprhJ07.webp",
+      "https://iili.io/CprhHfS.md.webp",
+      "https://iili.io/CprXys2.webp",
       "https://play-lh.googleusercontent.com/tkBwbyjRS1Wxnjrs_D55htQWuByuK8eHBm1pPb1so0_kv204P9pnqKF7097yLoySzQ=h305",
       "https://play-lh.googleusercontent.com/x-hk0oonVM-SLHcvbJMpYMz7KHflTUtJuqCcecKyke9saZDj7AA4WNZUu_kGA2TikSzd=h305",
       "https://play-lh.googleusercontent.com/yB9xDtcmAHScwfq2PDKcik1ASCnukkJMXWuRop21htGi5aDwxoctsqyo92tx3HJNhsI=h305",
