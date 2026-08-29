@@ -995,6 +995,40 @@ export const APPS_DATA: AppItem[] = [
     tags: ["MOD", "Free"],
     isRecommendation: true,
     isRecent: true
+  },
+    {
+    id: "28",
+    name: "Rally Horizon",
+    slug: "rally-horizon",
+    developer: "Imaanshu N",
+    rating: "4.1",
+    downloads: "8k",
+    size: "598 MB",
+    version: "2.6.1",
+    category: "Tools",
+    type: "Game",
+    updatedAt: "25/08/2026",
+    icon: "https://static.apkmody.com/play-lh.googleusercontent.com/NFTKJsXIoh2CSxP77C_mrphziRG0MobZNL7sXqEdCuJlHBTUs-5NGBxn53d6S3iIvg=s150-rw",
+   description: "Immersing yourself in the colorful neon racetrack in Rally Horizon, you will admire and master the wheel of dozens of attractive professional supercars. A racing game whose freshness and brilliance will keep your mood up all day.",
+    downloadUrl: "https://s1.1phut.io/v2/8m0R",
+    videoUrls: ["https://youtube.com/watch?v=6-A5YzWFoiw",
+    "https://youtube.com/watch?v=tiViZPIlq2A"], // Converted to array support
+    screenshots: [
+      "https://static.apkmody.com/play-lh.googleusercontent.com/IPZDILteUSm5ufcTDQpD1OZaAjNswtZuFbOsRIThFXCgEYAE23T0PvkkgRefDAewBj0=-rw",
+      "https://static.apkmody.com/play-lh.googleusercontent.com/FT3Lq8u5vCTVMx3qH_9ocYDS1i-JARag0-_QqSCCVQiV6kg6ZWPKwSluWjS8Re9LfQ=-rw",
+      "https://static.apkmody.com/play-lh.googleusercontent.com/ZhGu3lW904wOqmOfZGot0z4JrID_smendZ8yqLcBLsIuVqgyiEizhkXrq_-3PAZNtg=-rw",
+      "https://static.apkmody.com/play-lh.googleusercontent.com/XYBTDyyPWgwApuBSy1Hsd_z9J8tmDBxmFc_4YOzATFMW1bb8LaV3JoBkXX53PzeMzC8=-rw",
+      "https://static.apkmody.com/play-lh.googleusercontent.com/LPyhYncgzoI1ouYuWm_063uoI1cAxrvlsJfxVWdpubUoBzlU7lsNt_iR3wPuhQlq1_0=-rw",
+      "https://static.apkmody.com/play-lh.googleusercontent.com/0B1zXALdKMyJyGaeASEyJqni9P4kJQ3nTywErUcnH7g_m7clE5GWGKIta0nlrO04Z5I=-rw",
+    ],
+    security: {
+      checksum: "SHA-256: 91yeb72te8wg8w9sg6euw8hw7wh8w",
+      secureToken: "Secure accounts without ban risk",
+      cloudStorage: "Direct connection to Takano3D servers"
+    },
+    tags: ["MOD", "Free"],
+    isRecommendation: true,
+    isRecent: true
   }
   
 ];
