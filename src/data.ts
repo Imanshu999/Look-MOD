@@ -1387,7 +1387,6 @@ export const APPS_DATA: AppItem[] = [
       "https://imgcdn.latestmodapks.com/api/resize?url=https://www.latestmodapks.com/wp-content/uploads/2025/10/MT-Manager-mod-4-media.png",
       "https://imgcdn.latestmodapks.com/api/resize?url=https://www.latestmodapks.com/wp-content/uploads/2025/10/MT-Manager-mod-5-media.png",
       "https://imgcdn.latestmodapks.com/api/resize?url=https://www.latestmodapks.com/wp-content/uploads/2025/10/MT-Manager-mod-6-media.png",
-      "",
     ],
     security: {
       checksum: "SHA-256: hsiq8ye82g29ge91ge8br8391",
