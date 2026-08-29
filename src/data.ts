@@ -1029,6 +1029,41 @@ export const APPS_DATA: AppItem[] = [
     tags: ["MOD", "Free"],
     isRecommendation: true,
     isRecent: true
+  },
+    {
+    id: "29",
+    name: "Aurora Hills: Chapter 1",
+    slug: "aurora-hills-chapter-1",
+    developer: "Imaanshu N",
+    rating: "4.9",
+    downloads: "200k",
+    size: "569 MB",
+    version: "1.0.7",
+    category: "Tools",
+    type: "Game",
+    updatedAt: "24/04/2026",
+    icon: "https://static.apkmody.com/play-lh.googleusercontent.com/vyBSQFCniqisX061qDemtmTbeN6Xt0kCi5P0jNJJs3OybmhgICOOrHTnWtptpoPzJp4s=s150-rw",
+   description: "Aurora Hills: Chapter 1 is a puzzle-adventure game with elements of horror and mystery. Developed and published by NovaSoft Interactive Ltd, a studio specializing in puzzle games, the game is set in Aurora Hills, a town in the Appalachian Mountains (USA), in 1981. The events in Aurora Hills: Chapter 1 begin with a series of mysterious disappearances that escalate in frequency. These disappearances leave no trace. You play as Ethan Hills, a park ranger working in the forest near Aurora Hills, investigating the disappearances to uncover the secrets hidden deep within the town.",
+    downloadUrl: "https://s1.1phut.io/v2/QP17",
+    videoUrls: ["https://youtube.com/watch?v=NsOV7eBWCfg"], // Converted to array support
+    screenshots: [
+      "https://static.apkmody.com/play-lh.googleusercontent.com/U579qG4z2QxnDqx2wW-q_PIkhGKbnVHbHXH4EHbSH0_omqaDzLSj-Zv5ZustS-21EZA=-rw",
+      "https://static.apkmody.com/play-lh.googleusercontent.com/Ts8kwUhL1SjvmuoYdtW6u4Ul268yMiZN3WE2rOy3xE6wxAGbXnT7Jvs5LU0p6uzdkBM=-rw",
+      "https://static.apkmody.com/play-lh.googleusercontent.com/ro_FFnSy-_Iwhixd1hz9NM_ga2kgcwvtMU_gYE2iPKcsUOACYf3uuUbaHqdmhupSUto=-rw",
+      "https://static.apkmody.com/play-lh.googleusercontent.com/xqT1XRDo9rXJaLwG_hT6yo67tVkS8vGOtBhMQwXIM9X1u0KMnXBuSb1wZ9zPFmrR_g=-rw",
+      "https://static.apkmody.com/play-lh.googleusercontent.com/_pJtcbj7pPYDbxNkg7MnIuR1ea6no1UD1-NzhvdHaPzhzxDj4nAcZG-KFgQVs1EXxDCa=-rw",
+      "https://static.apkmody.com/play-lh.googleusercontent.com/NEGaO2Tlwtix1vuaqatA7eQMiTAB_lVye8xzjyYltX-PPVyLizIeb-EPcm7om6wNUUs=-rw",
+      "https://static.apkmody.com/play-lh.googleusercontent.com/f6DPhYxK-C4swSCNAE7WH2pDblrPoGIem3-0LcGwYLBtKtWSfCfWFb_1NXELdA_krDg=-rw",
+      "https://static.apkmody.com/play-lh.googleusercontent.com/zRnnDPPgFPLKM8F709x-TAdvbnXWw2_wMyhPXR6qNfXOB3F4HLZ3s_TbYlbtqPSjQ9Za=-rw",
+    ],
+    security: {
+      checksum: "SHA-256: 91yeb72te8wg8w9sg6euw8hw7wh8w",
+      secureToken: "Secure accounts without ban risk",
+      cloudStorage: "Direct connection to Moviebox servers"
+    },
+    tags: ["MOD", "Long Line", "Free"],
+    isRecommendation: false,
+    isRecent: true
   }
   
 ];
