@@ -1064,6 +1064,41 @@ export const APPS_DATA: AppItem[] = [
     tags: ["MOD", "Long Line", "Free"],
     isRecommendation: false,
     isRecent: true
+  },
+    {
+    id: "30",
+    name: "Aurora Hills: Chapter 2",
+    slug: "aurora-hills-chapter-2",
+    developer: "Imaanshu N",
+    rating: "4.5",
+    downloads: "106k",
+    size: "976 MB",
+    version: "1.0.2",
+    category: "Tools",
+    type: "Game",
+    updatedAt: "24/04/2026",
+    icon: "https://static.apkmody.com/play-lh.googleusercontent.com/mt_FlirDl1XyP2mHI-ON9DkniOog3RYZPLv2C-kJPAmBd2yYwybnuMm2Izt9r74Q0st_9N2YnQdZdakYYAq6TQ=s150-rw",
+   description: "Aurora Hills: Chapter 2 is the second part in the Aurora Hills series. Developed by NovaSoft Interactive Ltd, the game was released in March 2026. The storyline of Aurora Hills: Chapter 2 continues from the ending of Aurora Hills: Chapter 1. In addition to the storyline, many new puzzles and items have been added, making the game experience fresher and more engaging.",
+    downloadUrl: "https://s1.1phut.io/v2/5y85",
+    videoUrls: ["https://youtube.com/watch?v=1ZqB0GZA_9c"], // Converted to array support
+    screenshots: [
+      "https://static.apkmody.com/play-lh.googleusercontent.com/lO4JOlv9mQttad-XCiiccy0egm3nJTHgxqoXyxTeN30tx3NxfOlvgSuXqY0sfimQPrh3k3aUySbKxoWsZ_NaYA=-rw",
+      "https://static.apkmody.com/play-lh.googleusercontent.com/Aybi7U6MYW9PG314QPC2SDYkpJ5Umzr897Qwv84UygmbPGfclLy_luZxAqSWxJuwVmPSvaE5w_gN2OXIuHZVRQ=-rw",
+      "https://static.apkmody.com/play-lh.googleusercontent.com/Evd_zcKkzaz1KOS-2rwqNlXl1k6f43OD_U-pn8amx5o1apN7SyGWa9a-D39cvrPZHfmgLRKR7Czlm4CYz4oXNw=-rw",
+      "https://static.apkmody.com/play-lh.googleusercontent.com/VEm8QBJLLSpZYsX5tlgT7h9RzEVSMDozDXbwExFAvi8bVMv6JWWyCfNQupFRCebs4pr4cCnPtRxy2VzBQK4n8bA=-rw",
+      "https://static.apkmody.com/play-lh.googleusercontent.com/iFNjJcoTiJhGjgN0-Z629VguBPW7KgQPMXNFOnnw5vdbFo4ApDOqc8WYpj_F-4ZkxKzfXjs-BNFkysiA4_EJPg=-rw",
+      "https://static.apkmody.com/play-lh.googleusercontent.com/RUoecYgif-EG7cgfrl0uYJsbe3aI99XdNHYVQ36-likS9uI8_1QBhqGJxFiGR68099Ib2h0GNBjn2rl5bgQH=-rw",
+      "https://static.apkmody.com/play-lh.googleusercontent.com/VWzo1v6GoPxBW0hRk6Ceh0u8IaRnS_R7SfixBgTfwnCMFJg5LNivbKskEON34vm4jPEm0zW4kDCBmqQD6VFj=-rw",
+      "https://static.apkmody.com/play-lh.googleusercontent.com/ZMadX0DnIXqnapNcFgM9yjBevn0REelsRG4sCNARAhJENIunpmmjmnx5V26yLpgVqDCKy8j7gspH-RDkuellci4=-rw",
+    ],
+    security: {
+      checksum: "SHA-256: 91yeb72te8wg8w9sg6euw8hw7wh8w",
+      secureToken: "Secure accounts without ban risk",
+      cloudStorage: "Direct connection to Moviebox servers"
+    },
+    tags: ["MOD", "Long Line", "Free"],
+    isRecommendation: false,
+    isRecent: true
   }
   
 ];
