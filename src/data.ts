@@ -1492,6 +1492,178 @@ export const APPS_DATA: AppItem[] = [
     tags: ["MOD", "Free"],
     isRecommendation: false,
     isRecent: true
+  },
+    {
+    id: "43",
+    name: "Red Dead Redemption",
+    slug: "rdr-modile",
+    developer: "Rockstar Games",
+    rating: "5.0",
+    downloads: "28K",
+    size: "7.23 GB",
+    version: "1.58.63226194",
+    category: "Action",
+    type: "Game",
+    updatedAt: "04/11/2026",
+    icon: "https://static.apkmody.com/play-lh.googleusercontent.com/CpXqKaUvpsWGAW6jLRH31beZynmzI-VBWQpaplKW508pV0ajMrzn-kwnilYPmuX3Y_XItuKXg5tbI3zeaWZTIw=s150-rw",
+    description: "Red Dead Redemption APK is an action game masterpiece developed by Rockstar San Diego. Red Dead Redemption was released in May 2010 and was one of the most expensive games of that time. Therefore, Red Dead Redemption has a huge amount of content, a large and detailed open world, and an excellent storyline. Red Dead Redemption won many awards, including Game of the Year in 2010 – the most prestigious annual award for video game products. In 2025, Red Dead Redemption continues to be brought to the mobile platform, promising to bring both a new and nostalgic experience to this game that is more than a decade old. The game is currently released for $ 39.99 on Google Play and AppStore. Remember, you can download this game for free on LOOK-MOD.VERCEL.APP.",
+    downloadUrl: "https://s1.1phut.io/v2/6Y05",
+    videoUrls: ["https://youtube.com/watch?v=SlkizyzZ8k4"], // Converted to array support
+    screenshots: [
+      "https://static.apkmody.com/play-lh.googleusercontent.com/_FyVLKAzPlnFIP0Llmpr67Z_InIVV9n9fZyexqDXbntFKceBYSuDx20AKrp0p3eRKoQqUu9r58ALHpKu8jliQhE=-rw",
+      "https://static.apkmody.com/play-lh.googleusercontent.com/hLTyoGDOvp4DHgDR8AU5zNCxlIh6W0wlXHuBFP6wyP6u318YU295fBX66viR8amEaBPwi4rYNe5Bxapr7zugmw=-rw",
+      "https://static.apkmody.com/play-lh.googleusercontent.com/eZZ1ZzAeeUp9mdfPkJWxe8mJ16OViOO9UIdR6XbDdsuTiASYF_lxVtf3t8cz-rEll5DTMXUKuCf8fLON1bGE4w=-rw",
+      "https://static.apkmody.com/play-lh.googleusercontent.com/eK0pv6KzbP_6tC8RIF4hNqOG3b3NFkcs79Vtwr-BnDjTS5yaVv-_HvQxkgVo8FJajPUucIjM0jZCdL5Rk9kRCIo=-rw",
+      "https://static.apkmody.com/play-lh.googleusercontent.com/8BQu1Xx7fquBby5ygrhQBrM9eCONEr2IGHNK_68AJR9AWCsTtwgHlTGnYSZVXfAEvAZ4Zyei4gymQV4v4qA8Og=-rw",
+    ],
+    security: {
+      checksum: "SHA-256: RDR-full-game-gw72h282y8wh28.apk",
+      secureToken: "Secure accounts without ban risk",
+      cloudStorage: "Direct connection to Takano3D servers"
+    },
+    tags: ["MOD", "Free"],
+    isRecommendation: false,
+    isRecent: true
+  },
+    {
+    id: "44",
+    name: "Grand Theft Auto: Vice City MOD",
+    slug: "gta-vc-mod",
+    developer: "Rockstar Games",
+    rating: "5.0",
+    downloads: "10K",
+    size: "1 GB",
+    version: "1.12.259",
+    category: "Action",
+    type: "Game",
+    updatedAt: "01/07/2026",
+    icon: "https://static.apkmody.com/play-lh.googleusercontent.com/nl1Y6bn06faVBuPEwWh5gInl_Zji3A5wTA4zscKDsJLXpcZ5C35F5zaGzEwCE0bKJ8Jr=s150-rw",
+    description: "Grand Theft Auto: Vice City MOD APK is part of the Grand Theft Auto series (GTA) which is also ranked as a legendary action role-playing game. GTA dominated the PC and console markets first, and to celebrate GTA 10 years, publisher Rockstar Games has released an Android version of this game. And the first game that was selected to put on the smartphone platform was Grand Theft Auto: Vice City (originally played on PlayStation and released in 2002).",
+    downloadUrl: "https://s1.1phut.io/v2/v3lL",
+    videoUrls: ["https://youtube.com/watch?v=f_VBXRZuHTc"], // Converted to array support
+    screenshots: [
+      "https://static.apkmody.com/play-lh.googleusercontent.com/soywaPw0kB7fiDHokNdGlxbOijFwLe8XahjnZhJAejpCTcPMdogHEu10hcAF6dBW9LI=-rw",
+      "https://static.apkmody.com/play-lh.googleusercontent.com/soywaPw0kB7fiDHokNdGlxbOijFwLe8XahjnZhJAejpCTcPMdogHEu10hcAF6dBW9LI=-rw",
+      "https://static.apkmody.com/play-lh.googleusercontent.com/5GfAOqO5td1Qx4hY6V-ggdR24l7wL9bdaSey5fIt8A0QmpaUNV4ki1edC5_y-_8F5Ku-=-rw",
+      "https://static.apkmody.com/play-lh.googleusercontent.com/tuYtl9M4l9ukrxKY3e6NZyLlz7iZItE0CgzRuiDBPGNUYnholCnt2HT-73YSQWr3Qjqa=-rw",
+    ],
+    security: {
+      checksum: "SHA-256: GTA-VC-full-mod.iw82u38gw82h29y373.apk",
+      secureToken: "Secure accounts without ban risk",
+      cloudStorage: "Direct connection to Takano3D servers"
+    },
+    tags: ["MOD", "Free"],
+    isRecommendation: false,
+    isRecent: false
+  },
+    {
+    id: "45",
+    name: "GTA: Vice City – Definitive MOD",
+    slug: "gta-vc-definitive-mod",
+    developer: "Rockstar Games",
+    rating: "4.5",
+    downloads: "358",
+    size: "3.89 GB",
+    version: "1.90.0",
+    category: "Action",
+    type: "Game",
+    updatedAt: "09/03/2025",
+    icon: "https://static.apkmody.com/play-lh.googleusercontent.com/PMwwyuavLk0Ob6vd8NXYW3yDu-yzQ5T_ZgYe0duQkft0ygCBfNGUCZztAPRcw6H6G1nIkNhB3ImyslXRy-GL=s150-rw",
+    description: "GTA: Vice City – Definitive MOD APK is a mobile port of the remake GTA: Vice City – The Definitive Edition in the GTA: The Trilogy – The Definitive Edition trilogy. Apart from adding virtual buttons for players to control via the touch screen, GTA: Vice City – Definitive is no different from its version on the computer.",
+    downloadUrl: "https://s1.1phut.io/v2/EJ5p",
+    videoUrls: ["https://youtube.com/watch?v=rFGl5neEzK8",
+    "https://youtube.com/watch?v=7FFdtV2ByoU",
+    "https://youtube.com/watch?v=wqXtqFb4FQ0",
+    "https://youtube.com/watch?v=Q-4PyvOIff4",
+    "https://youtube.com/watch?v=3q5pCJGCQXs",
+    "https://youtube.com/watch?v=i971j9yvzFY",
+    "https://youtube.com/watch?v=pTFKQmnUkyk",
+    "https://youtube.com/watch?v=LCrCANWCfmY"], // Converted to array support
+    screenshots: [
+      "https://static.apkmody.com/play-lh.googleusercontent.com/aNAmwSXwoeBzVHojshMQVjlI_EAVQq2NWqazKPWcfrDMIXKBpDjuKVysxSzzFAfoplc=-rw",
+      "https://static.apkmody.com/play-lh.googleusercontent.com/8853chD8RhUenlKgRSleUeyD84QwWoaVScYPtPUADn6s2pMzVl0YbweeOY1m6tdFtg=-rw",
+      "https://static.apkmody.com/play-lh.googleusercontent.com/6hRxB1WR6UAxl5mI5uLt2WVq8PNOg8yOTZG9e1jinEjGhdAsZysnWT0JUbPmFikSy9Y=-rw",
+      "https://static.apkmody.com/play-lh.googleusercontent.com/MU2_TJK-yLj_BvkacKhC5RRhhBjssJ6Q8iWh_vsFwGp0pD9iZKft8j7vxoDhT7eZSw=-rw",
+      "https://static.apkmody.com/play-lh.googleusercontent.com/SQeDfHeFB6jUywShrcZSgtBMtfPHzzMHyo0q4IjxeKZXWK47lgDScErcDaNwGthuZg=-rw",
+    ],
+    security: {
+      checksum: "SHA-256: GTA-VCD-full-mod.he87wg273y82v28jw8.apk",
+      secureToken: "Secure accounts without ban risk",
+      cloudStorage: "Direct connection to Takano3D servers"
+    },
+    tags: ["MOD", "Free"],
+    isRecommendation: false,
+    isRecent: false
+  },
+    {
+    id: "46",
+    name: "Bully: Anniversary Edition MOD",
+    slug: "bully-anniversry-edition",
+    developer: "Imaanshu N",
+    rating: "4.8",
+    downloads: "5K",
+    size: "3 GB",
+    version: "1.4.311",
+    category: "Action",
+    type: "Game",
+    updatedAt: "01/24/2026",
+    icon: "https://static.apkmody.com/play-lh.googleusercontent.com/I3zJDMIIQ6k_iRCC8LsZJhAKbKC8I7f4Mp1lYdZ8Hxk3hvBS1GLsBsmiG80gk5T0c9Ww=s150-rw",
+    description: "Are you a fan of role-playing games? If so, the publisher Rockstar Games is no longer a strange name for players because all the games belonging to this Game company have attracted a huge amount of downloads on platforms around the world. One of the games of this game company that has attracted a lot of downloads on all different platforms is Bully: Anniversary Edition MOD APK. This is a role-playing game that allows players to go through countless different large and small missions with the character Bully. Then let’s find out what Bully: Anniversary Edition is so special and interesting!",
+    downloadUrl: "https://s1.1phut.io/v2/jA57",
+    videoUrls: ["https://youtube.com/watch?v=w6wXVLrISD0",
+    "https://youtube.com/watch?v=MxkCDeN5Byw",
+    "https://youtube.com/watch?v=OImxuxMcdjw",
+    "https://youtube.com/watch?v=yqkynwFs9Hs",
+    "https://youtube.com/watch?v=88KNf0MtU14"], // Converted to array support
+    screenshots: [
+      "https://static.apkmody.com/play-lh.googleusercontent.com/XYAODeGMRasiYOy0eOk0TkA5O00Zjp5l3bWPBwLEFB5uEX4ikiidyveF5cmOrqzDcAc=-rw",
+      "https://static.apkmody.com/play-lh.googleusercontent.com/FyTWu67PsnoJ0j1qqrxc7C-DxwpWuWIrxITTW8rzu7EDFQhHq7VeIo4rxFIrdmg2aPFm=-rw",
+      "https://static.apkmody.com/play-lh.googleusercontent.com/YqiYB9bLLs6cBwRgFUUphQ8gnJQhl_JXZHelxmKKjpdMSSoKxFGfiC8Lj4712WiiLfM=-rw",
+      "https://static.apkmody.com/play-lh.googleusercontent.com/yum-mqcpmCwoSDEqAttensnsxIu0j2xbTG2GHAIA4wqxch25nP_Fad4vLeg42JkpVg=-rw",
+      "https://static.apkmody.com/play-lh.googleusercontent.com/yZIMf-f4jiwrqQb60pV_5ahMznVvGI7gpz2wNxeVEekX5TAKlAhxUpC_naszsv3X7nM=-rw",
+    ],
+    security: {
+      checksum: "SHA-256: Bully-Anniversary-Edition.jwy28y282k91u293g.apk",
+      secureToken: "Secure accounts without ban risk",
+      cloudStorage: "Direct connection to Takano3D servers"
+    },
+    tags: ["MOD", "Free"],
+    isRecommendation: false,
+    isRecent: false
+  },
+    {
+    id: "47",
+    name: "Grand Theft Auto III MOD ",
+    slug: "gta-iii-mod",
+    developer: "Imaanshu N",
+    rating: "4.3",
+    downloads: "3K",
+    size: "1 GB",
+    version: "1.10.106",
+    category: "Action",
+    type: "Game",
+    updatedAt: "04/12/2026",
+    icon: "https://static.apkmody.com/play-lh.googleusercontent.com/6h9kcB0zKQiAezOeM_tqMtjpyFXzxQiuOUy_LBitX3q0LSLCzdzG0dhqAj-DKkrCBQ=s150-rw",
+    description: "Grand Theft Auto III is listed as an ageless game. This game stands out for its unique creativity and attractive missions, but the gameplay is extremely simple and focused. If you want to transform into a real gangster to freely roam around the city, you should try this game right away.",
+    downloadUrl: "https://s1.1phut.io/v2/28oV",
+    videoUrls: ["https://youtube.com/watch?v=0VxoWT0MyLE"], // Converted to array support
+    screenshots: [
+      "https://static.apkmody.com/play-lh.googleusercontent.com/44ZhJFHQQzHSt5HVA7tkNMOAWOnMhYhbpPEQvOZ7dDnVTM8-I-ai55B66mlH9IV_jw=-rw",
+      "https://static.apkmody.com/play-lh.googleusercontent.com/Qn5b6PqQSbpHvJzxMgnBB32UEyTwXt39kdzzx17Xuu-98GkjbK27XR5Et_oyKEoyw3c=-rw",
+      "https://static.apkmody.com/play-lh.googleusercontent.com/G1-bzIxaWy5DGqv-vlfd7fgWCDmWJhMVIdx8KLSceXqBUGJikqSpD-36lcldpzBaRSU=-rw",
+      "https://static.apkmody.com/play-lh.googleusercontent.com/biWCYTThuoay6Gs4aAKBRI5CMFtbC2FezZUWJ0PCskOTgJfSHnUdW6T04JZ3PZb_hQ=-rw",
+      "https://static.apkmody.com/play-lh.googleusercontent.com/hW8s3qJdsmYJLfuHV1baq8X5hZp2igbk29mItOosezqxpqzpHrTRnMsu_6bfGJSeoWU=-rw",
+      "https://static.apkmody.com/play-lh.googleusercontent.com/ujih8zF9R2ghF-qx2-gfu9hzDybab_hkmbTcelcS_lipXzbN0Yq9uSjXXNhfMucNqW84=-rw",
+      "",
+    ],
+    security: {
+      checksum: "SHA-256: gta-iii-mod-full-mod.gw72t82v29g182b19.apk",
+      secureToken: "Secure accounts without ban risk",
+      cloudStorage: "Direct connection to Takano3D servers"
+    },
+    tags: ["MOD", "Free"],
+    isRecommendation: false,
+    isRecent: false
   }
   
 ];
