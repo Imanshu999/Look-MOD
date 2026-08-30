@@ -16,6 +16,41 @@ import {
   Sparkles, CheckCircle2, ShieldCheck, AlertCircle, RefreshCw 
 } from 'lucide-react';
 
+// ==========================================
+// SMART SLIDING WINDOW PAGINATION HELPER
+// ==========================================
+function getPaginationPages(currentPage: number, totalPages: number, siblingCount = 1): (number | string)[] {
+  const totalNumbers = siblingCount * 2 + 3;
+  if (totalPages <= totalNumbers + 2) {
+    return Array.from({ length: totalPages }, (_, idx) => idx + 1);
+  }
+
+  const leftSiblingIndex = Math.max(currentPage - siblingCount, 1);
+  const rightSiblingIndex = Math.min(currentPage + siblingCount, totalPages);
+
+  const shouldShowLeftDots = leftSiblingIndex > 2;
+  const shouldShowRightDots = rightSiblingIndex < totalPages - 1;
+
+  if (!shouldShowLeftDots && shouldShowRightDots) {
+    const leftItemCount = 3 + 2 * siblingCount;
+    const leftRange = Array.from({ length: leftItemCount }, (_, idx) => idx + 1);
+    return [...leftRange, '...', totalPages];
+  }
+
+  if (shouldShowLeftDots && !shouldShowRightDots) {
+    const rightItemCount = 3 + 2 * siblingCount;
+    const rightRange = Array.from({ length: rightItemCount }, (_, idx) => totalPages - rightItemCount + idx + 1);
+    return [1, '...', ...rightRange];
+  }
+
+  if (shouldShowLeftDots && shouldShowRightDots) {
+    const middleRange = Array.from({ length: rightSiblingIndex - leftSiblingIndex + 1 }, (_, idx) => leftSiblingIndex + idx);
+    return [1, '...', ...middleRange, '...', totalPages];
+  }
+
+  return [];
+}
+
 export default function App() {
   // Theme state: defaults to premium deep dark slate #0b0f19
   const [darkMode, setDarkMode] = useState<boolean>(true);
@@ -58,13 +93,11 @@ export default function App() {
     };
 
     window.addEventListener('hashchange', handleHashChange);
-    // Initial check
     handleHashChange();
 
     return () => window.removeEventListener('hashchange', handleHashChange);
   }, []);
 
-  // Update hash helper
   const navigateToHash = (newHash: string) => {
     window.location.hash = newHash;
   };
@@ -74,7 +107,6 @@ export default function App() {
   };
 
   const handleCloseDetail = () => {
-    // Return to the active section hash
     if (activeTab === 'all') navigateToHash('/');
     else navigateToHash(`/${activeTab}`);
   };
@@ -88,22 +120,16 @@ export default function App() {
     else navigateToHash(`/${tab}`);
   };
 
-  // Filter apps based on active search, selected tab, and categories
   const getFilteredApps = () => {
     return APPS_DATA.filter((app) => {
-      // 1. Filter by search term
       const matchesSearch = 
         app.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
         app.category.toLowerCase().includes(searchTerm.toLowerCase()) ||
         app.developer.toLowerCase().includes(searchTerm.toLowerCase());
 
       if (!matchesSearch) return false;
-
-      // 2. Filter by tab category types
       if (activeTab === 'games' && app.type !== 'Game') return false;
       if (activeTab === 'apps' && app.type !== 'App') return false;
-
-      // 3. Filter by side categories selection
       if (selectedCategory && app.category !== selectedCategory) return false;
 
       return true;
@@ -112,7 +138,6 @@ export default function App() {
 
   const filteredApps = getFilteredApps();
 
-  // Reset pagination to page 1 whenever search, tab, or category changes
   useEffect(() => {
     setCurrentPage(1);
   }, [searchTerm, activeTab, selectedCategory]);
@@ -121,24 +146,23 @@ export default function App() {
   const totalPages = Math.ceil(filteredApps.length / itemsPerPage);
   const currentApps = filteredApps.slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage);
 
-  // Carousel specific lists
+  // Get compact sliding range
+  const paginationRange = getPaginationPages(currentPage, totalPages);
+
   const recentApps = APPS_DATA.filter(app => app.isRecent);
   const recommendedApps = APPS_DATA.filter(app => app.isRecommendation);
 
-  // Quick reset helper
   const handleClearAllFilters = () => {
     setSearchTerm('');
     setSelectedCategory(null);
   };
 
-  // Handle Middle Glowing Avatar Button clicks
   const handleAvatarClick = () => {
     setGlowFlash(true);
     setTimeout(() => setGlowFlash(false), 1200);
     handleSelectTab('all');
   };
 
-  // Set top-level page class on body
   useEffect(() => {
     const root = window.document.documentElement;
     if (darkMode) {
@@ -229,7 +253,6 @@ export default function App() {
       darkMode ? 'bg-[#0b0f19] text-slate-100' : 'bg-slate-50 text-slate-800'
     }`}>
       
-      {/* Header bar with branding & search */}
       <Header
         darkMode={darkMode}
         setDarkMode={setDarkMode}
@@ -245,7 +268,6 @@ export default function App() {
         onNavigateHome={() => handleSelectTab('all')}
       />
 
-      {/* Navigation Drawer for side elements */}
       <SidebarDrawer
         isOpen={isDrawerOpen}
         onClose={() => setIsDrawerOpen(false)}
@@ -254,10 +276,7 @@ export default function App() {
         setActiveTab={handleSelectTab}
       />
 
-      {/* Main Container Grid */}
       <main className="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-6 pb-24 sm:pb-8">
-        
-        {/* Dynamic Inner view dispatcher */}
         {activeAppDetail ? (
           <AppDetail 
             app={activeAppDetail}
@@ -276,10 +295,8 @@ export default function App() {
             <ReviewSection darkMode={darkMode} />
           </div>
         ) : (
-          /* Main Apps Marketplace Catalog (Home, Games, Apps) */
           <div className="grid grid-cols-1 lg:grid-cols-4 gap-6 items-start">
             
-            {/* Left Sidebar Pane: Categories List */}
             <aside className={`lg:col-span-1 rounded-2xl p-4 border transition-all ${
               darkMode 
                 ? 'bg-slate-900/30 border-slate-800/60' 
@@ -299,12 +316,10 @@ export default function App() {
               />
             </aside>
 
-            {/* Right Main Panel: Carousel and Grid Lists */}
             <section className="lg:col-span-3 space-y-8 min-w-0">
               
               {activeTab === 'all' && !selectedCategory && !searchTerm && (
                 <>
-                  {/* Hero banner promotion block */}
                   <div className={`p-6 sm:p-8 rounded-3xl relative overflow-hidden border ${
                     darkMode 
                       ? 'bg-gradient-to-tr from-slate-950 to-store-card border-slate-800' 
@@ -334,7 +349,6 @@ export default function App() {
                     </div>
                   </div>
 
-                  {/* Recently Added Section Carousel */}
                   <RecentCarousel
                     apps={recentApps}
                     darkMode={darkMode}
@@ -343,7 +357,6 @@ export default function App() {
                 </>
               )}
 
-              {/* Grid Content List or Horizontal Sections */}
               {activeTab === 'all' && !selectedCategory && !searchTerm ? (
                 <div className="space-y-8 pt-4">
                   {renderHorizontalSection(
@@ -434,6 +447,7 @@ export default function App() {
                         ))}
                       </div>
 
+                      {/* --- UPDATED SMART SLIDING WINDOW PAGINATION UI --- */}
                       {totalPages > 1 && (
                         <div className={`flex flex-col sm:flex-row items-center justify-between gap-4 pt-6 mt-6 border-t ${
                           darkMode ? 'border-slate-900' : 'border-slate-100'
@@ -443,6 +457,7 @@ export default function App() {
                           </span>
 
                           <div className="flex items-center gap-1.5">
+                            {/* Previous Button */}
                             <button
                               disabled={currentPage === 1}
                               onClick={() => setCurrentPage(prev => Math.max(prev - 1, 1))}
@@ -457,13 +472,22 @@ export default function App() {
                               Previous
                             </button>
 
+                            {/* Sliding Window Pages & Ellipsis */}
                             <div className="flex items-center gap-1">
-                              {Array.from({ length: totalPages }, (_, i) => i + 1).map((pageNum) => {
-                                const isActive = pageNum === currentPage;
+                              {paginationRange.map((pageNumber, index) => {
+                                if (pageNumber === '...') {
+                                  return (
+                                    <span key={`dots-${index}`} className="w-8 h-8 flex items-center justify-center text-xs text-slate-500 select-none">
+                                      ...
+                                    </span>
+                                  );
+                                }
+
+                                const isActive = pageNumber === currentPage;
                                 return (
                                   <button
-                                    key={pageNum}
-                                    onClick={() => setCurrentPage(pageNum)}
+                                    key={index}
+                                    onClick={() => setCurrentPage(pageNumber as number)}
                                     className={`w-8 h-8 rounded-xl text-xs font-bold transition-all cursor-pointer flex items-center justify-center border ${
                                       isActive
                                         ? 'bg-store-accent text-white border-store-accent shadow-[0_2px_8px_rgba(239,68,68,0.25)]'
@@ -472,12 +496,13 @@ export default function App() {
                                           : 'bg-white border-slate-200 text-slate-600 hover:text-slate-900 hover:bg-slate-50'
                                     }`}
                                   >
-                                    {pageNum}
+                                    {pageNumber}
                                   </button>
                                 );
                               })}
                             </div>
 
+                            {/* Next Button */}
                             <button
                               disabled={currentPage === totalPages}
                               onClick={() => setCurrentPage(prev => Math.min(prev + 1, totalPages))}
@@ -504,13 +529,12 @@ export default function App() {
         )}
       </main>
 
-      {/* Footer information bar on desktop */}
       <footer className={`hidden sm:block py-6 border-t text-center ${
         darkMode ? 'bg-slate-950/40 border-slate-900 text-slate-500' : 'bg-slate-100/55 border-slate-200 text-slate-500'
       }`}>
         <div className="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs">
           <div className="flex items-center gap-1.5">
-            <span className="font-display font-bold text-store-accent">Look Mod Store</span>
+            <span className="font-display font-display font-bold text-store-accent">Look Mod Store</span>
             <span>• Takano3D Studio Catalog</span>
           </div>
           <div className="flex items-center gap-3">
@@ -524,7 +548,6 @@ export default function App() {
         </div>
       </footer>
 
-      {/* Bottom Navigation Bar (Mobile / Sticky Pinned Layout) */}
       <div className={`sm:hidden fixed bottom-0 inset-x-0 z-40 border-t backdrop-blur-md py-2.5 px-6 flex items-center justify-between transition-colors ${
         darkMode ? 'bg-[#0b0f19]/90 border-slate-900 text-slate-400' : 'bg-white/95 border-slate-200 text-slate-600'
       }`}>
