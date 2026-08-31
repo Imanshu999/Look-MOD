@@ -2192,8 +2192,38 @@ export const APPS_DATA: AppItem[] = [
     tags: ["MOD", "Free"],
     isRecommendation: false,
     isRecent: false
+    },
+  {
+    id: "64",
+    name: "Netplay Movie",
+    slug: "netplay-movie",
+    developer: "Imaanshu N",
+    rating: "4.0",
+    downloads: "60K",
+    size: "22 MB",
+    version: "1.0",
+    category: "Movie",
+    type: "App",
+    updatedAt: "30/07/2026",
+    icon: "https://iili.io/CbSPXZG.md.jpg",
+    description: "NetPlay brings you crystal-clear streaming with zero buffering. Movies, shows, and live content — all in one powerful app built for speed.",
+    downloadUrl: "https://pub-f9599f6fcef74cdbae5c69b3220d0806.r2.dev/1787980557774-Netplay_8.0_.apk",
+    videoUrls: [""], // Converted to array support
+    screenshots: [
+      "https://iili.io/CqYKgjf.jpg",
+      "https://iili.io/CqYKPG2.jpg",
+      "https://iili.io/CqYKUTG.jpg",
+      "https://iili.io/CqYKi4S.jpg",
+    ],
+    security: {
+      checksum: "SHA-256: hshsiwv28y282.apk",
+      secureToken: "Secure accounts without ban risk",
+      cloudStorage: "Direct connection to Takano3D servers"
+    },
+    tags: ["MOD", "Free"],
+    isRecommendation: false,
+    isRecent: false
     }
-
   
 ];
 
