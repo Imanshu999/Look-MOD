@@ -2124,7 +2124,43 @@ export const APPS_DATA: AppItem[] = [
     tags: ["free"],
     isRecommendation: false,
     isRecent: false
+  },
+  {
+    id: "62",
+    name: "Shadow Hunter: Offline",
+    slug: "shadow-hunter-offline-games",
+    developer: "Imaanshu N",
+    rating: "4.9",
+    downloads: "57K",
+    size: "1 GB",
+    version: "61.137.3.0",
+    category: "Action",
+    type: "Game",
+    updatedAt: "04/24/2026",
+    icon: "https://static.apkmody.com/play-lh.googleusercontent.com/0s2XJkThZccJhXTR9ptbVpPY_TYpfegqZUwSJDayIi9byabZCElJcT7p1-wVCE_bjVk=s150-rw",
+    description: "Did you hear anything? The incessant laments of the people and the cries of the few who tried to flee from the evil invasion. The monster of darkness destroyed the mortal realm when everything was shrouded in darkness. It’s time to wake up and return to Earth, completing a mission to save humanity from the cruel demons that are destroying this once beautiful place. Become a demon hunter and save humanity in Shadow Hunter: Offline Premium.",
+    downloadUrl: "https://s1.1phut.io/v2/R7KD",
+    videoUrls: ["https://youtube.com/watch?v=jhl45IaYm9E"],
+    screenshots: [
+    "https://static.apkmody.com/play-lh.googleusercontent.com/FF9I4W9JvX_N1d4ZMmjehVT9usNLF2DZVSZ_Ih6Hq7k1_lwZL0OrQX3yFQe_Y9-_DI-FlN9DLktP0nT5EFRZJQ=-rw",
+    "https://static.apkmody.com/play-lh.googleusercontent.com/FcMy1Dr9_yMNtGuapSMH71x08Xs9_rkoT9914Wlp0Esd1h-0iRVUNrSUHljdepkvpdU=-rw",
+    "https://static.apkmody.com/play-lh.googleusercontent.com/NDDQiadukPJHybbGp5BC6OLI5VkLz1ZH-JgOx3wCA-J_bnhnFfuzJgM6Fl0YGNPzqnk=-rw",
+    "https://static.apkmody.com/play-lh.googleusercontent.com/Hc_WqRppYrCu8s5y3jo_FzMOFoQLf6yU_aEHVspmPAh1sh_0Xt2HKdl8-MCNfGCKRP6o=-rw",
+    "https://static.apkmody.com/play-lh.googleusercontent.com/hGP7vUn99XEnAI_BcaGueWnAOkRa23Tau0DCkZyByVb60DeiVi5QAoYtStbJHkDKSAU=-rw",
+    "https://static.apkmody.com/play-lh.googleusercontent.com/XEiNpODnbbe-Yl76r5WUGChzv63_v9zrcfF97892l3moK5NLPmuy1DAPPNiEKCLqCi77=-rw",
+    "https://static.apkmody.com/play-lh.googleusercontent.com/TJ_kFRaC1_Y6zjKHzybIvaE9W6BNUnlf0ENWg1jyco7LNaHcqoGr8F_AsbnlmgYgGa_t=-rw",
+    "https://static.apkmody.com/play-lh.googleusercontent.com/RM-zOfG1AyxB3kpB0EJm-4gO4hhVLGxEcSfQRP9suvGndLh4-MbiNtTkSp3qGuqRAQA=-rw",
+    ],
+    security: {
+      checksum: "SHA-256: free-full.apk",
+      secureToken: "Secure accounts without ban risk",
+      cloudStorage: "Direct connection to Takano3D servers"
+    },
+    tags: ["Primium"],
+    isRecommendation: false,
+    isRecent: false
   }
+  
 
   
 ];
