@@ -2207,7 +2207,7 @@ export const APPS_DATA: AppItem[] = [
     updatedAt: "30/07/2026",
     icon: "https://iili.io/CbSPXZG.md.jpg",
     description: "NetPlay brings you crystal-clear streaming with zero buffering. Movies, shows, and live content — all in one powerful app built for speed.",
-    downloadUrl: "https://pub-f9599f6fcef74cdbae5c69b3220d0806.r2.dev/1787980557774-Netplay_8.0_.apk",
+    downloadUrl: "https://github.com/Imanshu999/Apk-image-store.LMS/releases/download/v1.0.0/Netplay_8.0_look.mod.vervel.app.apk",
     videoUrls: [""], // Converted to array support
     screenshots: [
       "https://iili.io/CqYKgjf.jpg",
