@@ -2175,7 +2175,7 @@ export const APPS_DATA: AppItem[] = [
     icon: "https://play-lh.googleusercontent.com/Qr95gFdl_scidWsdHVP1f7FXe9fSgfrHhCyK0T6UnN4Ru-6PrTgaVN7CSfkrG5JzsQFpBWNiXLyBDzcIx7U-=s0-br30",
     description: "Stumble Guys is a multiplayer party battle royale game originally developed by Kitka Games and later acquired and published by Scopely. Since its release, Stumble Guys has become widely popular worldwide for its chaotic obstacle-course gameplay and competitive online matches.",
     downloadUrl: "https://dl.modplays.com/Stumble%20Guys_v0.102_MOD_modplays.com.apk",
-    videoUrls: [""], // Converted to array support
+    videoUrls: ["https://youtube.com/live/h8fVxnO4m20"], // Converted to array support
     screenshots: [
       "https://play-lh.googleusercontent.com/Rrpl3mIWs6aQQQ57O0q_fJewR9MKjnbN0zLu71ziLpLLx3liDwuCCfxq5WHosgmYQccSvBAyI2SVpnL7phJi4Q",
       "https://play-lh.googleusercontent.com/_OuyJqRQMrvy5ueVCjSHtGOIMdrQnD6dIL_MYS-ls7xbZHHW3mMbWFlh7ULgt-njaf6ctGglXfhqsE2sNArDIg",
