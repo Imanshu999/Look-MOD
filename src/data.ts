@@ -1800,7 +1800,7 @@ export const APPS_DATA: AppItem[] = [
       secureToken: "Secure accounts without ban risk",
       cloudStorage: "Direct connection to Takano3D servers"
     },
-    tags: ["MOD","Unlimited Money", "Free"],
+    tags: ["MOD", "Free"],
     isRecommendation: false,
     isRecent: false
   },
@@ -1833,7 +1833,7 @@ export const APPS_DATA: AppItem[] = [
       secureToken: "Secure accounts without ban risk",
       cloudStorage: "Direct connection to Takano3D servers"
     },
-    tags: ["MOD","Unlimited", "Free"],
+    tags: ["MOD","Free"],
     isRecommendation: false,
     isRecent: false
   },
