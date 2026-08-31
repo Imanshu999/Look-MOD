@@ -1700,7 +1700,7 @@ export const APPS_DATA: AppItem[] = [
     isRecommendation: false,
     isRecent: false
   },
-    {
+  {
     id: "49",
     name: "Wood Nuts & Bolts Puzzle ",
     slug: "wood-nuts-&-bolts-puzzle-mod",
@@ -1715,7 +1715,7 @@ export const APPS_DATA: AppItem[] = [
     icon: "https://static.apkmody.com/play-lh.googleusercontent.com/TfRT1_8xGnoeWCRcKFSrt1PRvuD4PgYwkFZDrCB3I-dSX_gjDe7iKxPVsIN__MeU3A=s150-rw",
     description: "Do you want to challenge your intelligence with a fun and logical puzzle game? Imagine that you are standing in front of a wooden board with wooden slats of different sizes and shapes. They are tightly joined together by many bolts and nuts. What would you do to disassemble that wooden board into separate wooden bars? Let’s conquer those challenges through the game Wood Nuts & Bolts Puzzle!",
     downloadUrl: "https://s1.1phut.io/v2/kdL6",
-    videoUrls: ["https://youtube.com/watch?v=P62G4MUlmAc"], // Converted to array support
+    videoUrls: ["https://youtube.com/watch?v=P62G4MUlmAc"],
     screenshots: [
       "https://static.apkmody.com/play-lh.googleusercontent.com/JVY9fgNIT7sJKX98_H5kKNa-RfctVqxL_Vh8m-q0qIRdWBqRWbOtxgarthhrw-CnydoD=-rw",
       "https://static.apkmody.com/play-lh.googleusercontent.com/DRqz1_Tg3EIflntMZXbuyhfb-yVWOMqfa3z4lzyHB9jBaKqwSZUejgDloCBKtlyBUg=-rw",
@@ -1735,7 +1735,7 @@ export const APPS_DATA: AppItem[] = [
     isRecommendation: false,
     isRecent: false
   },
-    {
+  {
     id: "50",
     name: "State.io",
     slug: "state.io",
@@ -1750,7 +1750,7 @@ export const APPS_DATA: AppItem[] = [
     icon: "https://static.apkmody.com/play-lh.googleusercontent.com/PcA4nyF0FBSG-JOTnH1WerAiib2Qg1-WMdjo9FSjosIJZYf21ZMKhjBJ9qcVsk6NsqYC=s150-rw",
     description: "State.io is an addictive real-time strategy game where players engage in intense territory conquest battles on minimalist yet highly challenging maps. With easy-to-understand gameplay, fast-paced action, and strategic decision-making, the game quickly becomes a great choice for fans of strategy games, territory conquest games, and fast-thinking tactical games.",
     downloadUrl: "https://s1.1phut.io/v2/lZoy",
-    videoUrls: ["https://youtube.com/watch?v=zqsQh6BV6-g"], // Converted to array support
+    videoUrls: ["https://youtube.com/watch?v=zqsQh6BV6-g"],
     screenshots: [
       "https://static.apkmody.com/play-lh.googleusercontent.com/y4G6cXuBS0G1bQ_-1CrCHUQ7F3NpepyChTaiAZFmfUh2FcbBiax_15746altWU6SxwK4=-rw",
       "https://static.apkmody.com/play-lh.googleusercontent.com/w2FEYURlfL3cdbmFsQgqIIGezip2bhcoSLoJWTkUWsX9X0KfJ_G34khte1sCFza1O7dzVuSY6P8O_y-imVB3tg=-rw",
@@ -1769,7 +1769,7 @@ export const APPS_DATA: AppItem[] = [
     isRecommendation: false,
     isRecent: false
   },
-    {
+  {
     id: "51",
     name: "Sea Battle 2",
     slug: "sea-battle-2",
@@ -1784,7 +1784,7 @@ export const APPS_DATA: AppItem[] = [
     icon: "https://static.apkmody.com/play-lh.googleusercontent.com/KYg2rAhfcUCUaPoDT5PpANDPl-U1yEtf9_HsjDP4LjquaTLCdMto7GPP-_VAPdVa2g=s150-rw",
     description: "Sea Battle 2 is part 2 of the game of the same name. Part 1 has made a strong impression on players by its fast-paced tactical gameplay and graphics like no other. Scribbled graphics with blue ink strokes like the battleship game on paper we played when we were students. Through time of improvement and development, part 2 comes back stronger, more drastic and more dramatic than before.",
     downloadUrl: "https://s1.1phut.io/v2/eqrq",
-    videoUrls: ["https://youtube.com/watch?v=Q9LaLXJMDws"], // Converted to array support
+    videoUrls: ["https://youtube.com/watch?v=Q9LaLXJMDws"],
     screenshots: [
       "https://static.apkmody.com/play-lh.googleusercontent.com/eFP3dA-nLGo684D88yRZuaYKaaCKtI_l8A1wIxG52obdu5RQZpAkz-hcm4f2INAwCAQ=-rw",
       "https://static.apkmody.com/play-lh.googleusercontent.com/t_ajuApv04bFRUvl_AcGgncaqgqoF-H1UAAjgArgJ45RCS6mlfV8_6ChStE8GC04_UQ=-rw",
@@ -1800,11 +1800,11 @@ export const APPS_DATA: AppItem[] = [
       secureToken: "Secure accounts without ban risk",
       cloudStorage: "Direct connection to Takano3D servers"
     },
-    tags: ["MOD", "Free"],
+    tags: ["MOD","Unlimited Money", "Free"],
     isRecommendation: false,
     isRecent: false
   },
-    {
+  {
     id: "52",
     name: "Xenowerk Tactics",
     slug: "xenowerk-tactics",
@@ -1819,7 +1819,7 @@ export const APPS_DATA: AppItem[] = [
     icon: "https://static.apkmody.com/play-lh.googleusercontent.com/7h2NPY5ne5gTMGUA4BPcSJzSpPZvZr35DM4SIrQrh_9RG7qePCJD7Ow6HTVlM5VJbJs=s150-rw",
     description: "Are you a fan of strategy strategy genre, have been fascinated and spent hundreds of hours with famous names like XCOM or Final Fantasy Tactics? I would like to introduce to you a brand new strategy product called Xenowerk Tactics which is currently highly appreciated by a large number of players.",
     downloadUrl: "https://s1.1phut.io/v2/x1rL",
-    videoUrls: ["https://youtube.com/watch?v=IVXqyk3S6SY"], // Converted to array support
+    videoUrls: ["https://youtube.com/watch?v=IVXqyk3S6SY"],
     screenshots: [
       "https://static.apkmody.com/play-lh.googleusercontent.com/CMgVHQ7UWFjp2lGtKhSTPTMKc1YwmgJ-lGaJcGLa52HpAtlLHw8G9GXZzqybGVIhhpw=-rw",
       "https://static.apkmody.com/play-lh.googleusercontent.com/aWQrOzdXEAwj8uty9W8t-BH71tRG1DaYF4PbEizbC1RmiZeVw256nYn_lcfF6Mvh1_Y=-rw",
@@ -1833,11 +1833,11 @@ export const APPS_DATA: AppItem[] = [
       secureToken: "Secure accounts without ban risk",
       cloudStorage: "Direct connection to Takano3D servers"
     },
-    tags: ["MOD","Free"],
+    tags: ["MOD","Unlimited", "Free"],
     isRecommendation: false,
     isRecent: false
   },
-    {
+  {
     id: "53",
     name: "VALORANT Mobile",
     slug: "valorant-mobile",
@@ -1852,7 +1852,7 @@ export const APPS_DATA: AppItem[] = [
     icon: "https://apkmody.com/wp-content/uploads/2022/06/VALORANT-Mobile-icon.png",
     description: "Valorant Mobile, one of the FPS super shooters that brings eSport to mobile has just been released in 2022. This will be the next blockbuster choice for players who love speed shooting competition.",
     downloadUrl: "https://s1.1phut.io/v2/GPmV",
-    videoUrls: ["https://youtube.com/watch?v=JspEh_UI12U"], // Converted to array support
+    videoUrls: ["https://youtube.com/watch?v=JspEh_UI12U"],
     screenshots: [
       "https://apkmody.com/wp-content/uploads/2022/06/VALORANT-Mobile-APKMODY-COM.jpg",
       "https://apkmody.com/wp-content/uploads/2022/06/VALORANT-Mobile-APK-Official.jpg",
@@ -1867,7 +1867,7 @@ export const APPS_DATA: AppItem[] = [
     isRecommendation: false,
     isRecent: false
   },
-    {
+  {
     id: "54",
     name: "Fran Bow Chapter 1",
     slug: "fran-bow-chapter-1",
@@ -1882,8 +1882,10 @@ export const APPS_DATA: AppItem[] = [
     icon: "https://static.apkmody.com/play-lh.googleusercontent.com/dd380Gx3aBDUeGdD51WiesMoOI429mAVzjQKqqQxQXwaOq5I6KNanx1ZazEyVUXqkLs=s150-rw",
     description: "Let’s say, you’re someone who is often drawn to strange things, but you are quite fragile yourself, finding yourself unable to bear the heavy bloody scenes like Resident Evil or Layer of Fears but still want to try. There is a game that will suit you, a rather gentle little point-and-click horror game, Fran Bow.",
     downloadUrl: "https://s1.1phut.io/v2/NpoP",
-    videoUrls: ["https://youtube.com/watch?v=cnfXW4JRLpc"
-    "https://youtube.com/watch?v=ALHMoinDEqM"], // Converted to array support
+    videoUrls: [
+      "https://youtube.com/watch?v=cnfXW4JRLpc",
+      "https://youtube.com/watch?v=ALHMoinDEqM"
+    ],
     screenshots: [
       "https://static.apkmody.com/play-lh.googleusercontent.com/yxFRaOlhGOYhjqD9kSu0Zpb7NjGbmBWtsOvNTlF5woyDZnKBJ_wCsZ48NfbyNx4TcA=-rw",
       "https://static.apkmody.com/play-lh.googleusercontent.com/L-5qYCLMSfja6-mIgoxs9ZnVwxWB1Ug696bR4IZcsdvoV1zqz1IOA8HbmMgq8l72fQ=-rw",
@@ -1898,7 +1900,7 @@ export const APPS_DATA: AppItem[] = [
     isRecommendation: false,
     isRecent: false
   },
-    {
+  {
     id: "55",
     name: "Fran Bow Chapter 2",
     slug: "fran-bow-chapter-2",
@@ -1913,7 +1915,7 @@ export const APPS_DATA: AppItem[] = [
     icon: "https://static.apkmody.com/play-lh.googleusercontent.com/rEBXyKqDe6D610A8--a2iL1z-yePJDZfqoDFOZUBuQtR2RMzouiEm4eHTXrmJNpnBi8=s150-rw",
     description: "Hey! It’s me. While continuing to share about Fran Bow Chapter 2, I’ve finished Chapter 5 of the game series. And the mood is very heavy, guys. Strangely confused, even sad, even knowing that the end is HE. But I will temporarily put it aside to return to part 2, which is the topic of this post.",
     downloadUrl: "https://s1.1phut.io/v2/1wAa",
-    videoUrls: ["https://youtube.com/watch?v=G8I5DHK9DiA"], // Converted to array support
+    videoUrls: ["https://youtube.com/watch?v=G8I5DHK9DiA"],
     screenshots: [
       "https://static.apkmody.com/play-lh.googleusercontent.com/AGEPE6SL-ztzmk39SSZUmYniTB5qw5mIoM36_M230mJztLP2es50UdKyb0Kd3xTQIw=-rw",
       "https://static.apkmody.com/play-lh.googleusercontent.com/kFroRuXWgjEDQR5QZhFi7QSeg8MW20Vp6edc3JSEVNy_w_MoKGEw9ptImlqAuE76lUw=-rw",
@@ -1929,7 +1931,7 @@ export const APPS_DATA: AppItem[] = [
     isRecommendation: false,
     isRecent: false
   },
-    {
+  {
     id: "56",
     name: "Fran Bow Chapter 3",
     slug: "fran-bow-chapter-3",
@@ -1944,7 +1946,7 @@ export const APPS_DATA: AppItem[] = [
     icon: "https://static.apkmody.com/play-lh.googleusercontent.com/GqJZHn8dx7Cae4vqdZq9uTG3pI2NE1Mn2ufTS90ner3pDVFpjBQNpY56YEedOkxwvZ6_=s150-rw",
     description: "Play Fran Bow Chapter 3 like a kid finding his way home. Continuing the events of Part 2 with the setting in the forest, this time Fran must overcome challenges with herself to regain her human form. Part 3 of the Fran Bow series takes you deep into the surreal side of this game.",
     downloadUrl: "https://s1.1phut.io/v2/YkZW",
-    videoUrls: ["https://youtube.com/watch?v=JSJZA7INWP4"], // Converted to array support
+    videoUrls: ["https://youtube.com/watch?v=JSJZA7INWP4"],
     screenshots: [
       "https://static.apkmody.com/play-lh.googleusercontent.com/Gf8CBC3LAa0QU82oJppkRdZvK_pESBD75uUYoWEj5G6zo6rFUxIe2Xba_oa2B5b30w=-rw",
       "https://static.apkmody.com/play-lh.googleusercontent.com/JBuvB8D2Fngi_SQPLiREOqB03-G2NvJqkR1fn1IojQSEVjYj6Y5NKg9zEPsb5rnJEFrm=-rw",
@@ -1960,7 +1962,7 @@ export const APPS_DATA: AppItem[] = [
     isRecommendation: false,
     isRecent: false
   },
-    {
+  {
     id: "57",
     name: "Fran Bow Chapter 4",
     slug: "fran-bow-chapter-4",
@@ -1975,7 +1977,7 @@ export const APPS_DATA: AppItem[] = [
     icon: "https://static.apkmody.com/play-lh.googleusercontent.com/pPIpIrFuEcEeSeud0mN5lOKy-O9eb-gvWk7wdzXmoUfi9c67vNZ9xdMGO6wu3GxZqVM=s150-rw",
     description: "Fran Bow Chapter 4 is the fourth part of Fran Bow’s five-part series. This time you are closer to the final ending. After many events, the truth begins to reveal a little, promising an unpredictable ending in the last part.",
     downloadUrl: "https://s1.1phut.io/v2/BBVX",
-    videoUrls: ["https://youtube.com/watch?v=u9KWZ3HKD6Y"], // Converted to array support
+    videoUrls: ["https://youtube.com/watch?v=u9KWZ3HKD6Y"],
     screenshots: [
       "https://static.apkmody.com/play-lh.googleusercontent.com/vxPh3w3MPyEvvSFbSibjm3V5F1VT6nFnKC-7PjWHFgvEZjkt53XeyKFGx1LOI9J4l2U=-rw",
       "https://static.apkmody.com/play-lh.googleusercontent.com/WGob-c1qBiUzPNkswp_pxHMRSmMNLf5QJIaTKRAIsQvBKjaITIy-CKpmUj9w7KgjT9Q=-rw",
@@ -1991,7 +1993,7 @@ export const APPS_DATA: AppItem[] = [
     isRecommendation: false,
     isRecent: false
   },
-    {
+  {
     id: "58",
     name: "Fran Bow Chapter 5",
     slug: "fran-bow-chapter-5",
@@ -2006,7 +2008,7 @@ export const APPS_DATA: AppItem[] = [
     icon: "https://static.apkmody.com/play-lh.googleusercontent.com/N2XLUkRkarc-Shy5_aXeMGSDloEzaKCGugvlCU5xwW-zphXcPADYz_hzCOjN6Z4IAJLk=s150-rw",
     description: "Fran Bow Chapter 5 is the final chapter of the Fran Bow series. The story is a long journey for Fran and several other characters to find what they want and overcome the trauma of being abused throughout their childhood. The game has many surreal elements, the design is simple and cute, but the meaning behind it is very scary.",
     downloadUrl: "https://s1.1phut.io/v2/awzE",
-    videoUrls: ["https://youtube.com/watch?v=4u3v_fCwFvs"], // Converted to array support
+    videoUrls: ["https://youtube.com/watch?v=4u3v_fCwFvs"],
     screenshots: [
       "https://static.apkmody.com/play-lh.googleusercontent.com/X-LW_IxdL5mACKpsevvY3anA0gHqJCijz8wHBzNhfmFMwIqGXrpk0b5FEotXKqncRywC=-rw",
       "https://static.apkmody.com/play-lh.googleusercontent.com/VNzqbf62_y8vBiShpfqa4MI3LgjMmvembEQCHfvHs_BS85kFctFgC32HxHeAe4f809g=-rw",
@@ -2022,7 +2024,7 @@ export const APPS_DATA: AppItem[] = [
     isRecommendation: false,
     isRecent: false
   },
-    {
+  {
     id: "59",
     name: "Fran Bow",
     slug: "fran-bow",
@@ -2037,7 +2039,7 @@ export const APPS_DATA: AppItem[] = [
     icon: "https://static.apkmody.com/play-lh.googleusercontent.com/Dq47Z2R1-shopy65FNYj9amwjzZEbw3NQUc2SG8u4VixvWIhSZxCYtwHbHM9L_2tD2Mx=s150-rw",
     description: "Fran Bow APK is a Point-and-Click Adventure game with psychological horror content from Killmonday Games. With a story revolving around the poor girl Fran, the game takes you through many emotional levels of a child who is just being hurt. Currently, you can download the official version of Fran Bow for only $9.49 on Google Play.",
     downloadUrl: "https://s1.1phut.io/v2/w0Bk",
-    videoUrls: ["https://youtube.com/watch?v=cnfXW4JRLpc"], // Converted to array support
+    videoUrls: ["https://youtube.com/watch?v=cnfXW4JRLpc"],
     screenshots: [
       "https://static.apkmody.com/play-lh.googleusercontent.com/Vd3vYOJHo26qgUwctkfNiFTRw8iQbS2azhSMfsZ38_zwCg4UHEe5aF78Ld5QU3t8rg=-rw",
       "https://static.apkmody.com/play-lh.googleusercontent.com/J1sXpBi8j_aBjPdIQaXSHJzeaTXLPfWWe8CMyeqlU_1UwkzLzIrcNLNLmY0u-oTfUa8=-rw",
@@ -2055,7 +2057,7 @@ export const APPS_DATA: AppItem[] = [
     isRecommendation: false,
     isRecent: false
   },
-    {
+  {
     id: "60",
     name: "Planet of Lana",
     slug: "planet-of-lana",
@@ -2070,7 +2072,7 @@ export const APPS_DATA: AppItem[] = [
     icon: "https://static.apkmody.com/play-lh.googleusercontent.com/ff403pPa5dy9LbWsVuYtiz02a6akqc_zQNg_j1yVm1Gmq-38bRezI6TSUHbVuxANmHIA8HQLL73_Cl_SiH8QPQ=s150-rw",
     description: "Planet of Lana APK is an adventure, platforming, and puzzle game. It features 3D graphics and a color scheme reminiscent of anime. Besides the graphics, the game’s sound is also very well-developed, with a particularly catchy and melodious soundtrack.",
     downloadUrl: "https://s1.1phut.io/v2/Z9k0",
-    videoUrls: ["https://youtube.com/watch?v=PEDn_dRFYQU"], // Converted to array support
+    videoUrls: ["https://youtube.com/watch?v=PEDn_dRFYQU"],
     screenshots: [
       "https://static.apkmody.com/play-lh.googleusercontent.com/eM9DkvPXk-FLxywwZKBBQCK96XViChEVHTWKd9mPcEyhtBqNlc21pmmb8LhtAyC1Z4m-OI-FSyg-59gIc0_3RkI=-rw",
       "https://static.apkmody.com/play-lh.googleusercontent.com/NIJRYxkbJqhUZI3O3ow1RCQ-sMStUBrty2FEyL7SXDIZnYcXdRD8fwYDPmPobAwYiYNHu-qPR1Zo8oFMsmdxWw=-rw",
@@ -2090,6 +2092,7 @@ export const APPS_DATA: AppItem[] = [
     isRecommendation: false,
     isRecent: false
   }
+
   
 ];
 
