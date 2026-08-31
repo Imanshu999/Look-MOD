@@ -1680,7 +1680,7 @@ export const APPS_DATA: AppItem[] = [
     icon: "https://freefire2022download.com/assets/app-icon.webp",
     description: "Free Fire 2022 is the version many players still look for because of its classic lobby, familiar menus, old events, and the gameplay style they remember. Visitors usually come here because they want the old experience back, not information about the newest update. If you miss the 2022 visuals, older interface, classic atmosphere, and memories of playing with friends, this page gives you a simple way to continue and get the game for your device.",
     downloadUrl: "https://apkdownloader.cc/storage/files/2026/07/free.fire.2026.apk.v1.129.15.xapk",
-    videoUrls: [""], // Converted to array support
+    videoUrls: ["https://youtube.com/watch?v=IesY2_Ag2oY"], // Converted to array support
     screenshots: [
     "https://freefire2022download.com/assets/cover.webp",
       "https://freefire2022.com/screenshots/screenshot-1.png",
