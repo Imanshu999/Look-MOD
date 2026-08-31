@@ -2091,6 +2091,39 @@ export const APPS_DATA: AppItem[] = [
     tags: ["MOD", "Free"],
     isRecommendation: false,
     isRecent: false
+  },
+  {
+    id: "61",
+    name: "Shadow Hunter Offline Games",
+    slug: "shadow-hunter-offline-games",
+    developer: "Imaanshu N",
+    rating: "4.9",
+    downloads: "57K",
+    size: "1.18 GB",
+    version: "60.139.2.0",
+    category: "Role-playing",
+    type: "Game",
+    updatedAt: "04/24/2026",
+    icon: "https://static.apkmody.com/play-lh.googleusercontent.com/w_dCkmomLqi9PwxGd66oOF1Jy62t74gL-NgqpQX1oN12mX-3svNYZpC7tVY0ig9IxOGQjqqeftlpHWJeQE1egA=s150-rw",
+    description: "Shadow Hunter Offline Games is an action role-playing game designed for players who enjoy fast-paced combat, dark fantasy settings, and challenging adventures. The game focuses on controlling a powerful warrior, fighting different types of enemies, exploring dangerous areas, and gradually improving the character’s abilities.",
+    downloadUrl: "https://s1.1phut.io/v2/QOP6",
+    videoUrls: ["https://youtube.com/watch?v=jhl45IaYm9E"],
+    screenshots: [
+    "https://static.apkmody.com/play-lh.googleusercontent.com/FF9I4W9JvX_N1d4ZMmjehVT9usNLF2DZVSZ_Ih6Hq7k1_lwZL0OrQX3yFQe_Y9-_DI-FlN9DLktP0nT5EFRZJQ=-rw",
+    "https://static.apkmody.com/play-lh.googleusercontent.com/aBmIg54nD0MyeUC5Ym2YCTe7YFRyMTKaIYBPGvZ4z5LbNRT3v99w-pQglNMoXIHITogG1sU4ih5iTP7ptt6XhCU=-rw",
+    "https://static.apkmody.com/play-lh.googleusercontent.com/bvKrt7UjDX7pkds0FTgPJeGojdgMSTwG2idlrsBOoDM5uWt1WsDsngPKGEcFxpFIDnqdtu3TB5wNCP3YWZJB4Q=-rw",
+    "https://static.apkmody.com/play-lh.googleusercontent.com/nf_HVk7gGJR6--MSmBYD5bzPLLmpRiNxdQTKFHzDS_SO4-feJ_TAUhZPQx9-esf47MnAyzockZ-WVb-Bc2Aa=-rw",
+    "https://static.apkmody.com/play-lh.googleusercontent.com/x76pwFLkTn60xz_HOZsXpURum-nCjkWKIwTGi-9mn-6N7y0PJtTtQa3dbJchSqaAOdT8nHsO5jyZrbKa1BkX-Q4=-rw",
+    "https://static.apkmody.com/play-lh.googleusercontent.com/DYUayCffJjTmlGubTe8SQnkavAFy5UmAE8A2RU9BQzjVxBPS-34O2bwx7XGAoS8Cq6spZ8E8-xu4lRtAoRUz=-rw",
+    ],
+    security: {
+      checksum: "SHA-256: free-full.apk",
+      secureToken: "Secure accounts without ban risk",
+      cloudStorage: "Direct connection to Takano3D servers"
+    },
+    tags: ["free"],
+    isRecommendation: false,
+    isRecent: false
   }
 
   
