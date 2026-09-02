@@ -2225,7 +2225,7 @@ export const APPS_DATA: AppItem[] = [
     isRecent: false
     },
     {
-    id: "61",
+    id: "65",
     name: "Sigma",
     slug: "sigma",
     developer: "Imaanshu N",
@@ -2258,7 +2258,7 @@ export const APPS_DATA: AppItem[] = [
     isRecent: false
   },
     {
-    id: "62",
+    id: "66",
     name: "Assetto Corsa",
     slug: "assetto-corsa",
     developer: "Imaanshu N",
@@ -2326,7 +2326,7 @@ export const APPS_DATA: AppItem[] = [
     isRecent: false
   },
     {
-    id: "64",
+    id: "67",
     name: "FLASH PEAK",
     slug: "flash-peak",
     developer: "Imaanshu N",
