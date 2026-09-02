@@ -2360,6 +2360,7 @@ export const APPS_DATA: AppItem[] = [
     isRecommendation: false,
     isRecent: false
   }
+  
 
 ];
 
