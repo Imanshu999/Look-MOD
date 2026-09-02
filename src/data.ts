@@ -2289,7 +2289,7 @@ export const APPS_DATA: AppItem[] = [
     isRecent: false
   },
     {
-    id: "63",
+    id: "67",
     name: "One Piece: Ambition",
     slug: "one-piece-ambition",
     developer: "Tencent Games",
@@ -2326,7 +2326,7 @@ export const APPS_DATA: AppItem[] = [
     isRecent: false
   },
     {
-    id: "67",
+    id: "68",
     name: "FLASH PEAK",
     slug: "flash-peak",
     developer: "Imaanshu N",
