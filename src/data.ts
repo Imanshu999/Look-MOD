@@ -2224,7 +2224,7 @@ export const APPS_DATA: AppItem[] = [
     isRecommendation: false,
     isRecent: false
     },
-    {
+      {
     id: "65",
     name: "Sigma",
     slug: "sigma",
@@ -2360,7 +2360,7 @@ export const APPS_DATA: AppItem[] = [
     isRecommendation: false,
     isRecent: false
   }
-  
+
 ];
 
 export const CATEGORIES_DATA: CategoryItem[] = BASE_CATEGORIES.map(category => {
