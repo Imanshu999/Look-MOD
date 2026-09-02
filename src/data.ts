@@ -2223,7 +2223,143 @@ export const APPS_DATA: AppItem[] = [
     tags: ["MOD", "Free"],
     isRecommendation: false,
     isRecent: false
-    }
+    },
+    {
+    id: "61",
+    name: "Sigma",
+    slug: "sigma",
+    developer: "Imaanshu N",
+    rating: "3.8",
+    downloads: "24K",
+    size: "241 MB",
+    version: "2.1.0",
+    category: "Action",
+    type: "Game",
+    updatedAt: "06/12/2023",
+    icon: "https://imgcdn.latestmodapks.com/api/resize?url=https://www.latestmodapks.com/wp-content/uploads/2023/11/Sigma-logo.webp&width=160",
+    description: "Sigma APK for Android is a fast-paced, action-packed battle royale game that puts you in the middle of an intense fight to be the last one standing. With its unique blend of strategic combat and tactical decision-making, Sigma offers a thrilling experience as you compete against other players from around the world. The aim is simple – eliminate all your opponents before they have time to react! Choose your favourite character class and weapons then dive into epic battles with up to 100 players at once on huge maps filled with dynamic objectives such as capture points or loot drops.",
+    downloadUrl: "https://cdn446.onehost.io/2023/Sigmax_1.1.0_1698945795_latestmodapks.com.apk",
+    videoUrls: ["https://youtube.com/watch?v=UhsS3eD4qgE",
+    "https://youtube.com/watch?v=ibvTcSBcUzo"], // Converted to array support
+    screenshots: [
+      "https://imgcdn.latestmodapks.com/api/resize?url=https://www.latestmodapks.com/wp-content/uploads/2023/11/sigma-1.webp",
+      "https://imgcdn.latestmodapks.com/api/resize?url=https://www.latestmodapks.com/wp-content/uploads/2023/11/sigma-2.webp",
+      "https://imgcdn.latestmodapks.com/api/resize?url=https://www.latestmodapks.com/wp-content/uploads/2023/11/sigma-3.webp",
+      "https://imgcdn.latestmodapks.com/api/resize?url=https://www.latestmodapks.com/wp-content/uploads/2023/11/sigma-4.webp",
+      "https://imgcdn.latestmodapks.com/api/resize?url=https://www.latestmodapks.com/wp-content/uploads/2023/11/sigma-5.webp",
+    ],
+    security: {
+      checksum: "SHA-256: hsiq8ye82g29ge91ge8br8391",
+      secureToken: "Secure accounts without ban risk",
+      cloudStorage: "Direct connection to Takano3D servers"
+    },
+    tags: ["MOD", "Free"],
+    isRecommendation: false,
+    isRecent: false
+  },
+    {
+    id: "62",
+    name: "Assetto Corsa",
+    slug: "assetto-corsa",
+    developer: "Imaanshu N",
+    rating: "4.7",
+    downloads: "50K",
+    size: "6.2 MB",
+    version: "1.0",
+    category: "Racing",
+    type: "Game",
+    updatedAt: "20/09/2023",
+    icon: "https://imgcdn.latestmodapks.com/api/resize?url=https://www.latestmodapks.com/wp-content/uploads/2022/10/unnamed-2022-10-15T194957.564.webp&width=160",
+    description: "",
+    downloadUrl: "https://cdn902.onehost.io/2023/Assetto_Corsa_Mobile_1.0_1763969415_latestmodapks.com.apk",
+    videoUrls: [""], // Converted to array support
+    screenshots: [
+      "https://imgcdn.latestmodapks.com/api/resize?url=https://www.latestmodapks.com/wp-content/uploads/2022/10/Assetto-Corsa-Apk-2.webp",
+      "https://imgcdn.latestmodapks.com/api/resize?url=https://www.latestmodapks.com/wp-content/uploads/2022/10/Assetto-Corsa-Apk-1.webp",
+      "https://imgcdn.latestmodapks.com/api/resize?url=https://www.latestmodapks.com/wp-content/uploads/2022/10/Assetto-Corsa-Apk-3.webp",
+      "https://imgcdn.latestmodapks.com/api/resize?url=https://www.latestmodapks.com/wp-content/uploads/2022/10/Assetto-Corsa-Apk-4.webp",
+    ],
+    security: {
+      checksum: "SHA-256: hsiq8ye82g29ge91ge8br8391",
+      secureToken: "Secure accounts without ban risk",
+      cloudStorage: "Direct connection to Takano3D servers"
+    },
+    tags: ["MOD", "Free"],
+    isRecommendation: false,
+    isRecent: false
+  },
+    {
+    id: "63",
+    name: "One Piece: Ambition",
+    slug: "one-piece-ambition",
+    developer: "Tencent Games",
+    rating: "4.9",
+    downloads: "201K",
+    size: "2 GB",
+    version: "1.200.1",
+    category: "Action",
+    type: "Game",
+    updatedAt: "19/08/2026",
+    icon: "https://img.utdstc.com/icon/28a/a17/28aa1797ddc8ca77e07fbfb6055fcad720f207bca28e16a3e862717f096f432c:200",
+    description: "One Piece: Ambition is an ARPG from Tencent which transports you to the One Piece universe to live out exciting adventures. Join many of the manganime's iconic characters as you face your opponents in some of the saga's most memorable fights.",
+    downloadUrl: "https://dl.apkvision.org/one-piece-departure/one-piece-departure-b22292.apk",
+    videoUrls: ["https://youtu.be/hOSXj99PrAw?si=-V0yZUil3siU--PW"], // Converted to array support
+    screenshots: [
+      "https://img.utdstc.com/screen/07c/0e8/07c0e8ba20642bf46d5ef9573372304557a9d07a07766cccc34f9ccb8d2c4d27:300",
+      "https://img.utdstc.com/screen/797/486/7974866c0b794498145866e994a03b694775ac785e97e9e73e18858b8c385899:300",
+      "https://img.utdstc.com/screen/a31/c37/a31c37b4fc05ffafb9f8599bb8367b3aa3c5d77c9ea15df40bef1fe4e5f4c51c:300",
+      "https://img.utdstc.com/screen/53f/0b9/53f0b96e0dcc7111afa04a3cb544b1ec71cbe7d90342a1ad29d3c06979ee5398:300",
+      "https://img.utdstc.com/screen/d79/e87/d79e87de7251541d34c4e9badf8ff66a994e33a587c6350dd41a54d4223742a7:300",
+      "https://img.utdstc.com/screen/50f/c5a/50fc5a42ea9e7535ecd7f8c932b626e4b5513455bfeace041ba474b35c576eb5:300",
+      "https://modpuro.com/wp-content/uploads/2024/08/One-piece-ambition-1.jpg",
+      "https://modpuro.com/wp-content/uploads/2024/08/One-piece-ambition-2.jpg",
+      "https://modpuro.com/wp-content/uploads/2024/08/One-piece-ambition-3.jpg",
+      "https://modpuro.com/wp-content/uploads/2024/08/One-piece-ambition-4.jpg",
+    ],
+    security: {
+      checksum: "SHA-256: fca395456c91a52cb5460430b11f93ee02f34be270e4efbc7731e5b44979a6d2",
+      secureToken: "Secure accounts without ban risk",
+      cloudStorage: "Direct connection to Takano3D servers"
+    },
+    tags: ["MOD", "Free"],
+    isRecommendation: false,
+    isRecent: false
+  },
+    {
+    id: "64",
+    name: "FLASH PEAK",
+    slug: "flash-peak",
+    developer: "Imaanshu N",
+    rating: "5.0",
+    downloads: "78M",
+    size: "252.13 MB",
+    version: "0.4.1",
+    category: "Sports",
+    type: "Game",
+    updatedAt: "16/07/2026",
+    icon: "https://filehippo.com/android/download_flash-peak-freestyle-football/",
+    description: "As you step into the world of mobile gaming, you’re likely looking for an experience that’s both exciting and challenging. If you’re a fan of football, you’ve probably tried alot of different games, but none of them have quite captured the essence of the sport like Flash Peak. This game, developed by FlashPeak Inc, offers a unique twist on the traditional football experience, with fast-paced 4v4 matches and a 3rd-person view that puts you right in the action. You’ll have to make quick decisions and work with your team to outmaneuver your opponents and come out on top. You’re probably wondering what sets Flash Peak apart from other football games on the market. For starters, the game’s focus on teamwork and strategy is specially appealing to players who enjoy a more tactical approach to the sport. Rather than simply controlling a single player, you’ll need to work with your teammates to create scoring opportunities and defend against your opponents’ attacks. This adds a whole new level of depth to the game, and makes it feel more like a real football match. With its unique gameplay and exciting multiplayer mode, Flash Peak is an absolute must-try for any football fan.",
+    downloadUrl: "https://d.apkpure.com/b/APK/com.moco.crgame?version=latest",
+    videoUrls: ["https://youtu.be/zevlJrIxa4U?si=-txMpa5msk5XFM4N",
+    "https://youtube.com/watch?v=dyXP-51ZkeY"], // Converted to array support
+    screenshots: [
+      "https://trashbox.ru/ifiles2/2596162_dfc5ba_screenshot_14.png-orig.jpg/flash-peak-freestyle-football-1.2.0-36.webp",
+      "https://trashbox.ru/ifiles2/2596163_55fcd6_screenshot_15.png-orig.jpg/flash-peak-freestyle-football-1.2.0-37.webp",
+      "https://trashbox.ru/ifiles2/2596164_913324_screenshot_16.png-orig.jpg/flash-peak-freestyle-football-1.2.0-38.webp",
+      "https://trashbox.ru/ifiles2/2596165_35bc48_screenshot_17.png-orig.jpg/flash-peak-freestyle-football-1.2.0-39.webp",
+      "https://trashbox.ru/ifiles2/2596166_e7be77_screenshot_18.png-orig.jpg/flash-peak-freestyle-football-1.2.0-40.webp",
+      "https://trashbox.ru/ifiles2/2596167_d61b5c_screenshot_19.png-orig.jpg/flash-peak-freestyle-football-1.2.0-41.webp",
+      "https://trashbox.ru/ifiles2/2596168_e83c27_screenshot_20.png-orig.jpg/flash-peak-freestyle-football-1.2.0-42.webp",
+    ],
+    security: {
+      checksum: "SHA-256: 72a15a3ca34551d86b8b1b88053533fb5d75e58fabf51cbb2dc5ce77ddf91e1e",
+      secureToken: "Secure accounts without ban risk",
+      cloudStorage: "Direct connection to Takano3D servers"
+    },
+    tags: ["MOD", "Free"],
+    isRecommendation: false,
+    isRecent: false
+  }
   
 ];
 
